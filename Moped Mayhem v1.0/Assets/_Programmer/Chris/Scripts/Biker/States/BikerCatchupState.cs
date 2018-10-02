@@ -1,16 +1,26 @@
-﻿using System.Collections;
+﻿// Main Author - Christopher Bowles
+//	Alterations by -
+//
+// Date last worked on 01/10/18
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BikerCatchupState : MonoBehaviour {
+public class BikerCatchupState : BaseState
+{
+	protected override void Setup()
+	{
 
-	// Use this for initialization
-	void Start () {
-		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public override void OnEnd()
+	{
+
+	}
+
+	public override void UpdateState()
+	{
+
 	}
 }

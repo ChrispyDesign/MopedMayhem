@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// Main Author - Christopher Bowles
+//	Alterations by -
+//
+// Date last worked on 01/10/18
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +18,7 @@ public class BaseFSM : MonoBehaviour {
 	// Start
 	//		Runs the setup
 	//------------------------------------------------------------
-	void Start()
+	protected virtual void Start()
 	{
 		Setup();
 	}
@@ -22,7 +27,7 @@ public class BaseFSM : MonoBehaviour {
 	// Awake
 	//		Re-runs the setup
 	//------------------------------------------------------------
-	void Awake ()
+	protected virtual void Awake ()
 	{
 		Setup();
 	}
@@ -32,7 +37,7 @@ public class BaseFSM : MonoBehaviour {
 	//		Gets currentState from list, 
 	//		deactivates all other states
 	//------------------------------------------------------------
-	void Setup()
+	protected virtual void Setup()
 	{
 		// For Each state in state list
 		foreach (BaseState state in m_States)
@@ -61,7 +66,7 @@ public class BaseFSM : MonoBehaviour {
 	// Update
 	//		Updates the currentState 
 	//------------------------------------------------------------
-	void Update()
+	protected virtual void Update()
 	{
 		m_CurrentState.UpdateState();
 	}
@@ -72,7 +77,7 @@ public class BaseFSM : MonoBehaviour {
 	//
 	//	var
 	//		string - sNewStateName
-	//			name of new String
+	//			name of new State
 	//------------------------------------------------------------
 	public void ChangeState(string sNewStateName)
 	{
@@ -99,7 +104,7 @@ public class BaseFSM : MonoBehaviour {
 		// Log Failure to debug console
 		string message = "Change state failed, current state: " + m_CurrentState.GetType();
 		message += " Intended State: " + sNewStateName;
-		Debug.Log(message, m_ParentObject);
+		Debug.LogError(message, m_ParentObject);
 	}
 
 }
