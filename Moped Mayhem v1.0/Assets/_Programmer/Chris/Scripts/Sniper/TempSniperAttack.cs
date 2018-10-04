@@ -19,6 +19,8 @@ public class TempSniperAttack : MonoBehaviour
 	public Vector3 reticleLeftEnd;
 	public Vector3 reticleRightEnd;
 
+	public float reticleRotationSpeed = 2.0f;
+
 	public float attackDuration;
 	private float attackEnd;
 
@@ -78,7 +80,7 @@ public class TempSniperAttack : MonoBehaviour
 
 			reticleMain.transform.position = player.position;
 			reticleMain.transform.position += reticleMain.transform.up;
-			reticleMain.transform.rotation = Quaternion.Euler(0.0f, 10.0f, 0.0f);
+			reticleMain.transform.Rotate(0.0f, reticleRotationSpeed, 0.0f);
 
 			reticleTop.transform.localPosition = Vector3.Lerp(reticleTopStart, reticleTopEnd, fLerpTime);
 			reticleBottom.transform.localPosition = Vector3.Lerp(reticleBottomStart, reticleBottomEnd, fLerpTime);
@@ -86,7 +88,7 @@ public class TempSniperAttack : MonoBehaviour
 			reticleRight.transform.localPosition = Vector3.Lerp(reticleRightStart, reticleRightEnd, fLerpTime);
 
 
-			Vector3[] pos = { barrelEnd.position, player.position };
+			Vector3[] pos = { barrelEnd.position, player.position + Vector3.up };
 
 			laser.SetPositions(pos);			
 		}

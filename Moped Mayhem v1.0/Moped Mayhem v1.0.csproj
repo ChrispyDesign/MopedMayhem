@@ -318,10 +318,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_Programmer\Chris\Scripts\BaseFSM\BaseFSM.cs" />
-    <Compile Include="Assets\_Programmer\Chris\Scripts\BaseFSM\BaseState.cs" />
-    <Compile Include="Assets\_Programmer\Chris\Scripts\BaseFSM\TestStates\TestState1.cs" />
-    <Compile Include="Assets\_Programmer\Chris\Scripts\BaseFSM\TestStates\TestState2.cs" />
     <Compile Include="Assets\_Programmer\Chris\Scripts\Biker\BikerAI.cs" />
     <Compile Include="Assets\_Programmer\Chris\Scripts\Biker\BikerMovement.cs" />
     <Compile Include="Assets\_Programmer\Chris\Scripts\Biker\States\BikerAttackState.cs" />
@@ -342,6 +338,7 @@
     <Compile Include="Assets\_Programmer\Chris\Scripts\Player\PlayerInventory.cs" />
     <Compile Include="Assets\_Programmer\Chris\Scripts\Player\TempPlayerMovement.cs" />
     <Compile Include="Assets\_Programmer\Chris\Scripts\Sniper\TempSniperAttack.cs" />
+    <Compile Include="Assets\_Programmer\Tim\Scripts\OrdersScript(Gif).cs" />
     <Compile Include="Assets\_Programmer\Tim\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\_Programmer\Tim\Scripts\SniperAttack.cs" />
     <Compile Include="Assets\3rd Party Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
@@ -365,6 +362,10 @@
     <Compile Include="Assets\3rd Party Scripts\TriggerTeleportObject.cs" />
     <Compile Include="Assets\3rd Party Scripts\TriggerTeleportSelf.cs" />
     <Compile Include="Assets\3rd Party Scripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\BaseFSM\BaseFSM.cs" />
+    <Compile Include="Assets\Scripts\BaseFSM\BaseState.cs" />
+    <Compile Include="Assets\Scripts\BaseFSM\TestStates\TestState1.cs" />
+    <Compile Include="Assets\Scripts\BaseFSM\TestStates\TestState2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd Party Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
@@ -593,6 +594,7 @@
     <None Include="Assets\Scripts\DELETE ME.txt" />
     <None Include="Assets\Skyboxes\DELETE ME.txt" />
     <None Include="Assets\Textures\DELETE ME.txt" />
+    <None Include="Assets\_Programmer\Afridi\DELETE ME.txt" />
     <None Include="Assets\_Programmer\Chris\DELETE ME.txt" />
     <None Include="Assets\_Programmer\Chris\Other\DELETE ME.txt" />
     <None Include="Assets\_Programmer\Chris\Scripts\DELETE ME.txt" />

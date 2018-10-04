@@ -649,7 +649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &173839761
 Transform:
   m_ObjectHideFlags: 0
@@ -3911,6 +3911,7 @@ MonoBehaviour:
   reticleBottomEnd: {x: 0, y: 0, z: -0.5}
   reticleLeftEnd: {x: -0.5, y: 0, z: 0}
   reticleRightEnd: {x: 0.5, y: 0, z: 0}
+  reticleRotationSpeed: 2
   attackDuration: 3
   attack: 0
 --- !u!120 &1418858835
