@@ -42,9 +42,12 @@ public class TempSniperAttack : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+
 		float fCurrentTime = Time.timeSinceLevelLoad;
 
 		gameObject.transform.LookAt(player);
+
+		
 
 		if (Input.GetButtonDown("Fire1") || attack)
 		{
@@ -57,6 +60,20 @@ public class TempSniperAttack : MonoBehaviour
 
 		if (fCurrentTime < attackEnd)
 		{
+			RaycastHit hit;
+			Vector3 direction = barrelEnd.position - player.position;
+			Ray ray = new Ray(barrelEnd.position, direction);
+			if (Physics.Raycast(ray, out hit, direction.magnitude))
+			{
+				if (hit.collider.gameObject.tag != "Player")
+				{
+					attackEnd = 0;
+					return;
+				}
+			}
+
+
+
 			float fLerpTime =  1 - ((attackEnd - fCurrentTime) / attackDuration);
 
 			reticleMain.transform.position = player.position;
@@ -67,6 +84,7 @@ public class TempSniperAttack : MonoBehaviour
 			reticleBottom.transform.localPosition = Vector3.Lerp(reticleBottomStart, reticleBottomEnd, fLerpTime);
 			reticleLeft.transform.localPosition = Vector3.Lerp(reticleLeftStart, reticleLeftEnd, fLerpTime);
 			reticleRight.transform.localPosition = Vector3.Lerp(reticleRightStart, reticleRightEnd, fLerpTime);
+
 
 			Vector3[] pos = { barrelEnd.position, player.position };
 
