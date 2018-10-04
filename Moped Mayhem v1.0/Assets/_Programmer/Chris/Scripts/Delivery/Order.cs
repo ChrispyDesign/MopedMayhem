@@ -13,8 +13,8 @@ public class Order
     public Color m_OrderColor;
 	public DeliveryDropoff m_DropOffZone;
     public Food m_Food;
-	public float m_fStartTime;
-	public float m_fOrderExiryTime;
+	public float m_fStartTime;		// When it starts
+	public float m_fOrderExiryTime;	// How Long it exists
 
 	[HideInInspector]
 	public OrderManager m_OrderManager;

@@ -6,8 +6,9 @@ public class TempAttack : MonoBehaviour {
 
 	public Transform player;
 	public GameObject wood;
+	public float fSpeed;
 	public float fAttackDuration;
-	public float fAttackSpeed;
+	public float fAttackSpeedMultiplier;
 
 	public bool bDrawWood;
 	public bool bAttack;
@@ -38,14 +39,16 @@ public class TempAttack : MonoBehaviour {
 			bCanMove = false;
 			if (bAttackSetup)
 			{
-				transform.LookAt(player);
+				var lookAt = player.position;
+				lookAt += gameObject.transform.right;
+				transform.LookAt(lookAt);
 				fAttackEndTime = Time.realtimeSinceStartup + fAttackDuration;
 				bAttackSetup = false;
 				wood.transform.Rotate(0, 90.0f, 90.0f);
 			}
 			if (bAttackOngoing)
 			{
-				transform.position += transform.forward * Time.deltaTime * fAttackSpeed;
+				transform.position += transform.forward * Time.deltaTime * fSpeed * fAttackSpeedMultiplier;
 				if (Time.realtimeSinceStartup > fAttackEndTime)
 				{
 					bAttackOngoing = false;
@@ -66,7 +69,7 @@ public class TempAttack : MonoBehaviour {
 		if (bCanMove)
 		{
 			transform.LookAt(player);
-			transform.position += transform.forward * Time.deltaTime;
+			transform.position += transform.forward * Time.deltaTime * fSpeed;
 		}
 	}
 }

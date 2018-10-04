@@ -33,15 +33,17 @@ public class TempSniperAttack : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		reticleTopStart = reticleTop.transform.position;
-		reticleBottomStart = reticleBottom.transform.position;
-		reticleLeftStart = reticleLeft.transform.position;
-		reticleRightStart = reticleLeft.transform.position;
+		reticleTopStart = reticleTop.transform.localPosition;
+		reticleBottomStart = reticleBottom.transform.localPosition;
+		reticleLeftStart = reticleLeft.transform.localPosition;
+		reticleRightStart = reticleRight.transform.localPosition;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		float fCurrentTime = Time.timeSinceLevelLoad;
+
 		gameObject.transform.LookAt(player);
 
 		if (Input.GetButtonDown("Fire1") || attack)
@@ -49,26 +51,29 @@ public class TempSniperAttack : MonoBehaviour
 			attackEnd = Time.timeSinceLevelLoad + attackDuration;
 			attack = false;
 
-			//reticleMain.SetActive(true);
+			reticleMain.SetActive(true);
 			laser.enabled = true;
 		}
 
-		if (Time.timeSinceLevelLoad < attackEnd)
+		if (fCurrentTime < attackEnd)
 		{
-			reticleMain.transform.position = player.position;
-			reticleMain.transform.position += reticleMain.transform.up; 
+			float fLerpTime =  1 - ((attackEnd - fCurrentTime) / attackDuration);
 
-			reticleTop.transform.position = Vector3.Lerp(reticleTopStart, reticleTopEnd, attackDuration);
-			reticleBottom.transform.position = Vector3.Lerp(reticleBottomStart, reticleBottomEnd, attackDuration);
-			reticleLeft.transform.position = Vector3.Lerp(reticleLeftStart, reticleLeftEnd, attackDuration);
-			reticleRight.transform.position = Vector3.Lerp(reticleRightStart, reticleRightEnd, attackDuration);
+			reticleMain.transform.position = player.position;
+			reticleMain.transform.position += reticleMain.transform.up;
+			reticleMain.transform.rotation = Quaternion.Euler(0.0f, 10.0f, 0.0f);
+
+			reticleTop.transform.localPosition = Vector3.Lerp(reticleTopStart, reticleTopEnd, fLerpTime);
+			reticleBottom.transform.localPosition = Vector3.Lerp(reticleBottomStart, reticleBottomEnd, fLerpTime);
+			reticleLeft.transform.localPosition = Vector3.Lerp(reticleLeftStart, reticleLeftEnd, fLerpTime);
+			reticleRight.transform.localPosition = Vector3.Lerp(reticleRightStart, reticleRightEnd, fLerpTime);
 
 			Vector3[] pos = { barrelEnd.position, player.position };
 
 			laser.SetPositions(pos);			
 		}
 
-		if (Time.timeSinceLevelLoad > attackEnd)
+		if (fCurrentTime > attackEnd)
 		{
 			reticleMain.SetActive(false);
 			laser.enabled = false;
