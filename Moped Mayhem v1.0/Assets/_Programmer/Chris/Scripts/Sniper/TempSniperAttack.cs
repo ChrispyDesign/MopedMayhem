@@ -23,6 +23,7 @@ public class TempSniperAttack : MonoBehaviour
 
 	public float attackDuration;
 	private float attackEnd;
+	
 
 	private Vector3 reticleTopStart;
 	private Vector3 reticleBottomStart;
