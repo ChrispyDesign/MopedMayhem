@@ -6,6 +6,8 @@ public class TempSniperAttack : MonoBehaviour
 {
 	public Transform player;
 
+	public TempHeart life;
+
 	public Transform barrelEnd;
 	public LineRenderer laser;
 	public GameObject reticleMain;
@@ -23,6 +25,8 @@ public class TempSniperAttack : MonoBehaviour
 
 	public float attackDuration;
 	private float attackEnd;
+
+	private bool bAttacking = false;
 	
 
 	private Vector3 reticleTopStart;
@@ -50,12 +54,24 @@ public class TempSniperAttack : MonoBehaviour
 
 		gameObject.transform.LookAt(player);
 
-		
+		RaycastHit hit;
+		Vector3 direction = barrelEnd.position - player.position;
+		Ray ray = new Ray(barrelEnd.position, direction);
+		if (Physics.Raycast(ray, out hit, direction.magnitude))
+		{
+			if (hit.collider.gameObject.tag != "Player")
+			{
+				bAttacking = false;
+				attackEnd = 0;
+				return;
+			}
+		}
 
 		if (Input.GetButtonDown("Fire1") || attack)
-		{
+		{ 
 			attackEnd = Time.timeSinceLevelLoad + attackDuration;
 			attack = false;
+			bAttacking = true;
 
 			reticleMain.SetActive(true);
 			laser.enabled = true;
@@ -63,20 +79,6 @@ public class TempSniperAttack : MonoBehaviour
 
 		if (fCurrentTime < attackEnd)
 		{
-			RaycastHit hit;
-			Vector3 direction = barrelEnd.position - player.position;
-			Ray ray = new Ray(barrelEnd.position, direction);
-			if (Physics.Raycast(ray, out hit, direction.magnitude))
-			{
-				if (hit.collider.gameObject.tag != "Player")
-				{
-					attackEnd = 0;
-					return;
-				}
-			}
-
-
-
 			float fLerpTime =  1 - ((attackEnd - fCurrentTime) / attackDuration);
 
 			reticleMain.transform.position = player.position;
@@ -103,6 +105,12 @@ public class TempSniperAttack : MonoBehaviour
 			reticleBottom.transform.position = reticleBottomStart;
 			reticleLeft.transform.position = reticleLeftStart;
 			reticleRight.transform.position = reticleRightStart;
+
+			if (bAttacking)
+			{
+				bAttacking = false;
+				life.TakeDamage();
+			}
 		}
 	}
 }

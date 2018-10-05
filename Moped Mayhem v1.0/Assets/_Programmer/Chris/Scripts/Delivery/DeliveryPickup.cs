@@ -1,7 +1,7 @@
 ﻿// Main Author - Christoper Bowles
 //	Alterations by -
 //
-// Date last worked on 29/09/18
+// Date last worked on 5/10/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -12,13 +12,16 @@ public class DeliveryPickup : MonoBehaviour {
 	public bool m_bIsActive = false;
 	public bool m_bPlayerInside = false;
 	private OrderManager m_Manager;
-	public Food m_Food;
+	public Food m_RestaurantFood;
+	public Food m_OrderFood;
+
 
 	// Use this for initialization
 	void Start()
 	{
 		m_Manager = FindObjectOfType<OrderManager>();
 		m_Manager.AddPickUp(this);
+		this.gameObject.SetActive(m_bIsActive);
 	}
 
 	public Vector3 GetPos()
@@ -26,9 +29,18 @@ public class DeliveryPickup : MonoBehaviour {
 		return gameObject.transform.position;
 	}
 
-	public void Activate()
+	public void Activate(Food food)
 	{
+		m_OrderFood = food;
 		m_bIsActive = true;
+		this.gameObject.SetActive(m_bIsActive);
+	}
+
+	public void Deactivate()
+	{
+		m_OrderFood = null;
+		m_bIsActive = false;
+		this.gameObject.SetActive(m_bIsActive);
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -55,12 +67,13 @@ public class DeliveryPickup : MonoBehaviour {
 
 	public void PickUp(PlayerInventory playerInventory)
 	{
-		var newFood = Instantiate(m_Food);
+		// Attempt to add food
+		bool bAddedFood = playerInventory.AddFood(m_OrderFood);
 
-		// IF Failed to add
-		if (!playerInventory.AddFood(newFood))
+		// IF food added
+		if (bAddedFood)
 		{
-			Destroy(newFood);
+			Deactivate();
 		}
 	}
 }

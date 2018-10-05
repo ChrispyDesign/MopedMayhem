@@ -11,7 +11,7 @@ using UnityEngine.Experimental.UIElements;
 public class OrderManager : MonoBehaviour
 {
 	// TEMP
-	public GameObject order;
+	public TempTicket order;
 
 	public Food[] m_Foods;
 	private List<string> m_FoodNames = new List<string>();
@@ -19,7 +19,7 @@ public class OrderManager : MonoBehaviour
 	public int[] m_nActiveFoodCount;    //MAKE PRIVATE
 
 	[Range(1.0f, 1.5f)]
-	public float m_fFoodWeightModifier = 1.0f;
+	private float m_fFoodWeightModifier = 1.0f;
 	private float m_fFoodWeight;
 
 	private int m_nRandomAttemptsMax = 5;
@@ -34,8 +34,8 @@ public class OrderManager : MonoBehaviour
 	public float m_fOrderExpiryTime = 10.0f;
 
 	// CB::TODO Hide in inspector after testing
-	public List<DeliveryDropoff> m_DropOffLocs = new List<DeliveryDropoff>();
-	public List<DeliveryPickup> m_PickUpLocs = new List<DeliveryPickup>();
+	public List<DeliveryDropoff> m_DropOffZones = new List<DeliveryDropoff>();
+	public List<DeliveryPickup> m_PickUpZones = new List<DeliveryPickup>();
 
 	// CB::TODO Hide in inspector after testing
 	public DeliveryDropoff m_CurrentDropOffZone;
@@ -75,27 +75,26 @@ public class OrderManager : MonoBehaviour
 	public void AddDropOff(DeliveryDropoff dropOff)
 	{
 		// IF new Drop off Zone is NOT in list
-		if (!m_DropOffLocs.Contains(dropOff))
+		if (!m_DropOffZones.Contains(dropOff))
 		{
 			// Add to List
-			m_DropOffLocs.Add(dropOff);
+			m_DropOffZones.Add(dropOff);
 		}
 	}
 
 	public void AddPickUp(DeliveryPickup pickUp)
 	{
 		// IF new PickUp Zone is NOT in list
-		if (!m_PickUpLocs.Contains(pickUp))
+		if (!m_PickUpZones.Contains(pickUp))
 		{
 			// Add to List
-			m_PickUpLocs.Add(pickUp);
+			m_PickUpZones.Add(pickUp);
 		}
 	}
 
 	public void NewOrder()
 	{
-		// TEMP
-		order.SetActive(true);
+		
 
 		// Get Random Food
 		Food food = RandomFood();
@@ -123,23 +122,17 @@ public class OrderManager : MonoBehaviour
 			newOrder = new Order();
 		}
 
-		// Set Order variables
-		newOrder.m_OrderManager = this;
-		newOrder.m_Food = food;
-		newOrder.m_fStartTime = Time.realtimeSinceStartup;
-		newOrder.m_fOrderExiryTime = m_fOrderExpiryTime;
 
 		// Get Random DropOff Point
 		int nTimeOut = 0;
 		bool bFindingDropOff = true;
 		while (bFindingDropOff)
 		{
-			int nRandomIndex = Random.Range(0, m_DropOffLocs.Count);
-			var randomDropOff = m_DropOffLocs[nRandomIndex];
+			int nRandomIndex = Random.Range(0, m_DropOffZones.Count);
+			var randomDropOff = m_DropOffZones[nRandomIndex];
 			if (!randomDropOff.m_bIsActive)
 			{
 				newOrder.m_DropOffZone = randomDropOff;
-				randomDropOff.Activate(newOrder);
 				bFindingDropOff = false;
 			}
 			else
@@ -147,13 +140,31 @@ public class OrderManager : MonoBehaviour
 				nTimeOut++;
 				if (nTimeOut > 5)
 				{
+					m_nActiveFoodCount[index]--;
+					m_InActiveOrders.Add(newOrder);
 					return;
 				}
 			}
 		}
 
+		// Set Order variables
+		newOrder.m_OrderManager = this;
+		newOrder.m_Food = Instantiate(food);
+		newOrder.m_fStartTime = Time.realtimeSinceStartup;
+		newOrder.m_fOrderExiryTime = m_fOrderExpiryTime;
+
 		// Add Order to active order list
 		m_ActiveOrders.Add(newOrder);
+
+		// Activate Pickup zone
+		ActivatePickup(newOrder.m_Food);
+
+		// Activate Dropoff zone
+		newOrder.m_DropOffZone.Activate(newOrder);
+
+		// TEMP UI STUFF
+		order.Activate();
+		order.duration = m_fOrderExpiryTime;
 	}
 
 	
@@ -181,7 +192,7 @@ public class OrderManager : MonoBehaviour
 	public void OrderSuccess(Order order)
 	{
 		// Specific Success Stuff
-		this.order.SetActive(false);
+		this.order.Deactivate();
 
 		// Run Order Complete
 		OrderComplete(order);
@@ -207,7 +218,39 @@ public class OrderManager : MonoBehaviour
 		m_ActiveOrders.Remove(order);
 
 		// Add to Inactive Order list
-		m_InActiveOrders.Add(order);	
+		m_InActiveOrders.Add(order);
+
+
+		// Disable Pickup and Drop off zones
+		order.m_DropOffZone.m_bIsActive = false;
+		DeactivatePickup(order.m_Food);
+
+		// Destroy Food parent gameObject
+		Destroy(order.m_Food.gameObject);
+	}
+
+	private void ActivatePickup(Food food)
+	{
+		foreach (DeliveryPickup zone in m_PickUpZones)
+		{
+			if (zone.m_RestaurantFood.m_sFoodName == food.m_sFoodName)
+			{
+				zone.Activate(food);
+				return;
+			}
+		}
+	}
+
+	private void DeactivatePickup(Food food)
+	{
+		foreach (DeliveryPickup zone in m_PickUpZones)
+		{
+			if (zone.m_OrderFood == food)
+			{
+				zone.Deactivate();
+				return;
+			}
+		}
 	}
 
 	void Update()
@@ -218,7 +261,7 @@ public class OrderManager : MonoBehaviour
 			NewOrder();
 			tempSpawnButton = false;
 		}
-/*
+
 		float fCurrentTime = Time.realtimeSinceStartup;
 
 		// Check for timed-out/failed orders
@@ -261,6 +304,5 @@ public class OrderManager : MonoBehaviour
 			// Set Next spawn time
 			m_fNextSpawnTime = fCurrentTime + m_fMinSpawnTime;
 		}
-*/
 	}
 }

@@ -15,8 +15,8 @@ public class PlayerInventory : MonoBehaviour {
 	public Text rightText;
 
 	public Food m_DefaultFood;
-	public Food m_LeftFood;
-	public Food m_RightFood;
+	public Food m_LeftFood;		// Public for testing
+	public Food m_RightFood;    // Public for testing
 
 	// Use this for initialization
 	void Awake ()
