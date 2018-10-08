@@ -6,12 +6,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
+using UnityEngine.UI;
 
 public class OrderManager : MonoBehaviour
 {
 	// TEMP
 	public TempTicket order;
+	public Text score;
+
+	public PlayerInventory m_PlayerInventory;
 
 	public Food[] m_Foods;
 	private List<string> m_FoodNames = new List<string>();
@@ -193,6 +196,11 @@ public class OrderManager : MonoBehaviour
 	{
 		// Specific Success Stuff
 		this.order.Deactivate();
+		float fScore = float.Parse(score.text);
+		float fTimeLeft = (order.m_fOrderExiryTime + order.m_fStartTime) - Time.realtimeSinceStartup;
+		fScore += fTimeLeft * 4;
+		int nScore = (int)fScore;
+		score.text = nScore.ToString();		
 
 		// Run Order Complete
 		OrderComplete(order);
@@ -201,6 +209,10 @@ public class OrderManager : MonoBehaviour
 	public void OrderFailed(Order order)
 	{
 		// Specific Failure Stuff
+		float fScore = float.Parse(score.text);
+		fScore -= 10;
+		score.text = fScore.ToString();
+
 
 		// Run Order Complete
 		OrderComplete(order);
@@ -222,11 +234,12 @@ public class OrderManager : MonoBehaviour
 
 
 		// Disable Pickup and Drop off zones
-		order.m_DropOffZone.m_bIsActive = false;
+		order.m_DropOffZone.Deactivate();
 		DeactivatePickup(order.m_Food);
 
 		// Destroy Food parent gameObject
 		Destroy(order.m_Food.gameObject);
+		m_PlayerInventory.RemoveFoodByName(order.m_Food.m_sFoodName);
 	}
 
 	private void ActivatePickup(Food food)

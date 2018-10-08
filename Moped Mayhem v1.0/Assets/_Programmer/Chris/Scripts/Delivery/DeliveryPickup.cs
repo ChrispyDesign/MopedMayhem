@@ -41,6 +41,11 @@ public class DeliveryPickup : MonoBehaviour {
 		m_OrderFood = null;
 		m_bIsActive = false;
 		this.gameObject.SetActive(m_bIsActive);
+
+		if (m_Manager.m_CurrentPickUpZone == this)
+		{
+			m_Manager.m_CurrentPickUpZone = null;
+		}
 	}
 
 	private void OnTriggerEnter(Collider other)

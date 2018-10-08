@@ -34,6 +34,13 @@ public class DeliveryDropoff : MonoBehaviour {
 		this.gameObject.SetActive(m_bIsActive);
 	}
 
+	public void Deactivate()
+	{
+		m_bIsActive = false;
+		this.gameObject.SetActive(m_bIsActive);
+		RemoveAsCurrent();
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (m_bIsActive == true)
@@ -49,10 +56,15 @@ public class DeliveryDropoff : MonoBehaviour {
 	{
 		if (other.CompareTag("Player"))
 		{
-			if (m_Manager.m_CurrentDropOffZone == this)
-			{
-				m_Manager.m_CurrentDropOffZone = null;
-			}
+			RemoveAsCurrent();
+		}
+	}
+
+	private void RemoveAsCurrent()
+	{
+		if (m_Manager.m_CurrentDropOffZone == this)
+		{
+			m_Manager.m_CurrentDropOffZone = null;
 		}
 	}
 
@@ -69,10 +81,7 @@ public class DeliveryDropoff : MonoBehaviour {
 			m_bIsActive = false;
 			this.gameObject.SetActive(m_bIsActive);
 
-			if (m_Manager.m_CurrentDropOffZone == this)
-			{
-				m_Manager.m_CurrentDropOffZone = null;
-			}
+			RemoveAsCurrent();
 			//CB::HERENOW
 		}
 	}

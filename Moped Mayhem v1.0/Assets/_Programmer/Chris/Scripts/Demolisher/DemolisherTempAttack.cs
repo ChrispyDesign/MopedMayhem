@@ -13,6 +13,8 @@ public class DemolisherTempAttack : MonoBehaviour
 
 	private GameObject firedRocket;
 
+	public TempHeart hearts;
+
 	public bool bShowHitman;
 	public bool bAttack;
 	public bool bReset;
@@ -51,6 +53,8 @@ public class DemolisherTempAttack : MonoBehaviour
 				firedRocket.transform.rotation = rocketLauncher.transform.rotation;
 				fAttackEndTime = Time.realtimeSinceStartup + fAttackDuration;
 				bAttackSetup = false;
+
+				firedRocket.AddComponent<TempWeapon>().hearts = hearts;
 			}
 			if (bAttackOngoing)
 			{

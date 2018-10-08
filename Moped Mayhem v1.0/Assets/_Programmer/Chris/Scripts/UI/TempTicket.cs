@@ -84,6 +84,8 @@ public class TempTicket : MonoBehaviour {
 
 				if (gameObject.transform.position == pos)
 				{
+
+					endLerpTime = 0.0f;
 					entering = false;
 				}
 			}
@@ -101,6 +103,7 @@ public class TempTicket : MonoBehaviour {
 
 				if (gameObject.transform.position == offPos)
 				{
+					endLerpTime = 0.0f;
 					Deactivate();
 					exiting = false;
 				}
