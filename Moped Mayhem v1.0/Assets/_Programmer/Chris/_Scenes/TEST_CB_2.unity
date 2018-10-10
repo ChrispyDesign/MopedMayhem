@@ -1248,14 +1248,17 @@ MonoBehaviour:
   m_RearSensor: {fileID: 831126488}
   m_LeftSensor: {fileID: 326661482}
   m_RightSensor: {fileID: 392047046}
-  m_fAcceleration: 0
-  m_fMaxChaseSpeed: 0
-  m_fMaxCatchUpSpeed: 0
-  m_fMaxTurnSpeed: 0
-  m_fMaxBrakingForce: 0
-  m_fMaxReverseSpeed: 0
-  m_bGetPath: 0
-  m_bMoveChase: 0
+  m_fAcceleration: 8
+  m_fMaxChaseSpeed: 15
+  m_fMaxCatchUpSpeed: 15
+  m_fMaxTurnSpeed: 15
+  m_fMaxBrakingForce: 18
+  m_fMaxReverseSpeed: 10
+  m_fOptimalTurnSpeed: 8
+  m_fOptimalTurnRadians: 0.3
+  m_fMaxCollisionTurnRadians: 1.5
+  m_bGetPath: 1
+  m_bMoveChase: 1
   m_bMoveCatchUp: 0
   m_Line: {fileID: 930457567}
 --- !u!120 &930457567

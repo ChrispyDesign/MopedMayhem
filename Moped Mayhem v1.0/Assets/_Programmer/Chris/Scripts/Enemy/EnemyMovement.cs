@@ -24,6 +24,13 @@ public class EnemyMovement : MonoBehaviour
 	public float m_fMaxTurnSpeed;
 	public float m_fMaxBrakingForce;
 	public float m_fMaxReverseSpeed;
+	public float m_fOptimalTurnSpeed;
+
+	[Range(0, 3f)]
+	public float m_fOptimalTurnRadians;
+
+	[Range(0.5f, 1.5f)]
+	public float m_fMaxCollisionTurnRadians = 1.5f;
 
 	private NavMeshAgent m_NavAgent;
 	private Rigidbody m_Rigidbody;
@@ -169,21 +176,107 @@ public class EnemyMovement : MonoBehaviour
 
 		/// Calculate Collision Turning
 		//Determine how much it needs to turn
+
+		// IF left Sensor is colliding
 		if (m_LeftSensor.m_bColliding)
 		{
+			// Turn more right with less seperation
 			float fTurnMultiplier = ((m_LeftSensor.m_fMaxSeperation - m_LeftSensor.m_fSeperation) / m_LeftSensor.m_fMaxSeperation);
-			//CB::HERENOW
+			fTurnRadians += m_fMaxCollisionTurnRadians * fTurnMultiplier;
+		}
+
+		// IF Right Sensor is colliding
+		if (m_RightSensor.m_bColliding)
+		{
+			// Turn more left with less seperation
+			float fTurnMultiplier = ((m_RightSensor.m_fMaxSeperation - m_RightSensor.m_fSeperation) / m_RightSensor.m_fMaxSeperation);
+			fTurnRadians -= m_fMaxCollisionTurnRadians * fTurnMultiplier;
+		}
+		/// Check velocity is within bounds (Do this before braking)
+		if (m_Rigidbody.velocity.magnitude > m_fMaxChaseSpeed)
+		{
+			m_Rigidbody.velocity = Vector3.Normalize(m_Rigidbody.velocity) * m_fMaxChaseSpeed;
 		}
 
 		/// Calculate Path Braking
-		// Add Path Braking to velocity 
+		Vector3 v3BrakingImpulse = new Vector3();
+		// IF not reversing
+		if (!m_bReversing)
+		{
+			
+			// Add Path Braking to velocity 
+			if (path.corners.Length > 2)
+			{
+				Vector3 lhs = path.corners[1] - path.corners[0];
+				float fDistanceTillTurn = lhs.magnitude;
+				lhs.Normalize();
+				Vector3 rhs = path.corners[2] - path.corners[1];
+				rhs.Normalize();
+
+				float fDot = Vector3.Dot(lhs, rhs);
+				float fRad = Mathf.Acos(fDot);
+
+				if (fRad > m_fOptimalTurnRadians)
+				{
+					Vector3 v3CurrentVelocity = m_Rigidbody.velocity;
+					float fCurrentSpeed = v3CurrentVelocity.magnitude;
+
+					if (fCurrentSpeed > m_fOptimalTurnSpeed)
+					{
+						float fTimeTillTurn = fDistanceTillTurn / fCurrentSpeed;
+						float fBrakingMagnitude = (m_fOptimalTurnSpeed - fCurrentSpeed) / fTimeTillTurn;
+
+						if (fBrakingMagnitude > m_fMaxBrakingForce)
+						{
+							fBrakingMagnitude = m_fMaxBrakingForce;
+						}
+
+						v3BrakingImpulse += -transform.forward * fBrakingMagnitude;
+					}
+				}
+			}
+		}
 
 		/// Calculate Collision Braking
 		// Add Collision Braking to velocity
+		if (m_FrontSensor.m_bColliding)
+		{
+			float fBrakingMultiplier = ((m_FrontSensor.m_fMaxSeperation - m_FrontSensor.m_fSeperation) / m_FrontSensor.m_fMaxSeperation);
+			v3BrakingImpulse += -transform.forward * m_fMaxBrakingForce * fBrakingMultiplier;
 
-		/// Check velocity is within bounds
+			if (v3BrakingImpulse.magnitude > m_fMaxBrakingForce)
+			{
+				v3BrakingImpulse.Normalize();
+				v3BrakingImpulse *= m_fMaxBrakingForce;
+			}
+		}
+
+		
+		m_Rigidbody.AddForce(v3BrakingImpulse, ForceMode.Impulse);
 
 		/// Calculate Rotation
+		float fRatio;
+		float fSpeed = m_Rigidbody.velocity.magnitude;
+		if (fSpeed <= m_fOptimalTurnSpeed)
+		{
+			fRatio = 1 - ((m_fOptimalTurnSpeed - fSpeed) / m_fOptimalTurnSpeed);
+		}
+		else
+		{
+			float fOverOptimalSpeed = fSpeed - m_fOptimalTurnSpeed;
+			float fMaxOptimalDiff = m_fMaxChaseSpeed - m_fOptimalTurnSpeed;
+			fRatio = (fMaxOptimalDiff - fOverOptimalSpeed) / fMaxOptimalDiff;
+		}
+
+		Vector3 v3Rot = m_Rigidbody.transform.forward;
+		v3Rot.x = Mathf.Cos(fTurnRadians * fRatio);
+		v3Rot.z = Mathf.Sin(fTurnRadians * fRatio);
+		Vector3 v3CurrentRot = m_Rigidbody.rotation.eulerAngles;
+		v3CurrentRot.z += Mathf.Sin(fTurnRadians * fRatio);
+
+		m_Rigidbody.rotation = Quaternion.Euler(v3CurrentRot);
+
+		Debug.Log(v3Rot.ToString());
 	}
 
 	public void MoveCatchUp()
