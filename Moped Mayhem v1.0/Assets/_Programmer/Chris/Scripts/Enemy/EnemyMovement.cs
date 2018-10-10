@@ -105,12 +105,12 @@ public class EnemyMovement : MonoBehaviour
 		if (m_bReversing)
 		{
 			// Get Dot Product
-			Vector2 lhs = new Vector2(m_Rigidbody.velocity.x, m_Rigidbody.velocity.z);
-			lhs.Normalize();
+			Vector2 v2ReversingLhs = new Vector2(m_Rigidbody.velocity.x, m_Rigidbody.velocity.z);
+			v2ReversingLhs.Normalize();
 
-			Vector2 rhs = new Vector2(transform.forward.x, transform.forward.z);
+			Vector2 v2ReversingRhs = new Vector2(transform.forward.x, transform.forward.z);
 
-			float fDot = Vector2.Dot(lhs, rhs);
+			float fDot = Vector2.Dot(v2ReversingLhs, v2ReversingRhs);
 
 			// IF going forwards
 			if (fDot > 0.1f)
@@ -142,15 +142,38 @@ public class EnemyMovement : MonoBehaviour
 		}
 
 		/// Calculate Path Turning
+		float fTurnRadians = 0;
+
 		//Determine how much it needs to turn
-		//Vector3 v3PathOffset
+		if (path.corners.Length > 1)
+		{
+			Vector3 v3PathOffset = path.corners[1] - path.corners[0];
+			v3PathOffset.Normalize();
 
-		//Vector2 lhs = new Vector2(path.corners[1].x, path.corners[1].z);
-		//lhs.Normalize();
+			float fTurnDot = Vector3.Dot(v3PathOffset, transform.forward);
+			float fDirectionDot = Vector3.Dot(v3PathOffset, transform.right);
 
+			// IF need to rotate right
+			if (fDirectionDot > 0)
+			{
+				// add rotation amount
+				fTurnRadians += Mathf.Acos(fTurnDot);
+			}
+			// ELSE need to rotate left
+			else
+			{
+				// subtract rotation amount
+				fTurnRadians -= Mathf.Acos(fTurnDot);
+			}
+		}
 
 		/// Calculate Collision Turning
 		//Determine how much it needs to turn
+		if (m_LeftSensor.m_bColliding)
+		{
+			float fTurnMultiplier = ((m_LeftSensor.m_fMaxSeperation - m_LeftSensor.m_fSeperation) / m_LeftSensor.m_fMaxSeperation);
+			//CB::HERENOW
+		}
 
 		/// Calculate Path Braking
 		// Add Path Braking to velocity 

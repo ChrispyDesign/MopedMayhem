@@ -9,7 +9,7 @@
 ///* Function Header *///
 
 //------------------------------------------------------
-// ThisFunc()
+// ThisFunc
 //		Description
 //
 //	var
