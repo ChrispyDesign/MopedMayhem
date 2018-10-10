@@ -85,7 +85,12 @@ public class EnemyMovement : MonoBehaviour
 			// Disable default navigation
 			m_NavAgent.updatePosition = false;
 			m_NavAgent.updateRotation = false;
+
+			m_Rigidbody.velocity = m_NavAgent.velocity;
 		}
+
+		m_NavAgent.nextPosition = transform.position;
+		var path = m_NavAgent.path;
 
 		/// Calculate Reversing (3 Point Turn)
 
@@ -99,31 +104,63 @@ public class EnemyMovement : MonoBehaviour
 		// IF Reversing
 		if (m_bReversing)
 		{
-			// IF going forwards
-				// Brake
+			// Get Dot Product
+			Vector2 lhs = new Vector2(m_Rigidbody.velocity.x, m_Rigidbody.velocity.z);
+			lhs.Normalize();
 
+			Vector2 rhs = new Vector2(transform.forward.x, transform.forward.z);
+
+			float fDot = Vector2.Dot(lhs, rhs);
+
+			// IF going forwards
+			if (fDot > 0.1f)
+			{
+				// Brake
+				Vector3 brakingImpulse = -transform.forward * m_fAcceleration;
+				if (brakingImpulse.magnitude > m_fMaxBrakingForce)
+				{
+					brakingImpulse.Normalize();
+					brakingImpulse *= m_fMaxBrakingForce;
+				}
+				m_Rigidbody.AddForce(brakingImpulse, ForceMode.Impulse);
+			}
 			// ELSE
+			else
+			{
 				// Reverse
-			Vector3 reversingForce = -transform.forward * m_fAcceleration * m_Rigidbody.mass;
-			m_Rigidbody.AddForce(reversingForce);
+				Vector3 reversingForce = -transform.forward * m_fAcceleration;
+				m_Rigidbody.AddForce(reversingForce, ForceMode.Impulse);				
+			}
 
 		}
 
 		/// Calculate Path Acceleration
 		if (!m_bReversing)
 		{
-			Vector3 acceleratingForce = transform.forward * m_fAcceleration * m_Rigidbody.mass;
-			m_Rigidbody.AddForce(acceleratingForce);
+			Vector3 acceleratingImpulse = transform.forward * m_fAcceleration;
+			m_Rigidbody.AddForce(acceleratingImpulse, ForceMode.Impulse);
 		}
 
 		/// Calculate Path Turning
+		//Determine how much it needs to turn
+		//Vector3 v3PathOffset
+
+		//Vector2 lhs = new Vector2(path.corners[1].x, path.corners[1].z);
+		//lhs.Normalize();
+
 
 		/// Calculate Collision Turning
+		//Determine how much it needs to turn
 
 		/// Calculate Path Braking
+		// Add Path Braking to velocity 
 
 		/// Calculate Collision Braking
-		
+		// Add Collision Braking to velocity
+
+		/// Check velocity is within bounds
+
+		/// Calculate Rotation
 	}
 
 	public void MoveCatchUp()
@@ -134,6 +171,12 @@ public class EnemyMovement : MonoBehaviour
 			// Enable default navigation
 			m_NavAgent.updatePosition = true;
 			m_NavAgent.updateRotation = true;
+
+			m_NavAgent.velocity = m_Rigidbody.velocity;
+
+			// Reset Rigidbody velocity and rotation
+			m_Rigidbody.velocity = Vector3.zero;
+			m_Rigidbody.rotation = Quaternion.identity;
 		}
 	}
 }

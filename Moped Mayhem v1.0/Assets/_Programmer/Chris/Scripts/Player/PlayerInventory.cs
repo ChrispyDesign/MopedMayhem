@@ -11,8 +11,8 @@ using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour {
 
-	public Text leftText;
-	public Text rightText;
+	public RawImage leftImage;
+	public RawImage rightImage;
 
 	public Food m_DefaultFood;
 	public Food m_LeftFood;		// Public for testing
@@ -43,16 +43,16 @@ public class PlayerInventory : MonoBehaviour {
 		{
 			// Set held food to default
 			m_LeftFood = m_DefaultFood;
-			leftText.text = "Nothing";
+			leftImage.texture = m_DefaultFood.m_FoodTexture;
 		}
 		// ELSE IF Right food has name of food to be removed
 		else if (m_RightFood.m_sFoodName == name)
 		{
 			// Set held food to default
 			m_RightFood = m_DefaultFood;
-			rightText.text = "Nothing";
-		}		
-	}
+			rightImage.texture = m_DefaultFood.m_FoodTexture;
+		}
+	}		
 
 	public bool AddFood(Food food)
 	{
@@ -61,7 +61,7 @@ public class PlayerInventory : MonoBehaviour {
 		{
 			// Set held food to new food and return true
 			m_LeftFood = food;
-			leftText.text = food.m_sFoodName;
+			leftImage.texture = food.m_FoodTexture;
 			return true;
 		}
 
@@ -70,7 +70,7 @@ public class PlayerInventory : MonoBehaviour {
 		{
 			// Set held food to new food and return true
 			m_RightFood = food;
-			rightText.text = food.m_sFoodName;
+			rightImage.texture = food.m_FoodTexture;
 			return true;
 		}
 
@@ -88,7 +88,7 @@ public class PlayerInventory : MonoBehaviour {
 
 			// Set held food to default
 			m_LeftFood = m_DefaultFood;
-			leftText.text = "Nothing";
+			leftImage.texture = m_DefaultFood.m_FoodTexture;
 		}
 	}
 
@@ -102,7 +102,7 @@ public class PlayerInventory : MonoBehaviour {
 
 			// Set held food to default
 			m_RightFood = m_DefaultFood;
-			rightText.text = "Nothing";
+			rightImage.texture = m_DefaultFood.m_FoodTexture;
 		}
 	}
 

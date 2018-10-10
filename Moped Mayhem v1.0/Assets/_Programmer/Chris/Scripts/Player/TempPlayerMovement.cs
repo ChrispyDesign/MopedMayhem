@@ -50,5 +50,5 @@ public class TempPlayerMovement : MonoBehaviour
             float torque = rotSpeed * multiplier * Time.deltaTime;
             rb.AddTorque(0, torque, 0, ForceMode.Impulse);
         }
-    }
+	}
 }
