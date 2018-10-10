@@ -1,33 +1,46 @@
-﻿using System.Collections;
+﻿// Main Author - Tim Langford
+//
+// Date last worked on 10/10/18
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-	[Range(0,1000)]
+	[Range(0,200)]
 	public float fSpeed; // move speed
-	[Range(0, 1000)]
-	public float fReverseSpeed; // move speed
+	[Range(0, 100)]
+	public float fReverseSpeed; // reverse speed
+	private float fForwardSpeed; // forward speed
 	[Range(0,100)]
 	public float fRotSpeed; // rotation speed
-
-	private float fSpeedMultiplier = 100.0f;
-	private float fRotMultiplier = 10.0f;
-
-	public GameObject player;
-	public Rigidbody pRigidBody;
-
-	// Use this for initialization
-	void Start () {
-		
-		pRigidBody = player.GetComponent<Rigidbody>();
-	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	private float fRotMultiplier = 10.0f; // rotation multiplyer
+
+	public GameObject player; // players gameobject
+	public Rigidbody pRigidBody; // players Rigid Body
+
+	//------------------------------------------------------
+	// Start()
+	//		Starting function
+	//------------------------------------------------------
+	void Start ()
+	{
+		pRigidBody = player.GetComponent<Rigidbody>();
+		fForwardSpeed = fSpeed;
 	}
 
+	//------------------------------------------------------
+	//	FixedUpdate()
+	//		Updates in fixed intervals
+	//
+	//	var
+	//		float v 
+	//			Vertical Input
+	//		float h 
+	//			Horizontal Input
+	//------------------------------------------------------
 	void FixedUpdate()
 	{
 		float v = Input.GetAxis("Vertical");
@@ -41,21 +54,38 @@ public class PlayerMovement : MonoBehaviour {
 			Turn(-h);
 	}
 
+	//------------------------------------------------------
+	// Move
+	//		Moves the player forwards and backwards
+	//	
+	//	var
+	//		float vertical
+	//			takes in the player input on the vertical axis
+	//------------------------------------------------------
 	public void Move(float vertical)
 	{
-		Vector3 movement;
-		if (vertical > 0)
+		if(vertical > 0.1)
 		{
-			movement = fSpeed * vertical * Time.deltaTime * player.transform.forward * fSpeedMultiplier;
+			fSpeed = fForwardSpeed;
 		}
 		else
 		{
-			movement = fReverseSpeed * vertical * Time.deltaTime * player.transform.forward * fSpeedMultiplier;
+			fSpeed = fReverseSpeed;
 		}
-		
-		pRigidBody.velocity = movement;
+		pRigidBody.AddForce(player.transform.forward * vertical * fSpeed);
 	}
 
+	//------------------------------------------------------
+	// Turn(float horizontal)
+	//		Turns the player
+	//
+	//	var
+	//		float h
+	//			used for the rotation on the y axis
+	//
+	//		Quaternion rotation
+	//			takes in h for rotation
+	//------------------------------------------------------
 	public void Turn(float horizon)
 	{
 		float h = horizon * fRotSpeed * Time.deltaTime * fRotMultiplier;
