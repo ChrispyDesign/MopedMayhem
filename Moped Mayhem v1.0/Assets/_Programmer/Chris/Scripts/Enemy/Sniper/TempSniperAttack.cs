@@ -54,18 +54,7 @@ public class TempSniperAttack : MonoBehaviour
 
 		gameObject.transform.LookAt(player);
 
-		RaycastHit hit;
-		Vector3 direction = barrelEnd.position - player.position;
-		Ray ray = new Ray(barrelEnd.position, direction);
-		if (Physics.Raycast(ray, out hit, direction.magnitude))
-		{
-			if (hit.collider.gameObject.tag != "Player")
-			{
-				bAttacking = false;
-				attackEnd = 0;
-				return;
-			}
-		}
+		
 
 		if (Input.GetButtonDown("Fire1") || attack)
 		{ 
@@ -93,7 +82,20 @@ public class TempSniperAttack : MonoBehaviour
 
 			Vector3[] pos = { barrelEnd.position, player.position + Vector3.up };
 
-			laser.SetPositions(pos);			
+			laser.SetPositions(pos);
+
+			RaycastHit hit;
+			Vector3 direction = barrelEnd.position - player.position;
+			Ray ray = new Ray(barrelEnd.position, direction);
+			if (Physics.Raycast(ray, out hit, direction.magnitude + 1))
+			{
+				if (hit.collider.gameObject.tag != "Player")
+				{
+					bAttacking = false;
+					attackEnd = 0;
+					return;
+				}
+			}
 		}
 
 		if (fCurrentTime > attackEnd)
