@@ -30,6 +30,5 @@ public class BikerChaseState : BaseState
 
 	public override void UpdateState()
 	{
-		
 	}
 } 

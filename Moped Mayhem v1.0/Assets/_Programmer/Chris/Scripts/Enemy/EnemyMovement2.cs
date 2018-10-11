@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement2 : MonoBehaviour
 {
 	public GameObject m_Player;
 
@@ -113,6 +113,7 @@ public class EnemyMovement : MonoBehaviour
 		{
 			// Start Reversing
 			m_bReversing = true;
+
 			if (m_RearSensor.m_bColliding)
 			{
 				m_bReversing = false;
@@ -152,21 +153,20 @@ public class EnemyMovement : MonoBehaviour
 				else
 				{
 					m_Rigidbody.velocity -= brakingImpulse;
-				}
+				}				
 			}
 			// ELSE
 			else
 			{
 				// Reverse
 				Vector3 reversingForce = -transform.forward * m_fAcceleration;
-				v3Acceleration += reversingForce;
+				v3Acceleration += reversingForce;				
 			}
 
 			if (m_RearSensor.m_bColliding)
 			{
 				m_bReversing = false;
 			}
-
 		}
 
 		/// Calculate Path Acceleration
@@ -296,6 +296,10 @@ public class EnemyMovement : MonoBehaviour
 		}
 
 		// MOVE
+		if (path.corners.Length > 1)
+		{
+			v3Acceleration *= Vector3.Dot(transform.forward, path.corners[1] - transform.position);
+		}
 		m_Rigidbody.AddForce(v3Acceleration, ForceMode.Impulse);
 		if (m_Rigidbody.velocity.magnitude > m_fMaxChaseSpeed)
 		{
@@ -304,7 +308,7 @@ public class EnemyMovement : MonoBehaviour
 		}
 
 		// ROTATE
-		//if (fTurnRadians > 0.25|| fTurnRadians < -0.25 )
+		//if (fTurnRadians > 0.5|| fTurnRadians < -0.5 )
 		{
 			float fTurnSpeed = fTurnRadians * fRatio;
 			if (float.IsNaN(fTurnSpeed))
