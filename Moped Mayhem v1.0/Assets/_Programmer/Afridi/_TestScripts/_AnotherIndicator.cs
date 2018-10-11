@@ -67,14 +67,9 @@ public class _AnotherIndicator : MonoBehaviour {
         {
             newPos.x = 1f - newPos.x;
             newPos.y = 1f - newPos.y;
-            newPos.z = 1f - newPos.z;
 
             newPos = Vector3Maxamize(newPos);
             m_iconImage.sprite = m_targetIconOffScreen;
-        }
-        else
-        {
-            m_iconImage.sprite = m_targetIconOnScreen;
         }
 
         newPos = mainCamera.ViewportToScreenPoint(newPos);
@@ -116,7 +111,6 @@ public class _AnotherIndicator : MonoBehaviour {
 
         max = vector.x > max ? vector.x : max;
         max = vector.y > max ? vector.y : max;
-        max = vector.z > max ? vector.z : max;
 
         returnVector /= max;
 
