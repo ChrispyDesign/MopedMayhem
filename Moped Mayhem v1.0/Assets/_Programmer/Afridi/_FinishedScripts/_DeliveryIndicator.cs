@@ -14,9 +14,6 @@ public class _DeliveryIndicator : MonoBehaviour {
     private RectTransform m_Icon;
     private Image m_IconImage;
     private Canvas m_MainCanvas;
-    private Vector3 m_CameraOffsetUp;
-    private Vector3 m_CameraOffsetRight;
-    private Vector3 m_CameraOffsetForward;
 
     //The Two Sprites that show's the icons depending if they are off or on screen
     public Sprite m_TargetIconOnScreen;
@@ -34,6 +31,8 @@ public class _DeliveryIndicator : MonoBehaviour {
         m_MainCamera = Camera.main;
         //Finds A Canvas in the game and applys it
         m_MainCanvas = FindObjectOfType<Canvas>();
+        
+
         //If there is no Canvas, pop a message saying we need one
         Debug.Assert((m_MainCanvas != null), "Need A Canvas To Operate");
         //Calls the Instantiate Function
@@ -43,6 +42,10 @@ public class _DeliveryIndicator : MonoBehaviour {
     //For Each Interval
     void Update()
     {
+        var vDir = m_Icon.position - transform.position;
+        var vAngle = Mathf.Atan2(vDir.y, vDir.x) * Mathf.Rad2Deg;
+        Debug.Log(vAngle);
+        m_Icon.transform.rotation = Quaternion.AngleAxis(vAngle, transform.forward); 
         //Updates Icon's Position
         UpdateTargetIconPosition();
     }
@@ -71,15 +74,14 @@ public class _DeliveryIndicator : MonoBehaviour {
         Vector3 newPos = transform.position;
         //Sets the New position to the camera which turns it into a viewport display
         newPos = m_MainCamera.WorldToViewportPoint(newPos);
-
         //if the new position's Z is less than 0
-        if (newPos.z < 20) {
+        if (newPos.z < 0) {
             //Set the New Position's axis to subtract by 1f
             newPos.x = 1f - newPos.x;
             newPos.y = 1f - newPos.y;
 
             //Makes the new pos become a 3-D Vector
-            newPos = Vector3Maxamize(newPos);
+            newPos = Vector3Maxamize(newPos);          
 
             //Sprite Changes to the image off-screen
             m_IconImage.sprite = m_TargetIconOffScreen;
@@ -96,10 +98,13 @@ public class _DeliveryIndicator : MonoBehaviour {
         newPos.x = Mathf.Clamp(newPos.x, f_EdgeBuffer, Screen.width - f_EdgeBuffer);
         //Fixes the new position y onto the edge of the screen's height
         newPos.y = Mathf.Clamp(newPos.y, f_EdgeBuffer, Screen.height - f_EdgeBuffer);
+        newPos.z = 0f;
         //Transforms the icon's positon using the new position
         m_Icon.transform.position = newPos;
         Debug.Log(m_Icon.transform.position);
     }
+
+
 
     //Returns a 3-D Vector that is made up of the largest components of the two specified 3-D vectors
     public Vector3 Vector3Maxamize(Vector3 vector)
