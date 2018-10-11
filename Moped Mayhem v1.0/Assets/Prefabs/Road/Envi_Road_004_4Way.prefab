@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33021240731803258}
   - component: {fileID: 23443532513618998}
   - component: {fileID: 95153225874473992}
+  - component: {fileID: 64745355389363996}
   m_Layer: 0
   m_Name: Envi_Road_004_4Way
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831758807108124}
+  m_Mesh: {fileID: 4300000, guid: f83857605e7beb6479213355dbbc1e79, type: 3}
+--- !u!64 &64745355389363996
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831758807108124}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f83857605e7beb6479213355dbbc1e79, type: 3}
 --- !u!95 &95153225874473992
 Animator:

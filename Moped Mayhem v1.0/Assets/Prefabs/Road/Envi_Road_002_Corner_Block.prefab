@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33993059062241808}
   - component: {fileID: 23384524289882700}
   - component: {fileID: 95148060297227732}
+  - component: {fileID: 64526057368039842}
   m_Layer: 0
   m_Name: Envi_Road_002_Corner_Block
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1120152255488836}
+  m_Mesh: {fileID: 4300000, guid: bff8135eb733f4349b207cf889f7b308, type: 3}
+--- !u!64 &64526057368039842
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1120152255488836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bff8135eb733f4349b207cf889f7b308, type: 3}
 --- !u!95 &95148060297227732
 Animator:

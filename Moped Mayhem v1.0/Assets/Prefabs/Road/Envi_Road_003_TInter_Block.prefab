@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33460592064873436}
   - component: {fileID: 23062224986114900}
   - component: {fileID: 95054944453910088}
+  - component: {fileID: 64499552716453100}
   m_Layer: 0
   m_Name: Envi_Road_003_TInter_Block
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1063719092564390}
+  m_Mesh: {fileID: 4300000, guid: b4e5a25ab05c1a5478a5104db3736146, type: 3}
+--- !u!64 &64499552716453100
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1063719092564390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b4e5a25ab05c1a5478a5104db3736146, type: 3}
 --- !u!95 &95054944453910088
 Animator:
