@@ -10,12 +10,6 @@ public class _MiniMapSize : MonoBehaviour {
     public Camera FOV;
     const float fZ = 0f;
 
-    void Start()
-    {
-       
-        
-    }
-
     // Update is called once per frame
     void Update () {
         if (Input.GetKeyDown("space"))
