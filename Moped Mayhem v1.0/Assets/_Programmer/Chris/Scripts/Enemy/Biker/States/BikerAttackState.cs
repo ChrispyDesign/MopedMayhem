@@ -9,10 +9,22 @@ using UnityEngine;
 
 public class BikerAttackState : BaseState
 {
+	private BikerAI m_BikerAI;
+	private BikerMovement m_Movement;
+
+	public float m_fAttackTime;
 
 	protected override void Setup()
 	{
+		// Check if ParentFSM isnt BikerAI
+		if (m_ParentFSM.GetType() != typeof(BikerAI))
+		{
+			// Chastise Designers
+			Debug.LogError(this.name + " should only be attached to a biker along with BikerAI. Make it so #1");
+		}
 
+		m_BikerAI = (BikerAI)m_ParentFSM;
+		m_Movement = GetComponent<BikerMovement>();
 	}
 
 	public override void OnEnd()

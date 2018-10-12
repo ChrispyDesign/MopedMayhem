@@ -32,8 +32,8 @@ public class EnemyMovement : MonoBehaviour
 	[Range(0.5f, 1.5f)]
 	public float m_fMaxCollisionTurnRadians = 1.5f;
 
-	private NavMeshAgent m_NavAgent;
-	private Rigidbody m_Rigidbody;
+	protected NavMeshAgent m_NavAgent;
+	protected Rigidbody m_Rigidbody;
 
 	public bool m_bGetPath = false;
 	public bool m_bMoveChase = false;
@@ -44,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
 	public bool m_bReversing = false;
 
 	// Use this for initialization
-	void Start()
+	protected void Start()
 	{
 		m_NavAgent = gameObject.GetComponent<NavMeshAgent>();
 		m_Rigidbody = gameObject.GetComponent<Rigidbody>();
@@ -53,7 +53,7 @@ public class EnemyMovement : MonoBehaviour
 		m_Rigidbody.maxAngularVelocity = m_fMaxTurnSpeed;
 	}
 
-	private void Update()
+	protected void Update()
 	{
 		if (m_bGetPath)
 		{
