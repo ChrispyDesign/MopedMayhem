@@ -95,6 +95,13 @@
      <Compile Include="Assets\3rd Party Assets\ProCore\ProBuilder\API Examples\Procedural Mesh\ExtrudeRandomEdges.cs" />
      <Compile Include="Assets\3rd Party Assets\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
      <Compile Include="Assets\3rd Party Assets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
+     <Compile Include="Assets\3rd Party Assets\ProGrids\Classes\pg_Constant.cs" />
+     <Compile Include="Assets\3rd Party Assets\ProGrids\Classes\pg_Enum.cs" />
+     <Compile Include="Assets\3rd Party Assets\ProGrids\Classes\pg_IconUtility.cs" />
+     <Compile Include="Assets\3rd Party Assets\ProGrids\Classes\pg_IgnoreSnapAttribute.cs" />
+     <Compile Include="Assets\3rd Party Assets\ProGrids\Classes\pg_SceneMeshRender.cs" />
+     <Compile Include="Assets\3rd Party Assets\ProGrids\Classes\pg_Util.cs" />
+     <Compile Include="Assets\3rd Party Assets\ProGrids\MonoBehaviour\pg_IgnoreSnap.cs" />
      <Compile Include="Assets\3rd Party Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
      <Compile Include="Assets\3rd Party Assets\ShaderForge\Example Assets\Scripts\EnableCameraDepthInForward.cs" />
      <Compile Include="Assets\3rd Party Assets\ShaderForge\Example Assets\Scripts\SoftNormalsToVertexColor.cs" />
@@ -116,6 +123,7 @@
      <Compile Include="Assets\Scripts\BaseFSM\TestStates\TestState2.cs" />
      <None Include="Assets\_Programmer\Chris\_Scenes\DELETE ME.txt" />
      <None Include="Assets\Textures\DELETE ME.txt" />
+     <None Include="Assets\3rd Party Assets\ProGrids\Shader\pg_GridShader.shader" />
      <None Include="Assets\3rd Party Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
      <None Include="Assets\3rd Party Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
      <None Include="Assets\3rd Party Assets\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />
@@ -129,6 +137,7 @@
      <None Include="Assets\Scripts\DELETE ME.txt" />
      <None Include="Assets\3rd Party Assets\ProCore\ProBuilder\Shader\pb_UnlitSolidColor.shader" />
      <None Include="Assets\3rd Party Assets\ShaderForge\Example Assets\Shaders\Vegetation.shader" />
+     <None Include="Assets\3rd Party Assets\ProGrids\About\pc_AboutEntry_ProGrids.txt" />
      <None Include="Assets\3rd Party Assets\ProCore\ProBuilder\Shader\pb_ReferenceUnlit.shader" />
      <None Include="Assets\3rd Party Assets\ShaderForge\Example Assets\Shaders\VertexAnimation.shader" />
      <None Include="Assets\3rd Party Assets\ProCore\ProBuilder\Shader\DiffuseTextureBlend.shader" />
@@ -155,6 +164,7 @@
      <None Include="Assets\3rd Party Assets\ShaderForge\Example Assets\Shaders\TessellationDisplacement.shader" />
      <None Include="Assets\3rd Party Assets\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
      <None Include="Assets\3rd Party Assets\ShaderForge\Example Assets\Shaders\Tiles.shader" />
+     <None Include="Assets\3rd Party Assets\ProGrids\About\changelog.txt" />
      <None Include="Assets\3rd Party Assets\ProCore\ProBuilder\Shader\pb_NormalPreview.shader" />
      <None Include="Assets\_Programmer\Afridi\DELETE ME.txt" />
      <None Include="Assets\3rd Party Assets\ShaderForge\Example Assets\Shaders\PixelRotator.shader" />
@@ -236,46 +246,46 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore-Unity5">
- <HintPath>C:/Users/s173057/Desktop/Moped Mayhem SVN/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
+ <HintPath>C:/Users/s181904/Documents/SVN/MopedMayhem/trunk/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderMeshOps-Unity5">
- <HintPath>C:/Users/s173057/Desktop/Moped Mayhem SVN/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
+ <HintPath>C:/Users/s181904/Documents/SVN/MopedMayhem/trunk/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="KdTreeLib">
- <HintPath>C:/Users/s173057/Desktop/Moped Mayhem SVN/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
+ <HintPath>C:/Users/s181904/Documents/SVN/MopedMayhem/trunk/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
  </Reference>
  <Reference Include="pb_Stl">
- <HintPath>C:/Users/s173057/Desktop/Moped Mayhem SVN/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
+ <HintPath>C:/Users/s181904/Documents/SVN/MopedMayhem/trunk/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
  </Reference>
  <Reference Include="Poly2Tri">
- <HintPath>C:/Users/s173057/Desktop/Moped Mayhem SVN/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
+ <HintPath>C:/Users/s181904/Documents/SVN/MopedMayhem/trunk/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderEditor-Unity5">
- <HintPath>C:/Users/s173057/Desktop/Moped Mayhem SVN/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Editor/ProBuilderEditor-Unity5.dll</HintPath>
+ <HintPath>C:/Users/s181904/Documents/SVN/MopedMayhem/trunk/Moped Mayhem v1.0/Assets/3rd Party Assets/ProCore/ProBuilder/Editor/ProBuilderEditor-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="ShaderForge">
- <HintPath>C:/Users/s173057/Desktop/Moped Mayhem SVN/Moped Mayhem v1.0/Assets/3rd Party Assets/ShaderForge/Editor/ShaderForge.dll</HintPath>
+ <HintPath>C:/Users/s181904/Documents/SVN/MopedMayhem/trunk/Moped Mayhem v1.0/Assets/3rd Party Assets/ShaderForge/Editor/ShaderForge.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Users/s173057/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+ <HintPath>C:/Users/s181904/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
- <HintPath>C:/Users/s173057/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
+ <HintPath>C:/Users/s181904/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Users/s173057/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Users/s181904/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Analytics">
- <HintPath>C:/Users/s173057/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
+ <HintPath>C:/Users/s181904/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Users/s173057/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/s181904/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Purchasing">
- <HintPath>C:/Users/s173057/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/s181904/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
- <HintPath>C:/Users/s173057/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/s181904/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
