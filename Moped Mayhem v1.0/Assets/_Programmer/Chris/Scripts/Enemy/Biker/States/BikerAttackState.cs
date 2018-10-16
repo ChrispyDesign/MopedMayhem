@@ -25,6 +25,8 @@ public class BikerAttackState : BaseState
 
 		m_BikerAI = (BikerAI)m_ParentFSM;
 		m_Movement = GetComponent<BikerMovement>();
+
+		m_Movement.BikerAttackStart(m_fAttackTime);
 	}
 
 	public override void OnEnd()
@@ -34,6 +36,11 @@ public class BikerAttackState : BaseState
 
 	public override void UpdateState()
 	{
+		bool bAttackEnded = m_Movement.BikerAttack();
 
+		if (bAttackEnded)
+		{
+			m_BikerAI.ChangeState("BikerBreakdownState");
+		}
 	}
 }

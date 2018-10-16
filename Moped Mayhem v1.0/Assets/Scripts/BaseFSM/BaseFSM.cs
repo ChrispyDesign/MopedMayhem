@@ -14,6 +14,8 @@ public class BaseFSM : MonoBehaviour {
 	public BaseState m_StartState;
 	private BaseState m_CurrentState;
 
+	public int nChangeStateCount;
+
 	//------------------------------------------------------------
 	// Start
 	//		Runs the setup
@@ -51,12 +53,13 @@ public class BaseFSM : MonoBehaviour {
 			{
 				// Store as current state
 				m_CurrentState = state;
+				m_CurrentState.OnStart();
 			}
 			// ELSE not starting state
 			else
 			{
 				// Disable the state
-				m_CurrentState.OnEnd();
+				state.OnEnd();
 				state.enabled = false;
 			}
 		}
@@ -81,6 +84,8 @@ public class BaseFSM : MonoBehaviour {
 	//------------------------------------------------------------
 	public void ChangeState(string sNewStateName)
 	{
+		nChangeStateCount++;
+
 		// For each state in state list
 		foreach (BaseState state in m_States)
 		{
