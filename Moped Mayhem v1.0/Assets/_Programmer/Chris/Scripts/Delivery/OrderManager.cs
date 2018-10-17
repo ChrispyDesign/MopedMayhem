@@ -11,15 +11,15 @@ using UnityEngine.UI;
 public class OrderManager : MonoBehaviour
 {
 	// TEMP
-	public TempTicket order;
 	public Text score;
 
+	public TicketManager m_TicketManager;
 	public PlayerInventory m_PlayerInventory;
 
 	public Food[] m_Foods;
 	private List<string> m_FoodNames = new List<string>();
 	private Dictionary<string, int> m_FoodsIndexByName = new Dictionary<string, int>();
-	public int[] m_nActiveFoodCount;    //MAKE PRIVATE
+	private int[] m_nActiveFoodCount;    //MAKE PRIVATE
 
 	[Range(1.0f, 1.5f)]
 	private float m_fFoodWeightModifier = 1.0f;
@@ -36,15 +36,17 @@ public class OrderManager : MonoBehaviour
 
 	public float m_fOrderExpiryTime = 10.0f;
 
-	// CB::TODO Hide in inspector after testing
+	[HideInInspector]
 	public List<DeliveryDropoff> m_DropOffZones = new List<DeliveryDropoff>();
+	[HideInInspector]
 	public List<DeliveryPickup> m_PickUpZones = new List<DeliveryPickup>();
 
-	// CB::TODO Hide in inspector after testing
+	[HideInInspector]
 	public DeliveryDropoff m_CurrentDropOffZone;
+	[HideInInspector]
 	public DeliveryPickup m_CurrentPickUpZone;
 
-	// CB::TODO Hide in inspector after testing
+	[HideInInspector]
 	public List<DroppedFood> m_DroppedFoodList = new List<DroppedFood>();
 
 	private List<Order> m_ActiveOrders = new List<Order>();
@@ -165,9 +167,8 @@ public class OrderManager : MonoBehaviour
 		// Activate Dropoff zone
 		newOrder.m_DropOffZone.Activate(newOrder);
 
-		// TEMP UI STUFF
-		order.Activate();
-		order.duration = m_fOrderExpiryTime;
+		// UI STUFF
+		m_TicketManager.ActivateTicket(newOrder);
 	}
 
 	
@@ -195,7 +196,6 @@ public class OrderManager : MonoBehaviour
 	public void OrderSuccess(Order order)
 	{
 		// Specific Success Stuff
-		this.order.Deactivate();
 		float fScore = float.Parse(score.text);
 		float fTimeLeft = (order.m_fOrderExiryTime + order.m_fStartTime) - Time.realtimeSinceStartup;
 		fScore += fTimeLeft * 4;
@@ -220,6 +220,9 @@ public class OrderManager : MonoBehaviour
 
 	private void OrderComplete(Order order)
 	{
+		// Deactivate Ticket
+		m_TicketManager.DeactivateTicket(order);
+
 		// Get Index from dictionary
 		int nIndex = m_FoodsIndexByName[order.m_Food.m_sFoodName];
 
