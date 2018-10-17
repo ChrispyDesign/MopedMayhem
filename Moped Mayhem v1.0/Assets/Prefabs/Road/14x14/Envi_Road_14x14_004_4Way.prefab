@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33211155854273962}
   - component: {fileID: 23887662036607994}
   - component: {fileID: 95966556815634818}
+  - component: {fileID: 64796412863538434}
   m_Layer: 0
   m_Name: Envi_Road_14x14_004_4Way
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1400734241888280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -14, y: 0, z: 14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,6 +84,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1400734241888280}
+  m_Mesh: {fileID: 4300000, guid: 2be70879a57a70344b7d900a7e9b9d77, type: 3}
+--- !u!64 &64796412863538434
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1400734241888280}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2be70879a57a70344b7d900a7e9b9d77, type: 3}
 --- !u!95 &95966556815634818
 Animator:
