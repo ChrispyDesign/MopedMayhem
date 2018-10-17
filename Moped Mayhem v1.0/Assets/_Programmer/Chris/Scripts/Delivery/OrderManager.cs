@@ -36,17 +36,13 @@ public class OrderManager : MonoBehaviour
 
 	public float m_fOrderExpiryTime = 10.0f;
 
-	[HideInInspector]
+	[Header("DONT ADD ANYTHING TO THESE")]
 	public List<DeliveryDropoff> m_DropOffZones = new List<DeliveryDropoff>();
-	[HideInInspector]
 	public List<DeliveryPickup> m_PickUpZones = new List<DeliveryPickup>();
 
-	[HideInInspector]
 	public DeliveryDropoff m_CurrentDropOffZone;
-	[HideInInspector]
 	public DeliveryPickup m_CurrentPickUpZone;
 
-	[HideInInspector]
 	public List<DroppedFood> m_DroppedFoodList = new List<DroppedFood>();
 
 	private List<Order> m_ActiveOrders = new List<Order>();
