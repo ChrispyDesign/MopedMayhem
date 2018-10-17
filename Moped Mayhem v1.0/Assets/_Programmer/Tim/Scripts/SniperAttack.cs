@@ -21,8 +21,8 @@ public class SniperAttack : MonoBehaviour
 	private float m_fAttackEnd;
 	private bool m_bAttacking;
 
-	private bool bLoS = false;
-
+	private bool m_bCollided = false;
+	private Vector3 m_PrevPos;
 
 	// Use this for initialization
 	void Start()
@@ -31,25 +31,42 @@ public class SniperAttack : MonoBehaviour
 		m_ReticleBotStart	= m_ReticleBot.transform.localPosition;
 		m_ReticleLeftStart = m_ReticleLeft.transform.localPosition;
 		m_ReticleRightStart = m_ReticleRight.transform.localPosition;
+
+		m_PrevPos = transform.position;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+
 		float m_fCurrentTime = Time.timeSinceLevelLoad;
+		gameObject.transform.LookAt(m_Player);
+
+		if (!m_bCollided)
+		{
+			transform.position = m_PrevPos;
+		}
+		else
+		{
+			m_PrevPos = transform.position;
+		}
 
 		RaycastHit hit;
-		Vector3 direction = m_BarrelEnd.position - m_Player.position;
-		Ray ray = new Ray(m_BarrelEnd.position, direction);
+		Vector3 direction = m_Player.position - m_BarrelEnd.position;
+		 Ray ray = new Ray(m_BarrelEnd.position, direction);
 
 		if (Physics.Raycast(ray, out hit, direction.magnitude + 1))
 		{
 			// IF what it hit is not the player
 			if (hit.collider.gameObject.tag != "Player")
 			{
+
 				// End the attack
 				m_bAttacking = false;
 				m_fAttackEnd = 0;
+
+				m_ReticleMain.SetActive(false);
+				m_Laser.enabled = false;
 				return;
 			}
 			else if (hit.collider.gameObject.tag == "Player" && !m_bAttacking)
@@ -62,7 +79,7 @@ public class SniperAttack : MonoBehaviour
 				m_Laser.enabled = true;
 			}
 		}
-		// IF current time is less that time to enda attack 
+		// IF current time is less that time to end attack 
 		if (m_fCurrentTime < m_fAttackEnd)
 		{
 			// Determine lerp time (between 0-1)
