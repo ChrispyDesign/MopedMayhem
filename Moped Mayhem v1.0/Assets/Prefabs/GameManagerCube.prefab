@@ -261,6 +261,7 @@ MonoBehaviour:
   m_sFoodName: Pizza
   m_FoodPrefab: {fileID: 1887028316859774}
   m_FoodTexture: {fileID: 2800000, guid: 0945bc883fa8d90408aeb84a718bffe1, type: 3}
+  m_TicketColor: {r: 0.15679067, g: 0.30440897, b: 0.7352941, a: 1}
 --- !u!114 &114497818751075618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,6 +276,7 @@ MonoBehaviour:
   m_sFoodName: Burger
   m_FoodPrefab: {fileID: 1563101041870778}
   m_FoodTexture: {fileID: 2800000, guid: ab613056dd7e27442a56ab18eaa08606, type: 3}
+  m_TicketColor: {r: 0.9541582, g: 1, b: 0.16911763, a: 1}
 --- !u!114 &114512131229315202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -286,18 +288,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988fd6b442ea4c149bb77144d435dadf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: {fileID: 0}
   score: {fileID: 0}
+  m_TicketManager: {fileID: 0}
   m_PlayerInventory: {fileID: 0}
   m_Foods:
-  - {fileID: 114078315743923576}
-  - {fileID: 114726995648247946}
   - {fileID: 114497818751075618}
-  m_nActiveFoodCount: 
+  - {fileID: 114726995648247946}
   m_fMinSpawnTime: 2
   m_fMaxSpawnTime: 5
   m_nMaxOrders: 5
-  m_fOrderExpiryTime: 10
+  m_fOrderExpiryTime: 30
   m_DropOffZones:
   - {fileID: 0}
   m_PickUpZones:
@@ -321,6 +321,7 @@ MonoBehaviour:
   m_sFoodName: Sushi
   m_FoodPrefab: {fileID: 1076435144024258}
   m_FoodTexture: {fileID: 2800000, guid: aa2cafc9f286b4b4fa700c09c81a96c8, type: 3}
+  m_TicketColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114533010517695328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -351,6 +352,7 @@ MonoBehaviour:
   m_sFoodName: Chinese
   m_FoodPrefab: {fileID: 1069578783855368}
   m_FoodTexture: {fileID: 2800000, guid: 9d2f2e80e3c1dfc45b071ec78d17d5da, type: 3}
+  m_TicketColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &114955159622816594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -365,3 +367,4 @@ MonoBehaviour:
   m_sFoodName: Doughnuts
   m_FoodPrefab: {fileID: 1911168262446680}
   m_FoodTexture: {fileID: 2800000, guid: 33bb1ed5236a84d4c921262b3acfcb6c, type: 3}
+  m_TicketColor: {r: 0, g: 0, b: 0, a: 0}
