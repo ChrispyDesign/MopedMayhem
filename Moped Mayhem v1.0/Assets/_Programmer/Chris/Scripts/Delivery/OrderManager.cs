@@ -13,6 +13,9 @@ public class OrderManager : MonoBehaviour
 	// TEMP
 	public Text score;
 
+	public Texture m_IconOnScreen;
+	public Texture m_IconOffScreen;
+	
 	public TicketManager m_TicketManager;
 	public PlayerInventory m_PlayerInventory;
 
@@ -239,6 +242,11 @@ public class OrderManager : MonoBehaviour
 		// Destroy Food parent gameObject
 		Destroy(order.m_Food.gameObject);
 		m_PlayerInventory.RemoveFoodByName(order.m_Food.m_sFoodName);
+
+		Destroy(order.m_DeliveryIndicator.m_FoodImage);
+		Destroy(order.m_DeliveryIndicator.m_IconImage);
+		Destroy(order.m_DeliveryIndicator);
+		order.m_DeliveryIndicator = null;
 	}
 
 	private void ActivatePickup(Food food)
@@ -261,6 +269,40 @@ public class OrderManager : MonoBehaviour
 			{
 				zone.Deactivate();
 				return;
+			}
+		}
+	}
+
+	private void CheckIndicators()
+	{
+		foreach (Order order in m_ActiveOrders)
+		{
+			string sFoodName = order.m_Food.m_sFoodName;
+			if (m_PlayerInventory.ContainsFoodOfName(sFoodName))
+			{
+				if (order.m_DeliveryIndicator == null)
+				{
+					order.m_DeliveryIndicator = order.m_DropOffZone.gameObject.AddComponent<_DeliveryIndicator>();
+					order.m_DeliveryIndicator.m_TargetIconOffScreen = m_IconOffScreen;
+					order.m_DeliveryIndicator.m_TargetIconOnScreen = m_IconOnScreen;
+					order.m_DeliveryIndicator.m_IconImage.texture = m_IconOnScreen;
+					order.m_DeliveryIndicator.m_IconImage.color = order.m_Food.m_TicketColor;
+					order.m_DeliveryIndicator.m_IconImage.transform.localScale = Vector3.one;
+					order.m_DeliveryIndicator.m_FoodImage.texture = order.m_Food.m_FoodTexture;
+					order.m_DeliveryIndicator.m_FoodImage.transform.localScale = Vector3.one;
+					order.m_DeliveryIndicator.f_EdgeBuffer = 51.5f;
+					order.m_DeliveryIndicator.m_targetIconScale = Vector3.one;
+				}
+			}
+			else
+			{
+				if (order.m_DeliveryIndicator != null)
+				{
+					Destroy(order.m_DeliveryIndicator.m_FoodImage);
+					Destroy(order.m_DeliveryIndicator.m_IconImage);
+					Destroy(order.m_DeliveryIndicator);
+					order.m_DeliveryIndicator = null;
+				}
 			}
 		}
 	}
@@ -316,5 +358,10 @@ public class OrderManager : MonoBehaviour
 			// Set Next spawn time
 			m_fNextSpawnTime = fCurrentTime + m_fMinSpawnTime;
 		}
+
+		// Check Delivery Indicators
+		CheckIndicators();
 	}
+
+
 }
