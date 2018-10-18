@@ -126,6 +126,7 @@ public class SniperAttack : MonoBehaviour
 			m_ReticleMain.SetActive(false);
 			m_Laser.enabled = false;
 
+
 			// Reset reticle segment positions
 			m_ReticleTop.transform.position = m_ReticleTopStart;
 			m_ReticleBot.transform.position = m_ReticleBotStart;
