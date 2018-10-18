@@ -28,7 +28,7 @@ public class _DeliveryIndicator : MonoBehaviour {
     public Vector3 m_targetIconScale;
 
     //On Startup
-    void Start()
+    void Awake()
     {
         //Set To Main Camera in Game
         m_MainCamera = Camera.main;
