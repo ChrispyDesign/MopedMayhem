@@ -10,6 +10,5 @@ public class _TestMovement : MonoBehaviour {
         var z = Input.GetAxis("Vertical") * Time.deltaTime * 10.0f;
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, z);
-
     }
 }

@@ -6,14 +6,12 @@ public class _TestCamControl : MonoBehaviour {
 
     public float speedH = 2.0f;
     private float yaw = 0.0f;
-    public GameObject player;
+    public Camera cam;
+    private const float xpos = 55.0f;
     
-
     void Update()
     {
         yaw += speedH * Input.GetAxis("Mouse X");
-        transform.LookAt(player.transform.position);
-        transform.eulerAngles = new Vector3(0f, yaw, 0f);
-
+        cam.transform.eulerAngles = new Vector3(55f, yaw, 0f);
     }
 }
