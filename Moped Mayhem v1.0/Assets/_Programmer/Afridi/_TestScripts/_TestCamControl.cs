@@ -4,14 +4,50 @@ using UnityEngine;
 
 public class _TestCamControl : MonoBehaviour {
 
-    public float speedH = 2.0f;
-    private float yaw = 0.0f;
-    public Camera cam;
-    private const float xpos = 55.0f;
-    
-    void Update()
+    [SerializeField]
+    private Transform target;
+
+    [SerializeField]
+    private Vector3 offsetPosition;
+
+    [SerializeField]
+    private Space offsetPositionSpace = Space.Self;
+
+    [SerializeField]
+    private bool lookAt = true;
+
+    private void LateUpdate()
     {
-        yaw += speedH * Input.GetAxis("Mouse X");
-        cam.transform.eulerAngles = new Vector3(55f, yaw, 0f);
+        Refresh();
+    }
+
+    public void Refresh()
+    {
+        if (target == null)
+        {
+            Debug.LogWarning("Missing target ref !", this);
+
+            return;
+        }
+
+        // compute position
+        if (offsetPositionSpace == Space.Self)
+        {
+            transform.position = target.TransformPoint(offsetPosition);
+        }
+        else
+        {
+            transform.position = target.position + offsetPosition;
+        }
+
+        // compute rotation
+        if (lookAt)
+        {
+            transform.LookAt(target);
+        }
+        else
+        {
+            transform.rotation = target.rotation;
+        }
     }
 }

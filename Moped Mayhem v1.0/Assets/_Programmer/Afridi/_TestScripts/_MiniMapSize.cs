@@ -35,6 +35,7 @@ public class _MiniMapSize : MonoBehaviour {
             imgL.rectTransform.sizeDelta = new Vector2(1007, 536);
             imgL.transform.position = new Vector3(496, 265, fZ);
             imgS.enabled = false;
+            imgL.enabled = true;
         }
         if (Input.GetKeyUp("space")) {
 
@@ -48,6 +49,7 @@ public class _MiniMapSize : MonoBehaviour {
             imgL.rectTransform.sizeDelta = new Vector2(400, 225);
             imgL.transform.position = new Vector3(974, 94, fZ);
             imgS.enabled = true;
+            imgL.enabled = false;
         }
 	}
 }
