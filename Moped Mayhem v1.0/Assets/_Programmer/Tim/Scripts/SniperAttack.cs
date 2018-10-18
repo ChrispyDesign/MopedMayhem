@@ -1,9 +1,16 @@
-﻿using System.Collections;
+﻿// Main Author - Tim Langford
+//
+// Date last worked on 18/10/18
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SniperAttack : MonoBehaviour
 {
+	//TEMP
+	private TempHeart heart;
+
 	public Transform m_Player; // Target Player 
 
 	public Transform m_BarrelEnd;
@@ -30,7 +37,7 @@ public class SniperAttack : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		
+		heart = FindObjectOfType<TempHeart>();
 
 		m_ReticleTopStart	= m_ReticleTop.transform.localPosition;
 		m_ReticleBotStart	= m_ReticleBot.transform.localPosition;
@@ -140,7 +147,7 @@ public class SniperAttack : MonoBehaviour
 				m_bAttacking = false;
 
 				// Make Player take damage
-				//Life.TakeDamage();
+				heart.TakeDamage();
 			}
 		}
 	}

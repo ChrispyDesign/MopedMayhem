@@ -1,6 +1,6 @@
 ﻿// Main Author - Tim Langford
 //
-// Date last worked on 10/10/18
+// Date last worked on 18/10/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour {
 	//			Vertical Input
 	//		float h 
 	//			Horizontal Input
+	//		Vector3 rotation
+	//			eularAngles rotation
 	//------------------------------------------------------
 	void FixedUpdate()
 	{
@@ -90,8 +92,8 @@ public class PlayerMovement : MonoBehaviour {
 	//		float h
 	//			used for the rotation on the y axis
 	//
-	//		Quaternion rotation
-	//			takes in h for rotation
+	//		pRB.AddTorque
+	//			takes in Up , h with forcemode being VelocityChange
 	//------------------------------------------------------
 	public void Turn(float horizon)
 	{
