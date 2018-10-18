@@ -85,7 +85,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -203,12 +203,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1074729828058074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e604c1d396a60944a4c8e6ea100f917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IconImage: {fileID: 0}
+  m_FoodImage: {fileID: 0}
   m_TargetIconOnScreen: {fileID: 0}
   m_TargetIconOffScreen: {fileID: 0}
+  m_TargetIconForFood: {fileID: 0}
   f_EdgeBuffer: 51.5
   m_targetIconScale: {x: 1, y: 1, z: 1}
