@@ -12,12 +12,15 @@ public class _DeliveryIndicator : MonoBehaviour {
     //Variables that control the camera and its offset and image transformation 
     private Camera m_MainCamera;
     private RectTransform m_Icon;
+    private RectTransform m_IconFood;
     private RawImage m_IconImage;
+    private RawImage m_FoodImage;
     private Canvas m_MainCanvas;
 
     //The Two Sprites that show's the icons depending if they are off or on screen
-    public RawImage m_TargetIconOnScreen;
-    public RawImage m_TargetIconOffScreen;
+    public Texture m_TargetIconOnScreen;
+    public Texture m_TargetIconOffScreen;
+    public Texture m_TargetIconForFood;
 
     //Used to set a minimum and maximum the edgebuffer and scale can go to
     [Range(0, 100)]
@@ -44,8 +47,14 @@ public class _DeliveryIndicator : MonoBehaviour {
     {
         var vDir = m_Icon.position - transform.position;
         var vAngle = Mathf.Atan2(vDir.y, vDir.x) * Mathf.Rad2Deg;
+
+        var fDir = m_IconFood.position - transform.position;
+        var fAngle = Mathf.Atan2(fDir.y, fDir.x) * Mathf.Rad2Deg;
+
         Debug.Log(vAngle);
-        m_Icon.transform.rotation = Quaternion.AngleAxis(vAngle, transform.forward); 
+        m_Icon.transform.rotation = Quaternion.AngleAxis(vAngle, transform.forward);
+        m_IconFood.transform.rotation = Quaternion.AngleAxis(fAngle, transform.forward);
+
         //Updates Icon's Position
         UpdateTargetIconPosition();
     }
@@ -55,16 +64,23 @@ public class _DeliveryIndicator : MonoBehaviour {
     {
         //Set's the Icon as a new GameObject
         m_Icon = new GameObject().AddComponent<RectTransform>();
+        m_IconFood = new GameObject().AddComponent<RectTransform>();
         //Set's the image onto the Main Canvas
         m_Icon.transform.SetParent(m_MainCanvas.transform);
+        m_IconFood.transform.SetParent(m_MainCanvas.transform);
         //Set's the scale of the icon through the input scale in the inspector
         m_Icon.localScale = m_targetIconScale;
+        m_IconFood.localScale = m_targetIconScale;
         //Set's the Name of the Indicator
         m_Icon.name = name + "Indicator";
+        m_IconFood.name = name + "Indicator";
         //Adds's an Image onto the Icon
         m_IconImage = m_Icon.gameObject.AddComponent<RawImage>();
+        //Adds Food to the Icon
+        m_FoodImage = m_IconFood.gameObject.AddComponent<RawImage>();
         //Sets the default image to be the the indicator on screen
-        m_IconImage.texture = m_TargetIconOnScreen.texture;
+        m_IconImage.texture = m_TargetIconOnScreen;
+        m_FoodImage.texture = m_TargetIconForFood;
     }
 
     //This Updates the icon's position for each time the player is rotated by
@@ -84,12 +100,16 @@ public class _DeliveryIndicator : MonoBehaviour {
             newPos = Vector3Maxamize(newPos);          
 
             //Sprite Changes to the image off-screen
-            m_IconImage.texture = m_TargetIconOffScreen.texture;
+            m_IconImage.texture = m_TargetIconOffScreen;
+
+            m_FoodImage.texture = m_TargetIconForFood;
+
         }
         else //Or Else
         {
             //Changes the sprite 
-            m_IconImage.texture = m_TargetIconOnScreen.texture;
+            m_IconImage.texture = m_TargetIconOnScreen;
+
         }
 
         //Sets the New position to the camera which turns it into a Screenpoint display
@@ -101,6 +121,7 @@ public class _DeliveryIndicator : MonoBehaviour {
         newPos.z = 0f;
         //Transforms the icon's positon using the new position
         m_Icon.transform.position = newPos;
+        m_IconFood.transform.position = newPos;
         Debug.Log(m_Icon.transform.position);
     }
 
