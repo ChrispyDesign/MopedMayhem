@@ -47,11 +47,18 @@ public class PlayerMovement : MonoBehaviour {
 		float h = Input.GetAxis("Horizontal");
 
 		Move(v);
+		var PlayerVelocity = Vector3.Dot(player.transform.forward, Vector3.Normalize(pRigidBody.velocity));
 
-		if (v > 0.1)
+		if (PlayerVelocity > 0.1)
 			Turn(h);
-		else if (v < -0.1)
+		else if (PlayerVelocity < -0.1)
 			Turn(-h);
+
+		Vector3 rotation = pRigidBody.rotation.eulerAngles;
+		rotation.x = 0;
+		rotation.z = 0;
+
+		pRigidBody.rotation = Quaternion.Euler(rotation);
 	}
 
 	//------------------------------------------------------
@@ -88,7 +95,7 @@ public class PlayerMovement : MonoBehaviour {
 	//------------------------------------------------------
 	public void Turn(float horizon)
 	{
-		float h = horizon * fRotSpeed * Time.deltaTime * fRotMultiplier;
+		float h = fRotSpeed * horizon * Time.deltaTime * fRotMultiplier;
 		Quaternion rotation = Quaternion.Euler(0.0f, h, 0.0f);
 		pRigidBody.transform.rotation = pRigidBody.rotation * rotation;
 	}

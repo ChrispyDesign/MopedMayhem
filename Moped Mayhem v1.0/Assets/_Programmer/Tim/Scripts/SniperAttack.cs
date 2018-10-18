@@ -24,6 +24,9 @@ public class SniperAttack : MonoBehaviour
 	private bool m_bCollided = false;
 	private Vector3 m_PrevPos;
 
+	private Rigidbody m_SniperRB;
+	private	Vector3 m_Vec3Force;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -31,6 +34,7 @@ public class SniperAttack : MonoBehaviour
 		m_ReticleBotStart	= m_ReticleBot.transform.localPosition;
 		m_ReticleLeftStart = m_ReticleLeft.transform.localPosition;
 		m_ReticleRightStart = m_ReticleRight.transform.localPosition;
+		m_SniperRB = gameObject.GetComponent<Rigidbody>();
 
 		m_PrevPos = transform.position;
 	}
@@ -39,8 +43,8 @@ public class SniperAttack : MonoBehaviour
 	void Update()
 	{
 
-		float m_fCurrentTime = Time.timeSinceLevelLoad;
-		gameObject.transform.LookAt(m_Player);
+		float m_fCurrentTime = Time.timeSinceLevelLoad; // current time for the countdown timer
+		gameObject.transform.LookAt(m_Player); // snipers will look at the player
 
 		if (!m_bCollided)
 		{
@@ -49,6 +53,14 @@ public class SniperAttack : MonoBehaviour
 		else
 		{
 			m_PrevPos = transform.position;
+			m_Vec3Force.Set(0, 50, 0);
+			m_SniperRB.AddForce(m_Vec3Force);
+			m_ReticleMain.SetActive(false);
+			m_Laser.enabled = false;
+			if(transform.position.y >= 200)
+			{
+				gameObject.SetActive(false);
+			}
 		}
 
 		RaycastHit hit;
@@ -124,6 +136,18 @@ public class SniperAttack : MonoBehaviour
 				// Make Player take damage
 				//Life.TakeDamage();
 			}
+		}
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if(collision.gameObject.tag == "Player")
+		{
+			m_bCollided = true;
+		}
+		else
+		{
+			m_bCollided = false;
 		}
 	}
 }
