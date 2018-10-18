@@ -489,6 +489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e604c1d396a60944a4c8e6ea100f917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IconImage: {fileID: 0}
+  m_FoodImage: {fileID: 0}
   m_TargetIconOnScreen: {fileID: 2800000, guid: e7322a51248b8fe4f8dcebdec903245f,
     type: 3}
   m_TargetIconOffScreen: {fileID: 2800000, guid: e7322a51248b8fe4f8dcebdec903245f,
@@ -687,6 +689,7 @@ GameObject:
   - component: {fileID: 716742308}
   - component: {fileID: 716742309}
   - component: {fileID: 716742306}
+  - component: {fileID: 716742310}
   m_Layer: 0
   m_Name: m_Player
   m_TagString: Player
@@ -822,6 +825,22 @@ MonoBehaviour:
   imgL: {fileID: 1774892745}
   miniMapSml: {fileID: 1768975180}
   miniMapLrg: {fileID: 189868358}
+--- !u!114 &716742310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 716742301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1bc460cd82dc14fb8f1ef007a1b002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fSpeed: 0
+  fReverseSpeed: 0
+  fRotSpeed: 0
+  player: {fileID: 0}
+  pRigidBody: {fileID: 0}
 --- !u!1 &727645198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,6 +1531,7 @@ GameObject:
   - component: {fileID: 1198144041}
   - component: {fileID: 1198144040}
   - component: {fileID: 1198144044}
+  - component: {fileID: 1198144045}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1593,10 +1613,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d1c04c726083f4d9a1f77f9f5302c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offsetPosition: {x: 0, y: 0, z: 0}
-  offsetPositionSpace: 1
-  lookAt: 1
+  speedH: 2
+  speedV: 2
+--- !u!114 &1198144045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1198144039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d1c04c726083f4d9a1f77f9f5302c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedH: 2
+  speedV: 2
 --- !u!1001 &1285435667
 Prefab:
   m_ObjectHideFlags: 0

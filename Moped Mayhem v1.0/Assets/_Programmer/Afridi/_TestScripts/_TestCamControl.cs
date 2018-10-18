@@ -2,52 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class _TestCamControl : MonoBehaviour {
+public class _TestCamControl : MonoBehaviour
+{
 
-    [SerializeField]
-    private Transform target;
+    public float speedH = 2.0f;
+    public float speedV = 2.0f;
 
-    [SerializeField]
-    private Vector3 offsetPosition;
+    private float yaw = 0.0f;
 
-    [SerializeField]
-    private Space offsetPositionSpace = Space.Self;
-
-    [SerializeField]
-    private bool lookAt = true;
-
-    private void LateUpdate()
+    void Update()
     {
-        Refresh();
-    }
+        yaw += speedH * Input.GetAxis("Mouse X");
 
-    public void Refresh()
-    {
-        if (target == null)
-        {
-            Debug.LogWarning("Missing target ref !", this);
-
-            return;
-        }
-
-        // compute position
-        if (offsetPositionSpace == Space.Self)
-        {
-            transform.position = target.TransformPoint(offsetPosition);
-        }
-        else
-        {
-            transform.position = target.position + offsetPosition;
-        }
-
-        // compute rotation
-        if (lookAt)
-        {
-            transform.LookAt(target);
-        }
-        else
-        {
-            transform.rotation = target.rotation;
-        }
+        transform.eulerAngles = new Vector3(55.0f, yaw, 0.0f);
     }
 }
