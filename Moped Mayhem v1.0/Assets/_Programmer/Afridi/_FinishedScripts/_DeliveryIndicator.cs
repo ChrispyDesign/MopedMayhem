@@ -12,12 +12,12 @@ public class _DeliveryIndicator : MonoBehaviour {
     //Variables that control the camera and its offset and image transformation 
     private Camera m_MainCamera;
     private RectTransform m_Icon;
-    private Image m_IconImage;
+    private RawImage m_IconImage;
     private Canvas m_MainCanvas;
 
     //The Two Sprites that show's the icons depending if they are off or on screen
-    public Sprite m_TargetIconOnScreen;
-    public Sprite m_TargetIconOffScreen;
+    public RawImage m_TargetIconOnScreen;
+    public RawImage m_TargetIconOffScreen;
 
     //Used to set a minimum and maximum the edgebuffer and scale can go to
     [Range(0, 100)]
@@ -62,9 +62,9 @@ public class _DeliveryIndicator : MonoBehaviour {
         //Set's the Name of the Indicator
         m_Icon.name = name + "Indicator";
         //Adds's an Image onto the Icon
-        m_IconImage = m_Icon.gameObject.AddComponent<Image>();
+        m_IconImage = m_Icon.gameObject.AddComponent<RawImage>();
         //Sets the default image to be the the indicator on screen
-        m_IconImage.sprite = m_TargetIconOnScreen;
+        m_IconImage.texture = m_TargetIconOnScreen.texture;
     }
 
     //This Updates the icon's position for each time the player is rotated by
@@ -84,12 +84,12 @@ public class _DeliveryIndicator : MonoBehaviour {
             newPos = Vector3Maxamize(newPos);          
 
             //Sprite Changes to the image off-screen
-            m_IconImage.sprite = m_TargetIconOffScreen;
+            m_IconImage.texture = m_TargetIconOffScreen.texture;
         }
         else //Or Else
         {
             //Changes the sprite 
-            m_IconImage.sprite = m_TargetIconOnScreen;
+            m_IconImage.texture = m_TargetIconOnScreen.texture;
         }
 
         //Sets the New position to the camera which turns it into a Screenpoint display
