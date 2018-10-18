@@ -49,9 +49,9 @@ public class PlayerMovement : MonoBehaviour {
 		Move(v);
 		var PlayerVelocity = Vector3.Dot(player.transform.forward, Vector3.Normalize(pRigidBody.velocity));
 
-		if (PlayerVelocity > 0.1)
+		if (PlayerVelocity > 0.1 && v > 0.1)
 			Turn(h);
-		else if (PlayerVelocity < -0.1)
+		else if (PlayerVelocity < -0.1 && v < -0.1)
 			Turn(-h);
 
 		Vector3 rotation = pRigidBody.rotation.eulerAngles;
@@ -95,8 +95,10 @@ public class PlayerMovement : MonoBehaviour {
 	//------------------------------------------------------
 	public void Turn(float horizon)
 	{
-		float h = fRotSpeed * horizon * Time.deltaTime * fRotMultiplier;
-		Quaternion rotation = Quaternion.Euler(0.0f, h, 0.0f);
-		pRigidBody.transform.rotation = pRigidBody.rotation * rotation;
+		float h = fRotSpeed * horizon * Time.deltaTime;
+		/*Quaternion rotation = Quaternion.Euler(0.0f, h, 0.0f);
+		pRigidBody.transform.rotation = pRigidBody.rotation * rotation;*/
+
+		pRigidBody.AddTorque(transform.up * h, ForceMode.VelocityChange);
 	}
 }

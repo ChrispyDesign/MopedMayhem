@@ -30,6 +30,8 @@ public class SniperAttack : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		
+
 		m_ReticleTopStart	= m_ReticleTop.transform.localPosition;
 		m_ReticleBotStart	= m_ReticleBot.transform.localPosition;
 		m_ReticleLeftStart = m_ReticleLeft.transform.localPosition;
@@ -57,7 +59,8 @@ public class SniperAttack : MonoBehaviour
 			m_SniperRB.AddForce(m_Vec3Force);
 			m_ReticleMain.SetActive(false);
 			m_Laser.enabled = false;
-			if(transform.position.y >= 200)
+			
+			if(transform.position.y >= 100)
 			{
 				gameObject.SetActive(false);
 			}
@@ -89,6 +92,8 @@ public class SniperAttack : MonoBehaviour
 
 				m_ReticleMain.SetActive(true);
 				m_Laser.enabled = true;
+
+				// hit.point - transform.position
 			}
 		}
 		// IF current time is less that time to end attack 
