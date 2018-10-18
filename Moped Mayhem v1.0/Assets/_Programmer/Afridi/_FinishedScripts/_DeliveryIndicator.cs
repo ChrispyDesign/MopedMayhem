@@ -13,8 +13,8 @@ public class _DeliveryIndicator : MonoBehaviour {
     private Camera m_MainCamera;
     private RectTransform m_Icon;
     private RectTransform m_IconFood;
-    private RawImage m_IconImage;
-    private RawImage m_FoodImage;
+    public RawImage m_IconImage;
+    public RawImage m_FoodImage;
     private Canvas m_MainCanvas;
 
     //The Two Sprites that show's the icons depending if they are off or on screen
