@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TempHeart : MonoBehaviour {
 
@@ -22,6 +23,8 @@ public class TempHeart : MonoBehaviour {
 		}
 		else
 		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
 			currentLives = hearts.Length;
 			foreach (GameObject heart in hearts)
 			{
