@@ -310,7 +310,7 @@ public class OrderManager : MonoBehaviour
 	void Update()
 	{
 		//TEMP
-		if(tempSpawnButton)
+		if (tempSpawnButton)
 		{
 			NewOrder();
 			tempSpawnButton = false;
@@ -337,6 +337,8 @@ public class OrderManager : MonoBehaviour
 				iter++;
 			}
 		}
+
+		
 
 		// Create New Orders
 		// IF we have less than max number of orders
