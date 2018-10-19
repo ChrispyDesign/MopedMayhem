@@ -1,7 +1,7 @@
 ﻿// Main Author - Afridi Rahim
-// Last Worked On - 11/10/2018
+// Last Worked On - 19/10/2018
 /* Alterations - 
- * Implementations: Make the Position Changes Public Variables
+ * Implementations: Make the Position Changes Public Variables: COMPLETED
  */
 using System.Collections;
 using System.Collections.Generic;

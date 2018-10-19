@@ -1,6 +1,6 @@
 ﻿// Main Author - Afridi Rahim
-// Last Worked On - 11/10/2018
-/* Alterations - 
+// Last Worked On - 19/10/2018
+/* Alterations - Made a second Icon for the food to be on the Indicator : Completed
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -45,13 +45,15 @@ public class _DeliveryIndicator : MonoBehaviour {
     //For Each Interval
     void Update()
     {
+        //This Is For The Indicator itself
         var vDir = m_Icon.position - transform.position;
         var vAngle = Mathf.Atan2(vDir.y, vDir.x) * Mathf.Rad2Deg;
 
+        //This is for the Food within the Indicator
         var fDir = m_IconFood.position - transform.position;
         var fAngle = Mathf.Atan2(fDir.y, fDir.x) * Mathf.Rad2Deg;
 
-        Debug.Log(vAngle);
+        //These Algorithms ensures that both the food and the indicator follow the same axis
         m_Icon.transform.rotation = Quaternion.AngleAxis(vAngle, transform.forward);
         m_IconFood.transform.rotation = Quaternion.AngleAxis(fAngle, transform.forward);
 
@@ -64,22 +66,27 @@ public class _DeliveryIndicator : MonoBehaviour {
     {
         //Set's the Icon as a new GameObject
         m_Icon = new GameObject().AddComponent<RectTransform>();
+        //Set's the Food as a new GameObject
         m_IconFood = new GameObject().AddComponent<RectTransform>();
         //Set's the image onto the Main Canvas
         m_Icon.transform.SetParent(m_MainCanvas.transform);
+        //Set's the Food image onto the Main Canvas
         m_IconFood.transform.SetParent(m_MainCanvas.transform);
         //Set's the scale of the icon through the input scale in the inspector
         m_Icon.localScale = m_targetIconScale;
+        //Set's the scale of the icon through the input scale in the inspector
         m_IconFood.localScale = m_targetIconScale;
         //Set's the Name of the Indicator
         m_Icon.name = name + "Indicator";
-        m_IconFood.name = name + "Indicator";
+        //Set;s the Name of the Food
+        m_IconFood.name = name + "Food";
         //Adds's an Image onto the Icon
         m_IconImage = m_Icon.gameObject.AddComponent<RawImage>();
         //Adds Food to the Icon
         m_FoodImage = m_IconFood.gameObject.AddComponent<RawImage>();
         //Sets the default image to be the the indicator on screen
         m_IconImage.texture = m_TargetIconOnScreen;
+        //Sets the food image to be the the indicator on screen
         m_FoodImage.texture = m_TargetIconForFood;
     }
 
@@ -102,6 +109,7 @@ public class _DeliveryIndicator : MonoBehaviour {
             //Sprite Changes to the image off-screen
             m_IconImage.texture = m_TargetIconOffScreen;
 
+            //Set the food Texture to the icon
             m_FoodImage.texture = m_TargetIconForFood;
 
         }
@@ -121,11 +129,9 @@ public class _DeliveryIndicator : MonoBehaviour {
         newPos.z = 0f;
         //Transforms the icon's positon using the new position
         m_Icon.transform.position = newPos;
+        //Transforms the Food icon's positon using the new position
         m_IconFood.transform.position = newPos;
-        Debug.Log(m_Icon.transform.position);
     }
-
-
 
     //Returns a 3-D Vector that is made up of the largest components of the two specified 3-D vectors
     public Vector3 Vector3Maxamize(Vector3 vector)
