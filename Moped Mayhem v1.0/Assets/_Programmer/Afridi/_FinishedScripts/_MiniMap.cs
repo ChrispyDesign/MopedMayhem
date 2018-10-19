@@ -23,12 +23,10 @@ public class _MiniMap : MonoBehaviour {
     public Camera c_LrgMiniMap;
 
     //Position and Image size locations for Mini Map
-    public Vector2 v_LrgImageSize;
-    public Vector3 v_LrgImageLocation;
+    public RectTransform v_LrgImageLocation;
 
     //Position and Image size locations for Mini Map
-    public Vector2 v_SmlImageSize;
-    public Vector3 v_SmlImageLocation;
+    public RectTransform v_SmlImageLocation;
 
     //All Startup Variables are done through here 
     void Start()
@@ -53,10 +51,10 @@ public class _MiniMap : MonoBehaviour {
             c_SmlMiniMap.enabled = false;
             c_LrgMiniMap.enabled = true;
 
-            //Changes the size of the Large image 
-            m_LrgImg.rectTransform.sizeDelta = new Vector2(v_LrgImageSize.x, v_LrgImageSize.y);
+			//Changes the size of the Large image 
+			m_LrgImg.rectTransform.sizeDelta = v_LrgImageLocation.sizeDelta;
             //Changes the posiition of the Large Image
-            m_LrgImg.transform.position = new Vector3(v_LrgImageLocation.x, v_LrgImageLocation.y, v_LrgImageLocation.z);
+            m_LrgImg.transform.position = v_LrgImageLocation.position;
             //Enables the Large Mini Map and disables the Small Mini Map
             m_SmlImg.enabled = false;
             m_LrgImg.enabled = true;
@@ -73,10 +71,10 @@ public class _MiniMap : MonoBehaviour {
             c_SmlMiniMap.enabled = true;
             c_LrgMiniMap.enabled = false;
 
-            //Changes the size of the Large image 
-            m_LrgImg.rectTransform.sizeDelta = new Vector2(v_SmlImageSize.x, v_SmlImageSize.y);
+			//Changes the size of the Large image 
+			m_LrgImg.rectTransform.sizeDelta = v_SmlImageLocation.sizeDelta;
             //Changes the posiition of the Large Image
-            m_LrgImg.transform.position = new Vector3(v_SmlImageLocation.x, v_SmlImageLocation.y, v_SmlImageLocation.z);
+            m_LrgImg.transform.position = v_SmlImageLocation.position;
             //Disables the Large Mini Map and Enables the Small Mini Map
             m_SmlImg.enabled = true;
             m_LrgImg.enabled = false;
