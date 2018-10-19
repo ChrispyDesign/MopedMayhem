@@ -41,7 +41,9 @@ public class GameManager : MonoBehaviour
 		{
 			Debug.LogError("[Singleton] there is more then one GameManager in the Scene.");
 		}
-		m_PauseCanvas.SetActive(false);
+		//m_PauseCanvas.SetActive(false);
+
+		Time.timeScale = 1;
 
 		Min = m_fTimeLimit;
 		Sec = 1;
@@ -122,13 +124,14 @@ public class GameManager : MonoBehaviour
 
 	public void EndGame()
 	{
-		Time.timeScale = 0;
+		
 		m_GameOverCanvas.SetActive(true);
 	}
 
 	public void RePlay()
 	{
 		Sceneload(SceneManager.GetActiveScene().name);
+		Time.timeScale = 1;
 	}
 
 	public void QuitGame()
