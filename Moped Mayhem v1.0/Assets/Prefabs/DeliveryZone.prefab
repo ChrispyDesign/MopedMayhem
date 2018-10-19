@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 65860543554202976}
   - component: {fileID: 23760196834571312}
   - component: {fileID: 114088897855929024}
-  - component: {fileID: 114191310095719360}
   m_Layer: 0
   m_Name: DeliveryZone
   m_TagString: Untagged
@@ -69,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1074729828058074}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.000000014901163}
-  m_LocalPosition: {x: 645.31, y: 46.66, z: -184.73}
+  m_LocalPosition: {x: 658.26, y: 46.66, z: -201.55}
   m_LocalScale: {x: 10, y: 5, z: 5}
   m_Children:
   - {fileID: 4675573652942532}
@@ -197,21 +196,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bIsActive: 0
   m_bPlayerInside: 0
---- !u!114 &114191310095719360
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1074729828058074}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e604c1d396a60944a4c8e6ea100f917, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IconImage: {fileID: 0}
-  m_FoodImage: {fileID: 0}
-  m_TargetIconOnScreen: {fileID: 0}
-  m_TargetIconOffScreen: {fileID: 0}
-  m_TargetIconForFood: {fileID: 0}
-  f_EdgeBuffer: 51.5
-  m_targetIconScale: {x: 1, y: 1, z: 1}
