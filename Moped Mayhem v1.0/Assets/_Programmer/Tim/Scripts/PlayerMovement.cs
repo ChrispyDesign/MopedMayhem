@@ -15,11 +15,19 @@ public class PlayerMovement : MonoBehaviour {
 	private float fForwardSpeed; // forward speed
 	[Range(0,100)]
 	public float fRotSpeed; // rotation speed
-	
+
 	private float fRotMultiplier = 10.0f; // rotation multiplyer
 
 	public GameObject player; // players gameobject
 	public Rigidbody pRigidBody; // players Rigid Body
+
+	[Range(0, 10)]
+	public float m_fBaseAngularDrag;
+	[Range(0, 10)]
+	public float m_fEXAngularDrag;
+
+	Vector3 m_EularAngleVelocity;
+
 
 	//------------------------------------------------------
 	// Start()
@@ -45,15 +53,26 @@ public class PlayerMovement : MonoBehaviour {
 	//------------------------------------------------------
 	void FixedUpdate()
 	{
+
 		float v = Input.GetAxis("Vertical");
 		float h = Input.GetAxis("Horizontal");
 
 		Move(v);
 		var PlayerVelocity = Vector3.Dot(player.transform.forward, Vector3.Normalize(pRigidBody.velocity));
 
-		if (PlayerVelocity > 0.1 && v > 0.1)
+		//float fSpeed = pRigidBody.velocity.magnitude;
+		//if (fSpeed > 0.1)
+		//{
+		//	pRigidBody.angularDrag = m_fBaseAngularDrag + (pRigidBody.velocity.magnitude / pRigidBody.maxAngularVelocity) + m_fEXAngularDrag;
+		//}
+		//else
+		//{
+		//	pRigidBody.angularDrag = pRigidBody.maxAngularVelocity;
+		//}
+		
+		if (v > 0.1 && PlayerVelocity > 0)
 			Turn(h);
-		else if (PlayerVelocity < -0.1 && v < -0.1)
+		else if (v < -0.1 && PlayerVelocity < 0)
 			Turn(-h);
 
 		Vector3 rotation = pRigidBody.rotation.eulerAngles;
@@ -97,10 +116,10 @@ public class PlayerMovement : MonoBehaviour {
 	//------------------------------------------------------
 	public void Turn(float horizon)
 	{
-		float h = fRotSpeed * horizon * Time.deltaTime;
-		/*Quaternion rotation = Quaternion.Euler(0.0f, h, 0.0f);
-		pRigidBody.transform.rotation = pRigidBody.rotation * rotation;*/
-
-		pRigidBody.AddTorque(transform.up * h, ForceMode.VelocityChange);
+		float h = fRotSpeed * horizon * fRotMultiplier;
+		m_EularAngleVelocity = new Vector3(0.0f, h, 0.0f);
+		//pRigidBody.transform.rotation = pRigidBody.rotation * rotation;
+		Quaternion deltaRotation = Quaternion.Euler(m_EularAngleVelocity * Time.deltaTime);
+		pRigidBody.MoveRotation(pRigidBody.rotation * deltaRotation);
 	}
 }

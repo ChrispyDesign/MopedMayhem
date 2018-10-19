@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class _TestCamControl : MonoBehaviour
 {
-
+	[Range(0,10)]
     public float speedH = 2.0f; // Speed horizontal
     public float speedV = 2.0f; // Speed Vertical
 	public GameObject PivotPoint; // take in the Pivot point
