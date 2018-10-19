@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// Main Author - Afridi Rahim
+// Last Worked On - 11/10/2018
+/* Alterations - 
+ * Implementations: Make the Position Changes Public Variables
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
@@ -6,26 +11,31 @@ using UnityEngine;
 public class _MiniMap : MonoBehaviour {
 
     //Two Rectangular Transformation, one for the Small Mini-Map and the other for the Large Mini-Map
-    public RectTransform miniMapS;
-    public RectTransform miniMapL;
+    public RectTransform m_SmlMiniMap;
+    public RectTransform m_LrgMiniMap;
 
     //Two Raw Image's are used, one for the Small Mini-Map and the other for the Large Mini-Map
-    public RawImage imgS;
-    public RawImage imgL;
+    public RawImage m_SmlImg;
+    public RawImage m_LrgImg;
 
     //Two Camera's are used, one for the Small Mini-Map and the other for the Large Mini-Map
-    public Camera miniMapSml;
-    public Camera miniMapLrg;
+    public Camera c_SmlMiniMap;
+    public Camera c_LrgMiniMap;
 
-    //Constant Z value so that the z position doesn't change
-    const float fZ = 0f;
+    //Position and Image size locations for Mini Map
+    public Vector2 v_LrgImageSize;
+    public Vector3 v_LrgImageLocation;
+
+    //Position and Image size locations for Mini Map
+    public Vector2 v_SmlImageSize;
+    public Vector3 v_SmlImageLocation;
 
     //All Startup Variables are done through here 
     void Start()
     {
         //Small Minimap is enabled first whilst the large Minimap is disabled
-        miniMapSml.enabled = true;
-        miniMapLrg.enabled = false;
+        c_SmlMiniMap.enabled = true;
+        c_LrgMiniMap.enabled = false;
     }
 
     // Update is called once per frame
@@ -35,33 +45,41 @@ public class _MiniMap : MonoBehaviour {
         if (Input.GetKeyDown("space"))
         {
             //The Large Image's Alpha Colour is reduced
-            Color c = imgL.color;
+            Color c = m_LrgImg.color;
             c.a = 0.8f;
-            imgL.color = c;
+            m_LrgImg.color = c;
 
             //Small MiniMap is disabled and the Large Minimap is Enabled
-            miniMapSml.enabled = false;
-            miniMapLrg.enabled = true;
+            c_SmlMiniMap.enabled = false;
+            c_LrgMiniMap.enabled = true;
 
-            imgL.rectTransform.sizeDelta = new Vector2(1007, 536);
-            imgL.transform.position = new Vector3(496, 265, fZ);
-            imgS.enabled = false;
-            imgL.enabled = true;
+            //Changes the size of the Large image 
+            m_LrgImg.rectTransform.sizeDelta = new Vector2(v_LrgImageSize.x, v_LrgImageSize.y);
+            //Changes the posiition of the Large Image
+            m_LrgImg.transform.position = new Vector3(v_LrgImageLocation.x, v_LrgImageLocation.y, v_LrgImageLocation.z);
+            //Enables the Large Mini Map and disables the Small Mini Map
+            m_SmlImg.enabled = false;
+            m_LrgImg.enabled = true;
         }
+        //On Keypress 
         if (Input.GetKeyUp("space"))
         {
-
-            Color c = imgS.color;
+            //The Small Image's Alpha Colour is reduced
+            Color c = m_SmlImg.color;
             c.a = 1f;
-            imgS.color = c;
+            m_SmlImg.color = c;
 
-            miniMapSml.enabled = true;
-            miniMapLrg.enabled = false;
+            //Small MiniMap is enabled and the Large Minimap is disabled
+            c_SmlMiniMap.enabled = true;
+            c_LrgMiniMap.enabled = false;
 
-            imgL.rectTransform.sizeDelta = new Vector2(400, 225);
-            imgL.transform.position = new Vector3(974, 94, fZ);
-            imgS.enabled = true;
-            imgL.enabled = false;
+            //Changes the size of the Large image 
+            m_LrgImg.rectTransform.sizeDelta = new Vector2(v_SmlImageSize.x, v_SmlImageSize.y);
+            //Changes the posiition of the Large Image
+            m_LrgImg.transform.position = new Vector3(v_SmlImageLocation.x, v_SmlImageLocation.y, v_SmlImageLocation.z);
+            //Disables the Large Mini Map and Enables the Small Mini Map
+            m_SmlImg.enabled = true;
+            m_LrgImg.enabled = false;
         }
     }
 }

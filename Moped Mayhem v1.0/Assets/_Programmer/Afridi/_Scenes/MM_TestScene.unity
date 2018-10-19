@@ -715,8 +715,8 @@ GameObject:
   - component: {fileID: 716742302}
   - component: {fileID: 716742307}
   - component: {fileID: 716742308}
-  - component: {fileID: 716742309}
   - component: {fileID: 716742306}
+  - component: {fileID: 716742309}
   m_Layer: 0
   m_Name: m_Player
   m_TagString: Player
@@ -843,15 +843,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 716742301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebdc0a8e30dc27548a978dbc5e487073, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a13623a49d2a514692bbf51758c57bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miniMapS: {fileID: 727645199}
-  imgS: {fileID: 1386232245}
-  miniMapL: {fileID: 321165494}
-  imgL: {fileID: 1774892745}
-  miniMapSml: {fileID: 1768975180}
-  miniMapLrg: {fileID: 189868358}
+  m_SmlMiniMap: {fileID: 727645199}
+  m_LrgMiniMap: {fileID: 321165494}
+  m_SmlImg: {fileID: 1386232245}
+  m_LrgImg: {fileID: 1774892745}
+  c_SmlMiniMap: {fileID: 1768975180}
+  c_LrgMiniMap: {fileID: 189868358}
+  v_LrgImageSize: {x: 1920, y: 1080}
+  v_LrgImageLocation: {x: 896, y: 510, z: 0}
+  v_SmlImageSize: {x: 400, y: 225}
+  v_SmlImageLocation: {x: 974, y: 94, z: 0}
 --- !u!1 &727645198
 GameObject:
   m_ObjectHideFlags: 0
