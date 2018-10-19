@@ -32,8 +32,8 @@ public class _MiniMapSize : MonoBehaviour {
             miniMapSml.enabled = false;
             miniMapLrg.enabled = true;
 
-            imgL.rectTransform.sizeDelta = new Vector2(1007, 536);
-            imgL.transform.position = new Vector3(496, 265, fZ);
+            imgL.rectTransform.sizeDelta = new Vector2(1920, 1080);
+            imgL.transform.position = new Vector3(896, 510, fZ);
             imgS.enabled = false;
             imgL.enabled = true;
         }
