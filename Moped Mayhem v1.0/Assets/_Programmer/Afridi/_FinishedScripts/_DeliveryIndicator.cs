@@ -145,7 +145,6 @@ public class _DeliveryIndicator : MonoBehaviour {
         max = vector.x > max ? vector.x : max;
         //if Vector's Y is greater than maximum size, then the vector's Y becomes the maximum size
         max = vector.y > max ? vector.y : max;
-       
 
         //Divides the vector with max
         returnVector /= max;
