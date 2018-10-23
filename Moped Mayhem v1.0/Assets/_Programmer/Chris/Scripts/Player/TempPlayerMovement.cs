@@ -20,9 +20,15 @@ public class TempPlayerMovement : MonoBehaviour
     int nThisIsAnInt;
 
     public Rigidbody rb;
+	public Transform centerOfMass;
 
-    // Update is called once per frame
-    void Update ()
+	private void Start()
+	{
+		rb.centerOfMass = centerOfMass.localPosition;
+	}
+
+	// Update is called once per frame
+	void Update ()
     {
         rb.angularDrag = baseAngularDrag + (rb.velocity.magnitude / rb.maxAngularVelocity) * extraAngularDrag;
 

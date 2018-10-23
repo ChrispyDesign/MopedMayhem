@@ -17,7 +17,7 @@ public class DeliveryPickup : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start()
+	void Awake()
 	{
 		m_Manager = FindObjectOfType<OrderManager>();
 		m_Manager.AddPickUp(this);

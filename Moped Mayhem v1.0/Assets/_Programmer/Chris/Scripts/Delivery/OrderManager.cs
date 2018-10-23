@@ -243,10 +243,15 @@ public class OrderManager : MonoBehaviour
 		Destroy(order.m_Food.gameObject);
 		m_PlayerInventory.RemoveFoodByName(order.m_Food.m_sFoodName);
 
-		Destroy(order.m_DeliveryIndicator.m_FoodImage);
-		Destroy(order.m_DeliveryIndicator.m_IconImage);
-		Destroy(order.m_DeliveryIndicator);
-		order.m_DeliveryIndicator = null;
+		// Destroy Delivery Indicator, if it exists
+		if (order.m_DeliveryIndicator != null)
+		{
+			Destroy(order.m_DeliveryIndicator.m_IconImage);
+			Destroy(order.m_DeliveryIndicator.m_FoodImage);
+			Destroy(order.m_DeliveryIndicator);
+			order.m_DeliveryIndicator = null;
+		}
+
 	}
 
 	private void ActivatePickup(Food food)
@@ -285,6 +290,7 @@ public class OrderManager : MonoBehaviour
 					order.m_DeliveryIndicator = order.m_DropOffZone.gameObject.AddComponent<_DeliveryIndicator>();
 					order.m_DeliveryIndicator.m_TargetIconOffScreen = m_IconOffScreen;
 					order.m_DeliveryIndicator.m_TargetIconOnScreen = m_IconOnScreen;
+					order.m_DeliveryIndicator.m_TargetIconForFood = order.m_Food.m_FoodTexture;
 					order.m_DeliveryIndicator.m_IconImage.texture = m_IconOnScreen;
 					order.m_DeliveryIndicator.m_IconImage.color = order.m_Food.m_TicketColor;
 					order.m_DeliveryIndicator.m_IconImage.transform.localScale = Vector3.one;
@@ -298,8 +304,8 @@ public class OrderManager : MonoBehaviour
 			{
 				if (order.m_DeliveryIndicator != null)
 				{
-					Destroy(order.m_DeliveryIndicator.m_FoodImage);
 					Destroy(order.m_DeliveryIndicator.m_IconImage);
+					Destroy(order.m_DeliveryIndicator.m_FoodImage);
 					Destroy(order.m_DeliveryIndicator);
 					order.m_DeliveryIndicator = null;
 				}
