@@ -14,8 +14,6 @@ public class OrderManager : MonoBehaviour
 	public Text score;
 
 	public Texture m_IconOnScreen;
-	public Texture m_IconOffScreen;
-	
 	public TicketManager m_TicketManager;
 	public PlayerInventory m_PlayerInventory;
 
@@ -287,8 +285,7 @@ public class OrderManager : MonoBehaviour
 			{
 				if (order.m_DeliveryIndicator == null)
 				{
-					order.m_DeliveryIndicator = order.m_DropOffZone.gameObject.AddComponent<_DeliveryIndicator>();
-					order.m_DeliveryIndicator.m_TargetIconOffScreen = m_IconOffScreen;
+					order.m_DeliveryIndicator = order.m_DropOffZone.gameObject.AddComponent<_BDeliveryIndicator>();
 					order.m_DeliveryIndicator.m_TargetIconOnScreen = m_IconOnScreen;
 					order.m_DeliveryIndicator.m_TargetIconForFood = order.m_Food.m_FoodTexture;
 					order.m_DeliveryIndicator.m_IconImage.texture = m_IconOnScreen;

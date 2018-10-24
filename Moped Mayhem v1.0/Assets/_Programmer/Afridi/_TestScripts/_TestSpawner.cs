@@ -29,9 +29,11 @@ public class _TestSpawner : MonoBehaviour {
         {
             SpawnMe(BikerSpawnAmount, 5.0f, m_Biker.transform, m_BikerSpwn.transform);
             BikerSpawnRate = 10.0f;
-            BikerSpawnRate += 1.9f;
+            BikerSpawnRate += 1.99f;
         }
-        
+        if (KillAll) {
+            Destroy(m_Biker);
+        }
 
     }
 

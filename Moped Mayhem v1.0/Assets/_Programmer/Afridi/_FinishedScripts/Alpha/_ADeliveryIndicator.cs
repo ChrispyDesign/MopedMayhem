@@ -7,7 +7,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class _DeliveryIndicator : MonoBehaviour {
+public class _ADeliveryIndicator : MonoBehaviour
+{
 
     //Variables that control the camera and its offset and image transformation 
     private Camera m_MainCamera;
@@ -34,7 +35,7 @@ public class _DeliveryIndicator : MonoBehaviour {
         m_MainCamera = Camera.main;
         //Finds A Canvas in the game and applys it
         m_MainCanvas = FindObjectOfType<Canvas>();
-        
+
 
         //If there is no Canvas, pop a message saying we need one
         Debug.Assert((m_MainCanvas != null), "Need A Canvas To Operate");
@@ -98,13 +99,14 @@ public class _DeliveryIndicator : MonoBehaviour {
         //Sets the New position to the camera which turns it into a viewport display
         newPos = m_MainCamera.WorldToViewportPoint(newPos);
         //if the new position's Z is less than 0
-        if (newPos.z < 0) {
+        if (newPos.z < 0)
+        {
             //Set the New Position's axis to subtract by 1f
             newPos.x = 1f - newPos.x;
             newPos.y = 1f - newPos.y;
 
             //Makes the new pos become a 3-D Vector
-            newPos = Vector3Maxamize(newPos);          
+            newPos = Vector3Maxamize(newPos);
 
             //Sprite Changes to the image off-screen
             m_IconImage.texture = m_TargetIconOffScreen;

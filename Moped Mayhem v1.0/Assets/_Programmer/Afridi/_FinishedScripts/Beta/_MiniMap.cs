@@ -34,6 +34,7 @@ public class _MiniMap : MonoBehaviour {
         //Small Minimap is enabled first whilst the large Minimap is disabled
         c_SmlMiniMap.enabled = true;
         c_LrgMiniMap.enabled = false;
+        m_LrgImg.enabled = false;
     }
 
     // Update is called once per frame
@@ -72,9 +73,9 @@ public class _MiniMap : MonoBehaviour {
             c_LrgMiniMap.enabled = false;
 
 			//Changes the size of the Large image 
-			m_LrgImg.rectTransform.sizeDelta = v_SmlImageLocation.sizeDelta;
+			m_SmlImg.rectTransform.sizeDelta = v_SmlImageLocation.sizeDelta;
             //Changes the posiition of the Large Image
-            m_LrgImg.transform.position = v_SmlImageLocation.position;
+            m_SmlImg.transform.position = v_SmlImageLocation.position;
             //Disables the Large Mini Map and Enables the Small Mini Map
             m_SmlImg.enabled = true;
             m_LrgImg.enabled = false;

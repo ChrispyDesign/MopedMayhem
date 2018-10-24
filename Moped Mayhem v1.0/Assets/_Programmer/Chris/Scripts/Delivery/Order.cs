@@ -14,7 +14,7 @@ public class Order
     public Food m_Food;
 	public float m_fStartTime;		// When it starts
 	public float m_fOrderExiryTime; // How Long it exists
-	public _DeliveryIndicator m_DeliveryIndicator;
+	public _BDeliveryIndicator m_DeliveryIndicator;
 
 	[HideInInspector]
 	public OrderManager m_OrderManager;
