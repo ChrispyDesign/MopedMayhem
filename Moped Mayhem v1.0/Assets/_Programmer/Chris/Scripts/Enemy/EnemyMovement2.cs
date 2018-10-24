@@ -12,6 +12,8 @@ public class EnemyMovement2 : MonoBehaviour
 {
 	public GameObject m_Player;
 
+	public Transform m_CenterOfMass;
+
 	public EnemyReversingSensor m_ReversingSensor;
 	public EnemyMovementSensor m_FrontSensor;
 	public EnemyMovementSensor m_RearSensor;
@@ -25,6 +27,8 @@ public class EnemyMovement2 : MonoBehaviour
 	public float m_fMaxBrakingForce;
 	public float m_fMaxReverseSpeed;
 	public float m_fOptimalTurnSpeed;
+
+	public float m_fOffset = 2.0f;
 
 	[Range(0, 3f)]
 	public float m_fOptimalTurnRadians;
@@ -51,6 +55,7 @@ public class EnemyMovement2 : MonoBehaviour
 
 		// Set Up RigidBody
 		m_Rigidbody.maxAngularVelocity = m_fMaxTurnSpeed;
+		m_Rigidbody.centerOfMass = m_CenterOfMass.position;
 	}
 
 	private void Update()
@@ -106,78 +111,11 @@ public class EnemyMovement2 : MonoBehaviour
 		m_NavAgent.nextPosition = transform.position;
 		var path = m_NavAgent.path;
 
-		/// Calculate Reversing (3 Point Turn)
 
-		// IF Reversing Sensor has collision
-		if (m_ReversingSensor.m_bActive)
-		{
-			// Start Reversing
-			m_bReversing = true;
-
-			if (m_RearSensor.m_bColliding)
-			{
-				m_bReversing = false;
-			}
-		}
-		else if (m_bReversing)
-		{
-			m_bReversing = false;
-		}
-
-		// IF Reversing
-		if (m_bReversing)
-		{
-			// Get Dot Product
-			Vector2 v2ReversingLhs = new Vector2(m_Rigidbody.velocity.x, m_Rigidbody.velocity.z);
-			v2ReversingLhs.Normalize();
-
-			Vector2 v2ReversingRhs = new Vector2(transform.forward.x, transform.forward.z);
-
-			float fDot = Vector2.Dot(v2ReversingLhs, v2ReversingRhs);
-
-			// IF going forwards
-			if (fDot > 0.1f)
-			{
-				// Brake
-				Vector3 brakingImpulse = -Vector3.Normalize(m_Rigidbody.velocity) * m_fAcceleration * fDeltaTime;
-				if (brakingImpulse.magnitude > m_fMaxBrakingForce)
-				{
-					brakingImpulse.Normalize();
-					brakingImpulse *= m_fMaxBrakingForce;
-				}
-
-				if (m_Rigidbody.velocity.sqrMagnitude < brakingImpulse.sqrMagnitude)
-				{
-					m_Rigidbody.velocity = Vector3.zero;
-				}
-				else
-				{
-					m_Rigidbody.velocity -= brakingImpulse;
-				}				
-			}
-			// ELSE
-			else
-			{
-				// Reverse
-				Vector3 reversingForce = -transform.forward * m_fAcceleration;
-				v3Acceleration += reversingForce;				
-			}
-
-			if (m_RearSensor.m_bColliding)
-			{
-				m_bReversing = false;
-			}
-		}
-
-		/// Calculate Path Acceleration
-		if (!m_bReversing)
-		{
-			Vector3 acceleratingImpulse = transform.forward * m_fAcceleration;
-			v3Acceleration += acceleratingImpulse;
-		}
+		// Find Rotation
 
 		/// Calculate Path Turning
-		
+
 
 		//Determine how much it needs to turn
 		if (path.corners.Length > 1)
@@ -221,66 +159,6 @@ public class EnemyMovement2 : MonoBehaviour
 			fTurnRadians -= m_fMaxCollisionTurnRadians * fTurnMultiplier;
 		}
 
-		/// Check velocity is within bounds (Do this before braking)
-		if (m_Rigidbody.velocity.magnitude > m_fMaxChaseSpeed)
-		{
-			m_Rigidbody.velocity = Vector3.Normalize(m_Rigidbody.velocity) * m_fMaxChaseSpeed;
-		}
-
-		/// Calculate Path Braking
-		Vector3 v3BrakingImpulse = new Vector3();
-		// IF not reversing
-		if (!m_bReversing)
-		{
-			
-			// Add Path Braking to velocity 
-			if (path.corners.Length > 2)
-			{
-				Vector3 lhs = path.corners[1] - path.corners[0];
-				float fDistanceTillTurn = lhs.magnitude;
-				lhs.Normalize();
-				Vector3 rhs = path.corners[2] - path.corners[1];
-				rhs.Normalize();
-
-				float fDot = Vector3.Dot(lhs, rhs);
-				float fRad = Mathf.Acos(fDot);
-
-				if (fRad > m_fOptimalTurnRadians)
-				{
-					Vector3 v3CurrentVelocity = m_Rigidbody.velocity;
-					float fCurrentSpeed = v3CurrentVelocity.magnitude;
-
-					if (fCurrentSpeed > m_fOptimalTurnSpeed)
-					{
-						float fTimeTillTurn = fDistanceTillTurn / fCurrentSpeed;
-						float fBrakingMagnitude = (m_fOptimalTurnSpeed - fCurrentSpeed) / fTimeTillTurn;
-
-						if (fBrakingMagnitude > m_fMaxBrakingForce)
-						{
-							fBrakingMagnitude = m_fMaxBrakingForce;
-						}
-
-						v3BrakingImpulse += -Vector3.Normalize(m_Rigidbody.velocity) * fBrakingMagnitude;
-					}
-				}
-			}
-		}
-
-		/// Calculate Collision Braking
-		// Add Collision Braking to velocity
-		if (m_FrontSensor.m_bColliding)
-		{
-			float fBrakingMultiplier = ((m_FrontSensor.m_fMaxSeperation - m_FrontSensor.m_fSeperation) / m_FrontSensor.m_fMaxSeperation);
-			v3BrakingImpulse += -Vector3.Normalize(m_Rigidbody.velocity) * m_fMaxBrakingForce * fBrakingMultiplier;
-
-			if (v3BrakingImpulse.magnitude > m_fMaxBrakingForce)
-			{
-				v3BrakingImpulse.Normalize();
-				v3BrakingImpulse *= m_fMaxBrakingForce;
-			}
-		}
-
-
 		/// Calculate Rotation
 		float fRatio;
 		float fSpeed = m_Rigidbody.velocity.magnitude;
@@ -295,20 +173,8 @@ public class EnemyMovement2 : MonoBehaviour
 			fRatio = (fMaxOptimalDiff - fOverOptimalSpeed) / fMaxOptimalDiff;
 		}
 
-		// MOVE
-		if (path.corners.Length > 1)
-		{
-			v3Acceleration *= Vector3.Dot(transform.forward, path.corners[1] - transform.position);
-		}
-		m_Rigidbody.AddForce(v3Acceleration, ForceMode.Impulse);
-		if (m_Rigidbody.velocity.magnitude > m_fMaxChaseSpeed)
-		{
-			Debug.Log("Maxxed");
-			m_Rigidbody.velocity = Vector3.Normalize(m_Rigidbody.velocity) * m_fMaxChaseSpeed;
-		}
-
 		// ROTATE
-		//if (fTurnRadians > 0.5|| fTurnRadians < -0.5 )
+		//if (fTurnRadians > 0.25|| fTurnRadians < -0.25 )
 		{
 			float fTurnSpeed = fTurnRadians * fRatio;
 			if (float.IsNaN(fTurnSpeed))
@@ -320,19 +186,20 @@ public class EnemyMovement2 : MonoBehaviour
 				m_Rigidbody.AddTorque(transform.up * fTurnSpeed);
 			}
 		}
-		
 
-		Debug.Log(m_Rigidbody.angularVelocity);
+		// Acceleration
 
-		// BRAKE
-		if (m_Rigidbody.velocity.sqrMagnitude < v3BrakingImpulse.sqrMagnitude)
+		// Future Pos
+		if (path.corners.Length > 1)
 		{
-			m_Rigidbody.velocity = Vector3.zero;
+			Vector3 target = path.corners[1];
+			Vector3 futurePos = transform.position + m_Rigidbody.velocity * m_fOffset;
+			Vector3 direction = target - futurePos;
+			v3Acceleration = transform.forward * Vector3.Dot(transform.forward, direction.normalized) * m_fAcceleration;
 		}
-		else
-		{
-			m_Rigidbody.velocity -= v3BrakingImpulse;
-		}
+
+
+		m_Rigidbody.AddForce(v3Acceleration, ForceMode.Impulse);
 	}
 
 	public void MoveCatchUp()
