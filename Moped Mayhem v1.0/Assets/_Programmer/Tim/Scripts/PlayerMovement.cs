@@ -23,11 +23,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	[Range(0, 10)]
 	public float m_fBaseAngularDrag;
-	[Range(0, 10)]
+	[Range(0, 5)]
 	public float m_fEXAngularDrag;
 
 	Vector3 m_EularAngleVelocity;
 
+	public Transform m_CenterOfMass;
+	public bool m_bUsingCenterOfMass = true;
 
 	//------------------------------------------------------
 	// Start()
@@ -37,6 +39,10 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		pRigidBody = player.GetComponent<Rigidbody>();
 		fForwardSpeed = fSpeed;
+
+		m_CenterOfMass.GetComponent<Rigidbody>();
+
+		SetCenterOfMass();
 	}
 
 	//------------------------------------------------------
@@ -53,33 +59,31 @@ public class PlayerMovement : MonoBehaviour {
 	//------------------------------------------------------
 	void FixedUpdate()
 	{
-
 		float v = Input.GetAxis("Vertical");
 		float h = Input.GetAxis("Horizontal");
 
 		Move(v);
 		var PlayerVelocity = Vector3.Dot(player.transform.forward, Vector3.Normalize(pRigidBody.velocity));
-
-		//float fSpeed = pRigidBody.velocity.magnitude;
-		//if (fSpeed > 0.1)
-		//{
-		//	pRigidBody.angularDrag = m_fBaseAngularDrag + (pRigidBody.velocity.magnitude / pRigidBody.maxAngularVelocity) + m_fEXAngularDrag;
-		//}
-		//else
-		//{
-		//	pRigidBody.angularDrag = pRigidBody.maxAngularVelocity;
-		//}
 		
 		if (v > 0.1 && PlayerVelocity > 0)
 			Turn(h);
 		else if (v < -0.1 && PlayerVelocity < 0)
 			Turn(-h);
 
+		pRigidBody.maxAngularVelocity = 2;
+
 		Vector3 rotation = pRigidBody.rotation.eulerAngles;
 		rotation.x = 0;
 		rotation.z = 0;
 
 		pRigidBody.rotation = Quaternion.Euler(rotation);
+
+
+		// test
+		if (Input.GetKeyDown(KeyCode.B))
+		{
+			m_bUsingCenterOfMass = !m_bUsingCenterOfMass;
+		}
 	}
 
 	//------------------------------------------------------
@@ -116,10 +120,27 @@ public class PlayerMovement : MonoBehaviour {
 	//------------------------------------------------------
 	public void Turn(float horizon)
 	{
-		float h = fRotSpeed * horizon * fRotMultiplier;
+		float h = fRotSpeed * horizon ;
 		m_EularAngleVelocity = new Vector3(0.0f, h, 0.0f);
+		
+		pRigidBody.AddTorque(m_EularAngleVelocity, ForceMode.Impulse);
+
 		//pRigidBody.transform.rotation = pRigidBody.rotation * rotation;
-		Quaternion deltaRotation = Quaternion.Euler(m_EularAngleVelocity * Time.deltaTime);
-		pRigidBody.MoveRotation(pRigidBody.rotation * deltaRotation);
+		//Quaternion deltaRotation = Quaternion.Euler(m_EularAngleVelocity * Time.deltaTime);
+		//pRigidBody.MoveRotation(pRigidBody.rotation * deltaRotation);
+	}
+
+	public void SetCenterOfMass()
+	{
+		if (m_bUsingCenterOfMass == true)
+		{
+			pRigidBody.centerOfMass = m_CenterOfMass.localPosition;
+			Debug.Log(pRigidBody.centerOfMass);
+		}
+		else
+		{
+			pRigidBody.ResetCenterOfMass();
+			Debug.Log(pRigidBody.centerOfMass);
+		}
 	}
 }

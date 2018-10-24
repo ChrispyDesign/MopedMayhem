@@ -1,6 +1,6 @@
 ﻿// Main Author - Tim Langford
 //
-// Date last worked on 18/10/18
+// Date last worked on 24/10/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -8,9 +8,6 @@ using UnityEngine;
 
 public class SniperAttack : MonoBehaviour
 {
-	//TEMP
-	private TempHeart heart;
-
 	public Transform m_Player; // Target Player 
 
 	public Transform m_BarrelEnd;
@@ -23,7 +20,9 @@ public class SniperAttack : MonoBehaviour
 	private Vector3 m_ReticleTopStart, m_ReticleBotStart,
 					m_ReticleLeftStart, m_ReticleRightStart; // Reticle Start Points
 
+	[Range(1,10)]
 	public float m_fReticleRotationSpeed = 2.0f;
+	[Range(1,10)]
 	public float m_fAttackDuration;
 	private float m_fAttackEnd;
 	private bool m_bAttacking;
@@ -34,11 +33,14 @@ public class SniperAttack : MonoBehaviour
 	private Rigidbody m_SniperRB;
 	private	Vector3 m_Vec3Force;
 
+	private Rigidbody m_PlayerRB;
+
+	[Range(0,5)]
+	public float m_fKnockBack = 2;
+
 	// Use this for initialization
 	void Start()
 	{
-		heart = FindObjectOfType<TempHeart>();
-
 		m_ReticleTopStart	= m_ReticleTop.transform.localPosition;
 		m_ReticleBotStart	= m_ReticleBot.transform.localPosition;
 		m_ReticleLeftStart = m_ReticleLeft.transform.localPosition;
@@ -46,6 +48,8 @@ public class SniperAttack : MonoBehaviour
 		m_SniperRB = gameObject.GetComponent<Rigidbody>();
 
 		m_PrevPos = transform.position;
+
+		m_PlayerRB = m_Player.GetComponent<Rigidbody>();
 	}
 
 	// Update is called once per frame
@@ -75,14 +79,13 @@ public class SniperAttack : MonoBehaviour
 
 		RaycastHit hit;
 		Vector3 direction = m_Player.position - m_BarrelEnd.position;
-		 Ray ray = new Ray(m_BarrelEnd.position, direction);
+		Ray ray = new Ray(m_BarrelEnd.position, direction);
 
 		if (Physics.Raycast(ray, out hit, direction.magnitude + 1))
 		{
 			// IF what it hit is not the player
 			if (hit.collider.gameObject.tag != "Player")
 			{
-
 				// End the attack
 				m_bAttacking = false;
 				m_fAttackEnd = 0;
@@ -146,8 +149,9 @@ public class SniperAttack : MonoBehaviour
 				// Stop the attack
 				m_bAttacking = false;
 
-				// Make Player take damage
-				heart.TakeDamage();
+				// Make Player Move X distance
+
+				m_PlayerRB.AddForce(direction * m_fKnockBack, ForceMode.Impulse);
 			}
 		}
 	}
