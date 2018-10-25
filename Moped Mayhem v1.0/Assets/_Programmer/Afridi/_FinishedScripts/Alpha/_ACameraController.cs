@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class _CameraController : MonoBehaviour
+public class _ACameraController : MonoBehaviour
 {
 
     public float fSpeedH = 2.0f; // Speed horizontal

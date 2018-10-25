@@ -76,6 +76,7 @@ public class _BDeliveryIndicator : MonoBehaviour {
         newPos = m_MainCamera.ViewportToScreenPoint(newPos);
         newPos.x = Mathf.Clamp(newPos.x, f_EdgeBuffer, Screen.width - f_EdgeBuffer);
         newPos.y = Mathf.Clamp(newPos.y, f_EdgeBuffer, Screen.height - f_EdgeBuffer);
+        newPos.z = 0f;
         m_Icon.transform.position = newPos;
         m_FoodIcon.transform.position = newPos;
         //Operations if the object is out of the screen

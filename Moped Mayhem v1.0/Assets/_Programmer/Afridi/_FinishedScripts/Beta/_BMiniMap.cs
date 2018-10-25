@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class _MiniMap : MonoBehaviour {
+public class _BMiniMap : MonoBehaviour {
 
     //Two Rectangular Transformation, one for the Small Mini-Map and the other for the Large Mini-Map
     public RectTransform m_SmlMiniMap;

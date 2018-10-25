@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class _TestSpawner : MonoBehaviour
+public class _ASpawner : MonoBehaviour
 {
 
     public GameObject m_Biker;
@@ -13,24 +13,27 @@ public class _TestSpawner : MonoBehaviour
 
     public int BikerSpawnAmount = 0;
     public float BikerSpawnRate = 0.0f;
-    
+
     public int SniperSpawnAmount = 0;
     public float SniperSpawnRate = 0.0f;
 
     public bool KillAll;
 
-    void Start() {
+    void Start()
+    {
         KillAll = false;
     }
     void Update()
     {
-        if (KillAll) {
+        if (KillAll)
+        {
             Destroy(m_Biker);
         }
 
         BikerSpawner();
     }
-    void BikerSpawner() {
+    void BikerSpawner()
+    {
 
         BikerSpawnRate -= Time.deltaTime;
         if (BikerSpawnRate <= 0f)
@@ -39,10 +42,8 @@ public class _TestSpawner : MonoBehaviour
             {
                 Instantiate(m_Biker, m_BikerSpwn[Spawns].transform.position, m_BikerSpwn[Spawns].transform.rotation);
                 BikerSpawnRate = 10.0f;
-                BikerSpawnRate += 1.9f; 
+                BikerSpawnRate += 1.9f;
             }
         }
     }
-
 }
-
