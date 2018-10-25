@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 	private float fRotMultiplier = 10.0f; // rotation multiplyer
 
 	public GameObject player; // players gameobject
+	private GameObject CenOfMass;
 	public Rigidbody pRigidBody; // players Rigid Body
 
 	[Range(0, 10)]
@@ -28,8 +29,12 @@ public class PlayerMovement : MonoBehaviour {
 
 	Vector3 m_EularAngleVelocity;
 
-	public Transform m_CenterOfMass;
-	public bool m_bUsingCenterOfMass = true;
+	[Range(0,4)]
+	public float m_fDragLerpMin, m_fDragLerpMax;
+
+	[Range(1, 20)]
+	public float m_fGravity;
+
 
 	//------------------------------------------------------
 	// Start()
@@ -40,7 +45,12 @@ public class PlayerMovement : MonoBehaviour {
 		pRigidBody = player.GetComponent<Rigidbody>();
 		fForwardSpeed = fSpeed;
 
-		SetCenterOfMass();
+		CenOfMass = GameObject.Find("CenOfMass");
+
+		pRigidBody.centerOfMass = new Vector3(0, 0.5f, -0.5f);
+		CenOfMass.transform.position = pRigidBody.centerOfMass;
+		CenOfMass.transform.rotation = pRigidBody.rotation;
+		Physics.gravity = Vector3.down * m_fGravity;
 	}
 
 	//------------------------------------------------------
@@ -61,27 +71,25 @@ public class PlayerMovement : MonoBehaviour {
 		float h = Input.GetAxis("Horizontal");
 
 		Move(v);
-		var PlayerVelocity = Vector3.Dot(player.transform.forward, Vector3.Normalize(pRigidBody.velocity));
-		
-		if (v > 0.1 && PlayerVelocity > 0)
-			Turn(h);
-		else if (v < -0.1 && PlayerVelocity < 0)
-			Turn(-h);
+		var PlayerVelocity = Vector3.Dot(CenOfMass.transform.forward, Vector3.Normalize(pRigidBody.velocity));
+		Debug.Log(PlayerVelocity);
 
-		pRigidBody.maxAngularVelocity = 2;
+		if (PlayerVelocity > 0.01)
+		{
+			Turn(h);
+		}
+		else if (PlayerVelocity < -0.01)
+		{
+			Turn(-h);
+		}
+
+		pRigidBody.maxAngularVelocity = 2.5f;
 
 		Vector3 rotation = pRigidBody.rotation.eulerAngles;
 		rotation.x = 0;
 		rotation.z = 0;
 
 		pRigidBody.rotation = Quaternion.Euler(rotation);
-
-
-		// test
-		if (Input.GetKeyDown(KeyCode.B))
-		{
-			m_bUsingCenterOfMass = !m_bUsingCenterOfMass;
-		}
 	}
 
 	//------------------------------------------------------
@@ -118,27 +126,16 @@ public class PlayerMovement : MonoBehaviour {
 	//------------------------------------------------------
 	public void Turn(float horizon)
 	{
-		float h = fRotSpeed * horizon ;
+		float h = fRotSpeed * horizon;
 		m_EularAngleVelocity = new Vector3(0.0f, h, 0.0f);
-		
+
 		pRigidBody.AddTorque(m_EularAngleVelocity, ForceMode.Impulse);
+
+		float m_fLerp = 1 - (pRigidBody.maxAngularVelocity - pRigidBody.angularVelocity.magnitude) / pRigidBody.maxAngularVelocity;
+		pRigidBody.drag = Mathf.Lerp(m_fDragLerpMin, m_fDragLerpMax, m_fLerp);
 
 		//pRigidBody.transform.rotation = pRigidBody.rotation * rotation;
 		//Quaternion deltaRotation = Quaternion.Euler(m_EularAngleVelocity * Time.deltaTime);
 		//pRigidBody.MoveRotation(pRigidBody.rotation * deltaRotation);
-	}
-
-	public void SetCenterOfMass()
-	{
-		if (m_bUsingCenterOfMass == true)
-		{
-			pRigidBody.centerOfMass = m_CenterOfMass.localPosition;
-			Debug.Log(pRigidBody.centerOfMass);
-		}
-		else
-		{
-			pRigidBody.ResetCenterOfMass();
-			Debug.Log(pRigidBody.centerOfMass);
-		}
 	}
 }
