@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class _TestSpawner : MonoBehaviour {
+public class _TestSpawner : MonoBehaviour
+{
 
     public GameObject m_Biker;
     public GameObject m_Sniper;
 
-    public GameObject m_BikerSpwn;
+    public GameObject[] m_BikerSpwn;
     public GameObject m_SniperSpwn;
 
     public int BikerSpawnAmount = 0;
@@ -18,31 +19,30 @@ public class _TestSpawner : MonoBehaviour {
 
     public bool KillAll;
 
-    void Start()
-    {
+    void Start() {
         KillAll = false;
     }
     void Update()
     {
-        BikerSpawnRate -= Time.deltaTime;
-        if (BikerSpawnRate <= 0f)
-        {
-            SpawnMe(BikerSpawnAmount, 5.0f, m_Biker.transform, m_BikerSpwn.transform);
-            BikerSpawnRate = 10.0f;
-            BikerSpawnRate += 1.99f;
-        }
         if (KillAll) {
             Destroy(m_Biker);
         }
 
+        BikerSpawner();
     }
+    void BikerSpawner() {
 
-    public void SpawnMe(int EnemyAmount, float spaceBetween, Transform Enemy, Transform SpawnPint)
-    {
-        for (int Spawns = 0; Spawns < EnemyAmount; Spawns++)
+        BikerSpawnRate -= Time.deltaTime;
+        if (BikerSpawnRate <= 0f)
         {
-            Instantiate(Enemy, SpawnPint.position, SpawnPint.rotation);
+            for (int Spawns = 0; Spawns < BikerSpawnAmount; Spawns++)
+            {
+                Instantiate(m_Biker, m_BikerSpwn[Spawns].transform.position, m_BikerSpwn[Spawns].transform.rotation);
+                BikerSpawnRate = 10.0f;
+                BikerSpawnRate += 1.9f; 
+            }
         }
     }
+
 }
 

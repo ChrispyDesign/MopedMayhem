@@ -1,6 +1,7 @@
 ﻿// Main Author - Afridi Rahim
-// Last Worked On - 19/10/2018
+// Last Worked On - 25/10/2018
 /* Alterations - Made a second Icon for the food to be on the Indicator : Completed
+ *             - Arrow Rotates to Object : Completed
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -28,17 +29,18 @@ public class _BDeliveryIndicator : MonoBehaviour {
     public bool bPoint2Target = true;
     //Indicates if the object is out of the screen
     private bool bOutOfScreen;
-    void Start()
+    void Awake()
     {
         m_MainCamera = Camera.main;
         m_MainCanvas = FindObjectOfType<Canvas>();
-        Debug.Assert((m_MainCanvas != null), "There needs to be a Canvas object in the scene for the OTI to display");
+        Debug.Assert((m_MainCanvas != null), "No Canvas Attatched");
         InstainateTargetIcon();
     }
-    void Update()
+    void FixedUpdate()
     {
         UpdateTargetIconPosition();
     }
+
     private void InstainateTargetIcon()
     {
         m_Icon = new GameObject().AddComponent<RectTransform>();
@@ -59,7 +61,7 @@ public class _BDeliveryIndicator : MonoBehaviour {
     {
         Vector3 newPos = transform.position;
         newPos = m_MainCamera.WorldToViewportPoint(newPos);
-        //Simple check if the target object is out of the screen or inside
+        //Simple check if the target object is out of the screen or insidewd
         if (newPos.x > 1 || newPos.y > 1 || newPos.x < 0 || newPos.y < 0)
             bOutOfScreen = true;
         else

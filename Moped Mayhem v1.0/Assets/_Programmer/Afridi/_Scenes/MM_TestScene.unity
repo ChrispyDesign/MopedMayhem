@@ -486,14 +486,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 532172610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e604c1d396a60944a4c8e6ea100f917, type: 3}
+  m_Script: {fileID: 11500000, guid: a0ee268a1d8214345b8ee5447650b3cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IconImage: {fileID: 0}
   m_FoodImage: {fileID: 0}
   m_TargetIconOnScreen: {fileID: 2800000, guid: 6a0fb8df3e9ee334caeb59a6e487b540,
     type: 3}
-  m_TargetIconForFood: {fileID: 2800000, guid: ab613056dd7e27442a56ab18eaa08606, type: 3}
+  m_TargetIconForFood: {fileID: 2800000, guid: aa2cafc9f286b4b4fa700c09c81a96c8, type: 3}
   f_EdgeBuffer: 51.5
   m_targetIconScale: {x: 1, y: 1, z: 1}
   m_foodIconScale: {x: 0.5, y: 0.5, z: 0.5}
@@ -619,9 +619,8 @@ GameObject:
   - component: {fileID: 716742303}
   - component: {fileID: 716742302}
   - component: {fileID: 716742307}
-  - component: {fileID: 716742308}
-  - component: {fileID: 716742309}
   - component: {fileID: 716742306}
+  - component: {fileID: 716742308}
   m_Layer: 0
   m_Name: m_Player
   m_TagString: Player
@@ -732,18 +731,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 716742301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39b885367b36a594fae3ed2c7b762d02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &716742309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 716742301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a13623a49d2a514692bbf51758c57bd, type: 3}
+  m_Script: {fileID: 11500000, guid: a2543afea65318240a900b58ae94c58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SmlMiniMap: {fileID: 727645199}
@@ -1266,7 +1254,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1098682582
 GameObject:
@@ -1290,7 +1278,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1098682582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 112.4, y: -92.23, z: -34.6}
+  m_LocalPosition: {x: 36.27, y: -92.23, z: -34.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2036261421}
@@ -1457,11 +1445,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1201657372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 112.4, y: -92.23, z: 46.4}
+  m_LocalPosition: {x: 57.450016, y: -0.08086395, z: 50.716236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2036261421}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1285435667
 Prefab:
@@ -1543,11 +1531,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1310991509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.4, y: -92.23, z: 46.4}
+  m_LocalPosition: {x: -26.549986, y: -0.08086395, z: 50.716236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2036261421}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1386232243
 GameObject:
@@ -1981,7 +1969,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1657528966
 GameObject:
@@ -2254,7 +2242,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768975177
 GameObject:
@@ -2499,8 +2487,6 @@ Transform:
   m_Children:
   - {fileID: 908569233}
   - {fileID: 1098682583}
-  - {fileID: 1201657373}
-  - {fileID: 1310991510}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2517,7 +2503,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Biker: {fileID: 1749367606}
   m_Sniper: {fileID: 0}
-  m_BikerSpwn: {fileID: 2036261420}
+  m_BikerSpwn:
+  - {fileID: 908569232}
+  - {fileID: 1098682582}
   m_SniperSpwn: {fileID: 0}
   BikerSpawnAmount: 1
   BikerSpawnRate: 10
