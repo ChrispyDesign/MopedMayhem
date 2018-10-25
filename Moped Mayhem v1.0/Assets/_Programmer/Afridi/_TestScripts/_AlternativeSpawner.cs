@@ -25,10 +25,10 @@ public class _AlternativeSpawner : MonoBehaviour {
     [Tooltip("This is the Distance Between the Player and The Biker Spawn point")]
     [Range(0, 60)]
     public float DistanceBetweenBiker = 0;
-    [Tooltip("This is the Distance Between the Player and The Biker Spawn point")]
+    [Tooltip("This is the Distance Between the Player and The Sniper Spawn point")]
     [Range(0, 80)]
     public float DistanceBetweenSniper = 0;
-    [Tooltip("This is the Distance Between the Player and The Biker Spawn point")]
+    [Tooltip("This is the Distance Between the Player and The Demo Spawn point")]
     [Range(0, 100)]
     public float DistanceBetweenDemo = 0;
 
