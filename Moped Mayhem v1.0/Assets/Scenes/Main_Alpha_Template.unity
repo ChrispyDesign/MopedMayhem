@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1318,6 +1318,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4903264558861858, guid: f5d02cc4fea88cd489412bb52a6f2972,
     type: 2}
   m_PrefabInternal: {fileID: 71847909}
+--- !u!1 &72302908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 72302909}
+  m_Layer: 0
+  m_Name: DemoSpawn
+  m_TagString: DemoSpawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &72302909
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 72302908}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.58081055, y: 4.998989, z: 3.3473816}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 111254918}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &73819687
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1825,34 +1853,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 111254918}
-  - component: {fileID: 111254917}
+  - component: {fileID: 111254919}
   m_Layer: 0
   m_Name: Biker Spawns
-  m_TagString: Untagged
+  m_TagString: BikerSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &111254917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 111254916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1846efa492b374f8f5951be028f10f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Biker: {fileID: 1358952711}
-  m_Sniper: {fileID: 0}
-  m_BikerSpwn: {fileID: 111254916}
-  m_SniperSpwn: {fileID: 0}
-  BikerSpawnAmount: 1
-  BikerSpawnRate: 10
-  SniperSpawnAmount: 0
-  SniperSpawnRate: 0
-  KillAll: 0
 --- !u!4 &111254918
 Transform:
   m_ObjectHideFlags: 0
@@ -1867,9 +1875,38 @@ Transform:
   - {fileID: 164715152}
   - {fileID: 1471812994}
   - {fileID: 905868252}
+  - {fileID: 1928156705}
+  - {fileID: 72302909}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111254919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111254916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c51f9765703fa3429b1402eb0925302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Biker: {fileID: 1626231824227024, guid: 08660498756c8bd44b2969fd8c5cd9e3, type: 2}
+  Sniper: {fileID: 1341604276898074, guid: 3bee90d6629374f4699ccb0348b7dae7, type: 2}
+  Demolisher: {fileID: 1000252844036406, guid: e86dfa82c33bd9a4b9834f4ec98a2193, type: 2}
+  Player: {fileID: 1272222951}
+  BikerSpawn: []
+  SniperSpawn: []
+  DemoSpawn: []
+  AmountofBikerSpawns: 3
+  AmountofSniperSpawns: 0
+  AmountofDemoSpawns: 0
+  RateOfBikerSpawn: 2
+  RateOfSniperSpawn: 0
+  RateOfDemoSpawn: 0
+  DistanceBetweenBiker: 50
+  DistanceBetweenSniper: 0
+  DistanceBetweenDemo: 0
 --- !u!43 &114087697
 Mesh:
   m_ObjectHideFlags: 0
@@ -3747,7 +3784,7 @@ GameObject:
   - component: {fileID: 164715152}
   m_Layer: 0
   m_Name: Biker_Spawn (1)
-  m_TagString: Untagged
+  m_TagString: BikerSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4440,6 +4477,11 @@ Prefab:
       propertyPath: m_Center.y
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114129231247397578, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_CenterOfMass
+      value: 
+      objectReference: {fileID: 512974984}
     m_RemovedComponents:
     - {fileID: 114185365797480682, guid: b3bda4eb0d352b349b9be2cb6504fe66, type: 2}
     - {fileID: 136835900795320528, guid: b3bda4eb0d352b349b9be2cb6504fe66, type: 2}
@@ -4448,6 +4490,11 @@ Prefab:
     - {fileID: 114236905901912206, guid: b3bda4eb0d352b349b9be2cb6504fe66, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b3bda4eb0d352b349b9be2cb6504fe66, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &189153560 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224749314454464954, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+    type: 2}
+  m_PrefabInternal: {fileID: 189153559}
 --- !u!43 &192158068
 Mesh:
   m_ObjectHideFlags: 0
@@ -10315,6 +10362,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4997264715965470, guid: 3aee4db3de4e3cc4980141d0a02b5d95,
     type: 2}
   m_PrefabInternal: {fileID: 512134544}
+--- !u!1 &512974983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 512974984}
+  m_Layer: 0
+  m_Name: COM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &512974984
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 512974983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 697364014}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &520112244
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19664,7 +19739,7 @@ GameObject:
   - component: {fileID: 905868252}
   m_Layer: 0
   m_Name: Biker_Spawn (3)
-  m_TagString: Untagged
+  m_TagString: BikerSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21419,7 +21494,7 @@ GameObject:
   - component: {fileID: 964699211}
   m_Layer: 0
   m_Name: Biker_Spawn
-  m_TagString: Untagged
+  m_TagString: BikerSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22942,7 +23017,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 834263656}
   m_IconOnScreen: {fileID: 2800000, guid: b144018d817c68e4d8bc22f935f2dce8, type: 3}
-  m_IconOffScreen: {fileID: 2800000, guid: b144018d817c68e4d8bc22f935f2dce8, type: 3}
   m_TicketManager: {fileID: 834263655}
   m_PlayerInventory: {fileID: 1326732653}
   m_Foods:
@@ -26915,7 +26989,7 @@ GameObject:
   m_PrefabParentObject: {fileID: 1067935128682128, guid: b3bda4eb0d352b349b9be2cb6504fe66,
     type: 2}
   m_PrefabInternal: {fileID: 189153559}
---- !u!114 &1272222953
+--- !u!114 &1272222952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -26923,11 +26997,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1272222951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a13623a49d2a514692bbf51758c57bd, type: 3}
+  m_Script: {fileID: 11500000, guid: a2543afea65318240a900b58ae94c58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SmlMiniMap: {fileID: 1890010425}
-  m_LrgMiniMap: {fileID: 555087050}
+  m_SmlMiniMap: {fileID: 189153560}
+  m_LrgMiniMap: {fileID: 440691799}
   m_SmlImg: {fileID: 1890010423}
   m_LrgImg: {fileID: 555087048}
   c_SmlMiniMap: {fileID: 103144739}
@@ -28047,11 +28121,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4382933053571712, guid: 01724d634805d4a45ad2ab448f0da3b9,
     type: 2}
   m_PrefabInternal: {fileID: 1357153922}
---- !u!1 &1358952711 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1626231824227024, guid: 08660498756c8bd44b2969fd8c5cd9e3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1868524233}
 --- !u!1001 &1360204577
 Prefab:
   m_ObjectHideFlags: 0
@@ -30581,7 +30650,7 @@ GameObject:
   - component: {fileID: 1471812994}
   m_Layer: 0
   m_Name: Biker_Spawn (2)
-  m_TagString: Untagged
+  m_TagString: BikerSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38746,11 +38815,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 189153559}
   m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!224 &1890010425 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224653895134189334, guid: b3bda4eb0d352b349b9be2cb6504fe66,
-    type: 2}
-  m_PrefabInternal: {fileID: 189153559}
 --- !u!1001 &1894739373
 Prefab:
   m_ObjectHideFlags: 0
@@ -39486,6 +39550,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4157451924572280, guid: 805a2d5b55671194492bbd62d3bed318,
     type: 2}
   m_PrefabInternal: {fileID: 1920689783}
+--- !u!1 &1928156704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1928156705}
+  m_Layer: 0
+  m_Name: SniperSpawn
+  m_TagString: SniperSpawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1928156705
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1928156704}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.58081055, y: 4.998989, z: 3.3473816}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 111254918}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1929125177
 Prefab:
   m_ObjectHideFlags: 0

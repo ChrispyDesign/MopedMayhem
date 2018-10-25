@@ -54,6 +54,15 @@ public class _AlternativeSpawner : MonoBehaviour {
             if (RateOfBikerSpawn <= 0.0f)
             {
                 Instantiate(Biker, BikerSpawn[Random.Range(0, AmountofBikerSpawns)].transform.position, BikerSpawn[Random.Range(0, AmountofBikerSpawns)].transform.rotation);
+
+				var tempMovement = Biker.GetComponent<BikerMovement>();
+				tempMovement.m_Player = Player;
+				tempMovement.m_Line = Biker.GetComponent<LineRenderer>();
+
+				var tempAI = Biker.GetComponent<BikerAI>();
+				tempAI.m_ParentObject = Biker;
+				tempAI.m_Player = Player;
+
                 RateOfBikerSpawn = 10.0f;
                 RateOfBikerSpawn += 1.9f;
             }

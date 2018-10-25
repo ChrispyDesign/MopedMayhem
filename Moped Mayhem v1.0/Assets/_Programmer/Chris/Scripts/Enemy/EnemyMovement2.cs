@@ -29,6 +29,8 @@ public class EnemyMovement2 : MonoBehaviour
 	public float m_fOptimalTurnSpeed;
 
 	public float m_fOffset = 2.0f;
+	public float m_fAccelPathRange = 10.0f;
+	public float m_fTurnPathRange = 10.0f;
 
 	[Range(0, 3f)]
 	public float m_fOptimalTurnRadians;
@@ -58,7 +60,7 @@ public class EnemyMovement2 : MonoBehaviour
 		m_Rigidbody.centerOfMass = m_CenterOfMass.position;
 	}
 
-	private void Update()
+	private void FixedUpdate()
 	{
 		if (m_bGetPath)
 		{
@@ -96,7 +98,10 @@ public class EnemyMovement2 : MonoBehaviour
 	{
 		float fDeltaTime = Time.deltaTime;
 		float fTurnRadians = 0;
-		Vector3 v3Acceleration = new Vector3();
+		Vector3 v3Acceleration = Vector3.zero;
+		Vector3 v3BrakingImpulse = Vector3.zero;
+
+
 
 		// If default navigation is enabled
 		if (m_NavAgent.updatePosition)
@@ -111,6 +116,48 @@ public class EnemyMovement2 : MonoBehaviour
 		m_NavAgent.nextPosition = transform.position;
 		var path = m_NavAgent.path;
 
+		// For acceleration
+		Vector3 accelTarget = path.corners[0];
+		float fPathRange = 0.0f;
+		int iter = 1;
+
+		while (fPathRange < m_fAccelPathRange)
+		{
+			if (path.corners.Length > iter)
+			{
+				accelTarget = path.corners[iter];
+
+				fPathRange = Vector3.Magnitude(accelTarget - path.corners[0]);
+			}
+			else
+			{
+				break;
+			}
+
+			++iter;
+		}
+
+		// For Turning
+		Vector3 turnTarget = path.corners[0];
+		fPathRange = 0.0f;
+		iter = 1;
+
+
+		while (fPathRange < m_fTurnPathRange)
+		{
+			if (path.corners.Length > iter)
+			{
+				turnTarget = path.corners[iter];
+
+				fPathRange = Vector3.Magnitude(turnTarget - path.corners[0]);
+			}
+			else
+			{
+				break;
+			}
+
+			++iter;
+		}
 
 		// Find Rotation
 
@@ -118,26 +165,23 @@ public class EnemyMovement2 : MonoBehaviour
 
 
 		//Determine how much it needs to turn
-		if (path.corners.Length > 1)
+		Vector3 v3PathOffset = accelTarget - path.corners[0];
+		v3PathOffset.Normalize();
+
+		float fTurnDot = Vector3.Dot(v3PathOffset, transform.forward);
+		float fDirectionDot = Vector3.Dot(v3PathOffset, transform.right);
+
+		// IF need to rotate right
+		if (fDirectionDot > 0)
 		{
-			Vector3 v3PathOffset = path.corners[1] - path.corners[0];
-			v3PathOffset.Normalize();
-
-			float fTurnDot = Vector3.Dot(v3PathOffset, transform.forward);
-			float fDirectionDot = Vector3.Dot(v3PathOffset, transform.right);
-
-			// IF need to rotate right
-			if (fDirectionDot > 0)
-			{
-				// add rotation amount
-				fTurnRadians += Mathf.Acos(fTurnDot);
-			}
-			// ELSE need to rotate left
-			else
-			{
-				// subtract rotation amount
-				fTurnRadians -= Mathf.Acos(fTurnDot);
-			}
+			// add rotation amount
+			fTurnRadians += Mathf.Acos(fTurnDot);
+		}
+		// ELSE need to rotate left
+		else
+		{
+			// subtract rotation amount
+			fTurnRadians -= Mathf.Acos(fTurnDot);
 		}
 
 		/// Calculate Collision Turning
@@ -190,16 +234,48 @@ public class EnemyMovement2 : MonoBehaviour
 		// Acceleration
 
 		// Future Pos
-		if (path.corners.Length > 1)
+		Vector3 futurePos = transform.position + m_Rigidbody.velocity * m_fOffset;
+		Vector3 direction = accelTarget - futurePos;
+
+		// Get Path Acceleration 
+		v3Acceleration = transform.forward * Vector3.Dot(transform.forward, direction.normalized) * m_fAcceleration;
+		
+		// Check Rear Sensor
+		if (m_RearSensor.m_bColliding)
 		{
-			Vector3 target = path.corners[1];
-			Vector3 futurePos = transform.position + m_Rigidbody.velocity * m_fOffset;
-			Vector3 direction = target - futurePos;
-			v3Acceleration = transform.forward * Vector3.Dot(transform.forward, direction.normalized) * m_fAcceleration;
+			// IF velocity is negative
+			if (Vector3.Dot(transform.forward, m_Rigidbody.velocity) < 0)
+			{
+				float fBrakingMultiplier = ((m_RearSensor.m_fMaxSeperation - m_RearSensor.m_fSeperation) / m_RearSensor.m_fMaxSeperation);
+				v3BrakingImpulse += -Vector3.Normalize(m_Rigidbody.velocity) * m_fMaxBrakingForce * fBrakingMultiplier;
+				
+				if (v3BrakingImpulse.magnitude > m_fMaxBrakingForce)
+				{
+					v3BrakingImpulse.Normalize();
+					v3BrakingImpulse *= m_fMaxBrakingForce;
+				}
+
+				m_Rigidbody.velocity += v3BrakingImpulse;
+
+				// IF velocity is now positive
+				if (Vector3.Dot(transform.forward, m_Rigidbody.velocity) > 0)
+				{
+					m_Rigidbody.velocity = Vector3.zero;
+				}
+			}
+
+			
+
+			// If negative acceleration STOP
+			if (Vector3.Dot(transform.forward, v3Acceleration) < 0)
+			{
+				v3Acceleration = -v3Acceleration;
+			}
 		}
 
 
-		m_Rigidbody.AddForce(v3Acceleration, ForceMode.Impulse);
+		// Add Force
+		m_Rigidbody.AddForce(v3Acceleration, ForceMode.Impulse);		
 	}
 
 	public void MoveCatchUp()

@@ -40,8 +40,6 @@ public class PlayerMovement : MonoBehaviour {
 		pRigidBody = player.GetComponent<Rigidbody>();
 		fForwardSpeed = fSpeed;
 
-		m_CenterOfMass.GetComponent<Rigidbody>();
-
 		SetCenterOfMass();
 	}
 
