@@ -17,6 +17,7 @@ public class EnemyMovement : MonoBehaviour
 	public EnemyMovementSensor m_RearSensor;
 	public EnemyMovementSensor m_LeftSensor;
 	public EnemyMovementSensor m_RightSensor;
+	public EnemyCollision m_EnemyCollision;
 
 	public float m_fAcceleration;
 	public float m_fMaxChaseSpeed;

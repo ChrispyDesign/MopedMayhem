@@ -129,7 +129,7 @@ GameObject:
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8689070
 Transform:
@@ -670,7 +670,7 @@ GameObject:
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &122237238
 Transform:
@@ -1138,6 +1138,7 @@ MonoBehaviour:
   m_RearSensor: {fileID: 1522506747}
   m_LeftSensor: {fileID: 847251687}
   m_RightSensor: {fileID: 274789553}
+  m_EnemyCollision: {fileID: 0}
   m_fAcceleration: 8
   m_fMaxChaseSpeed: 10
   m_fMaxCatchUpSpeed: 15
@@ -2024,6 +2025,7 @@ MonoBehaviour:
   m_RearSensor: {fileID: 1291221971}
   m_LeftSensor: {fileID: 1681709290}
   m_RightSensor: {fileID: 779210457}
+  m_EnemyCollision: {fileID: 0}
   m_fAcceleration: 8
   m_fMaxChaseSpeed: 10
   m_fMaxCatchUpSpeed: 15
@@ -3701,6 +3703,7 @@ MonoBehaviour:
   m_RearSensor: {fileID: 989253467}
   m_LeftSensor: {fileID: 1998045786}
   m_RightSensor: {fileID: 735391103}
+  m_EnemyCollision: {fileID: 0}
   m_fAcceleration: 8
   m_fMaxChaseSpeed: 10
   m_fMaxCatchUpSpeed: 15
@@ -5060,6 +5063,7 @@ MonoBehaviour:
   m_RearSensor: {fileID: 1148140356}
   m_LeftSensor: {fileID: 1080985753}
   m_RightSensor: {fileID: 2078331597}
+  m_EnemyCollision: {fileID: 0}
   m_fAcceleration: 8
   m_fMaxChaseSpeed: 10
   m_fMaxCatchUpSpeed: 15
@@ -5268,6 +5272,7 @@ MonoBehaviour:
   m_RearSensor: {fileID: 831126488}
   m_LeftSensor: {fileID: 326661482}
   m_RightSensor: {fileID: 392047046}
+  m_EnemyCollision: {fileID: 0}
   m_fAcceleration: 8
   m_fMaxChaseSpeed: 10
   m_fMaxCatchUpSpeed: 15
@@ -5580,6 +5585,7 @@ MonoBehaviour:
   m_RearSensor: {fileID: 1856389773}
   m_LeftSensor: {fileID: 854972386}
   m_RightSensor: {fileID: 720558932}
+  m_EnemyCollision: {fileID: 0}
   m_fAcceleration: 8
   m_fMaxChaseSpeed: 10
   m_fMaxCatchUpSpeed: 15
@@ -5873,6 +5879,7 @@ MonoBehaviour:
   m_RearSensor: {fileID: 1234549999}
   m_LeftSensor: {fileID: 1858295773}
   m_RightSensor: {fileID: 816272460}
+  m_EnemyCollision: {fileID: 0}
   m_fAcceleration: 8
   m_fMaxChaseSpeed: 10
   m_fMaxCatchUpSpeed: 15
@@ -7695,7 +7702,7 @@ GameObject:
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1400542752
 Transform:
@@ -7956,6 +7963,7 @@ MonoBehaviour:
   m_RearSensor: {fileID: 2029479421}
   m_LeftSensor: {fileID: 23312628}
   m_RightSensor: {fileID: 468183696}
+  m_EnemyCollision: {fileID: 0}
   m_fAcceleration: 8
   m_fMaxChaseSpeed: 10
   m_fMaxCatchUpSpeed: 15
@@ -8690,6 +8698,7 @@ GameObject:
   - component: {fileID: 1661229967}
   - component: {fileID: 1661229966}
   - component: {fileID: 1661229965}
+  - component: {fileID: 1661229969}
   m_Layer: 0
   m_Name: SUV
   m_TagString: Untagged
@@ -8721,9 +8730,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!23 &1661229966
 MeshRenderer:
@@ -8778,6 +8787,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1661229963}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1661229969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1661229963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc838286f2a4e544a28d2a8b4233f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1663267780
 GameObject:
   m_ObjectHideFlags: 0
@@ -9023,7 +9043,7 @@ GameObject:
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1683970243
 Transform:
@@ -9349,6 +9369,7 @@ MonoBehaviour:
   m_RearSensor: {fileID: 1094909066}
   m_LeftSensor: {fileID: 1842239646}
   m_RightSensor: {fileID: 521341135}
+  m_EnemyCollision: {fileID: 0}
   m_fAcceleration: 8
   m_fMaxChaseSpeed: 10
   m_fMaxCatchUpSpeed: 15
@@ -9572,6 +9593,7 @@ MonoBehaviour:
   m_RearSensor: {fileID: 916974457}
   m_LeftSensor: {fileID: 1341678478}
   m_RightSensor: {fileID: 1083104235}
+  m_EnemyCollision: {fileID: 0}
   m_fAcceleration: 8
   m_fMaxChaseSpeed: 10
   m_fMaxCatchUpSpeed: 15
@@ -10898,7 +10920,7 @@ GameObject:
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2077460887
 Transform:
