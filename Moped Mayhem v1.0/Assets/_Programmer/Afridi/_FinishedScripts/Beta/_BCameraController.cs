@@ -9,10 +9,6 @@ public class _BCameraController : MonoBehaviour {
 
     void Update()
     {
-        transform.Rotate(
-             xspeed * Time.deltaTime,
-             yspeed * Time.deltaTime,
-             zspeed * Time.deltaTime
-        );
+       
     }
 }
