@@ -35,7 +35,7 @@ public class SniperAttack : MonoBehaviour
 
 	private Rigidbody m_PlayerRB;
 
-	[Range(0,5)]
+	[Range(0,500)]
 	public float m_fKnockBack = 2;
 
 	// Use this for initialization
