@@ -15,16 +15,14 @@ public class _SmoothCamRotation : MonoBehaviour {
 
     void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
+      
             if (!target)
                 return;
             //Interpolate Position
             transform.position = Vector3.SmoothDamp(transform.position, target.position, ref refPos, movementTime);
             //Interpolate Rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, rotationSpeed * Time.deltaTime);
-            timer = 1.5f;
-        }
+
+
     }
 }
