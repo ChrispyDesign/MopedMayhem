@@ -15,7 +15,7 @@ public class _BCameraController : MonoBehaviour {
         Main = Camera.main;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Main.transform.rotation = Empty.transform.rotation;
         Main.transform.LookAt(Player.transform);
