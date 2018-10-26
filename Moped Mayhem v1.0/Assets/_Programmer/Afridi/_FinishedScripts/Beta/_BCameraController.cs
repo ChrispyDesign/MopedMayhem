@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class _BCameraController : MonoBehaviour {
-    public float xspeed = 0.0f;
-    public float yspeed = 0.0f;
-    public float zspeed = 0.0f;
+
+    public GameObject Empty;
+    public GameObject Player;
+    public float speed = 1.0f;
+    public Camera Main;
+
+    private Vector3 Vel = Vector3.zero;
+    void Awake()
+    {
+        Main = Camera.main;
+    }
 
     void Update()
     {
-       
+        Main.transform.rotation = Empty.transform.rotation;
+        Main.transform.LookAt(Player.transform);
+
+        Main.transform.position = Vector3.SmoothDamp(Main.transform.position, Empty.transform.position, ref Vel, speed);
     }
 }

@@ -40,7 +40,6 @@ public class _BDeliveryIndicator : MonoBehaviour {
     {
         UpdateTargetIconPosition();
     }
-
     private void InstainateTargetIcon()
     {
         m_Icon = new GameObject().AddComponent<RectTransform>();
