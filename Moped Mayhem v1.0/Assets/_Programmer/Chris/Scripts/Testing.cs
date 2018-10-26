@@ -18,7 +18,7 @@ public class Testing : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		rb.AddForceAtPosition(transform.right * multiplier, forcePos.position, ForceMode.VelocityChange);
 	}
 }

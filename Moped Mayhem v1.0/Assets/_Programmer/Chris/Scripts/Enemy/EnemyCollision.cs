@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour {
 
-	private Rigidbody parent;
-
-	// Use this for initialization
-	void Start ()
-	{
-		parent = gameObject.GetComponentInParent<Rigidbody>();
-	}
+	public Rigidbody m_ParentRigidBody;
 
 	private void FixedUpdate()
 	{
 		transform.rotation = transform.parent.rotation;
 	}
-
-	// Update is called once per frame
+	
+	// Lets hope we dont need this
 	private void OnCollisionStay(Collision collision)
 	{
-		//CB::HERENOW
-		//collision.contacts[0].
+		Debug.Log(collision.collider);
+
+		Vector3 impulse = Vector3.zero;
+
+		foreach (ContactPoint contact in collision.contacts)
+		{
+			Vector3 collisionNormal = contact.normal;
+			//if (Vector3.Dot(contact.point, collisionNormal) > 0.0f)
+			//{
+			//	collisionNormal = -collisionNormal;
+			//	Debug.Log("Inverting Normal");
+			//}
+
+			impulse += collisionNormal * contact.separation * Vector3.Dot(contact.point, collisionNormal);
+		}
+		impulse /= Time.fixedDeltaTime * collision.contacts.Length;
+
+		m_ParentRigidBody.AddForce(impulse, ForceMode.Impulse);
 	}
 }

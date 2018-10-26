@@ -101,7 +101,7 @@ public class EnemyMovement2 : MonoBehaviour
 		Vector3 v3Acceleration = Vector3.zero;
 		Vector3 v3BrakingImpulse = Vector3.zero;
 
-
+		bool bIsBraking = false;
 
 		// If default navigation is enabled
 		if (m_NavAgent.updatePosition)
@@ -204,7 +204,7 @@ public class EnemyMovement2 : MonoBehaviour
 		}
 
 		/// Calculate Rotation
-		float fRatio;
+		float fRatio = 1;
 		float fSpeed = m_Rigidbody.velocity.magnitude;
 		if (fSpeed <= m_fOptimalTurnSpeed)
 		{
@@ -246,6 +246,8 @@ public class EnemyMovement2 : MonoBehaviour
 			// IF velocity is negative
 			if (Vector3.Dot(transform.forward, m_Rigidbody.velocity) < 0)
 			{
+				bIsBraking = true;
+
 				float fBrakingMultiplier = ((m_RearSensor.m_fMaxSeperation - m_RearSensor.m_fSeperation) / m_RearSensor.m_fMaxSeperation);
 				v3BrakingImpulse += -Vector3.Normalize(m_Rigidbody.velocity) * m_fMaxBrakingForce * fBrakingMultiplier;
 				
@@ -253,28 +255,59 @@ public class EnemyMovement2 : MonoBehaviour
 				{
 					v3BrakingImpulse.Normalize();
 					v3BrakingImpulse *= m_fMaxBrakingForce;
+
+					Debug.Log("Max Braking");
 				}
 
-				m_Rigidbody.velocity += v3BrakingImpulse;
+				m_Rigidbody.velocity += v3BrakingImpulse * fDeltaTime;
 
 				// IF velocity is now positive
 				if (Vector3.Dot(transform.forward, m_Rigidbody.velocity) > 0)
 				{
 					m_Rigidbody.velocity = Vector3.zero;
 				}
-			}
-
-			
+			}			
 
 			// If negative acceleration STOP
-			if (Vector3.Dot(transform.forward, v3Acceleration) < 0)
+			if (Vector3.Dot(transform.right, v3Acceleration) < 0)
 			{
 				v3Acceleration = -v3Acceleration;
 			}
 		}
 
+		// Check Front Sensor
+		if (m_FrontSensor.m_bColliding)
+		{
+			bIsBraking = true;
+
+			float fBrakingMultiplier = ((m_FrontSensor.m_fMaxSeperation - m_FrontSensor.m_fSeperation) / m_FrontSensor.m_fMaxSeperation);
+			v3BrakingImpulse += -Vector3.Normalize(m_Rigidbody.velocity) * m_fMaxBrakingForce * fBrakingMultiplier;
+
+			if (v3BrakingImpulse.magnitude > m_fMaxBrakingForce)
+			{
+				v3BrakingImpulse.Normalize();
+				v3BrakingImpulse *= m_fMaxBrakingForce;
+
+				Debug.Log("Max Braking");
+			}
+			
+
+			//Debug.Log("Velocity = " + m_Rigidbody.velocity);
+			m_Rigidbody.velocity += v3BrakingImpulse * fDeltaTime;
+			//Debug.Log("Velocity After = " + m_Rigidbody.velocity);
+
+			// IF velocity is now -ve
+			if (Vector3.Dot(transform.forward, m_Rigidbody.velocity) < 0)
+			{
+				m_Rigidbody.velocity = Vector3.zero;
+			}
+		}
 
 		// Add Force
+		if (bIsBraking)
+		{
+			
+		}
 		m_Rigidbody.AddForce(v3Acceleration, ForceMode.Impulse);		
 	}
 
