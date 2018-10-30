@@ -12,6 +12,8 @@ public class Testing : MonoBehaviour {
 	[Range(0.1f, 10f)]
 	public float multiplier;
 
+	public bool active;
+
 	// Use this for initialization
 	void Start () {
 		rb.centerOfMass = centerOfMass.localPosition;
@@ -19,6 +21,13 @@ public class Testing : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		rb.AddForceAtPosition(transform.right * multiplier, forcePos.position, ForceMode.VelocityChange);
+		if (active)
+		{
+			active = false;
+			//rb.AddForceAtPosition(transform.forward + transform.right * multiplier, forcePos.position, ForceMode.VelocityChange);
+			rb.AddForceAtPosition(transform.forward, forcePos.position, ForceMode.VelocityChange);
+			rb.AddForceAtPosition(transform.right * multiplier, forcePos.position, ForceMode.VelocityChange);
+			//rb.AddTorque(transform.up * multiplier, ForceMode.VelocityChange);
+		}
 	}
 }

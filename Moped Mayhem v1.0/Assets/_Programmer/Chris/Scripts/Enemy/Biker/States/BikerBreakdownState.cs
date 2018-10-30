@@ -14,7 +14,7 @@ public class BikerBreakdownState : BaseState
 
 	protected override void Setup()
 	{
-		m_fBreakdownEndTime = Time.realtimeSinceStartup + m_fBreakdownTime;
+		m_fBreakdownEndTime = Time.realtimeSinceStartup + m_fBreakdownTime;		
 	}
 
 	public override void OnEnd()

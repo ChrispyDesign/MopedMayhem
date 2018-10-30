@@ -13,6 +13,7 @@ public class EnemyMovement2 : MonoBehaviour
 	public GameObject m_Player;
 
 	public Transform m_CenterOfMass;
+	public Transform m_ForcePos;
 
 	public EnemyReversingSensor m_ReversingSensor;
 	public EnemyMovementSensor m_FrontSensor;
@@ -57,7 +58,7 @@ public class EnemyMovement2 : MonoBehaviour
 
 		// Set Up RigidBody
 		m_Rigidbody.maxAngularVelocity = m_fMaxTurnSpeed;
-		m_Rigidbody.centerOfMass = m_CenterOfMass.position;
+		m_Rigidbody.centerOfMass = m_CenterOfMass.localPosition;
 	}
 
 	private void FixedUpdate()
@@ -184,6 +185,8 @@ public class EnemyMovement2 : MonoBehaviour
 			fTurnRadians -= Mathf.Acos(fTurnDot);
 		}
 
+		fTurnRadians *= 4;
+
 		/// Calculate Collision Turning
 		//Determine how much it needs to turn
 
@@ -204,30 +207,29 @@ public class EnemyMovement2 : MonoBehaviour
 		}
 
 		/// Calculate Rotation
-		float fRatio = 1;
-		float fSpeed = m_Rigidbody.velocity.magnitude;
-		if (fSpeed <= m_fOptimalTurnSpeed)
-		{
-			fRatio = 1 - ((m_fOptimalTurnSpeed - fSpeed) / m_fOptimalTurnSpeed);
-		}
-		else
-		{
-			float fOverOptimalSpeed = fSpeed - m_fOptimalTurnSpeed;
-			float fMaxOptimalDiff = m_fMaxChaseSpeed - m_fOptimalTurnSpeed;
-			fRatio = (fMaxOptimalDiff - fOverOptimalSpeed) / fMaxOptimalDiff;
-		}
+		float fRatio = Mathf.Abs(Vector3.Dot(m_Rigidbody.velocity, transform.forward));
+		fRatio /= m_fMaxChaseSpeed / 2;
 
 		// ROTATE
-		//if (fTurnRadians > 0.25|| fTurnRadians < -0.25 )
+		if (fTurnRadians > 0.2 || fTurnRadians < -0.2)
 		{
 			float fTurnSpeed = fTurnRadians * fRatio;
+
+			if (fTurnSpeed > m_fMaxTurnSpeed)
+			{
+				fTurnSpeed = m_fMaxTurnSpeed;
+			}
+
 			if (float.IsNaN(fTurnSpeed))
 			{
-				Debug.Log("NAN");
+				Debug.LogWarning("NAN");
 			}
 			else
 			{
+				fTurnSpeed *= m_Rigidbody.mass;
+				Debug.Log(m_Rigidbody.angularVelocity.magnitude);
 				m_Rigidbody.AddTorque(transform.up * fTurnSpeed);
+				//m_Rigidbody.AddForceAtPosition(transform.right * fTurnSpeed, m_ForcePos.position);
 			}
 		}
 
@@ -239,7 +241,8 @@ public class EnemyMovement2 : MonoBehaviour
 
 		// Get Path Acceleration 
 		v3Acceleration = transform.forward * Vector3.Dot(transform.forward, direction.normalized) * m_fAcceleration;
-		
+		//v3Acceleration += transform.forward * 0.25f;
+
 		// Check Rear Sensor
 		if (m_RearSensor.m_bColliding)
 		{
@@ -269,7 +272,7 @@ public class EnemyMovement2 : MonoBehaviour
 			}			
 
 			// If negative acceleration STOP
-			if (Vector3.Dot(transform.right, v3Acceleration) < 0)
+			if (Vector3.Dot(transform.forward, v3Acceleration) < 0)
 			{
 				v3Acceleration = -v3Acceleration;
 			}
@@ -308,7 +311,8 @@ public class EnemyMovement2 : MonoBehaviour
 		{
 			
 		}
-		m_Rigidbody.AddForce(v3Acceleration, ForceMode.Impulse);		
+
+		m_Rigidbody.AddForce(v3Acceleration, ForceMode.Impulse);
 	}
 
 	public void MoveCatchUp()
