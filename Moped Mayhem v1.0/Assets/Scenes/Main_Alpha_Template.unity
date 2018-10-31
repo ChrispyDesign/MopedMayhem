@@ -21156,7 +21156,41 @@ Prefab:
     - target: {fileID: 114079693207495836, guid: b3bda4eb0d352b349b9be2cb6504fe66,
         type: 2}
       propertyPath: m_fMaxSteeringAngle
-      value: 55
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114168886557544810, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136503466002403508, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_Center.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 54073562719518198, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 54073562719518198, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_Drag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 54073562719518198, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114079693207495836, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_AxleInfo.Array.data[1].m_bMotor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601410169200982, guid: b3bda4eb0d352b349b9be2cb6504fe66, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3bda4eb0d352b349b9be2cb6504fe66, type: 2}
