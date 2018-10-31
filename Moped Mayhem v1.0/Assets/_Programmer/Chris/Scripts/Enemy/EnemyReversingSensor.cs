@@ -5,21 +5,53 @@ using UnityEngine;
 public class EnemyReversingSensor : MonoBehaviour {
 
 	public string m_sBuildingTag = "Building";
-	public bool m_bActive = false;
+	public Transform m_ReferencePoint;
+	public float m_fMaxSeperation;
+
+	public float m_fSeperation;
+	public GameObject m_ClosestObject;
+
+	public bool m_bColliding = false;
+
+	private void Awake()
+	{
+		Reset();
+	}
+
+	private void Reset()
+	{
+		m_fSeperation = m_fMaxSeperation;
+		m_bColliding = false;
+	}
 
 	private void OnTriggerStay(Collider other)
 	{
-		if (other.tag == m_sBuildingTag)
+		if (other.gameObject.tag != m_sBuildingTag)
 		{
-			m_bActive = true;
+			return;
+		}
+
+		m_bColliding = true;
+
+		Vector3 otherPoint = other.ClosestPoint(m_ReferencePoint.position);
+		float fSeperation = Vector3.Magnitude(otherPoint - m_ReferencePoint.position);
+
+		if (fSeperation < m_fSeperation)
+		{
+			m_fSeperation = fSeperation;
+			m_ClosestObject = other.gameObject;
+		}
+		else if (m_ClosestObject == other.gameObject)
+		{
+			m_fSeperation = fSeperation;
 		}
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
-		if (other.tag == m_sBuildingTag)
+		if (m_ClosestObject == other.gameObject)
 		{
-			m_bActive = false;
+			Reset();
 		}
 	}
 }
