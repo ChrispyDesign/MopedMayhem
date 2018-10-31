@@ -110,7 +110,7 @@ public class EnemyMovement : MonoBehaviour
 		/// Calculate Reversing (3 Point Turn)
 
 		// IF Reversing Sensor has collision
-		if (m_ReversingSensor.m_bActive)
+		//if (m_ReversingSensor.m_bColliding)
 		{
 			// Start Reversing
 			m_bReversing = true;
@@ -119,7 +119,7 @@ public class EnemyMovement : MonoBehaviour
 				m_bReversing = false;
 			}
 		}
-		else if (m_bReversing)
+		//else if (m_bReversing)
 		{
 			m_bReversing = false;
 		}

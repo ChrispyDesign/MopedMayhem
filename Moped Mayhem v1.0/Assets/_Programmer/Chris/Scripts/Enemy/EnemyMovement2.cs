@@ -13,29 +13,21 @@ public class EnemyMovement2 : MonoBehaviour
 	public GameObject m_Player;
 
 	public Transform m_CenterOfMass;
-	public Transform m_ForcePos;
 
 	public EnemyReversingSensor m_ReversingSensor;
-	public EnemyMovementSensor m_FrontSensor;
-	public EnemyMovementSensor m_RearSensor;
 	public EnemyMovementSensor m_LeftSensor;
 	public EnemyMovementSensor m_RightSensor;
 
 	public float m_fAcceleration;
+	public float m_fReversingAcceleration;
 	public float m_fMaxChaseSpeed;
 	public float m_fMaxCatchUpSpeed;
 	public float m_fMaxTurnSpeed;
-	public float m_fMaxBrakingForce;
-	public float m_fMaxReverseSpeed;
-	public float m_fOptimalTurnSpeed;
 
 	public float m_fOffset = 2.0f;
 	public float m_fAccelPathRange = 10.0f;
 	public float m_fTurnPathRange = 10.0f;
-
-	[Range(0, 3f)]
-	public float m_fOptimalTurnRadians;
-
+	
 	[Range(0.5f, 1.5f)]
 	public float m_fMaxCollisionTurnRadians = 1.5f;
 
@@ -47,8 +39,6 @@ public class EnemyMovement2 : MonoBehaviour
 	public bool m_bMoveCatchUp = false;
 
 	public LineRenderer m_Line;
-
-	public bool m_bReversing = false;
 
 	private float m_fLastPathCheck;
 
@@ -255,7 +245,6 @@ public class EnemyMovement2 : MonoBehaviour
 			else
 			{
 				fTurnSpeed *= m_Rigidbody.mass;
-				Debug.Log(m_Rigidbody.angularVelocity.magnitude);
 				m_Rigidbody.AddTorque(transform.up * fTurnSpeed);
 				//m_Rigidbody.AddForceAtPosition(transform.right * fTurnSpeed, m_ForcePos.position);
 			}
@@ -273,9 +262,9 @@ public class EnemyMovement2 : MonoBehaviour
 		
 
 		// Check Reversing Sensor
-		if (m_ReversingSensor.m_bActive)
+		if (m_ReversingSensor.m_bReversing)
 		{
-			v3Acceleration = -transform.forward * m_fMaxReverseSpeed;
+			v3Acceleration = -transform.forward * m_fReversingAcceleration;
 		}
 
 		m_Rigidbody.AddForce(v3Acceleration, ForceMode.Impulse);
