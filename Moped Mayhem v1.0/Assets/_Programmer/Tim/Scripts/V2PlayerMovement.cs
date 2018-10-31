@@ -1,80 +1,59 @@
-﻿using System.Collections;
+﻿// Created by Tim Langford
+//
+// Date 31/10/2018
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// --------Things to do----------
+/// - Tweek movement
+/// - Add Dash
+/// </summary>
+
+
 public class V2PlayerMovement : MonoBehaviour
 {
-	/*
-	public GameObject m_Player, m_FrontWheelR, m_RearWheelR;
-	public WheelCollider m_FrontWheelColR, m_RearWheelColR;
-	public float m_fTopSpeed = 250f, m_fMaxTorque = 200f, m_fMaxSteerAngle = 45f, m_fMaxBreakTorque = 2200, m_fCurrentSpeed;
-	private float m_fForward, m_fTurn, m_fBreak;
+	public List<AxleInfo> m_AxleInfo;	// list of axles that the bike will have (2 front 2 back)
+	[Range(1,100)]
+	public float m_fSpeed;				// this is a speed multiplier
+	public float m_fMaxMotorTorque;		// Motor torque to make the bike move
+	public float m_fMaxSteeringAngle;   // Steer Angle for turning the car
+	public Rigidbody m_PlayerRB;
+	public float m_fBoostCoolDown = 3;
+	private float m_fCooldown;
 
+	float m_fSteer;
 
-	// Use this for initialization
-	void Start ()
-	{
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
-	{
-		m_fForward = Input.GetAxis("Vertical");
-		m_fTurn = Input.GetAxis("Horizontal");
-		m_fBreak = ;
+	public GameObject m_PlayerCharacterMain;
+	public float rotAngle; 
 
-		m_FrontWheelColR.steerAngle = m_fMaxSteerAngle * m_fTurn;
-		//m_FrontWheelColL.steerAngle = m_fMaxSteerAngle * m_fTurn;
-		m_fCurrentSpeed = 2 * 22 / 7 * m_RearWheelColR.radius * m_RearWheelColR.rpm * 60 / 1000;
-
-		if (m_fCurrentSpeed < m_fTopSpeed)
-		{
-			m_RearWheelColR.motorTorque = m_fMaxTorque * m_fForward;
-			//m_RearWheelColL.motorTorque = m_fMaxTorque * m_fForward;
-		}
-
-		m_RearWheelColR.brakeTorque = m_fMaxBreakTorque * m_fBreak;
-		m_FrontWheelColR.brakeTorque = m_fMaxBreakTorque * m_fBreak;
-
-		Quaternion m_qFrontWheel = Quaternion.identity;
-		Vector3 m_vFrontWheel = Vector3.zero;
-		Quaternion m_qRearWheel= Quaternion.identity;
-		Vector3 m_vRearWheel = Vector3.zero;
-		Debug.Log(m_FrontWheelColR.steerAngle);
-
-		if (m_fForward != 0 && m_fTurn != 0)
-		{
-			m_FrontWheelColR.GetWorldPose(out m_vFrontWheel, out m_qFrontWheel);
-			Debug.Log(m_FrontWheelColR.transform.rotation);
-			m_FrontWheelR.transform.position = m_vFrontWheel;
-			m_FrontWheelR.transform.rotation = m_qFrontWheel;
-			//Debug.Log("FrontWheel Pos" + m_FrontWheelR.transform.position);
-			Debug.Log("FrontWheel Rot" + m_FrontWheelR.transform.rotation);
-			//this.transform.pos
-
-			m_RearWheelColR.GetWorldPose(out m_vRearWheel, out m_qRearWheel);
-			m_RearWheelR.transform.position = m_vRearWheel;
-			m_RearWheelR.transform.rotation = m_qRearWheel;
-			//Debug.Log("RearWheel Pos" + m_RearWheelR.transform.position);
-			//Debug.Log("RearWheel Rot" + m_RearWheelR.transform.rotation);
-		}
-	}
-
-	private void Update()
-	{
-	}
-	*/
-
-	public List<AxleInfo> m_AxleInfo;
-	public float m_fSpeed;
-	public float m_fMaxMotorTorque;
-	public float m_fMaxSteeringAngle;
-
+	//------------------------------------------------------
+	// FixedUpdate()
+	//		FixedUpdate function
+	//
+	// var 
+	//		float fMotor = Max motor torque + Verticle Axis
+	//		float fSteer = Max steer angle + Horizontal Axis
+	//------------------------------------------------------
 	public void FixedUpdate()
 	{
 		float m_fMotor = m_fMaxMotorTorque * Input.GetAxis("Vertical");
-		float m_fSteer = m_fMaxSteeringAngle * Input.GetAxis("Horizontal");
+		float m_PlayerRot = Input.GetAxis("Horizontal");
 
+		var PlayerVelocity = Mathf.Abs(Vector3.Dot(m_PlayerRB.transform.forward, Vector3.Normalize(m_PlayerRB.velocity)));
+
+		if (Input.GetAxis("Vertical") == 0)
+		{
+			m_fSteer = 0;
+		}
+		else
+		{
+			m_fSteer = m_fMaxSteeringAngle * Input.GetAxis("Horizontal");
+		}
+
+		//for each Axis if steer bool is true, add steer and if motor bool = true, add torque to wheels
 		foreach(AxleInfo axleInfo in m_AxleInfo)
 		{
 			if(axleInfo.m_bSteering)
@@ -84,12 +63,50 @@ public class V2PlayerMovement : MonoBehaviour
 			}
 			if (axleInfo.m_bMotor)
 			{
-				axleInfo.m_Wheel1.motorTorque = m_fMotor * m_fSpeed;
-				axleInfo.m_Wheel2.motorTorque = m_fMotor * m_fSpeed;
+				axleInfo.m_Wheel1.motorTorque = m_fMotor;
+				axleInfo.m_Wheel2.motorTorque = m_fMotor;
 			}
+		}
+
+		if(Input.GetAxis("Horizontal") == 0)
+		{
+			foreach (AxleInfo axisInfo in m_AxleInfo)
+			{
+				if(axisInfo.m_bSteering)
+				{
+					axisInfo.m_Wheel1.steerAngle = 0;
+					axisInfo.m_Wheel2.steerAngle = 0;
+				}
+			}
+		}
+
+		//m_PlayerRB.transform.rotation = new Quaternion(0,0, m_PlayerRot * rotAngle,0);
+
+		Dash(m_fSpeed);
+	}
+	
+
+	//------------------------------------------------------
+	// Dash()
+	//		Takes in speed to boost player
+	//
+	//	float timer = time since level loaded
+	//	float cooldown = cooldown timer + timer
+	//
+	//------------------------------------------------------
+	public void Dash(float BoostSpeed)
+	{
+		float m_fTimer = Time.timeSinceLevelLoad;
+		var PlayerVelocity = Vector3.Dot(m_PlayerRB.transform.forward, Vector3.Normalize(m_PlayerRB.velocity));
+		if (Input.GetAxis("Fire2") > 0 && m_fTimer >= m_fCooldown && PlayerVelocity > 0)
+		{
+			m_PlayerRB.AddForce(m_PlayerRB.transform.forward * BoostSpeed, ForceMode.Impulse);
+			m_fCooldown = m_fTimer + m_fBoostCoolDown;
 		}
 	}
 }
+
+// Axle info for the wheels
 
 [System.Serializable]
 public class AxleInfo
