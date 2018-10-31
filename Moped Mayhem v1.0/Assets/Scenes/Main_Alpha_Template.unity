@@ -4381,7 +4381,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4666667980039886, guid: b3bda4eb0d352b349b9be2cb6504fe66, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 44.97946
+      value: 45.14
       objectReference: {fileID: 0}
     - target: {fileID: 4666667980039886, guid: b3bda4eb0d352b349b9be2cb6504fe66, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4460,7 +4460,7 @@ Prefab:
     - target: {fileID: 114129231247397578, guid: b3bda4eb0d352b349b9be2cb6504fe66,
         type: 2}
       propertyPath: fRotSpeed
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 224653895134189334, guid: b3bda4eb0d352b349b9be2cb6504fe66,
         type: 2}
@@ -4482,6 +4482,41 @@ Prefab:
       propertyPath: m_CenterOfMass
       value: 
       objectReference: {fileID: 512974984}
+    - target: {fileID: 54073562719518198, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129231247397578, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: fSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129231247397578, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_fBaseAngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129231247397578, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_fEXAngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129231247397578, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: fReverseSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129231247397578, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_fDragLerpMin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129231247397578, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_fDragLerpMax
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114185365797480682, guid: b3bda4eb0d352b349b9be2cb6504fe66, type: 2}
     - {fileID: 136835900795320528, guid: b3bda4eb0d352b349b9be2cb6504fe66, type: 2}
@@ -10371,7 +10406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 512974984}
   m_Layer: 0
-  m_Name: COM
+  m_Name: CenOfMass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10384,7 +10419,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 512974983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.614, z: -0.351}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 697364014}
