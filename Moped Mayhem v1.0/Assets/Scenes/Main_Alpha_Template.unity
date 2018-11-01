@@ -1850,7 +1850,7 @@ GameObject:
   - component: {fileID: 111254918}
   - component: {fileID: 111254919}
   m_Layer: 0
-  m_Name: Biker Spawns
+  m_Name: Spawner
   m_TagString: BikerSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8417,6 +8417,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4157451924572280, guid: 805a2d5b55671194492bbd62d3bed318,
     type: 2}
   m_PrefabInternal: {fileID: 403570768}
+--- !u!224 &407689985 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224749314454464954, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+    type: 2}
+  m_PrefabInternal: {fileID: 958877670}
 --- !u!1 &419936967
 GameObject:
   m_ObjectHideFlags: 0
@@ -9137,7 +9142,6 @@ RectTransform:
   m_Children:
   - {fileID: 555087050}
   - {fileID: 1704221229}
-  - {fileID: 1283474567}
   m_Father: {fileID: 1816797473}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21327,12 +21331,22 @@ Prefab:
     - target: {fileID: 224653895134189334, guid: b3bda4eb0d352b349b9be2cb6504fe66,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -205
+      value: -303
       objectReference: {fileID: 0}
     - target: {fileID: 224653895134189334, guid: b3bda4eb0d352b349b9be2cb6504fe66,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 116
+      value: 182
+      objectReference: {fileID: 0}
+    - target: {fileID: 224653895134189334, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 224653895134189334, guid: b3bda4eb0d352b349b9be2cb6504fe66,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 600
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114320554375647462, guid: b3bda4eb0d352b349b9be2cb6504fe66, type: 2}
@@ -27317,17 +27331,17 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1283474566}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00029562673}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00033569327}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 440691799}
-  m_RootOrder: 2
+  m_Father: {fileID: 407689985}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -100, y: 100}
-  m_SizeDelta: {x: 192, y: 108}
+  m_AnchoredPosition: {x: -131, y: 164}
+  m_SizeDelta: {x: 600, y: 350}
   m_Pivot: {x: 1, y: 0}
 --- !u!1001 &1283987456
 Prefab:
@@ -39802,7 +39816,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1928156704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.58081055, y: 4.998989, z: 3.3473816}
+  m_LocalPosition: {x: 0.58081055, y: 1.63, z: 3.3473816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 111254918}
