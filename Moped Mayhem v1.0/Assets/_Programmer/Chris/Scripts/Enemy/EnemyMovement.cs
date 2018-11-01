@@ -34,10 +34,6 @@ public class EnemyMovement : MonoBehaviour
 	protected NavMeshAgent m_NavAgent;
 	protected Rigidbody m_Rigidbody;
 
-	public bool m_bGetPath = false;
-	public bool m_bMoveChase = false;
-	public bool m_bMoveCatchUp = false;
-
 	public LineRenderer m_Line;
 
 	protected float m_fLastPathCheck;

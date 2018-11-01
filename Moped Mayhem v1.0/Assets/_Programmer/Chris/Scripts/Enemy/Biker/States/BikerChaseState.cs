@@ -48,7 +48,6 @@ public class BikerChaseState : BaseState
 		}
 
 		m_Movement.GetPathToPlayer();
-		//m_Movement.MoveChase();
-		m_Movement.MoveCatchUp();
+		m_Movement.MoveChase();
 	}
 } 

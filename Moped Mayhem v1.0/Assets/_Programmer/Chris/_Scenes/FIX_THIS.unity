@@ -2174,9 +2174,6 @@ MonoBehaviour:
   m_fAccelPathRange: 5
   m_fTurnPathRange: 10
   m_fMaxCollisionTurnRadians: 0.75
-  m_bGetPath: 1
-  m_bMoveChase: 1
-  m_bMoveCatchUp: 0
   m_Line: {fileID: 124736524}
 --- !u!43 &124945120
 Mesh:
@@ -11141,7 +11138,7 @@ MonoBehaviour:
   nChangeStateCount: 0
   m_fAttackRange: 10
   m_fChaseRange: 0
-  m_bAlwaysChase: 0
+  m_bAlwaysChase: 1
   m_Player: {fileID: 1272222951}
 --- !u!120 &537667407
 LineRenderer:
@@ -11254,13 +11251,10 @@ MonoBehaviour:
   m_fMaxChaseSpeed: 15
   m_fMaxCatchUpSpeed: 15
   m_fMaxTurnSpeed: 1.5
-  m_fOffset: 0.5
+  m_fOffset: 0.8
   m_fAccelPathRange: 5
   m_fTurnPathRange: 7
   m_fMaxCollisionTurnRadians: 1
-  m_bGetPath: 1
-  m_bMoveChase: 1
-  m_bMoveCatchUp: 0
   m_Line: {fileID: 537667407}
   m_fAttackSpeed: 30
   m_fSlowDownPoint: 0.8
@@ -19026,7 +19020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ThisEnemy: {fileID: 124736518}
   m_ReferencePoint: {fileID: 1546093235}
-  m_fMaxSeperation: 4
+  m_fMaxSeperation: 2
   m_fSeperation: 0
   m_ClosestObject: {fileID: 265480634}
   m_bColliding: 0
@@ -29921,7 +29915,7 @@ MonoBehaviour:
   m_LeftSensor: {fileID: 1348791400}
   m_MidSensor: {fileID: 120445037}
   m_RightSensor: {fileID: 1545237372}
-  m_fDetectionRange: 0.25
+  m_fDetectionRange: 0.5
   m_fReverseRange: 1.25
   m_bReversing: 0
 --- !u!65 &1395237386
@@ -33967,7 +33961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ThisEnemy: {fileID: 124736518}
   m_ReferencePoint: {fileID: 1120934646}
-  m_fMaxSeperation: 4
+  m_fMaxSeperation: 2
   m_fSeperation: 0
   m_ClosestObject: {fileID: 265480634}
   m_bColliding: 0
