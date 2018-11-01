@@ -1,6 +1,6 @@
 ﻿// Main Author - Tim Langford
-//
-// Date last worked on 24/10/18
+//	Alterations by - Christopher Bowles
+// Date last worked on 1/11/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class SniperAttack : MonoBehaviour
 {
+	public int m_nBuildingLayer = 8;
+
 	public Transform m_Player; // Target Player 
 
 	public Transform m_BarrelEnd;
@@ -81,31 +83,37 @@ public class SniperAttack : MonoBehaviour
 		Vector3 direction = m_Player.position - m_BarrelEnd.position;
 		Ray ray = new Ray(m_BarrelEnd.position, direction);
 
-		if (Physics.Raycast(ray, out hit, direction.magnitude + 1))
+		// This is a bitmask that makes it so we only check the building layer 
+		int layerMask = 1 << m_nBuildingLayer;
+
+		// Check to see if we hit a building
+		if (Physics.Raycast(ray, out hit, direction.magnitude + 1, layerMask))
 		{
-			// IF what it hit is not the player
-			if (hit.collider.gameObject.tag != "Player")
-			{
-				// End the attack
-				m_bAttacking = false;
-				m_fAttackEnd = 0;
+			// End the attack
+			m_bAttacking = false;
+			m_fAttackEnd = 0;
 
-				m_ReticleMain.SetActive(false);
-				m_Laser.enabled = false;
-				return;
-			}
-			else if (hit.collider.gameObject.tag == "Player" && !m_bAttacking)
-			{
-				// Set Time to end attack
-				m_fAttackEnd = Time.timeSinceLevelLoad + m_fAttackDuration;
-				m_bAttacking = true;
-
-				m_ReticleMain.SetActive(true);
-				m_Laser.enabled = true;
-
-				// hit.point - transform.position
-			}
+			m_ReticleMain.SetActive(false);
+			m_Laser.enabled = false;
+			return;
 		}
+		// Else we must have reached the player
+		// IF we are not already attacking the player
+		else if (!m_bAttacking)
+		{
+			// Start attacking the player
+
+			// Set Time to end attack
+			m_fAttackEnd = Time.timeSinceLevelLoad + m_fAttackDuration;
+			m_bAttacking = true;
+
+			// Enable reticle and laser
+			m_ReticleMain.SetActive(true);
+			m_Laser.enabled = true;
+
+			// hit.point - transform.position
+		}
+
 		// IF current time is less that time to end attack 
 		if (m_fCurrentTime < m_fAttackEnd)
 		{
@@ -158,13 +166,7 @@ public class SniperAttack : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if(collision.gameObject.tag == "Player")
-		{
-			m_bCollided = true;
-		}
-		else
-		{
-			m_bCollided = false;
-		}
+		// Becomes true if we collided with the player
+		m_bCollided = collision.gameObject.tag == "Player";
 	}
 }

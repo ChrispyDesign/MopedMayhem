@@ -26,7 +26,7 @@ public class EnemyMovementSensor : MonoBehaviour {
 
 	private void OnTriggerStay(Collider other)
 	{
-		if (other.gameObject == m_ThisEnemy)
+		if (other.gameObject == m_ThisEnemy || other.gameObject.tag == "Player")
 		{
 			return;
 		}
