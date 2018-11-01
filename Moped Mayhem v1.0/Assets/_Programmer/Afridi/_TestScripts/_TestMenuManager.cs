@@ -87,7 +87,8 @@ public class _TestMenuManager : MonoBehaviour {
     }
 
     public void OptionContents() {
-
+        OptionsScreen.SetActive(true);
+        MainMenu.SetActive(false);
     }
 
     public void HighScoreStore() {
@@ -97,7 +98,8 @@ public class _TestMenuManager : MonoBehaviour {
     }
 
     public void SoundContents() {
-
+        SoundScreen.SetActive(true);
+        OptionsScreen.SetActive(false);
     }
 
     public void QuitGame()

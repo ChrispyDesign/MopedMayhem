@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class _BCameraController : MonoBehaviour {
+public class _BCameraController : MonoBehaviour
+{
 
     public GameObject Empty;
     public GameObject Player;
@@ -17,9 +18,8 @@ public class _BCameraController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Main.transform.rotation = Empty.transform.rotation;
         Main.transform.LookAt(Player.transform);
-
         Main.transform.position = Vector3.SmoothDamp(Main.transform.position, Empty.transform.position, ref Vel, speed);
+        Main.transform.rotation = Empty.transform.rotation;
     }
 }
