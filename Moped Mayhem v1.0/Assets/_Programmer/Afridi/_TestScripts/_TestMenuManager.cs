@@ -32,6 +32,7 @@ public class _TestMenuManager : MonoBehaviour {
     }
 
     void Update () {
+
         /*These Controls work with both PC and PS4 (Unsure for Xbox)*/
         if (Input.GetButtonDown("Submit"))
         {
@@ -82,6 +83,7 @@ public class _TestMenuManager : MonoBehaviour {
 
     public void PlayGame() {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
     }
 
     public void OptionContents() {
