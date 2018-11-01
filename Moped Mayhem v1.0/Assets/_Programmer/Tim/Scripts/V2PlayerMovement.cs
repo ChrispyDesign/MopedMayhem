@@ -43,14 +43,37 @@ public class V2PlayerMovement : MonoBehaviour
 		float m_PlayerRot = Input.GetAxis("Horizontal");
 
 		var PlayerVelocity = Mathf.Abs(Vector3.Dot(m_PlayerRB.transform.forward, Vector3.Normalize(m_PlayerRB.velocity)));
+		float curAngle = this.transform.rotation.z;
 
-		if (Input.GetAxis("Vertical") == 0)
+		if (m_fMotor == 0)
 		{
 			m_fSteer = 0;
+			float RotationLerp = Mathf.Lerp(curAngle, 0, 60 * Time.deltaTime);
+			m_PlayerCharacterMain.transform.localRotation = new Quaternion(0, 0, -RotationLerp, 1);
 		}
 		else
 		{
-			m_fSteer = m_fMaxSteeringAngle * Input.GetAxis("Horizontal");
+			m_fSteer = m_fMaxSteeringAngle * m_PlayerRot;
+			float m_CurrentAngle = rotAngle * m_PlayerRot;
+			float RotationLerp = Mathf.Lerp(curAngle, m_CurrentAngle, 60 * Time.deltaTime);
+
+			m_PlayerCharacterMain.transform.localRotation = new Quaternion(0, 0, -RotationLerp, 1);
+			if(m_PlayerRot > 0.1)
+			{
+				if (curAngle < -0.1)
+				{
+					RotationLerp = Mathf.Lerp(curAngle, 0, 60 * Time.deltaTime);
+					m_PlayerCharacterMain.transform.localRotation = new Quaternion(0, 0, -RotationLerp, 1);
+				}
+			}
+			if (m_PlayerRot < -0.1)
+			{
+				if (curAngle > 0.1)
+				{
+					RotationLerp = Mathf.Lerp(curAngle, 0, 60 * Time.deltaTime);
+					m_PlayerCharacterMain.transform.localRotation = new Quaternion(0, 0, -RotationLerp, 1);
+				}
+			}
 		}
 
 		//for each Axis if steer bool is true, add steer and if motor bool = true, add torque to wheels
@@ -79,9 +102,7 @@ public class V2PlayerMovement : MonoBehaviour
 				}
 			}
 		}
-
-		//m_PlayerRB.transform.rotation = new Quaternion(0,0, m_PlayerRot * rotAngle,0);
-
+		
 		Dash(m_fSpeed);
 	}
 	
