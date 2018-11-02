@@ -17,6 +17,8 @@ public class BikerMovement : EnemyMovement
 
 	public bool BikerAttack()
 	{
+		m_NavAgent.nextPosition = transform.position;
+
 		// IF current speed is lower than attack speed
 		if (m_Rigidbody.velocity.magnitude < m_fAttackSpeed)
 		{
