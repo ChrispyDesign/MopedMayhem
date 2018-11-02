@@ -1110,7 +1110,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 307612951}
-  - component: {fileID: 307612952}
   m_Layer: 5
   m_Name: LeaderBoard
   m_TagString: Untagged
@@ -1156,21 +1155,6 @@ RectTransform:
   m_AnchoredPosition: {x: -10.4, y: 3.5}
   m_SizeDelta: {x: 923.5, y: 529.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &307612952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 307612950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9634022ef0b004c9dc3ad8380d433f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreArray: 
-  highscoreCount: 5
-  currentDirectory: 
-  scoreFileName: MMHScore.txt
 --- !u!1 &332444618
 GameObject:
   m_ObjectHideFlags: 0
@@ -6878,6 +6862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1933553772}
   - component: {fileID: 1933553773}
+  - component: {fileID: 1933553774}
   m_Layer: 5
   m_Name: MenuList
   m_TagString: Untagged
@@ -6932,8 +6917,33 @@ MonoBehaviour:
   LeaderBoardScreen: {fileID: 307612950}
   OptionsScreen: {fileID: 191317302}
   SoundScreen: {fileID: 2108626218}
+  Score_1: {fileID: 1453404066}
+  Score_2: {fileID: 494032756}
+  Score_3: {fileID: 1216973461}
+  Score_4: {fileID: 480111401}
+  Score_5: {fileID: 1799625633}
+  TimeScore_1: {fileID: 620640796}
+  TimeScore_2: {fileID: 1351653911}
+  TimeScore_3: {fileID: 1098304261}
+  TimeScore_4: {fileID: 1408467148}
+  TimeScore_5: {fileID: 719046719}
   CurrentSelec: {fileID: 0}
   CurrentButton: {fileID: 0}
+--- !u!114 &1933553774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1933553771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9634022ef0b004c9dc3ad8380d433f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreArray: 
+  highscoreCount: 5
+  currentDirectory: 
+  scoreFileName: MMHScore.txt
 --- !u!1 &2013135133
 GameObject:
   m_ObjectHideFlags: 0

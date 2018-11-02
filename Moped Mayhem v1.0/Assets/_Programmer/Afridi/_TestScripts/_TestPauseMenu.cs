@@ -17,11 +17,14 @@ public class _TestPauseMenu : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (isGamePaused == true) {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isGamePaused == true)
+            {
                 Resume();
             }
-            else {
+            else
+            {
                 Pause();
             }
         }

@@ -82,6 +82,9 @@ public class _AlternativeSpawner : MonoBehaviour {
         var BiDist = Vector3.Distance(Player.transform.position, BikerSpawn[Random.Range(0, AmountofBikerSpawns)].transform.position);
         if (BiDist < DistanceBetweenBiker)
         {
+            Debug.Log("Too Close Get Away From Me");
+        }
+        else {
             if (RateOfBikerSpawn <= 0.0f)
             {
                 Instantiate(Biker, BikerSpawn[Random.Range(0, AmountofBikerSpawns)].transform.position, BikerSpawn[Random.Range(0, AmountofBikerSpawns)].transform.rotation).SetActive(true);
@@ -99,6 +102,10 @@ public class _AlternativeSpawner : MonoBehaviour {
         }
         var SniDist = Vector3.Distance(Player.transform.position, SniperSpawn[Random.Range(0, AmountofSniperSpawns)].transform.position);
         if (SniDist < DistanceBetweenSniper)
+        {
+            Debug.Log("Too Close Get Away");
+        }
+        else
         {
             if (RateOfSniperSpawn <= 0.0f)
             {
@@ -119,6 +126,10 @@ public class _AlternativeSpawner : MonoBehaviour {
         var DemDist = Vector3.Distance(Player.transform.position, DemoSpawn[Random.Range(0, AmountofDemoSpawns)].transform.position);
         if (DemDist < DistanceBetweenDemo)
         {
+            Debug.Log("Too Close");
+        }
+        else
+        {
             if (RateOfDemoSpawn <= 0.0f)
             {
                 Instantiate(Demolisher, DemoSpawn[Random.Range(0, AmountofDemoSpawns)].transform.position, DemoSpawn[Random.Range(0, AmountofDemoSpawns)].transform.rotation).SetActive(true);
@@ -126,5 +137,6 @@ public class _AlternativeSpawner : MonoBehaviour {
                 RateOfDemoSpawn += 20.9f;
             }
         }
+        
     }
 }
