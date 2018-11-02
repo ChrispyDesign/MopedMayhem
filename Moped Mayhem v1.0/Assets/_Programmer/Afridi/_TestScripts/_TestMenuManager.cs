@@ -21,6 +21,18 @@ public class _TestMenuManager : MonoBehaviour {
     public GameObject OptionsScreen;
     public GameObject SoundScreen;
 
+    public Text Score_1;
+    public Text Score_2;
+    public Text Score_3;
+    public Text Score_4;
+    public Text Score_5;
+
+    public Text TimeScore_1;
+    public Text TimeScore_2;
+    public Text TimeScore_3;
+    public Text TimeScore_4;
+    public Text TimeScore_5;
+
     public GameObject CurrentSelec;
     public Button CurrentButton;
 
@@ -100,6 +112,7 @@ public class _TestMenuManager : MonoBehaviour {
     public void SoundContents() {
         SoundScreen.SetActive(true);
         OptionsScreen.SetActive(false);
+        Score_1.text = h_Scores.scoreArray[0].ToString();
     }
 
     public void QuitGame()

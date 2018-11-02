@@ -5074,7 +5074,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1316894451
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5409,7 +5409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1409932506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6565,7 +6565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1749367607
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7613,7 +7613,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2036261420}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c51f9765703fa3429b1402eb0925302, type: 3}
   m_Name: 
@@ -7630,10 +7630,10 @@ MonoBehaviour:
   AmountofDemoSpawns: 3
   RateOfBikerSpawn: 10
   RateOfSniperSpawn: 20
-  RateOfDemoSpawn: 40
-  DistanceBetweenBiker: 55
-  DistanceBetweenSniper: 65
-  DistanceBetweenDemo: 70
+  RateOfDemoSpawn: 60
+  DistanceBetweenBiker: 50
+  DistanceBetweenSniper: 60
+  DistanceBetweenDemo: 31.7
 --- !u!1 &2036375222
 GameObject:
   m_ObjectHideFlags: 0

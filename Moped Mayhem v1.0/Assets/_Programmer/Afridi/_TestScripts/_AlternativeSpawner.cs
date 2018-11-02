@@ -22,6 +22,10 @@ public class _AlternativeSpawner : MonoBehaviour {
     public float RateOfSniperSpawn = 0;
     public float RateOfDemoSpawn = 0;
 
+    private bool BikerExists = false;
+    private bool SniperExists = false;
+    private bool DemoExists = false;
+
     [Tooltip("This is the Distance Between the Player and The Biker Spawn point")]
     [Range(0, 60)]
     public float DistanceBetweenBiker = 0;
@@ -34,34 +38,53 @@ public class _AlternativeSpawner : MonoBehaviour {
 
     void Awake()
     {
+        BikerExists = false;
+        SniperExists = false;
+        DemoExists = false;
         BikerSpawn = GameObject.FindGameObjectsWithTag("BikerSpawn");
         SniperSpawn = GameObject.FindGameObjectsWithTag("SniperSpawn");
         DemoSpawn = GameObject.FindGameObjectsWithTag("DemoSpawn");
+
+        if (BikerSpawn.Length > 0 && AmountofBikerSpawns > 0) {
+            BikerExists = true;
+        }
+        if (SniperSpawn.Length > 0 && AmountofSniperSpawns > 0)
+        {
+            SniperExists = true;
+        }
+        if (DemoSpawn.Length > 0 && AmountofDemoSpawns > 0)
+        {
+            DemoExists = true;
+        }
     }
 
     void Update()
-    {  
-        MafiaBikerSpawnController();
-        MafiaSniperSpawnController();
-        MafiaDemoSpawnController();
+    {
+        if (BikerExists == true)
+        {
+            MafiaBikerSpawnController();
+        }
+        if (SniperExists == true)
+        {
+            MafiaSniperSpawnController();
+        }
+        if (DemoExists == true)
+        {
+            MafiaDemoSpawnController();
+        }
     }
 
     void MafiaBikerSpawnController() {
-        RateOfBikerSpawn -= Time.deltaTime;
+        if (RateOfBikerSpawn != -0)
+        {
+            RateOfBikerSpawn -= Time.deltaTime;
+        }
         var BiDist = Vector3.Distance(Player.transform.position, BikerSpawn[Random.Range(0, AmountofBikerSpawns)].transform.position);
-        if (BiDist > DistanceBetweenBiker)
+        if (BiDist < DistanceBetweenBiker)
         {
             if (RateOfBikerSpawn <= 0.0f)
             {
-                Instantiate(Biker, BikerSpawn[Random.Range(0, AmountofBikerSpawns)].transform.position, BikerSpawn[Random.Range(0, AmountofBikerSpawns)].transform.rotation);
-
-				var tempMovement = Biker.GetComponent<BikerMovement>();
-				tempMovement.m_Player = Player;
-				tempMovement.m_Line = Biker.GetComponent<LineRenderer>();
-
-				var tempAI = Biker.GetComponent<BikerAI>();
-				tempAI.m_ParentObject = Biker;
-				tempAI.m_Player = Player;
+                Instantiate(Biker, BikerSpawn[Random.Range(0, AmountofBikerSpawns)].transform.position, BikerSpawn[Random.Range(0, AmountofBikerSpawns)].transform.rotation).SetActive(true);
 
                 RateOfBikerSpawn = 10.0f;
                 RateOfBikerSpawn += 1.9f;
@@ -70,13 +93,17 @@ public class _AlternativeSpawner : MonoBehaviour {
     }
 
     void MafiaSniperSpawnController() {
-        RateOfSniperSpawn -= Time.deltaTime;
+        if (RateOfSniperSpawn != -0)
+        {
+            RateOfSniperSpawn -= Time.deltaTime;
+        }
         var SniDist = Vector3.Distance(Player.transform.position, SniperSpawn[Random.Range(0, AmountofSniperSpawns)].transform.position);
-        if (SniDist > DistanceBetweenSniper)
+        if (SniDist < DistanceBetweenSniper)
         {
             if (RateOfSniperSpawn <= 0.0f)
             {
-                Instantiate(Sniper, SniperSpawn[Random.Range(0, AmountofSniperSpawns)].transform.position, SniperSpawn[Random.Range(0, AmountofSniperSpawns)].transform.rotation);
+                Instantiate(Sniper, SniperSpawn[Random.Range(0, AmountofSniperSpawns)].transform.position, SniperSpawn[Random.Range(0, AmountofSniperSpawns)].transform.rotation).SetActive(true);
+
                 RateOfSniperSpawn = 20.0f;
                 RateOfSniperSpawn += 10.9f;
             }
@@ -85,14 +112,16 @@ public class _AlternativeSpawner : MonoBehaviour {
 
     void MafiaDemoSpawnController()
     {
-        RateOfDemoSpawn -= Time.deltaTime;
+        if (RateOfDemoSpawn != -0)
+        {
+            RateOfDemoSpawn -= Time.deltaTime;
+        }
         var DemDist = Vector3.Distance(Player.transform.position, DemoSpawn[Random.Range(0, AmountofDemoSpawns)].transform.position);
-        Debug.Log(DemDist);
-        if (DemDist > DistanceBetweenDemo)
+        if (DemDist < DistanceBetweenDemo)
         {
             if (RateOfDemoSpawn <= 0.0f)
             {
-                Instantiate(Demolisher, DemoSpawn[Random.Range(0, AmountofDemoSpawns)].transform.position, DemoSpawn[Random.Range(0, AmountofDemoSpawns)].transform.rotation);
+                Instantiate(Demolisher, DemoSpawn[Random.Range(0, AmountofDemoSpawns)].transform.position, DemoSpawn[Random.Range(0, AmountofDemoSpawns)].transform.rotation).SetActive(true);
                 RateOfDemoSpawn = 40.0f;
                 RateOfDemoSpawn += 20.9f;
             }
