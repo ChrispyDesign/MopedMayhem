@@ -21,27 +21,36 @@ public class GameManager : MonoBehaviour
 	
 	public bool reloadScene = false;
 	private bool paused = false;
+    private bool hasLost = false;
 
 	public GameObject m_PauseCanvas;
-
+    public _TestHighScore Score;
+    public _ScoreControl sController; 
 	public GameObject m_GameOverCanvas;
 
 	public int m_fTimeLimit;
 	private int m_fStartTime;
 	private int Min, Sec;
 	private float fSeconds;
+    public Text ScoreTxt;
 
 	public GameObject MinuteBox, SecondBox;
 
-	// Use this for initialization
-	void Start()
+    private void Awake()
+    {
+        sController = FindObjectOfType<_ScoreControl>();
+        Score = FindObjectOfType<_TestHighScore>();
+        hasLost = false;
+    }
+
+    // Use this for initialization
+    void Start()
 	{
 		var findGameManager = FindObjectsOfType<GameManager>();
 		if (findGameManager.Length > 1)
 		{
 			Debug.LogError("[Singleton] there is more then one GameManager in the Scene.");
 		}
-		//m_PauseCanvas.SetActive(false);
 
 		Time.timeScale = 1;
 
@@ -62,8 +71,10 @@ public class GameManager : MonoBehaviour
 			Pause();
 		}
 
-		GameLoop();
-	}
+        GameLoop();
+
+        ScoreTxt.text = sController.Score.ToString();
+    }
 
 	public void Sceneload(string scene)
 	{
@@ -71,38 +82,36 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void GameLoop()
-	{
-		fSeconds += Time.deltaTime;
-		if (fSeconds > 1)
-		{
-			Sec--;
-			fSeconds--;
-		}
-		if(Sec < 0)
-		{
-			Min--;
-			Sec = 59;
-		}
-		if(Min < 0)
-		{
-			Min = 0;
-		}
+	{       
+       fSeconds += Time.deltaTime;
+       if (fSeconds > 1)
+       {
+           Sec--;
+           fSeconds--;
+       }
+       if (Sec < 0)
+       {
+           Min--;
+           Sec = 59;
+       }
+       if (Min < 0)
+       {
+           Min = 0;
+       }
+       if (Min == 0 && Sec == 0)
+       {            
+            EndGame();
+       }
+       if (Sec <= 9)
+       {
+           SecondBox.GetComponent<Text>().text = "0" + Sec;
+       }
+       else
+       {
+           SecondBox.GetComponent<Text>().text = "" + Sec;
+       }
 
-		if(Min == 0 && Sec == 0)
-		{
-			EndGame();
-		}
-
-		if(Sec <= 9)
-		{
-			SecondBox.GetComponent<Text>().text = "0" + Sec;
-		}
-		else
-		{
-			SecondBox.GetComponent<Text>().text = "" + Sec;
-		}
-
-		MinuteBox.GetComponent<Text>().text = Min + ":";
+       MinuteBox.GetComponent<Text>().text = Min + ":";
 	}
 
 	public void Pause()
@@ -122,11 +131,11 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	public void EndGame()
-	{
-		
-		m_GameOverCanvas.SetActive(true);
-	}
+    public void EndGame()
+    {
+        Time.timeScale = 0f;
+        m_GameOverCanvas.SetActive(true);
+    }
 
 	public void RePlay()
 	{

@@ -107,16 +107,16 @@ public class _TestMenuManager : MonoBehaviour {
         LeaderBoardScreen.SetActive(true);
         MainMenu.SetActive(false);
         h_Scores.LoadScoresFromFile();
-    }
-
-    public void SoundContents() {
-        SoundScreen.SetActive(true);
-        OptionsScreen.SetActive(false);
         Score_1.text = h_Scores.scoreArray[0].ToString();
         Score_2.text = h_Scores.scoreArray[1].ToString();
         Score_3.text = h_Scores.scoreArray[2].ToString();
         Score_4.text = h_Scores.scoreArray[3].ToString();
         Score_5.text = h_Scores.scoreArray[4].ToString();
+    }
+
+    public void SoundContents() {
+        SoundScreen.SetActive(true);
+        OptionsScreen.SetActive(false);
     }
 
     public void QuitGame()
