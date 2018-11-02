@@ -14,7 +14,11 @@ public class SniperAttack : MonoBehaviour
 
 	public Transform m_BarrelEnd;
 	public LineRenderer m_Laser; // Laser from Sniper to player
-	public GameObject m_ReticleMain, m_ReticleTop, m_ReticleBot, m_ReticleLeft, m_ReticleRight; // The Reticle
+
+	public GameObject m_ReticleMainPrefab, m_ReticleTopPrefab, m_ReticleBotPrefab, m_ReticleLeftPrefab, m_ReticleRightPrefab;
+
+
+	private GameObject m_ReticleMain, m_ReticleTop, m_ReticleBot, m_ReticleLeft, m_ReticleRight; // The Reticle
 
 	public Vector3	m_ReticleTopEnd, m_ReticleBotEnd,	
 					m_ReticleLeftEnd, m_ReticleRightEnd; // Reticle End Points
@@ -43,9 +47,15 @@ public class SniperAttack : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		m_ReticleMain	= Instantiate<GameObject>(m_ReticleMainPrefab);
+		m_ReticleTop	= m_ReticleMain.transform.Find("RetTop").gameObject;
+		m_ReticleBot	= m_ReticleMain.transform.Find("RetBot").gameObject;
+		m_ReticleLeft	= m_ReticleMain.transform.Find("RetLeft").gameObject;
+		m_ReticleRight	= m_ReticleMain.transform.Find("RetRight").gameObject;
+
 		m_ReticleTopStart	= m_ReticleTop.transform.localPosition;
 		m_ReticleBotStart	= m_ReticleBot.transform.localPosition;
-		m_ReticleLeftStart = m_ReticleLeft.transform.localPosition;
+		m_ReticleLeftStart	= m_ReticleLeft.transform.localPosition;
 		m_ReticleRightStart = m_ReticleRight.transform.localPosition;
 		m_SniperRB = gameObject.GetComponent<Rigidbody>();
 

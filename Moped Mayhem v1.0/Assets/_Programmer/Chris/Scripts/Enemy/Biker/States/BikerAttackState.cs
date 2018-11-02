@@ -37,7 +37,7 @@ public class BikerAttackState : BaseState
 	public override void UpdateState()
 	{
 		bool bAttackEnded = m_Movement.BikerAttack();
-
+		
 		if (bAttackEnded)
 		{
 			m_BikerAI.ChangeState("BikerBreakdownState");
