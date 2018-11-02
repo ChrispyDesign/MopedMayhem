@@ -20,6 +20,7 @@ public class V2PlayerMovement : MonoBehaviour
 
 	public GameObject m_PlayerCharacterMain;
 	public float rotAngle;
+	public float m_fSpeed;
 	public float m_fBoostCoolDown;
 	public float m_fCooldown;
 
@@ -81,6 +82,7 @@ public class V2PlayerMovement : MonoBehaviour
 				}
 			}
 		}
+		Dash(m_fSpeed);
 	}
 
 	//------------------------------------------------------

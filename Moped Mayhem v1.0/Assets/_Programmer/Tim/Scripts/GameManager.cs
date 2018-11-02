@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public _ScoreControl sController; 
 	public GameObject m_GameOverCanvas;
 
-	public int m_fTimeLimit;
+	public int m_iTimeLimit;
 	private int m_fStartTime;
 	private int Min, Sec;
 	private float fSeconds;
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
 		Time.timeScale = 1;
 
-		Min = m_fTimeLimit;
+		Min = m_iTimeLimit;
 		Sec = 1;
 	}
 
