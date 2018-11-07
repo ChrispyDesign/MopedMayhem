@@ -1,7 +1,7 @@
 ﻿// Main Author - Christopher Bowles
 //	Alterations by -
 //
-// Date last worked on 01/10/18
+// Date last worked on 08/11/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -12,9 +12,8 @@ public class BaseFSM : MonoBehaviour {
 	public GameObject m_ParentObject;
 	public List<BaseState> m_States;
 	public BaseState m_StartState;
-	private BaseState m_CurrentState;
-
-	public int nChangeStateCount;
+	protected BaseState m_CurrentState;
+	protected int nChangeStateCount;
 
 	//------------------------------------------------------------
 	// Start
@@ -66,10 +65,10 @@ public class BaseFSM : MonoBehaviour {
 	}
 
 	//------------------------------------------------------------
-	// Update
+	// FixedUpdate
 	//		Updates the currentState 
 	//------------------------------------------------------------
-	protected virtual void Update()
+	protected virtual void FixedUpdate()
 	{
 		m_CurrentState.UpdateState();
 	}

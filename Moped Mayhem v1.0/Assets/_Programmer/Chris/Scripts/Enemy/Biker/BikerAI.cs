@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BikerAI : BaseFSM
 {
+	[Tooltip("Max angle offset from forward, in degrees")]
+	[Range(5.0f, 30.0f)]
+	public float m_fMaxAttackAngle;
 	public float m_fAttackRange;
 	public float m_fChaseRange;
 	public bool m_bAlwaysChase;

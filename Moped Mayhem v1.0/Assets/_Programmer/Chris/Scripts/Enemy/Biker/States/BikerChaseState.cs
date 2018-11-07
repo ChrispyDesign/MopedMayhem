@@ -32,15 +32,19 @@ public class BikerChaseState : BaseState
 
 	public override void UpdateState()
 	{
-		float fRange = Vector3.Magnitude(m_BikerAI.m_Player.transform.position - m_ParentObject.transform.position);
-		// IF in attack range
+		var playerPos = m_BikerAI.m_Player.transform.position;
+		float fRange = Vector3.Magnitude(playerPos - transform.position);
+		// IF within attack range
 		if (fRange < m_BikerAI.m_fAttackRange)
 		{
-			m_BikerAI.ChangeState("BikerAttackState");
-			return;
+			if (Vector3.Angle(transform.forward, playerPos - transform.position) < m_BikerAI.m_fMaxAttackAngle)
+			{
+				m_BikerAI.ChangeState("BikerAttackState");
+				return;
+			}
 		}
 
-		// IF in chase range
+		// IF beyond chase range
 		else if (fRange > m_BikerAI.m_fChaseRange)
 		{
 			m_BikerAI.ChangeState("BikerCatchupState");

@@ -63,7 +63,8 @@ public class BikerMovement : EnemyMovement
 				float fLerpPos = 1- ((fCurrentTime - fSlowdownTime) / fSlowdownDuration);
 
 				Vector3 v3NewVelocity = Vector3.Lerp(m_Rigidbody.velocity, Vector3.zero, fLerpPos);
-			}
+				m_Rigidbody.velocity = v3NewVelocity;
+			}			
 		}
 
 		// Attack incomplete
@@ -96,7 +97,22 @@ public class BikerMovement : EnemyMovement
 		m_NavAgent.updateRotation = false;
 
 		// Set Rotation
-		Vector3 v3Target = m_Player.transform.position + m_Player.transform.right;	//CB::Might make this dependent on range
+		Vector3 v3Target = m_Player.transform.position;
 		transform.LookAt(v3Target);
+
+		// Zero Angular velocity
+		m_Rigidbody.angularVelocity = Vector3.zero;
+	}
+
+	public void BikerStop()
+	{
+		if (m_NavAgent.updatePosition)
+		{
+			m_NavAgent.updatePosition = false;
+			m_NavAgent.updateRotation = false;
+		}
+
+		m_NavAgent.nextPosition = transform.position;
 	}
 }
+
