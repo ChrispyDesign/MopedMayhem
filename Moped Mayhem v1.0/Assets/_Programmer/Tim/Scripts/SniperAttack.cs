@@ -45,7 +45,7 @@ public class SniperAttack : MonoBehaviour
 	public float m_fKnockBack = 2;
 
 	// Use this for initialization
-	void Start()
+	void Awake()
 	{
 		m_ReticleMain	= Instantiate<GameObject>(m_ReticleMainPrefab);
 		m_ReticleTop	= m_ReticleMain.transform.Find("RetTop").gameObject;

@@ -2286,6 +2286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenuObj: {fileID: 968546739}
   OptionsMenuObj: {fileID: 1419153509}
+  scoreControl: {fileID: 0}
+  tscore: {fileID: 0}
 --- !u!4 &503869457 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4037752784487824, guid: 4ae3fd2f8e90ee0438df39c33d798233,
@@ -4797,12 +4799,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2bb34a3c21f794ea3e419a0e299c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: {fileID: 0}
-  sController: {fileID: 0}
+  sController: {fileID: 1096366961}
   ScoreTxt: {fileID: 1396572160}
   Timer: {fileID: 930663136}
   LostGame: {fileID: 1428924567}
-  DurationOfGame: 10
+  hasDied: 0
+  DurationOfGame: 30
 --- !u!1 &1098682582
 GameObject:
   m_ObjectHideFlags: 0
@@ -6358,6 +6360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenuObj: {fileID: 1388373982}
   OptionsMenuObj: {fileID: 0}
+  scoreControl: {fileID: 1096366961}
+  tscore: {fileID: 1096366960}
 --- !u!114 &1428924565
 MonoBehaviour:
   m_ObjectHideFlags: 0

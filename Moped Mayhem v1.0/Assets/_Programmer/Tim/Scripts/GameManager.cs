@@ -72,8 +72,6 @@ public class GameManager : MonoBehaviour
 		}
 
         GameLoop();
-
-        ScoreTxt.text = sController.Score.ToString();
     }
 
 	public void Sceneload(string scene)
