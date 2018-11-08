@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -26023,7 +26023,7 @@ CapsuleCollider:
   m_Radius: 0.4411382
   m_Height: 1.4792906
   m_Direction: 2
-  m_Center: {x: 0.0052009225, y: -0.4, z: 0.007832587}
+  m_Center: {x: 0.0052009225, y: 0, z: 0.007832587}
 --- !u!114 &1272222958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26039,7 +26039,7 @@ MonoBehaviour:
   m_AxleInfo:
   - m_Wheel1: {fileID: 1912289017}
     m_Wheel2: {fileID: 640909753}
-    m_bMotor: 1
+    m_bMotor: 0
     m_bSteering: 1
   - m_Wheel1: {fileID: 1738634809}
     m_Wheel2: {fileID: 1834172435}
@@ -26113,14 +26113,14 @@ MonoBehaviour:
     m_bSteering: 0
   m_fMaxMotorTorque: 500
   m_PlayerRB: {fileID: 1272222960}
-  m_fMaxTime: 0.5
+  m_fSteerMaxTime: 0.9
   m_fMaxAngle: 55
   m_fMinAngle: 0
   m_PlayerCharacterMain: {fileID: 630439510}
   m_fRotAngle: 0.2
-  boostSpeed: 1000
+  boostSpeed: 500
   m_fCooldown: 3
-  m_fDuration: 2
+  m_fDurationDefault: 5
   BoostMass: 20
 --- !u!1001 &1273442299
 Prefab:

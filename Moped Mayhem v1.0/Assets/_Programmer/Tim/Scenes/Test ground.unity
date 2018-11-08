@@ -242,11 +242,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 24655955}
   m_Mesh: {fileID: 4300008, guid: c7e0ca04ae1f33348a16cb22290c53c8, type: 3}
---- !u!1 &56707872 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1753399554869906, guid: 177c8c3a550f8e041a3d7700ff24a449,
-    type: 2}
-  m_PrefabInternal: {fileID: 443117763}
 --- !u!1 &102897225
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +360,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 121639155}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fbbf172cce504e408c50d653bc94f95, type: 3}
   m_Name: 
@@ -431,7 +426,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 121639155}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f451cc81bc74df74e877268739e1d887, type: 3}
   m_Name: 
@@ -447,11 +442,15 @@ MonoBehaviour:
     m_bSteering: 0
   m_fMaxMotorTorque: 500
   m_PlayerRB: {fileID: 121639159}
-  m_fMaxTime: 2
+  m_fSteerMaxTime: 0
   m_fMaxAngle: 55
   m_fMinAngle: 0
   m_PlayerCharacterMain: {fileID: 9173435}
   m_fRotAngle: 10
+  boostSpeed: 0
+  m_fCooldown: 0
+  m_fDurationDefault: 0
+  BoostMass: 0
 --- !u!1 &261247872
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,11 +626,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &326652981 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1232236586940104, guid: 177c8c3a550f8e041a3d7700ff24a449,
-    type: 2}
-  m_PrefabInternal: {fileID: 443117763}
 --- !u!1 &339628636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2851,11 +2845,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1768578795755406, guid: 177c8c3a550f8e041a3d7700ff24a449,
     type: 2}
   m_PrefabInternal: {fileID: 643515189}
---- !u!1 &1111933425 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1800512727055724, guid: 177c8c3a550f8e041a3d7700ff24a449,
-    type: 2}
-  m_PrefabInternal: {fileID: 443117763}
 --- !u!1 &1116115108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,11 +2920,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1116115108}
   m_Mesh: {fileID: 4300004, guid: c7e0ca04ae1f33348a16cb22290c53c8, type: 3}
---- !u!1 &1134236105 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1269793743993088, guid: 177c8c3a550f8e041a3d7700ff24a449,
-    type: 2}
-  m_PrefabInternal: {fileID: 443117763}
 --- !u!1 &1179254560
 GameObject:
   m_ObjectHideFlags: 0
@@ -3652,11 +3636,11 @@ MonoBehaviour:
   m_Player: {fileID: 1031605865}
   m_BarrelEnd: {fileID: 1665295867}
   m_Laser: {fileID: 1558335848}
-  m_ReticleMain: {fileID: 1761938557}
-  m_ReticleTop: {fileID: 56707872}
-  m_ReticleBot: {fileID: 1134236105}
-  m_ReticleLeft: {fileID: 1111933425}
-  m_ReticleRight: {fileID: 326652981}
+  m_ReticleMainPrefab: {fileID: 0}
+  m_ReticleTopPrefab: {fileID: 0}
+  m_ReticleBotPrefab: {fileID: 0}
+  m_ReticleLeftPrefab: {fileID: 0}
+  m_ReticleRightPrefab: {fileID: 0}
   m_ReticleTopEnd: {x: 0, y: 0, z: 1}
   m_ReticleBotEnd: {x: 0, y: 0, z: -1}
   m_ReticleLeftEnd: {x: -1, y: 0, z: 0}
@@ -3990,11 +3974,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1761938557 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1768578795755406, guid: 177c8c3a550f8e041a3d7700ff24a449,
-    type: 2}
-  m_PrefabInternal: {fileID: 443117763}
 --- !u!1 &1801477666
 GameObject:
   m_ObjectHideFlags: 0
@@ -4142,8 +4121,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadScene: 0
   m_PauseCanvas: {fileID: 418532986}
+  Score: {fileID: 0}
+  sController: {fileID: 0}
   m_GameOverCanvas: {fileID: 1637346417}
   m_iTimeLimit: 10
+  ScoreTxt: {fileID: 0}
   MinuteBox: {fileID: 1008457433}
   SecondBox: {fileID: 1374659029}
 --- !u!4 &1833103487

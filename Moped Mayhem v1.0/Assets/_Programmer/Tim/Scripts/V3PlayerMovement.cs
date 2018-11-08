@@ -10,7 +10,7 @@ public class V3PlayerMovement : MonoBehaviour {
 
 	float m_fSteer;
 	[Header("Steering")]
-	public float m_fMaxTime;
+	public float m_fSteerMaxTime;
 	public float m_fMaxAngle, m_fMinAngle;   // Steer Angle for turning the car
 
 	[Header("Tilting")]
@@ -23,16 +23,16 @@ public class V3PlayerMovement : MonoBehaviour {
 	[Header("Boost")]
 	public float boostSpeed;
 	public float m_fCooldown;
-	public float m_fDuration;
+	private  float m_fDuration;
+	public float m_fDurationDefault;
 	private float fCooldown;
 	public float BoostMass;
-	private float DefaultMass;
-	private IEnumerator corotine;
+	private float DefaultMass = 5;
 
 	private void Start()
 	{
 		fCooldown = m_fCooldown;
-		DefaultMass = m_PlayerRB.mass;
+		m_fDuration = m_fDurationDefault;
 	}
 
 	public void FixedUpdate()
@@ -51,19 +51,10 @@ public class V3PlayerMovement : MonoBehaviour {
 		{
 			timer = 0;
 		}
-		float fLerpTime = timer / m_fMaxTime;
+		float fLerpTime = timer / m_fSteerMaxTime;
 
 		float fLerp = Mathf.Lerp(m_fMinAngle, m_fMaxAngle, fLerpTime);
-		/*
-		if (Input.GetAxis("Horizontal") > 0)
-		{
-			m_fSteer = fLerp;
-		}
-		else
-		{
-			m_fSteer = -fLerp;
-		}
-		*/
+		
 		m_fSteer = fLerp * m_PlayerRot;
 
 		if (m_PlayerRot == 0)
@@ -113,19 +104,19 @@ public class V3PlayerMovement : MonoBehaviour {
 	public void Boost()
 	{
 		float m_fTimer = Time.timeSinceLevelLoad;
-		
 		var m_PlayerVelocity = Vector3.Dot(m_PlayerRB.transform.forward, Vector3.Normalize(m_PlayerRB.velocity));
+
 		if (Input.GetAxis("Fire2") > 0 && m_fTimer >= fCooldown && m_PlayerVelocity > 0)
 		{
 			m_PlayerRB.mass = BoostMass;
 			m_PlayerRB.AddForce(m_PlayerRB.transform.forward * boostSpeed, ForceMode.Impulse);
 			fCooldown = m_fTimer + m_fCooldown;
-			m_fDuration = m_fTimer + m_fDuration;
-			if (m_fTimer >= m_fDuration)
-			{
-				m_PlayerRB.mass = DefaultMass;
-			}
 		}
-		
+		if (m_fTimer > m_fDuration && m_PlayerRB.mass == BoostMass)
+		{
+			m_PlayerRB.mass = DefaultMass;
+			m_fDuration = m_fTimer + m_fDurationDefault;
+			Debug.Log(m_fDuration + ", " + m_fTimer);
+		}
 	}
 }
