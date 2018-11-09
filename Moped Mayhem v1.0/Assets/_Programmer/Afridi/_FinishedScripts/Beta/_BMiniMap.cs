@@ -41,7 +41,7 @@ public class _BMiniMap : MonoBehaviour {
     void Update()
     {
         //On Keypress 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetAxis("Fire3") > 0.1)
         {
             //The Large Image's Alpha Colour is reduced
             Color c = m_LrgImg.color;
@@ -61,7 +61,7 @@ public class _BMiniMap : MonoBehaviour {
             m_LrgImg.enabled = true;
         }
         //On Keypress 
-        if (Input.GetKeyUp("space"))
+        if (Input.GetAxis("Fire3") == 0)
         {
             //The Small Image's Alpha Colour is reduced
             Color c = m_SmlImg.color;
