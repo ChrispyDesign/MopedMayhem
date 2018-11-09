@@ -15,7 +15,7 @@ public class SniperAttack : MonoBehaviour
 	public Transform m_BarrelEnd;
 	public LineRenderer m_Laser; // Laser from Sniper to player
 
-	public GameObject m_ReticleMainPrefab, m_ReticleTopPrefab, m_ReticleBotPrefab, m_ReticleLeftPrefab, m_ReticleRightPrefab;
+	public GameObject m_ReticleMainPrefab;
 
 
 	private GameObject m_ReticleMain, m_ReticleTop, m_ReticleBot, m_ReticleLeft, m_ReticleRight; // The Reticle
@@ -44,6 +44,9 @@ public class SniperAttack : MonoBehaviour
 	[Range(0,500)]
 	public float m_fKnockBack = 2;
 
+	private DeathScript m_Death;
+	private float m_fStartHeight;
+
 	// Use this for initialization
 	void Awake()
 	{
@@ -62,6 +65,10 @@ public class SniperAttack : MonoBehaviour
 		m_PrevPos = transform.position;
 
 		m_PlayerRB = m_Player.GetComponent<Rigidbody>();
+		m_Death = GetComponent<DeathScript>();
+		m_Death.m_RelatedObjects.Add(m_ReticleMain);
+
+		m_fStartHeight = transform.position.y;
 	}
 
 	// Update is called once per frame
@@ -83,9 +90,9 @@ public class SniperAttack : MonoBehaviour
 			m_ReticleMain.SetActive(false);
 			m_Laser.enabled = false;
 			
-			if(transform.position.y >= 100)
+			if(transform.position.y >= 20 + m_fStartHeight)
 			{
-				gameObject.SetActive(false);
+				m_Death.m_bKillMe = true;
 			}
 		}
 

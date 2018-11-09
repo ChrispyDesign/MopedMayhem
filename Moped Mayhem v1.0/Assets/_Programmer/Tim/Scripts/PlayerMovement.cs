@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		Move(v);
 		var PlayerVelocity = Vector3.Dot(CenOfMass.transform.forward, Vector3.Normalize(pRigidBody.velocity));
-		Debug.Log(PlayerVelocity);
+		//Debug.Log(PlayerVelocity);
 
 		if (PlayerVelocity > 0.01)
 		{

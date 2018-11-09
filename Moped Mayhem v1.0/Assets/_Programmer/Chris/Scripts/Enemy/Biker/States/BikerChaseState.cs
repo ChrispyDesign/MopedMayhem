@@ -23,11 +23,13 @@ public class BikerChaseState : BaseState
 
 		m_BikerAI = (BikerAI)m_ParentFSM;
 		m_Movement = GetComponent<BikerMovement>();
+
+		m_BikerAI.m_Death.m_bAllowCheckStuck = true;
 	}
 
 	public override void OnEnd()
 	{
-
+		m_BikerAI.m_Death.m_bAllowCheckStuck = false;
 	}
 
 	public override void UpdateState()

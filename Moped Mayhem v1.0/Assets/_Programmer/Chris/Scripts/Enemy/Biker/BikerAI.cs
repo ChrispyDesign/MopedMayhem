@@ -12,13 +12,19 @@ public class BikerAI : BaseFSM
 	public bool m_bAlwaysChase;
 	public GameObject m_Player;
 
+	public DeathScript m_Death;
+
 	protected override void Setup()
 	{
 		// IF Player has not been set
 		if (!m_Player)
 		{
-			// Chastise the designers
-			Debug.LogError("Set Player on " + this.name + " Numnutz");
+			m_Player = GameObject.FindGameObjectWithTag("Player");
+		}
+
+		if (!m_Death)
+		{
+			m_Death = GetComponent<DeathScript>();
 		}
 
 		// IF always chase is true

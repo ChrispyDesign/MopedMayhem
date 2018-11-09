@@ -278,6 +278,8 @@ public class OrderManager : MonoBehaviour
 
 	private void CheckIndicators()
 	{
+		Debug.Log(m_ActiveOrders.Count);
+
 		foreach (Order order in m_ActiveOrders)
 		{
 			string sFoodName = order.m_Food.m_sFoodName;
