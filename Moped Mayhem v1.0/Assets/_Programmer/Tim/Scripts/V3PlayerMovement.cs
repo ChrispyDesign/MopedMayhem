@@ -26,8 +26,11 @@ public class V3PlayerMovement : MonoBehaviour {
 	private  float m_fDuration;
 	public float m_fDurationDefault;
 	private float fCooldown;
-	public float BoostMass;
+	public float BoostMultiply;
 	private float DefaultMass = 5;
+	private float DefaultDrag = 0.5f;
+	private float DefaultAngularDrag = 4;
+	private bool m_bBoosting = false;
 
 	private void Start()
 	{
@@ -37,7 +40,8 @@ public class V3PlayerMovement : MonoBehaviour {
 
 	public void FixedUpdate()
 	{
-		float motor = m_fMaxMotorTorque * Input.GetAxis("Vertical");
+		float v = Input.GetAxis("Vertical");
+		float motor = m_fMaxMotorTorque * v;
 		float m_PlayerRot = Input.GetAxis("Horizontal");
 
 		var PlayerVelocity = Mathf.Abs(Vector3.Dot(m_PlayerRB.transform.forward, Vector3.Normalize(m_PlayerRB.velocity)));
@@ -74,7 +78,7 @@ public class V3PlayerMovement : MonoBehaviour {
 
 		Drive(motor);
 		Turn(m_fSteer);
-		Boost();
+		Boost(v);
 	}
 
 	public void Drive(float motor)
@@ -101,22 +105,28 @@ public class V3PlayerMovement : MonoBehaviour {
 		}
 	}
 
-	public void Boost()
+	public void Boost(float v)
 	{
 		float m_fTimer = Time.timeSinceLevelLoad;
 		var m_PlayerVelocity = Vector3.Dot(m_PlayerRB.transform.forward, Vector3.Normalize(m_PlayerRB.velocity));
 
-		if (Input.GetAxis("Fire2") > 0 && m_fTimer >= fCooldown && m_PlayerVelocity > 0)
+		if (Input.GetAxis("Fire2") > 0 && m_fTimer >= fCooldown)
 		{
-			m_PlayerRB.mass = BoostMass;
 			m_PlayerRB.AddForce(m_PlayerRB.transform.forward * boostSpeed, ForceMode.Impulse);
+			m_PlayerRB.mass = m_PlayerRB.mass * BoostMultiply;
+			m_PlayerRB.drag = m_PlayerRB.drag * BoostMultiply;
+			m_PlayerRB.angularDrag = m_PlayerRB.angularDrag * BoostMultiply;
 			fCooldown = m_fTimer + m_fCooldown;
+			m_fDuration = m_fTimer + m_fDurationDefault;
+			m_bBoosting = true;
 		}
-		if (m_fTimer > m_fDuration && m_PlayerRB.mass == BoostMass)
+
+		if (m_fTimer > m_fDuration && m_bBoosting == true)
 		{
 			m_PlayerRB.mass = DefaultMass;
-			m_fDuration = m_fTimer + m_fDurationDefault;
-			Debug.Log(m_fDuration + ", " + m_fTimer);
+			m_PlayerRB.drag = DefaultDrag;
+			m_PlayerRB.angularDrag = DefaultAngularDrag;
+			m_bBoosting = false;
 		}
 	}
 }
