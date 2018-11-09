@@ -31,6 +31,13 @@ public class DeliveryDropoff : MonoBehaviour {
 	{
 		m_ActiveOrder = order;
 		m_bIsActive = true;
+		var renderer = GetComponent<MeshRenderer>();
+		var matColor = renderer.material.color;
+		matColor.r = order.m_Food.m_TicketColor.r;
+		matColor.g = order.m_Food.m_TicketColor.g;
+		matColor.b = order.m_Food.m_TicketColor.b;
+
+		renderer.material.color = matColor;
 		this.gameObject.SetActive(m_bIsActive);
 	}
 
