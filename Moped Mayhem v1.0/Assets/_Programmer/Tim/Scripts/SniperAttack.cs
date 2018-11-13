@@ -1,5 +1,5 @@
 ﻿// Main Author - Tim Langford
-//	Alterations by - Christopher Bowles
+//	Alterations by - Chris Bowles
 // Date last worked on 1/11/18
 
 using System.Collections;
@@ -104,7 +104,7 @@ public class SniperAttack : MonoBehaviour
 		int layerMask = 1 << m_nBuildingLayer;
 
 		// Check to see if we hit a building
-		if (Physics.Raycast(ray, out hit, direction.magnitude + 1, layerMask))
+		if (Physics.Raycast(ray, out hit, direction.magnitude, layerMask))
 		{
 			// End the attack
 			m_bAttacking = false;

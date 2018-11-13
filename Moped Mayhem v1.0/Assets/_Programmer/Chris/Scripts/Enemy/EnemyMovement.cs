@@ -35,6 +35,7 @@ public class EnemyMovement : MonoBehaviour
 	protected Rigidbody m_Rigidbody;
 
 	public LineRenderer m_Line;
+	public bool m_bDebugLine;
 
 	protected float m_fLastPathCheck;
 
@@ -49,10 +50,11 @@ public class EnemyMovement : MonoBehaviour
 		m_Rigidbody.centerOfMass = m_CenterOfMass.localPosition;
 	}
 
-	protected void Update()
+	public void Update()
 	{
 		var path = m_NavAgent.path;
 		m_Line.SetPositions(path.corners);
+		m_Line.enabled = m_bDebugLine;
 	}
 
 	// Manually Gets Path to Player
@@ -242,6 +244,9 @@ public class EnemyMovement : MonoBehaviour
 		}
 
 		m_Rigidbody.AddForce(v3Acceleration, ForceMode.Impulse);
+
+
+		
 	}
 
 	public void MoveCatchUp()

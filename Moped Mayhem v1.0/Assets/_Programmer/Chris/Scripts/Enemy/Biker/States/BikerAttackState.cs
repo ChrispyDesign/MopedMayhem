@@ -14,6 +14,8 @@ public class BikerAttackState : BaseState
 
 	public float m_fAttackTime;
 
+	private bool m_bEnabled;
+
 	protected override void Setup()
 	{
 		// Check if ParentFSM isnt BikerAI
@@ -27,11 +29,13 @@ public class BikerAttackState : BaseState
 		m_Movement = GetComponent<BikerMovement>();
 
 		m_Movement.BikerAttackStart(m_fAttackTime);
+
+		m_bEnabled = true;
 	}
 
 	public override void OnEnd()
 	{
-
+		m_bEnabled = false;
 	}
 
 	public override void UpdateState()
@@ -41,6 +45,14 @@ public class BikerAttackState : BaseState
 		if (bAttackEnded)
 		{
 			m_BikerAI.ChangeState("BikerBreakdownState");
+		}
+	}
+
+	public void OnCollisionEnter(Collision collision)
+	{
+		if (m_bEnabled)
+		{
+			m_BikerAI.m_Death.m_bKillMe = (collision.collider.tag == "Building");
 		}
 	}
 }

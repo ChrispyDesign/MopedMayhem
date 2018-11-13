@@ -7,6 +7,8 @@ public class DeathScript : MonoBehaviour {
 	public bool m_bKillMe = false;
 	public bool m_bAllowCheckStuck = false;
 
+	public ParticleSystem m_DeathParticles;
+
 	public List<DeathScript> m_Related = new List<DeathScript>();
 	public List<GameObject> m_RelatedObjects = new List<GameObject>();
 
@@ -61,6 +63,10 @@ public class DeathScript : MonoBehaviour {
 			m_fStuckTime = Time.realtimeSinceStartup + m_fCheckStuckTime;
 		}
 
+		if (m_bKillMe)
+		{
+			Debug.LogWarning("Killing Stuck " + gameObject.name, gameObject);
+		}
 	}
 
 	//--------------------------------------------------------------
@@ -94,7 +100,28 @@ public class DeathScript : MonoBehaviour {
 			Destroy(deadMan);
 		}
 
+		// Create Particles if able
+		if (m_DeathParticles != null)
+		{
+			DeathParticles();
+		}
+
 		// Then Kill them
 		Destroy(gameObject);
+	}
+
+	void DeathParticles()
+	{
+		// Create particles at the position
+		var particles = Instantiate(m_DeathParticles, transform);
+
+		// Make sure its playing
+		if (particles.isPlaying == false)
+		{
+			particles.Play();
+		}
+
+		// Queue particles for deletion after playback
+		Destroy(particles, (particles.main.duration * 2));
 	}
 }
