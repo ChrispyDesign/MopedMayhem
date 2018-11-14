@@ -39,6 +39,7 @@ public class _GameManagerRemake : MonoBehaviour {
             hasLost = true;
             hasDied = true;
             LostGame.gameObject.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 }

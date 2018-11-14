@@ -6,6 +6,7 @@ public class _ScoreControl : MonoBehaviour {
 
     // Variables used for score keeping
     public int Score;
+    public int ScoreContainer;
     public float scoreTimer;
     private float scoreDelay;
 

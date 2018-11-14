@@ -14,6 +14,7 @@ public class _TestPauseMenu : MonoBehaviour {
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         isGamePaused = false;
     }
 
@@ -46,6 +47,14 @@ public class _TestPauseMenu : MonoBehaviour {
     }
 
     public void Restart() {
+        tscore.AddScore(scoreControl.Score);
+        tscore.SaveScoresToFile();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+    }
+
+    public void RestartGame()
+    {
         tscore.AddScore(scoreControl.Score);
         tscore.SaveScoresToFile();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
