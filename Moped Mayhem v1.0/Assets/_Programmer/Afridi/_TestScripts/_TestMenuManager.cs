@@ -20,6 +20,7 @@ public class _TestMenuManager : MonoBehaviour {
     public GameObject LeaderBoardScreen;
     public GameObject OptionsScreen;
     public GameObject SoundScreen;
+    public GameObject CharacterSelect;
 
     public Text Score_1;
     public Text Score_2;
@@ -92,6 +93,11 @@ public class _TestMenuManager : MonoBehaviour {
             }
         }
 	}
+
+    public void SelectDemCharacters() {
+        MainMenu.SetActive(false);
+        CharacterSelect.SetActive(true);
+    }
 
     public void PlayGame() {
         SceneManager.LoadScene(1);
