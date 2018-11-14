@@ -697,7 +697,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 642363482}
   toggleTransition: 1
   graphic: {fileID: 1992724139}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1799677881}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7386,6 +7386,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1799677880}
+  - component: {fileID: 1799677881}
   m_Layer: 5
   m_Name: CharacSel
   m_TagString: Untagged
@@ -7417,6 +7418,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 375.85, y: 246.95}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1799677881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1799677879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1184210157, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 0
 --- !u!1 &1887915685
 GameObject:
   m_ObjectHideFlags: 0
@@ -8082,7 +8095,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579278280}
   toggleTransition: 1
   graphic: {fileID: 965763799}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1799677881}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
