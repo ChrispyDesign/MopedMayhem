@@ -17616,8 +17616,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadScene: 0
   m_PauseCanvas: {fileID: 0}
+  Score: {fileID: 0}
+  sController: {fileID: 0}
   m_GameOverCanvas: {fileID: 942952518}
-  m_fTimeLimit: 5
+  m_iTimeLimit: 5
+  ScoreTxt: {fileID: 0}
   MinuteBox: {fileID: 1635245157}
   SecondBox: {fileID: 2073199654}
 --- !u!23 &840359512
@@ -27040,7 +27043,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.5
+  m_VoxelSize: 1
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 4779d8209bb2f834d90aff31b45504ea, type: 2}
 --- !u!1 &1283474566
