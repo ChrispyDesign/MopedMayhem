@@ -7,7 +7,7 @@ public class DeathScript : MonoBehaviour {
 	public bool m_bKillMe = false;
 	public bool m_bAllowCheckStuck = false;
 
-	public ParticleSystem m_DeathParticles;
+	public ParticleSystem[] m_DeathParticles;
 
 	public List<DeathScript> m_Related = new List<DeathScript>();
 	public List<GameObject> m_RelatedObjects = new List<GameObject>();
@@ -113,15 +113,18 @@ public class DeathScript : MonoBehaviour {
 	void DeathParticles()
 	{
 		// Create particles at the position
-		var particles = Instantiate(m_DeathParticles, transform);
-
-		// Make sure its playing
-		if (particles.isPlaying == false)
+		foreach (ParticleSystem prefab in m_DeathParticles)
 		{
-			particles.Play();
-		}
+			var particles = Instantiate(prefab, transform.position, prefab.transform.rotation);
 
-		// Queue particles for deletion after playback
-		Destroy(particles, (particles.main.duration * 2));
+			// Make sure its playing
+			if (particles.isPlaying == false)
+			{
+				particles.Play();
+			}
+
+			// Queue particles for deletion after playback
+			Destroy(particles, (particles.main.duration * 2));
+		}
 	}
 }

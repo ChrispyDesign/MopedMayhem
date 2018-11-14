@@ -20,7 +20,8 @@ public class OrderManager : MonoBehaviour
 	public Food[] m_Foods;
 	private List<string> m_FoodNames = new List<string>();
 	private Dictionary<string, int> m_FoodsIndexByName = new Dictionary<string, int>();
-	private int[] m_nActiveFoodCount;    //MAKE PRIVATE
+	private int[] m_nActiveFoodCount;
+	private List<Food> m_InactiveFoods = new List<Food>();
 
 	[Range(1.0f, 1.5f)]
 	private float m_fFoodWeightModifier = 1.0f;
@@ -62,6 +63,9 @@ public class OrderManager : MonoBehaviour
 
 			// Add index to dictionary with name as key
 			m_FoodsIndexByName.Add(m_Foods[i].m_sFoodName, i);
+
+			// Add to inactive foods
+			m_InactiveFoods.Add(m_Foods[i]);
 		}
 
 		// Initialise active food count
@@ -171,23 +175,13 @@ public class OrderManager : MonoBehaviour
 	
 	private Food RandomFood()
 	{
-		int nRandom = Random.Range(0, m_Foods.Length);
+		int nRandom = Random.Range(0, m_InactiveFoods.Count);
 
-		if (m_nRandomAttempts < m_nRandomAttemptsMax)
-		{
-			int nTotalActiveFood = m_ActiveOrders.Count;
-			if (nTotalActiveFood > 0)
-			{
-				if ((float)m_nActiveFoodCount[nRandom] / (float)nTotalActiveFood > m_fFoodWeight)
-				{
-					m_nRandomAttempts++;
-					return RandomFood();
-				}
-			}
-		}
+		var food = m_InactiveFoods[nRandom];
 
-		m_nRandomAttempts = 0;
-		return m_Foods[nRandom];
+		m_InactiveFoods.RemoveAt(nRandom);
+		
+		return food;
 	}
 
 	public void OrderSuccess(Order order)
@@ -225,6 +219,8 @@ public class OrderManager : MonoBehaviour
 
 		// Decrement active foods
 		m_nActiveFoodCount[nIndex]--;
+
+		m_InactiveFoods.Add(m_Foods[nIndex]);
 
 		// Take off Active order list
 		m_ActiveOrders.Remove(order);
@@ -278,8 +274,6 @@ public class OrderManager : MonoBehaviour
 
 	private void CheckIndicators()
 	{
-		Debug.Log(m_ActiveOrders.Count);
-
 		foreach (Order order in m_ActiveOrders)
 		{
 			string sFoodName = order.m_Food.m_sFoodName;
