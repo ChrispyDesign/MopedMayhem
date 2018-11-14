@@ -85,7 +85,7 @@ public class TicketManager : MonoBehaviour {
 			float fLerpTime = 1 - ((ticket.m_fLerpEnd - fCurrentTime) / m_fEnterDuration);
 			ticket.gameObject.transform.position = Vector3.Lerp(v3StartPos, v3TargetPos, fLerpTime);
 
-			if (ticket.gameObject.transform.position == v3TargetPos)
+			if (Vector3.Distance(ticket.transform.position, v3TargetPos) < 0.1f)
 			{
 				ticket.m_fLerpEnd = 0.0f;
 				ticket.m_bEntering = false;
@@ -110,7 +110,7 @@ public class TicketManager : MonoBehaviour {
 			float fLerpTime = 1 - ((ticket.m_fLerpEnd - fCurrentTime) / m_fExitDuration);
 			ticket.gameObject.transform.position = Vector3.Lerp(v3StartPos, v3TargetPos, fLerpTime);
 
-			if (Vector3.Distance(ticket.gameObject.transform.position, v3TargetPos) < 0.1f)
+			if (Vector3.Distance(ticket.transform.position, v3TargetPos) < 0.1f)
 			{
 				ticket.m_fLerpEnd = 0.0f;
 
@@ -138,7 +138,7 @@ public class TicketManager : MonoBehaviour {
 			float fLerpTime = 1 - ((ticket.m_fLerpEnd - fCurrentTime) / m_fMovingDuration);
 			ticket.gameObject.transform.position = Vector3.Lerp(v3StartPos, v3TargetPos, fLerpTime);
 
-			if (ticket.gameObject.transform.position == v3TargetPos)
+			if (Vector3.Distance(ticket.transform.position, v3TargetPos) < 0.1f)
 			{
 				ticket.m_fLerpEnd = 0.0f;
 

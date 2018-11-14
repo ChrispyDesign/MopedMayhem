@@ -5270,9 +5270,20 @@ Prefab:
     - target: {fileID: 114512131229315202, guid: ea0baa1fccde08c48ae5d16e91f2ed52,
         type: 2}
       propertyPath: m_fOrderExpiryTime
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114512131229315202, guid: ea0baa1fccde08c48ae5d16e91f2ed52,
+        type: 2}
+      propertyPath: m_fMinSpawnTime
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114512131229315202, guid: ea0baa1fccde08c48ae5d16e91f2ed52,
+        type: 2}
+      propertyPath: m_fMaxSpawnTime
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114533010517695328, guid: ea0baa1fccde08c48ae5d16e91f2ed52, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ea0baa1fccde08c48ae5d16e91f2ed52, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &223833169 stripped
