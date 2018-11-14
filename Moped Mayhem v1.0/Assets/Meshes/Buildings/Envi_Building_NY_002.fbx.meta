@@ -1,0 +1,4095 @@
+fileFormatVersion: 2
+guid: 969d180c15b118841a6a98ee5c570914
+timeCreated: 1542175851
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: back_door
+    100002: base_buttom
+    100004: base_mid
+    100006: base_top
+    100008: brick
+    100010: brick 1
+    100012: brick1
+    100014: brick1 1
+    100016: brick1 2
+    100018: brick1 3
+    100020: brick10
+    100022: brick12
+    100024: brick13
+    100026: brick2
+    100028: brick2 1
+    100030: brick2 2
+    100032: brick2 3
+    100034: brick3
+    100036: brick3 1
+    100038: brick3 2
+    100040: brick3 3
+    100042: brick4
+    100044: brick4 1
+    100046: brick4 2
+    100048: brick4 3
+    100050: brick5
+    100052: brick5 1
+    100054: brick5 2
+    100056: brick5 3
+    100058: brick6
+    100060: brick6 1
+    100062: brick7
+    100064: brick7 1
+    100066: brick8
+    100068: brick8 1
+    100070: brick9
+    100072: brick9 1
+    100074: bricks
+    100076: bricks1
+    100078: bricks_back
+    100080: bricks_left
+    100082: bricks_left 1
+    100084: bricks_left 2
+    100086: bricks_right
+    100088: bricks_right 1
+    100090: bricks_right 2
+    100092: chair1
+    100094: chair10
+    100096: chair11
+    100098: chair12
+    100100: chair13
+    100102: chair14
+    100104: chair15
+    100106: chair16
+    100108: chair17
+    100110: chair18
+    100112: chair19
+    100114: chair2
+    100116: chair20
+    100118: chair3
+    100120: chair4
+    100122: chair5
+    100124: chair6
+    100126: chair7
+    100128: chair8
+    100130: chair9
+    100132: door
+    100134: door1
+    100136: door2
+    100138: door2 1
+    100140: door_frame
+    100142: door_frame 1
+    100144: door_hale1
+    100146: door_hale2
+    100148: door_handle
+    100150: door_knocker
+    100152: door_push_plate
+    100154: door_step
+    100156: door_step 1
+    100158: Envi_Buidling_NY_002_buttom
+    100160: Envi_Buidling_NY_002_mid
+    100162: Envi_Buidling_NY_002_top
+    100164: //RootNode
+    100166: leaf1
+    100168: leaf1 1
+    100170: leaf1 10
+    100172: leaf1 11
+    100174: leaf1 12
+    100176: leaf1 13
+    100178: leaf1 14
+    100180: leaf1 15
+    100182: leaf1 16
+    100184: leaf1 17
+    100186: leaf1 18
+    100188: leaf1 19
+    100190: leaf1 2
+    100192: leaf1 20
+    100194: leaf1 21
+    100196: leaf1 22
+    100198: leaf1 23
+    100200: leaf1 24
+    100202: leaf1 25
+    100204: leaf1 26
+    100206: leaf1 27
+    100208: leaf1 28
+    100210: leaf1 29
+    100212: leaf1 3
+    100214: leaf1 30
+    100216: leaf1 31
+    100218: leaf1 32
+    100220: leaf1 33
+    100222: leaf1 34
+    100224: leaf1 35
+    100226: leaf1 36
+    100228: leaf1 37
+    100230: leaf1 4
+    100232: leaf1 5
+    100234: leaf1 6
+    100236: leaf1 7
+    100238: leaf1 8
+    100240: leaf1 9
+    100242: leaf10
+    100244: leaf10 1
+    100246: leaf10 10
+    100248: leaf10 11
+    100250: leaf10 12
+    100252: leaf10 13
+    100254: leaf10 14
+    100256: leaf10 15
+    100258: leaf10 16
+    100260: leaf10 17
+    100262: leaf10 18
+    100264: leaf10 19
+    100266: leaf10 2
+    100268: leaf10 20
+    100270: leaf10 21
+    100272: leaf10 22
+    100274: leaf10 23
+    100276: leaf10 24
+    100278: leaf10 25
+    100280: leaf10 26
+    100282: leaf10 27
+    100284: leaf10 28
+    100286: leaf10 29
+    100288: leaf10 3
+    100290: leaf10 30
+    100292: leaf10 31
+    100294: leaf10 32
+    100296: leaf10 33
+    100298: leaf10 34
+    100300: leaf10 35
+    100302: leaf10 36
+    100304: leaf10 37
+    100306: leaf10 4
+    100308: leaf10 5
+    100310: leaf10 6
+    100312: leaf10 7
+    100314: leaf10 8
+    100316: leaf10 9
+    100318: leaf11
+    100320: leaf11 1
+    100322: leaf11 10
+    100324: leaf11 11
+    100326: leaf11 12
+    100328: leaf11 13
+    100330: leaf11 14
+    100332: leaf11 15
+    100334: leaf11 16
+    100336: leaf11 17
+    100338: leaf11 18
+    100340: leaf11 19
+    100342: leaf11 2
+    100344: leaf11 20
+    100346: leaf11 21
+    100348: leaf11 22
+    100350: leaf11 23
+    100352: leaf11 24
+    100354: leaf11 25
+    100356: leaf11 26
+    100358: leaf11 27
+    100360: leaf11 28
+    100362: leaf11 29
+    100364: leaf11 3
+    100366: leaf11 30
+    100368: leaf11 31
+    100370: leaf11 32
+    100372: leaf11 33
+    100374: leaf11 34
+    100376: leaf11 35
+    100378: leaf11 36
+    100380: leaf11 37
+    100382: leaf11 4
+    100384: leaf11 5
+    100386: leaf11 6
+    100388: leaf11 7
+    100390: leaf11 8
+    100392: leaf11 9
+    100394: leaf12
+    100396: leaf12 1
+    100398: leaf12 10
+    100400: leaf12 11
+    100402: leaf12 12
+    100404: leaf12 13
+    100406: leaf12 14
+    100408: leaf12 15
+    100410: leaf12 16
+    100412: leaf12 17
+    100414: leaf12 18
+    100416: leaf12 19
+    100418: leaf12 2
+    100420: leaf12 20
+    100422: leaf12 21
+    100424: leaf12 22
+    100426: leaf12 23
+    100428: leaf12 24
+    100430: leaf12 25
+    100432: leaf12 26
+    100434: leaf12 27
+    100436: leaf12 28
+    100438: leaf12 29
+    100440: leaf12 3
+    100442: leaf12 30
+    100444: leaf12 31
+    100446: leaf12 32
+    100448: leaf12 33
+    100450: leaf12 34
+    100452: leaf12 35
+    100454: leaf12 36
+    100456: leaf12 37
+    100458: leaf12 4
+    100460: leaf12 5
+    100462: leaf12 6
+    100464: leaf12 7
+    100466: leaf12 8
+    100468: leaf12 9
+    100470: leaf13
+    100472: leaf13 1
+    100474: leaf13 10
+    100476: leaf13 11
+    100478: leaf13 12
+    100480: leaf13 13
+    100482: leaf13 14
+    100484: leaf13 15
+    100486: leaf13 16
+    100488: leaf13 17
+    100490: leaf13 18
+    100492: leaf13 19
+    100494: leaf13 2
+    100496: leaf13 20
+    100498: leaf13 21
+    100500: leaf13 22
+    100502: leaf13 23
+    100504: leaf13 24
+    100506: leaf13 25
+    100508: leaf13 26
+    100510: leaf13 27
+    100512: leaf13 28
+    100514: leaf13 29
+    100516: leaf13 3
+    100518: leaf13 30
+    100520: leaf13 31
+    100522: leaf13 32
+    100524: leaf13 33
+    100526: leaf13 34
+    100528: leaf13 35
+    100530: leaf13 36
+    100532: leaf13 37
+    100534: leaf13 4
+    100536: leaf13 5
+    100538: leaf13 6
+    100540: leaf13 7
+    100542: leaf13 8
+    100544: leaf13 9
+    100546: leaf14
+    100548: leaf14 1
+    100550: leaf14 10
+    100552: leaf14 11
+    100554: leaf14 12
+    100556: leaf14 13
+    100558: leaf14 14
+    100560: leaf14 15
+    100562: leaf14 16
+    100564: leaf14 17
+    100566: leaf14 18
+    100568: leaf14 19
+    100570: leaf14 2
+    100572: leaf14 20
+    100574: leaf14 21
+    100576: leaf14 22
+    100578: leaf14 23
+    100580: leaf14 24
+    100582: leaf14 25
+    100584: leaf14 26
+    100586: leaf14 27
+    100588: leaf14 28
+    100590: leaf14 29
+    100592: leaf14 3
+    100594: leaf14 30
+    100596: leaf14 31
+    100598: leaf14 32
+    100600: leaf14 33
+    100602: leaf14 34
+    100604: leaf14 35
+    100606: leaf14 36
+    100608: leaf14 37
+    100610: leaf14 4
+    100612: leaf14 5
+    100614: leaf14 6
+    100616: leaf14 7
+    100618: leaf14 8
+    100620: leaf14 9
+    100622: leaf15
+    100624: leaf15 1
+    100626: leaf15 10
+    100628: leaf15 11
+    100630: leaf15 12
+    100632: leaf15 13
+    100634: leaf15 14
+    100636: leaf15 15
+    100638: leaf15 16
+    100640: leaf15 17
+    100642: leaf15 18
+    100644: leaf15 19
+    100646: leaf15 2
+    100648: leaf15 20
+    100650: leaf15 21
+    100652: leaf15 22
+    100654: leaf15 23
+    100656: leaf15 24
+    100658: leaf15 25
+    100660: leaf15 26
+    100662: leaf15 27
+    100664: leaf15 28
+    100666: leaf15 29
+    100668: leaf15 3
+    100670: leaf15 30
+    100672: leaf15 31
+    100674: leaf15 32
+    100676: leaf15 33
+    100678: leaf15 34
+    100680: leaf15 35
+    100682: leaf15 36
+    100684: leaf15 37
+    100686: leaf15 4
+    100688: leaf15 5
+    100690: leaf15 6
+    100692: leaf15 7
+    100694: leaf15 8
+    100696: leaf15 9
+    100698: leaf16
+    100700: leaf16 1
+    100702: leaf16 10
+    100704: leaf16 11
+    100706: leaf16 12
+    100708: leaf16 13
+    100710: leaf16 14
+    100712: leaf16 15
+    100714: leaf16 16
+    100716: leaf16 17
+    100718: leaf16 18
+    100720: leaf16 19
+    100722: leaf16 2
+    100724: leaf16 20
+    100726: leaf16 21
+    100728: leaf16 22
+    100730: leaf16 23
+    100732: leaf16 24
+    100734: leaf16 25
+    100736: leaf16 26
+    100738: leaf16 27
+    100740: leaf16 28
+    100742: leaf16 29
+    100744: leaf16 3
+    100746: leaf16 30
+    100748: leaf16 31
+    100750: leaf16 32
+    100752: leaf16 33
+    100754: leaf16 34
+    100756: leaf16 35
+    100758: leaf16 36
+    100760: leaf16 37
+    100762: leaf16 4
+    100764: leaf16 5
+    100766: leaf16 6
+    100768: leaf16 7
+    100770: leaf16 8
+    100772: leaf16 9
+    100774: leaf2
+    100776: leaf2 1
+    100778: leaf2 10
+    100780: leaf2 11
+    100782: leaf2 12
+    100784: leaf2 13
+    100786: leaf2 14
+    100788: leaf2 15
+    100790: leaf2 16
+    100792: leaf2 17
+    100794: leaf2 18
+    100796: leaf2 19
+    100798: leaf2 2
+    100800: leaf2 20
+    100802: leaf2 21
+    100804: leaf2 22
+    100806: leaf2 23
+    100808: leaf2 24
+    100810: leaf2 25
+    100812: leaf2 26
+    100814: leaf2 27
+    100816: leaf2 28
+    100818: leaf2 29
+    100820: leaf2 3
+    100822: leaf2 30
+    100824: leaf2 31
+    100826: leaf2 32
+    100828: leaf2 33
+    100830: leaf2 34
+    100832: leaf2 35
+    100834: leaf2 36
+    100836: leaf2 37
+    100838: leaf2 4
+    100840: leaf2 5
+    100842: leaf2 6
+    100844: leaf2 7
+    100846: leaf2 8
+    100848: leaf2 9
+    100850: leaf3
+    100852: leaf3 1
+    100854: leaf3 10
+    100856: leaf3 11
+    100858: leaf3 12
+    100860: leaf3 13
+    100862: leaf3 14
+    100864: leaf3 15
+    100866: leaf3 16
+    100868: leaf3 17
+    100870: leaf3 18
+    100872: leaf3 19
+    100874: leaf3 2
+    100876: leaf3 20
+    100878: leaf3 21
+    100880: leaf3 22
+    100882: leaf3 23
+    100884: leaf3 24
+    100886: leaf3 25
+    100888: leaf3 26
+    100890: leaf3 27
+    100892: leaf3 28
+    100894: leaf3 29
+    100896: leaf3 3
+    100898: leaf3 30
+    100900: leaf3 31
+    100902: leaf3 32
+    100904: leaf3 33
+    100906: leaf3 34
+    100908: leaf3 35
+    100910: leaf3 36
+    100912: leaf3 37
+    100914: leaf3 4
+    100916: leaf3 5
+    100918: leaf3 6
+    100920: leaf3 7
+    100922: leaf3 8
+    100924: leaf3 9
+    100926: leaf4
+    100928: leaf4 1
+    100930: leaf4 10
+    100932: leaf4 11
+    100934: leaf4 12
+    100936: leaf4 13
+    100938: leaf4 14
+    100940: leaf4 15
+    100942: leaf4 16
+    100944: leaf4 17
+    100946: leaf4 18
+    100948: leaf4 19
+    100950: leaf4 2
+    100952: leaf4 20
+    100954: leaf4 21
+    100956: leaf4 22
+    100958: leaf4 23
+    100960: leaf4 24
+    100962: leaf4 25
+    100964: leaf4 26
+    100966: leaf4 27
+    100968: leaf4 28
+    100970: leaf4 29
+    100972: leaf4 3
+    100974: leaf4 30
+    100976: leaf4 31
+    100978: leaf4 32
+    100980: leaf4 33
+    100982: leaf4 34
+    100984: leaf4 35
+    100986: leaf4 36
+    100988: leaf4 37
+    100990: leaf4 4
+    100992: leaf4 5
+    100994: leaf4 6
+    100996: leaf4 7
+    100998: leaf4 8
+    101000: leaf4 9
+    101002: leaf5
+    101004: leaf5 1
+    101006: leaf5 10
+    101008: leaf5 11
+    101010: leaf5 12
+    101012: leaf5 13
+    101014: leaf5 14
+    101016: leaf5 15
+    101018: leaf5 16
+    101020: leaf5 17
+    101022: leaf5 18
+    101024: leaf5 19
+    101026: leaf5 2
+    101028: leaf5 20
+    101030: leaf5 21
+    101032: leaf5 22
+    101034: leaf5 23
+    101036: leaf5 24
+    101038: leaf5 25
+    101040: leaf5 26
+    101042: leaf5 27
+    101044: leaf5 28
+    101046: leaf5 29
+    101048: leaf5 3
+    101050: leaf5 30
+    101052: leaf5 31
+    101054: leaf5 32
+    101056: leaf5 33
+    101058: leaf5 34
+    101060: leaf5 35
+    101062: leaf5 36
+    101064: leaf5 37
+    101066: leaf5 4
+    101068: leaf5 5
+    101070: leaf5 6
+    101072: leaf5 7
+    101074: leaf5 8
+    101076: leaf5 9
+    101078: leaf6
+    101080: leaf6 1
+    101082: leaf6 10
+    101084: leaf6 11
+    101086: leaf6 12
+    101088: leaf6 13
+    101090: leaf6 14
+    101092: leaf6 15
+    101094: leaf6 16
+    101096: leaf6 17
+    101098: leaf6 18
+    101100: leaf6 19
+    101102: leaf6 2
+    101104: leaf6 20
+    101106: leaf6 21
+    101108: leaf6 22
+    101110: leaf6 23
+    101112: leaf6 24
+    101114: leaf6 25
+    101116: leaf6 26
+    101118: leaf6 27
+    101120: leaf6 28
+    101122: leaf6 29
+    101124: leaf6 3
+    101126: leaf6 30
+    101128: leaf6 31
+    101130: leaf6 32
+    101132: leaf6 33
+    101134: leaf6 34
+    101136: leaf6 35
+    101138: leaf6 36
+    101140: leaf6 37
+    101142: leaf6 4
+    101144: leaf6 5
+    101146: leaf6 6
+    101148: leaf6 7
+    101150: leaf6 8
+    101152: leaf6 9
+    101154: leaf7
+    101156: leaf7 1
+    101158: leaf7 10
+    101160: leaf7 11
+    101162: leaf7 12
+    101164: leaf7 13
+    101166: leaf7 14
+    101168: leaf7 15
+    101170: leaf7 16
+    101172: leaf7 17
+    101174: leaf7 18
+    101176: leaf7 19
+    101178: leaf7 2
+    101180: leaf7 20
+    101182: leaf7 21
+    101184: leaf7 22
+    101186: leaf7 23
+    101188: leaf7 24
+    101190: leaf7 25
+    101192: leaf7 26
+    101194: leaf7 27
+    101196: leaf7 28
+    101198: leaf7 29
+    101200: leaf7 3
+    101202: leaf7 30
+    101204: leaf7 31
+    101206: leaf7 32
+    101208: leaf7 33
+    101210: leaf7 34
+    101212: leaf7 35
+    101214: leaf7 36
+    101216: leaf7 37
+    101218: leaf7 4
+    101220: leaf7 5
+    101222: leaf7 6
+    101224: leaf7 7
+    101226: leaf7 8
+    101228: leaf7 9
+    101230: leaf8
+    101232: leaf8 1
+    101234: leaf8 10
+    101236: leaf8 11
+    101238: leaf8 12
+    101240: leaf8 13
+    101242: leaf8 14
+    101244: leaf8 15
+    101246: leaf8 16
+    101248: leaf8 17
+    101250: leaf8 18
+    101252: leaf8 19
+    101254: leaf8 2
+    101256: leaf8 20
+    101258: leaf8 21
+    101260: leaf8 22
+    101262: leaf8 23
+    101264: leaf8 24
+    101266: leaf8 25
+    101268: leaf8 26
+    101270: leaf8 27
+    101272: leaf8 28
+    101274: leaf8 29
+    101276: leaf8 3
+    101278: leaf8 30
+    101280: leaf8 31
+    101282: leaf8 32
+    101284: leaf8 33
+    101286: leaf8 34
+    101288: leaf8 35
+    101290: leaf8 36
+    101292: leaf8 37
+    101294: leaf8 4
+    101296: leaf8 5
+    101298: leaf8 6
+    101300: leaf8 7
+    101302: leaf8 8
+    101304: leaf8 9
+    101306: leaf9
+    101308: leaf9 1
+    101310: leaf9 10
+    101312: leaf9 11
+    101314: leaf9 12
+    101316: leaf9 13
+    101318: leaf9 14
+    101320: leaf9 15
+    101322: leaf9 16
+    101324: leaf9 17
+    101326: leaf9 18
+    101328: leaf9 19
+    101330: leaf9 2
+    101332: leaf9 20
+    101334: leaf9 21
+    101336: leaf9 22
+    101338: leaf9 23
+    101340: leaf9 24
+    101342: leaf9 25
+    101344: leaf9 26
+    101346: leaf9 27
+    101348: leaf9 28
+    101350: leaf9 29
+    101352: leaf9 3
+    101354: leaf9 30
+    101356: leaf9 31
+    101358: leaf9 32
+    101360: leaf9 33
+    101362: leaf9 34
+    101364: leaf9 35
+    101366: leaf9 36
+    101368: leaf9 37
+    101370: leaf9 4
+    101372: leaf9 5
+    101374: leaf9 6
+    101376: leaf9 7
+    101378: leaf9 8
+    101380: leaf9 9
+    101382: left_tarp_support
+    101384: pCube236
+    101386: pCylinder44
+    101388: pCylinder45
+    101390: pCylinder45 1
+    101392: pCylinder45 2
+    101394: pCylinder45 3
+    101396: pCylinder45 4
+    101398: pCylinder46
+    101400: pCylinder46 1
+    101402: pCylinder46 2
+    101404: pCylinder46 3
+    101406: pCylinder46 4
+    101408: pPlane5
+    101410: pPlane6
+    101412: pPlane7
+    101414: pPlane8
+    101416: right_tarp_support
+    101418: roof_acces_frame
+    101420: roof_access_door1
+    101422: roof_access_door2
+    101424: rooftop_access
+    101426: table1
+    101428: table2
+    101430: table3
+    101432: table4
+    101434: table5
+    101436: table_chars1
+    101438: table_chars2
+    101440: table_chars3
+    101442: table_chars4
+    101444: table_chars5
+    101446: tarp1
+    101448: tarp2
+    101450: top_window1
+    101452: top_window1 1
+    101454: top_window1 2
+    101456: top_window1 3
+    101458: top_window2
+    101460: top_window2 1
+    101462: top_window2 2
+    101464: top_window2 3
+    101466: top_window3
+    101468: top_window3 1
+    101470: top_window3 2
+    101472: top_window4
+    101474: tree_base1
+    101476: tree_base1 1
+    101478: tree_base10
+    101480: tree_base10 1
+    101482: tree_base10 2
+    101484: tree_base11
+    101486: tree_base11 1
+    101488: tree_base11 2
+    101490: tree_base12
+    101492: tree_base12 1
+    101494: tree_base12 2
+    101496: tree_base13
+    101498: tree_base13 1
+    101500: tree_base13 2
+    101502: tree_base14
+    101504: tree_base14 1
+    101506: tree_base14 2
+    101508: tree_base15
+    101510: tree_base15 1
+    101512: tree_base15 2
+    101514: tree_base2
+    101516: tree_base2 1
+    101518: tree_base3
+    101520: tree_base3 1
+    101522: tree_base4
+    101524: tree_base4 1
+    101526: tree_base5
+    101528: tree_base5 1
+    101530: tree_base6
+    101532: tree_base6 1
+    101534: tree_base7
+    101536: tree_base7 1
+    101538: tree_base8
+    101540: tree_base8 1
+    101542: tree_base8 2
+    101544: tree_base9
+    101546: tree_base9 1
+    101548: tree_base9 2
+    101550: trees
+    101552: trees 1
+    101554: trees 2
+    101556: trees_pot1
+    101558: trees_pot2
+    101560: trees_pot3
+    101562: trees_roof
+    101564: unbrallar1
+    101566: unbrallar2
+    101568: unbrallar3
+    101570: unbrallar4
+    101572: unbrallar5
+    101574: water_tank
+    101576: window
+    101578: window1
+    101580: window1 1
+    101582: window1 2
+    101584: window1 3
+    101586: window1 4
+    101588: window1 5
+    101590: window10
+    101592: window10 1
+    101594: window11
+    101596: window12
+    101598: window3
+    101600: window3 1
+    101602: window3 2
+    101604: window3 3
+    101606: window3 4
+    101608: window3 5
+    101610: window6
+    101612: window6 1
+    101614: window7
+    101616: window7 1
+    101618: window8
+    101620: window8 1
+    101622: window9
+    101624: window9 1
+    101626: window_back1
+    101628: window_back2
+    101630: window_back2 1
+    101632: window_front1
+    101634: window_front2
+    101636: window_front2 1
+    101638: windows_back1
+    101640: windows_front1
+    400000: back_door
+    400002: base_buttom
+    400004: base_mid
+    400006: base_top
+    400008: brick
+    400010: brick 1
+    400012: brick1
+    400014: brick1 1
+    400016: brick1 2
+    400018: brick1 3
+    400020: brick10
+    400022: brick12
+    400024: brick13
+    400026: brick2
+    400028: brick2 1
+    400030: brick2 2
+    400032: brick2 3
+    400034: brick3
+    400036: brick3 1
+    400038: brick3 2
+    400040: brick3 3
+    400042: brick4
+    400044: brick4 1
+    400046: brick4 2
+    400048: brick4 3
+    400050: brick5
+    400052: brick5 1
+    400054: brick5 2
+    400056: brick5 3
+    400058: brick6
+    400060: brick6 1
+    400062: brick7
+    400064: brick7 1
+    400066: brick8
+    400068: brick8 1
+    400070: brick9
+    400072: brick9 1
+    400074: bricks
+    400076: bricks1
+    400078: bricks_back
+    400080: bricks_left
+    400082: bricks_left 1
+    400084: bricks_left 2
+    400086: bricks_right
+    400088: bricks_right 1
+    400090: bricks_right 2
+    400092: chair1
+    400094: chair10
+    400096: chair11
+    400098: chair12
+    400100: chair13
+    400102: chair14
+    400104: chair15
+    400106: chair16
+    400108: chair17
+    400110: chair18
+    400112: chair19
+    400114: chair2
+    400116: chair20
+    400118: chair3
+    400120: chair4
+    400122: chair5
+    400124: chair6
+    400126: chair7
+    400128: chair8
+    400130: chair9
+    400132: door
+    400134: door1
+    400136: door2
+    400138: door2 1
+    400140: door_frame
+    400142: door_frame 1
+    400144: door_hale1
+    400146: door_hale2
+    400148: door_handle
+    400150: door_knocker
+    400152: door_push_plate
+    400154: door_step
+    400156: door_step 1
+    400158: Envi_Buidling_NY_002_buttom
+    400160: Envi_Buidling_NY_002_mid
+    400162: Envi_Buidling_NY_002_top
+    400164: //RootNode
+    400166: leaf1
+    400168: leaf1 1
+    400170: leaf1 10
+    400172: leaf1 11
+    400174: leaf1 12
+    400176: leaf1 13
+    400178: leaf1 14
+    400180: leaf1 15
+    400182: leaf1 16
+    400184: leaf1 17
+    400186: leaf1 18
+    400188: leaf1 19
+    400190: leaf1 2
+    400192: leaf1 20
+    400194: leaf1 21
+    400196: leaf1 22
+    400198: leaf1 23
+    400200: leaf1 24
+    400202: leaf1 25
+    400204: leaf1 26
+    400206: leaf1 27
+    400208: leaf1 28
+    400210: leaf1 29
+    400212: leaf1 3
+    400214: leaf1 30
+    400216: leaf1 31
+    400218: leaf1 32
+    400220: leaf1 33
+    400222: leaf1 34
+    400224: leaf1 35
+    400226: leaf1 36
+    400228: leaf1 37
+    400230: leaf1 4
+    400232: leaf1 5
+    400234: leaf1 6
+    400236: leaf1 7
+    400238: leaf1 8
+    400240: leaf1 9
+    400242: leaf10
+    400244: leaf10 1
+    400246: leaf10 10
+    400248: leaf10 11
+    400250: leaf10 12
+    400252: leaf10 13
+    400254: leaf10 14
+    400256: leaf10 15
+    400258: leaf10 16
+    400260: leaf10 17
+    400262: leaf10 18
+    400264: leaf10 19
+    400266: leaf10 2
+    400268: leaf10 20
+    400270: leaf10 21
+    400272: leaf10 22
+    400274: leaf10 23
+    400276: leaf10 24
+    400278: leaf10 25
+    400280: leaf10 26
+    400282: leaf10 27
+    400284: leaf10 28
+    400286: leaf10 29
+    400288: leaf10 3
+    400290: leaf10 30
+    400292: leaf10 31
+    400294: leaf10 32
+    400296: leaf10 33
+    400298: leaf10 34
+    400300: leaf10 35
+    400302: leaf10 36
+    400304: leaf10 37
+    400306: leaf10 4
+    400308: leaf10 5
+    400310: leaf10 6
+    400312: leaf10 7
+    400314: leaf10 8
+    400316: leaf10 9
+    400318: leaf11
+    400320: leaf11 1
+    400322: leaf11 10
+    400324: leaf11 11
+    400326: leaf11 12
+    400328: leaf11 13
+    400330: leaf11 14
+    400332: leaf11 15
+    400334: leaf11 16
+    400336: leaf11 17
+    400338: leaf11 18
+    400340: leaf11 19
+    400342: leaf11 2
+    400344: leaf11 20
+    400346: leaf11 21
+    400348: leaf11 22
+    400350: leaf11 23
+    400352: leaf11 24
+    400354: leaf11 25
+    400356: leaf11 26
+    400358: leaf11 27
+    400360: leaf11 28
+    400362: leaf11 29
+    400364: leaf11 3
+    400366: leaf11 30
+    400368: leaf11 31
+    400370: leaf11 32
+    400372: leaf11 33
+    400374: leaf11 34
+    400376: leaf11 35
+    400378: leaf11 36
+    400380: leaf11 37
+    400382: leaf11 4
+    400384: leaf11 5
+    400386: leaf11 6
+    400388: leaf11 7
+    400390: leaf11 8
+    400392: leaf11 9
+    400394: leaf12
+    400396: leaf12 1
+    400398: leaf12 10
+    400400: leaf12 11
+    400402: leaf12 12
+    400404: leaf12 13
+    400406: leaf12 14
+    400408: leaf12 15
+    400410: leaf12 16
+    400412: leaf12 17
+    400414: leaf12 18
+    400416: leaf12 19
+    400418: leaf12 2
+    400420: leaf12 20
+    400422: leaf12 21
+    400424: leaf12 22
+    400426: leaf12 23
+    400428: leaf12 24
+    400430: leaf12 25
+    400432: leaf12 26
+    400434: leaf12 27
+    400436: leaf12 28
+    400438: leaf12 29
+    400440: leaf12 3
+    400442: leaf12 30
+    400444: leaf12 31
+    400446: leaf12 32
+    400448: leaf12 33
+    400450: leaf12 34
+    400452: leaf12 35
+    400454: leaf12 36
+    400456: leaf12 37
+    400458: leaf12 4
+    400460: leaf12 5
+    400462: leaf12 6
+    400464: leaf12 7
+    400466: leaf12 8
+    400468: leaf12 9
+    400470: leaf13
+    400472: leaf13 1
+    400474: leaf13 10
+    400476: leaf13 11
+    400478: leaf13 12
+    400480: leaf13 13
+    400482: leaf13 14
+    400484: leaf13 15
+    400486: leaf13 16
+    400488: leaf13 17
+    400490: leaf13 18
+    400492: leaf13 19
+    400494: leaf13 2
+    400496: leaf13 20
+    400498: leaf13 21
+    400500: leaf13 22
+    400502: leaf13 23
+    400504: leaf13 24
+    400506: leaf13 25
+    400508: leaf13 26
+    400510: leaf13 27
+    400512: leaf13 28
+    400514: leaf13 29
+    400516: leaf13 3
+    400518: leaf13 30
+    400520: leaf13 31
+    400522: leaf13 32
+    400524: leaf13 33
+    400526: leaf13 34
+    400528: leaf13 35
+    400530: leaf13 36
+    400532: leaf13 37
+    400534: leaf13 4
+    400536: leaf13 5
+    400538: leaf13 6
+    400540: leaf13 7
+    400542: leaf13 8
+    400544: leaf13 9
+    400546: leaf14
+    400548: leaf14 1
+    400550: leaf14 10
+    400552: leaf14 11
+    400554: leaf14 12
+    400556: leaf14 13
+    400558: leaf14 14
+    400560: leaf14 15
+    400562: leaf14 16
+    400564: leaf14 17
+    400566: leaf14 18
+    400568: leaf14 19
+    400570: leaf14 2
+    400572: leaf14 20
+    400574: leaf14 21
+    400576: leaf14 22
+    400578: leaf14 23
+    400580: leaf14 24
+    400582: leaf14 25
+    400584: leaf14 26
+    400586: leaf14 27
+    400588: leaf14 28
+    400590: leaf14 29
+    400592: leaf14 3
+    400594: leaf14 30
+    400596: leaf14 31
+    400598: leaf14 32
+    400600: leaf14 33
+    400602: leaf14 34
+    400604: leaf14 35
+    400606: leaf14 36
+    400608: leaf14 37
+    400610: leaf14 4
+    400612: leaf14 5
+    400614: leaf14 6
+    400616: leaf14 7
+    400618: leaf14 8
+    400620: leaf14 9
+    400622: leaf15
+    400624: leaf15 1
+    400626: leaf15 10
+    400628: leaf15 11
+    400630: leaf15 12
+    400632: leaf15 13
+    400634: leaf15 14
+    400636: leaf15 15
+    400638: leaf15 16
+    400640: leaf15 17
+    400642: leaf15 18
+    400644: leaf15 19
+    400646: leaf15 2
+    400648: leaf15 20
+    400650: leaf15 21
+    400652: leaf15 22
+    400654: leaf15 23
+    400656: leaf15 24
+    400658: leaf15 25
+    400660: leaf15 26
+    400662: leaf15 27
+    400664: leaf15 28
+    400666: leaf15 29
+    400668: leaf15 3
+    400670: leaf15 30
+    400672: leaf15 31
+    400674: leaf15 32
+    400676: leaf15 33
+    400678: leaf15 34
+    400680: leaf15 35
+    400682: leaf15 36
+    400684: leaf15 37
+    400686: leaf15 4
+    400688: leaf15 5
+    400690: leaf15 6
+    400692: leaf15 7
+    400694: leaf15 8
+    400696: leaf15 9
+    400698: leaf16
+    400700: leaf16 1
+    400702: leaf16 10
+    400704: leaf16 11
+    400706: leaf16 12
+    400708: leaf16 13
+    400710: leaf16 14
+    400712: leaf16 15
+    400714: leaf16 16
+    400716: leaf16 17
+    400718: leaf16 18
+    400720: leaf16 19
+    400722: leaf16 2
+    400724: leaf16 20
+    400726: leaf16 21
+    400728: leaf16 22
+    400730: leaf16 23
+    400732: leaf16 24
+    400734: leaf16 25
+    400736: leaf16 26
+    400738: leaf16 27
+    400740: leaf16 28
+    400742: leaf16 29
+    400744: leaf16 3
+    400746: leaf16 30
+    400748: leaf16 31
+    400750: leaf16 32
+    400752: leaf16 33
+    400754: leaf16 34
+    400756: leaf16 35
+    400758: leaf16 36
+    400760: leaf16 37
+    400762: leaf16 4
+    400764: leaf16 5
+    400766: leaf16 6
+    400768: leaf16 7
+    400770: leaf16 8
+    400772: leaf16 9
+    400774: leaf2
+    400776: leaf2 1
+    400778: leaf2 10
+    400780: leaf2 11
+    400782: leaf2 12
+    400784: leaf2 13
+    400786: leaf2 14
+    400788: leaf2 15
+    400790: leaf2 16
+    400792: leaf2 17
+    400794: leaf2 18
+    400796: leaf2 19
+    400798: leaf2 2
+    400800: leaf2 20
+    400802: leaf2 21
+    400804: leaf2 22
+    400806: leaf2 23
+    400808: leaf2 24
+    400810: leaf2 25
+    400812: leaf2 26
+    400814: leaf2 27
+    400816: leaf2 28
+    400818: leaf2 29
+    400820: leaf2 3
+    400822: leaf2 30
+    400824: leaf2 31
+    400826: leaf2 32
+    400828: leaf2 33
+    400830: leaf2 34
+    400832: leaf2 35
+    400834: leaf2 36
+    400836: leaf2 37
+    400838: leaf2 4
+    400840: leaf2 5
+    400842: leaf2 6
+    400844: leaf2 7
+    400846: leaf2 8
+    400848: leaf2 9
+    400850: leaf3
+    400852: leaf3 1
+    400854: leaf3 10
+    400856: leaf3 11
+    400858: leaf3 12
+    400860: leaf3 13
+    400862: leaf3 14
+    400864: leaf3 15
+    400866: leaf3 16
+    400868: leaf3 17
+    400870: leaf3 18
+    400872: leaf3 19
+    400874: leaf3 2
+    400876: leaf3 20
+    400878: leaf3 21
+    400880: leaf3 22
+    400882: leaf3 23
+    400884: leaf3 24
+    400886: leaf3 25
+    400888: leaf3 26
+    400890: leaf3 27
+    400892: leaf3 28
+    400894: leaf3 29
+    400896: leaf3 3
+    400898: leaf3 30
+    400900: leaf3 31
+    400902: leaf3 32
+    400904: leaf3 33
+    400906: leaf3 34
+    400908: leaf3 35
+    400910: leaf3 36
+    400912: leaf3 37
+    400914: leaf3 4
+    400916: leaf3 5
+    400918: leaf3 6
+    400920: leaf3 7
+    400922: leaf3 8
+    400924: leaf3 9
+    400926: leaf4
+    400928: leaf4 1
+    400930: leaf4 10
+    400932: leaf4 11
+    400934: leaf4 12
+    400936: leaf4 13
+    400938: leaf4 14
+    400940: leaf4 15
+    400942: leaf4 16
+    400944: leaf4 17
+    400946: leaf4 18
+    400948: leaf4 19
+    400950: leaf4 2
+    400952: leaf4 20
+    400954: leaf4 21
+    400956: leaf4 22
+    400958: leaf4 23
+    400960: leaf4 24
+    400962: leaf4 25
+    400964: leaf4 26
+    400966: leaf4 27
+    400968: leaf4 28
+    400970: leaf4 29
+    400972: leaf4 3
+    400974: leaf4 30
+    400976: leaf4 31
+    400978: leaf4 32
+    400980: leaf4 33
+    400982: leaf4 34
+    400984: leaf4 35
+    400986: leaf4 36
+    400988: leaf4 37
+    400990: leaf4 4
+    400992: leaf4 5
+    400994: leaf4 6
+    400996: leaf4 7
+    400998: leaf4 8
+    401000: leaf4 9
+    401002: leaf5
+    401004: leaf5 1
+    401006: leaf5 10
+    401008: leaf5 11
+    401010: leaf5 12
+    401012: leaf5 13
+    401014: leaf5 14
+    401016: leaf5 15
+    401018: leaf5 16
+    401020: leaf5 17
+    401022: leaf5 18
+    401024: leaf5 19
+    401026: leaf5 2
+    401028: leaf5 20
+    401030: leaf5 21
+    401032: leaf5 22
+    401034: leaf5 23
+    401036: leaf5 24
+    401038: leaf5 25
+    401040: leaf5 26
+    401042: leaf5 27
+    401044: leaf5 28
+    401046: leaf5 29
+    401048: leaf5 3
+    401050: leaf5 30
+    401052: leaf5 31
+    401054: leaf5 32
+    401056: leaf5 33
+    401058: leaf5 34
+    401060: leaf5 35
+    401062: leaf5 36
+    401064: leaf5 37
+    401066: leaf5 4
+    401068: leaf5 5
+    401070: leaf5 6
+    401072: leaf5 7
+    401074: leaf5 8
+    401076: leaf5 9
+    401078: leaf6
+    401080: leaf6 1
+    401082: leaf6 10
+    401084: leaf6 11
+    401086: leaf6 12
+    401088: leaf6 13
+    401090: leaf6 14
+    401092: leaf6 15
+    401094: leaf6 16
+    401096: leaf6 17
+    401098: leaf6 18
+    401100: leaf6 19
+    401102: leaf6 2
+    401104: leaf6 20
+    401106: leaf6 21
+    401108: leaf6 22
+    401110: leaf6 23
+    401112: leaf6 24
+    401114: leaf6 25
+    401116: leaf6 26
+    401118: leaf6 27
+    401120: leaf6 28
+    401122: leaf6 29
+    401124: leaf6 3
+    401126: leaf6 30
+    401128: leaf6 31
+    401130: leaf6 32
+    401132: leaf6 33
+    401134: leaf6 34
+    401136: leaf6 35
+    401138: leaf6 36
+    401140: leaf6 37
+    401142: leaf6 4
+    401144: leaf6 5
+    401146: leaf6 6
+    401148: leaf6 7
+    401150: leaf6 8
+    401152: leaf6 9
+    401154: leaf7
+    401156: leaf7 1
+    401158: leaf7 10
+    401160: leaf7 11
+    401162: leaf7 12
+    401164: leaf7 13
+    401166: leaf7 14
+    401168: leaf7 15
+    401170: leaf7 16
+    401172: leaf7 17
+    401174: leaf7 18
+    401176: leaf7 19
+    401178: leaf7 2
+    401180: leaf7 20
+    401182: leaf7 21
+    401184: leaf7 22
+    401186: leaf7 23
+    401188: leaf7 24
+    401190: leaf7 25
+    401192: leaf7 26
+    401194: leaf7 27
+    401196: leaf7 28
+    401198: leaf7 29
+    401200: leaf7 3
+    401202: leaf7 30
+    401204: leaf7 31
+    401206: leaf7 32
+    401208: leaf7 33
+    401210: leaf7 34
+    401212: leaf7 35
+    401214: leaf7 36
+    401216: leaf7 37
+    401218: leaf7 4
+    401220: leaf7 5
+    401222: leaf7 6
+    401224: leaf7 7
+    401226: leaf7 8
+    401228: leaf7 9
+    401230: leaf8
+    401232: leaf8 1
+    401234: leaf8 10
+    401236: leaf8 11
+    401238: leaf8 12
+    401240: leaf8 13
+    401242: leaf8 14
+    401244: leaf8 15
+    401246: leaf8 16
+    401248: leaf8 17
+    401250: leaf8 18
+    401252: leaf8 19
+    401254: leaf8 2
+    401256: leaf8 20
+    401258: leaf8 21
+    401260: leaf8 22
+    401262: leaf8 23
+    401264: leaf8 24
+    401266: leaf8 25
+    401268: leaf8 26
+    401270: leaf8 27
+    401272: leaf8 28
+    401274: leaf8 29
+    401276: leaf8 3
+    401278: leaf8 30
+    401280: leaf8 31
+    401282: leaf8 32
+    401284: leaf8 33
+    401286: leaf8 34
+    401288: leaf8 35
+    401290: leaf8 36
+    401292: leaf8 37
+    401294: leaf8 4
+    401296: leaf8 5
+    401298: leaf8 6
+    401300: leaf8 7
+    401302: leaf8 8
+    401304: leaf8 9
+    401306: leaf9
+    401308: leaf9 1
+    401310: leaf9 10
+    401312: leaf9 11
+    401314: leaf9 12
+    401316: leaf9 13
+    401318: leaf9 14
+    401320: leaf9 15
+    401322: leaf9 16
+    401324: leaf9 17
+    401326: leaf9 18
+    401328: leaf9 19
+    401330: leaf9 2
+    401332: leaf9 20
+    401334: leaf9 21
+    401336: leaf9 22
+    401338: leaf9 23
+    401340: leaf9 24
+    401342: leaf9 25
+    401344: leaf9 26
+    401346: leaf9 27
+    401348: leaf9 28
+    401350: leaf9 29
+    401352: leaf9 3
+    401354: leaf9 30
+    401356: leaf9 31
+    401358: leaf9 32
+    401360: leaf9 33
+    401362: leaf9 34
+    401364: leaf9 35
+    401366: leaf9 36
+    401368: leaf9 37
+    401370: leaf9 4
+    401372: leaf9 5
+    401374: leaf9 6
+    401376: leaf9 7
+    401378: leaf9 8
+    401380: leaf9 9
+    401382: left_tarp_support
+    401384: pCube236
+    401386: pCylinder44
+    401388: pCylinder45
+    401390: pCylinder45 1
+    401392: pCylinder45 2
+    401394: pCylinder45 3
+    401396: pCylinder45 4
+    401398: pCylinder46
+    401400: pCylinder46 1
+    401402: pCylinder46 2
+    401404: pCylinder46 3
+    401406: pCylinder46 4
+    401408: pPlane5
+    401410: pPlane6
+    401412: pPlane7
+    401414: pPlane8
+    401416: right_tarp_support
+    401418: roof_acces_frame
+    401420: roof_access_door1
+    401422: roof_access_door2
+    401424: rooftop_access
+    401426: table1
+    401428: table2
+    401430: table3
+    401432: table4
+    401434: table5
+    401436: table_chars1
+    401438: table_chars2
+    401440: table_chars3
+    401442: table_chars4
+    401444: table_chars5
+    401446: tarp1
+    401448: tarp2
+    401450: top_window1
+    401452: top_window1 1
+    401454: top_window1 2
+    401456: top_window1 3
+    401458: top_window2
+    401460: top_window2 1
+    401462: top_window2 2
+    401464: top_window2 3
+    401466: top_window3
+    401468: top_window3 1
+    401470: top_window3 2
+    401472: top_window4
+    401474: tree_base1
+    401476: tree_base1 1
+    401478: tree_base10
+    401480: tree_base10 1
+    401482: tree_base10 2
+    401484: tree_base11
+    401486: tree_base11 1
+    401488: tree_base11 2
+    401490: tree_base12
+    401492: tree_base12 1
+    401494: tree_base12 2
+    401496: tree_base13
+    401498: tree_base13 1
+    401500: tree_base13 2
+    401502: tree_base14
+    401504: tree_base14 1
+    401506: tree_base14 2
+    401508: tree_base15
+    401510: tree_base15 1
+    401512: tree_base15 2
+    401514: tree_base2
+    401516: tree_base2 1
+    401518: tree_base3
+    401520: tree_base3 1
+    401522: tree_base4
+    401524: tree_base4 1
+    401526: tree_base5
+    401528: tree_base5 1
+    401530: tree_base6
+    401532: tree_base6 1
+    401534: tree_base7
+    401536: tree_base7 1
+    401538: tree_base8
+    401540: tree_base8 1
+    401542: tree_base8 2
+    401544: tree_base9
+    401546: tree_base9 1
+    401548: tree_base9 2
+    401550: trees
+    401552: trees 1
+    401554: trees 2
+    401556: trees_pot1
+    401558: trees_pot2
+    401560: trees_pot3
+    401562: trees_roof
+    401564: unbrallar1
+    401566: unbrallar2
+    401568: unbrallar3
+    401570: unbrallar4
+    401572: unbrallar5
+    401574: water_tank
+    401576: window
+    401578: window1
+    401580: window1 1
+    401582: window1 2
+    401584: window1 3
+    401586: window1 4
+    401588: window1 5
+    401590: window10
+    401592: window10 1
+    401594: window11
+    401596: window12
+    401598: window3
+    401600: window3 1
+    401602: window3 2
+    401604: window3 3
+    401606: window3 4
+    401608: window3 5
+    401610: window6
+    401612: window6 1
+    401614: window7
+    401616: window7 1
+    401618: window8
+    401620: window8 1
+    401622: window9
+    401624: window9 1
+    401626: window_back1
+    401628: window_back2
+    401630: window_back2 1
+    401632: window_front1
+    401634: window_front2
+    401636: window_front2 1
+    401638: windows_back1
+    401640: windows_front1
+    2100000: building_brown
+    2100002: lambert1
+    2100004: brick_brown3
+    2100006: pasted__pasted__black
+    2100008: window2
+    2100010: black1
+    2100012: green_leaf
+    2100014: grey_blue
+    2100016: yellow
+    2100018: brick_brown
+    2100020: brick_brown2
+    2100022: black2
+    2100024: push_plate
+    2300000: back_door
+    2300002: base_buttom
+    2300004: base_mid
+    2300006: base_top
+    2300008: brick
+    2300010: brick 1
+    2300012: brick1
+    2300014: brick1 1
+    2300016: brick1 2
+    2300018: brick1 3
+    2300020: brick10
+    2300022: brick12
+    2300024: brick13
+    2300026: brick2
+    2300028: brick2 1
+    2300030: brick2 2
+    2300032: brick2 3
+    2300034: brick3
+    2300036: brick3 1
+    2300038: brick3 2
+    2300040: brick3 3
+    2300042: brick4
+    2300044: brick4 1
+    2300046: brick4 2
+    2300048: brick4 3
+    2300050: brick5
+    2300052: brick5 1
+    2300054: brick5 2
+    2300056: brick5 3
+    2300058: brick6
+    2300060: brick6 1
+    2300062: brick7
+    2300064: brick7 1
+    2300066: brick8
+    2300068: brick8 1
+    2300070: brick9
+    2300072: brick9 1
+    2300074: bricks
+    2300076: bricks1
+    2300078: chair1
+    2300080: chair10
+    2300082: chair11
+    2300084: chair12
+    2300086: chair13
+    2300088: chair14
+    2300090: chair15
+    2300092: chair16
+    2300094: chair17
+    2300096: chair18
+    2300098: chair19
+    2300100: chair2
+    2300102: chair20
+    2300104: chair3
+    2300106: chair4
+    2300108: chair5
+    2300110: chair6
+    2300112: chair7
+    2300114: chair8
+    2300116: chair9
+    2300118: door
+    2300120: door2 1
+    2300122: door_frame
+    2300124: door_frame 1
+    2300126: door_hale1
+    2300128: door_hale2
+    2300130: door_handle
+    2300132: door_knocker
+    2300134: door_push_plate
+    2300136: door_step
+    2300138: door_step 1
+    2300140: leaf1
+    2300142: leaf1 1
+    2300144: leaf1 10
+    2300146: leaf1 11
+    2300148: leaf1 12
+    2300150: leaf1 13
+    2300152: leaf1 14
+    2300154: leaf1 15
+    2300156: leaf1 16
+    2300158: leaf1 17
+    2300160: leaf1 18
+    2300162: leaf1 19
+    2300164: leaf1 2
+    2300166: leaf1 20
+    2300168: leaf1 21
+    2300170: leaf1 22
+    2300172: leaf1 23
+    2300174: leaf1 24
+    2300176: leaf1 25
+    2300178: leaf1 26
+    2300180: leaf1 27
+    2300182: leaf1 28
+    2300184: leaf1 29
+    2300186: leaf1 3
+    2300188: leaf1 30
+    2300190: leaf1 31
+    2300192: leaf1 32
+    2300194: leaf1 33
+    2300196: leaf1 34
+    2300198: leaf1 35
+    2300200: leaf1 36
+    2300202: leaf1 37
+    2300204: leaf1 4
+    2300206: leaf1 5
+    2300208: leaf1 6
+    2300210: leaf1 7
+    2300212: leaf1 8
+    2300214: leaf1 9
+    2300216: leaf10
+    2300218: leaf10 1
+    2300220: leaf10 10
+    2300222: leaf10 11
+    2300224: leaf10 12
+    2300226: leaf10 13
+    2300228: leaf10 14
+    2300230: leaf10 15
+    2300232: leaf10 16
+    2300234: leaf10 17
+    2300236: leaf10 18
+    2300238: leaf10 19
+    2300240: leaf10 2
+    2300242: leaf10 20
+    2300244: leaf10 21
+    2300246: leaf10 22
+    2300248: leaf10 23
+    2300250: leaf10 24
+    2300252: leaf10 25
+    2300254: leaf10 26
+    2300256: leaf10 27
+    2300258: leaf10 28
+    2300260: leaf10 29
+    2300262: leaf10 3
+    2300264: leaf10 30
+    2300266: leaf10 31
+    2300268: leaf10 32
+    2300270: leaf10 33
+    2300272: leaf10 34
+    2300274: leaf10 35
+    2300276: leaf10 36
+    2300278: leaf10 37
+    2300280: leaf10 4
+    2300282: leaf10 5
+    2300284: leaf10 6
+    2300286: leaf10 7
+    2300288: leaf10 8
+    2300290: leaf10 9
+    2300292: leaf11
+    2300294: leaf11 1
+    2300296: leaf11 10
+    2300298: leaf11 11
+    2300300: leaf11 12
+    2300302: leaf11 13
+    2300304: leaf11 14
+    2300306: leaf11 15
+    2300308: leaf11 16
+    2300310: leaf11 17
+    2300312: leaf11 18
+    2300314: leaf11 19
+    2300316: leaf11 2
+    2300318: leaf11 20
+    2300320: leaf11 21
+    2300322: leaf11 22
+    2300324: leaf11 23
+    2300326: leaf11 24
+    2300328: leaf11 25
+    2300330: leaf11 26
+    2300332: leaf11 27
+    2300334: leaf11 28
+    2300336: leaf11 29
+    2300338: leaf11 3
+    2300340: leaf11 30
+    2300342: leaf11 31
+    2300344: leaf11 32
+    2300346: leaf11 33
+    2300348: leaf11 34
+    2300350: leaf11 35
+    2300352: leaf11 36
+    2300354: leaf11 37
+    2300356: leaf11 4
+    2300358: leaf11 5
+    2300360: leaf11 6
+    2300362: leaf11 7
+    2300364: leaf11 8
+    2300366: leaf11 9
+    2300368: leaf12
+    2300370: leaf12 1
+    2300372: leaf12 10
+    2300374: leaf12 11
+    2300376: leaf12 12
+    2300378: leaf12 13
+    2300380: leaf12 14
+    2300382: leaf12 15
+    2300384: leaf12 16
+    2300386: leaf12 17
+    2300388: leaf12 18
+    2300390: leaf12 19
+    2300392: leaf12 2
+    2300394: leaf12 20
+    2300396: leaf12 21
+    2300398: leaf12 22
+    2300400: leaf12 23
+    2300402: leaf12 24
+    2300404: leaf12 25
+    2300406: leaf12 26
+    2300408: leaf12 27
+    2300410: leaf12 28
+    2300412: leaf12 29
+    2300414: leaf12 3
+    2300416: leaf12 30
+    2300418: leaf12 31
+    2300420: leaf12 32
+    2300422: leaf12 33
+    2300424: leaf12 34
+    2300426: leaf12 35
+    2300428: leaf12 36
+    2300430: leaf12 37
+    2300432: leaf12 4
+    2300434: leaf12 5
+    2300436: leaf12 6
+    2300438: leaf12 7
+    2300440: leaf12 8
+    2300442: leaf12 9
+    2300444: leaf13
+    2300446: leaf13 1
+    2300448: leaf13 10
+    2300450: leaf13 11
+    2300452: leaf13 12
+    2300454: leaf13 13
+    2300456: leaf13 14
+    2300458: leaf13 15
+    2300460: leaf13 16
+    2300462: leaf13 17
+    2300464: leaf13 18
+    2300466: leaf13 19
+    2300468: leaf13 2
+    2300470: leaf13 20
+    2300472: leaf13 21
+    2300474: leaf13 22
+    2300476: leaf13 23
+    2300478: leaf13 24
+    2300480: leaf13 25
+    2300482: leaf13 26
+    2300484: leaf13 27
+    2300486: leaf13 28
+    2300488: leaf13 29
+    2300490: leaf13 3
+    2300492: leaf13 30
+    2300494: leaf13 31
+    2300496: leaf13 32
+    2300498: leaf13 33
+    2300500: leaf13 34
+    2300502: leaf13 35
+    2300504: leaf13 36
+    2300506: leaf13 37
+    2300508: leaf13 4
+    2300510: leaf13 5
+    2300512: leaf13 6
+    2300514: leaf13 7
+    2300516: leaf13 8
+    2300518: leaf13 9
+    2300520: leaf14
+    2300522: leaf14 1
+    2300524: leaf14 10
+    2300526: leaf14 11
+    2300528: leaf14 12
+    2300530: leaf14 13
+    2300532: leaf14 14
+    2300534: leaf14 15
+    2300536: leaf14 16
+    2300538: leaf14 17
+    2300540: leaf14 18
+    2300542: leaf14 19
+    2300544: leaf14 2
+    2300546: leaf14 20
+    2300548: leaf14 21
+    2300550: leaf14 22
+    2300552: leaf14 23
+    2300554: leaf14 24
+    2300556: leaf14 25
+    2300558: leaf14 26
+    2300560: leaf14 27
+    2300562: leaf14 28
+    2300564: leaf14 29
+    2300566: leaf14 3
+    2300568: leaf14 30
+    2300570: leaf14 31
+    2300572: leaf14 32
+    2300574: leaf14 33
+    2300576: leaf14 34
+    2300578: leaf14 35
+    2300580: leaf14 36
+    2300582: leaf14 37
+    2300584: leaf14 4
+    2300586: leaf14 5
+    2300588: leaf14 6
+    2300590: leaf14 7
+    2300592: leaf14 8
+    2300594: leaf14 9
+    2300596: leaf15
+    2300598: leaf15 1
+    2300600: leaf15 10
+    2300602: leaf15 11
+    2300604: leaf15 12
+    2300606: leaf15 13
+    2300608: leaf15 14
+    2300610: leaf15 15
+    2300612: leaf15 16
+    2300614: leaf15 17
+    2300616: leaf15 18
+    2300618: leaf15 19
+    2300620: leaf15 2
+    2300622: leaf15 20
+    2300624: leaf15 21
+    2300626: leaf15 22
+    2300628: leaf15 23
+    2300630: leaf15 24
+    2300632: leaf15 25
+    2300634: leaf15 26
+    2300636: leaf15 27
+    2300638: leaf15 28
+    2300640: leaf15 29
+    2300642: leaf15 3
+    2300644: leaf15 30
+    2300646: leaf15 31
+    2300648: leaf15 32
+    2300650: leaf15 33
+    2300652: leaf15 34
+    2300654: leaf15 35
+    2300656: leaf15 36
+    2300658: leaf15 37
+    2300660: leaf15 4
+    2300662: leaf15 5
+    2300664: leaf15 6
+    2300666: leaf15 7
+    2300668: leaf15 8
+    2300670: leaf15 9
+    2300672: leaf16
+    2300674: leaf16 1
+    2300676: leaf16 10
+    2300678: leaf16 11
+    2300680: leaf16 12
+    2300682: leaf16 13
+    2300684: leaf16 14
+    2300686: leaf16 15
+    2300688: leaf16 16
+    2300690: leaf16 17
+    2300692: leaf16 18
+    2300694: leaf16 19
+    2300696: leaf16 2
+    2300698: leaf16 20
+    2300700: leaf16 21
+    2300702: leaf16 22
+    2300704: leaf16 23
+    2300706: leaf16 24
+    2300708: leaf16 25
+    2300710: leaf16 26
+    2300712: leaf16 27
+    2300714: leaf16 28
+    2300716: leaf16 29
+    2300718: leaf16 3
+    2300720: leaf16 30
+    2300722: leaf16 31
+    2300724: leaf16 32
+    2300726: leaf16 33
+    2300728: leaf16 34
+    2300730: leaf16 35
+    2300732: leaf16 36
+    2300734: leaf16 37
+    2300736: leaf16 4
+    2300738: leaf16 5
+    2300740: leaf16 6
+    2300742: leaf16 7
+    2300744: leaf16 8
+    2300746: leaf16 9
+    2300748: leaf2
+    2300750: leaf2 1
+    2300752: leaf2 10
+    2300754: leaf2 11
+    2300756: leaf2 12
+    2300758: leaf2 13
+    2300760: leaf2 14
+    2300762: leaf2 15
+    2300764: leaf2 16
+    2300766: leaf2 17
+    2300768: leaf2 18
+    2300770: leaf2 19
+    2300772: leaf2 2
+    2300774: leaf2 20
+    2300776: leaf2 21
+    2300778: leaf2 22
+    2300780: leaf2 23
+    2300782: leaf2 24
+    2300784: leaf2 25
+    2300786: leaf2 26
+    2300788: leaf2 27
+    2300790: leaf2 28
+    2300792: leaf2 29
+    2300794: leaf2 3
+    2300796: leaf2 30
+    2300798: leaf2 31
+    2300800: leaf2 32
+    2300802: leaf2 33
+    2300804: leaf2 34
+    2300806: leaf2 35
+    2300808: leaf2 36
+    2300810: leaf2 37
+    2300812: leaf2 4
+    2300814: leaf2 5
+    2300816: leaf2 6
+    2300818: leaf2 7
+    2300820: leaf2 8
+    2300822: leaf2 9
+    2300824: leaf3
+    2300826: leaf3 1
+    2300828: leaf3 10
+    2300830: leaf3 11
+    2300832: leaf3 12
+    2300834: leaf3 13
+    2300836: leaf3 14
+    2300838: leaf3 15
+    2300840: leaf3 16
+    2300842: leaf3 17
+    2300844: leaf3 18
+    2300846: leaf3 19
+    2300848: leaf3 2
+    2300850: leaf3 20
+    2300852: leaf3 21
+    2300854: leaf3 22
+    2300856: leaf3 23
+    2300858: leaf3 24
+    2300860: leaf3 25
+    2300862: leaf3 26
+    2300864: leaf3 27
+    2300866: leaf3 28
+    2300868: leaf3 29
+    2300870: leaf3 3
+    2300872: leaf3 30
+    2300874: leaf3 31
+    2300876: leaf3 32
+    2300878: leaf3 33
+    2300880: leaf3 34
+    2300882: leaf3 35
+    2300884: leaf3 36
+    2300886: leaf3 37
+    2300888: leaf3 4
+    2300890: leaf3 5
+    2300892: leaf3 6
+    2300894: leaf3 7
+    2300896: leaf3 8
+    2300898: leaf3 9
+    2300900: leaf4
+    2300902: leaf4 1
+    2300904: leaf4 10
+    2300906: leaf4 11
+    2300908: leaf4 12
+    2300910: leaf4 13
+    2300912: leaf4 14
+    2300914: leaf4 15
+    2300916: leaf4 16
+    2300918: leaf4 17
+    2300920: leaf4 18
+    2300922: leaf4 19
+    2300924: leaf4 2
+    2300926: leaf4 20
+    2300928: leaf4 21
+    2300930: leaf4 22
+    2300932: leaf4 23
+    2300934: leaf4 24
+    2300936: leaf4 25
+    2300938: leaf4 26
+    2300940: leaf4 27
+    2300942: leaf4 28
+    2300944: leaf4 29
+    2300946: leaf4 3
+    2300948: leaf4 30
+    2300950: leaf4 31
+    2300952: leaf4 32
+    2300954: leaf4 33
+    2300956: leaf4 34
+    2300958: leaf4 35
+    2300960: leaf4 36
+    2300962: leaf4 37
+    2300964: leaf4 4
+    2300966: leaf4 5
+    2300968: leaf4 6
+    2300970: leaf4 7
+    2300972: leaf4 8
+    2300974: leaf4 9
+    2300976: leaf5
+    2300978: leaf5 1
+    2300980: leaf5 10
+    2300982: leaf5 11
+    2300984: leaf5 12
+    2300986: leaf5 13
+    2300988: leaf5 14
+    2300990: leaf5 15
+    2300992: leaf5 16
+    2300994: leaf5 17
+    2300996: leaf5 18
+    2300998: leaf5 19
+    2301000: leaf5 2
+    2301002: leaf5 20
+    2301004: leaf5 21
+    2301006: leaf5 22
+    2301008: leaf5 23
+    2301010: leaf5 24
+    2301012: leaf5 25
+    2301014: leaf5 26
+    2301016: leaf5 27
+    2301018: leaf5 28
+    2301020: leaf5 29
+    2301022: leaf5 3
+    2301024: leaf5 30
+    2301026: leaf5 31
+    2301028: leaf5 32
+    2301030: leaf5 33
+    2301032: leaf5 34
+    2301034: leaf5 35
+    2301036: leaf5 36
+    2301038: leaf5 37
+    2301040: leaf5 4
+    2301042: leaf5 5
+    2301044: leaf5 6
+    2301046: leaf5 7
+    2301048: leaf5 8
+    2301050: leaf5 9
+    2301052: leaf6
+    2301054: leaf6 1
+    2301056: leaf6 10
+    2301058: leaf6 11
+    2301060: leaf6 12
+    2301062: leaf6 13
+    2301064: leaf6 14
+    2301066: leaf6 15
+    2301068: leaf6 16
+    2301070: leaf6 17
+    2301072: leaf6 18
+    2301074: leaf6 19
+    2301076: leaf6 2
+    2301078: leaf6 20
+    2301080: leaf6 21
+    2301082: leaf6 22
+    2301084: leaf6 23
+    2301086: leaf6 24
+    2301088: leaf6 25
+    2301090: leaf6 26
+    2301092: leaf6 27
+    2301094: leaf6 28
+    2301096: leaf6 29
+    2301098: leaf6 3
+    2301100: leaf6 30
+    2301102: leaf6 31
+    2301104: leaf6 32
+    2301106: leaf6 33
+    2301108: leaf6 34
+    2301110: leaf6 35
+    2301112: leaf6 36
+    2301114: leaf6 37
+    2301116: leaf6 4
+    2301118: leaf6 5
+    2301120: leaf6 6
+    2301122: leaf6 7
+    2301124: leaf6 8
+    2301126: leaf6 9
+    2301128: leaf7
+    2301130: leaf7 1
+    2301132: leaf7 10
+    2301134: leaf7 11
+    2301136: leaf7 12
+    2301138: leaf7 13
+    2301140: leaf7 14
+    2301142: leaf7 15
+    2301144: leaf7 16
+    2301146: leaf7 17
+    2301148: leaf7 18
+    2301150: leaf7 19
+    2301152: leaf7 2
+    2301154: leaf7 20
+    2301156: leaf7 21
+    2301158: leaf7 22
+    2301160: leaf7 23
+    2301162: leaf7 24
+    2301164: leaf7 25
+    2301166: leaf7 26
+    2301168: leaf7 27
+    2301170: leaf7 28
+    2301172: leaf7 29
+    2301174: leaf7 3
+    2301176: leaf7 30
+    2301178: leaf7 31
+    2301180: leaf7 32
+    2301182: leaf7 33
+    2301184: leaf7 34
+    2301186: leaf7 35
+    2301188: leaf7 36
+    2301190: leaf7 37
+    2301192: leaf7 4
+    2301194: leaf7 5
+    2301196: leaf7 6
+    2301198: leaf7 7
+    2301200: leaf7 8
+    2301202: leaf7 9
+    2301204: leaf8
+    2301206: leaf8 1
+    2301208: leaf8 10
+    2301210: leaf8 11
+    2301212: leaf8 12
+    2301214: leaf8 13
+    2301216: leaf8 14
+    2301218: leaf8 15
+    2301220: leaf8 16
+    2301222: leaf8 17
+    2301224: leaf8 18
+    2301226: leaf8 19
+    2301228: leaf8 2
+    2301230: leaf8 20
+    2301232: leaf8 21
+    2301234: leaf8 22
+    2301236: leaf8 23
+    2301238: leaf8 24
+    2301240: leaf8 25
+    2301242: leaf8 26
+    2301244: leaf8 27
+    2301246: leaf8 28
+    2301248: leaf8 29
+    2301250: leaf8 3
+    2301252: leaf8 30
+    2301254: leaf8 31
+    2301256: leaf8 32
+    2301258: leaf8 33
+    2301260: leaf8 34
+    2301262: leaf8 35
+    2301264: leaf8 36
+    2301266: leaf8 37
+    2301268: leaf8 4
+    2301270: leaf8 5
+    2301272: leaf8 6
+    2301274: leaf8 7
+    2301276: leaf8 8
+    2301278: leaf8 9
+    2301280: leaf9
+    2301282: leaf9 1
+    2301284: leaf9 10
+    2301286: leaf9 11
+    2301288: leaf9 12
+    2301290: leaf9 13
+    2301292: leaf9 14
+    2301294: leaf9 15
+    2301296: leaf9 16
+    2301298: leaf9 17
+    2301300: leaf9 18
+    2301302: leaf9 19
+    2301304: leaf9 2
+    2301306: leaf9 20
+    2301308: leaf9 21
+    2301310: leaf9 22
+    2301312: leaf9 23
+    2301314: leaf9 24
+    2301316: leaf9 25
+    2301318: leaf9 26
+    2301320: leaf9 27
+    2301322: leaf9 28
+    2301324: leaf9 29
+    2301326: leaf9 3
+    2301328: leaf9 30
+    2301330: leaf9 31
+    2301332: leaf9 32
+    2301334: leaf9 33
+    2301336: leaf9 34
+    2301338: leaf9 35
+    2301340: leaf9 36
+    2301342: leaf9 37
+    2301344: leaf9 4
+    2301346: leaf9 5
+    2301348: leaf9 6
+    2301350: leaf9 7
+    2301352: leaf9 8
+    2301354: leaf9 9
+    2301356: left_tarp_support
+    2301358: pCube236
+    2301360: pCylinder44
+    2301362: pCylinder45
+    2301364: pCylinder45 1
+    2301366: pCylinder45 2
+    2301368: pCylinder45 3
+    2301370: pCylinder45 4
+    2301372: pCylinder46
+    2301374: pCylinder46 1
+    2301376: pCylinder46 2
+    2301378: pCylinder46 3
+    2301380: pCylinder46 4
+    2301382: pPlane5
+    2301384: pPlane6
+    2301386: pPlane7
+    2301388: pPlane8
+    2301390: right_tarp_support
+    2301392: roof_acces_frame
+    2301394: roof_access_door1
+    2301396: roof_access_door2
+    2301398: table1
+    2301400: table2
+    2301402: table3
+    2301404: table4
+    2301406: table5
+    2301408: tarp1
+    2301410: tarp2
+    2301412: top_window1
+    2301414: top_window1 1
+    2301416: top_window1 2
+    2301418: top_window1 3
+    2301420: top_window2
+    2301422: top_window2 1
+    2301424: top_window2 2
+    2301426: top_window2 3
+    2301428: top_window3
+    2301430: top_window3 1
+    2301432: top_window3 2
+    2301434: top_window4
+    2301436: tree_base1
+    2301438: tree_base1 1
+    2301440: tree_base10
+    2301442: tree_base10 1
+    2301444: tree_base10 2
+    2301446: tree_base11
+    2301448: tree_base11 1
+    2301450: tree_base11 2
+    2301452: tree_base12
+    2301454: tree_base12 1
+    2301456: tree_base12 2
+    2301458: tree_base13
+    2301460: tree_base13 1
+    2301462: tree_base13 2
+    2301464: tree_base14
+    2301466: tree_base14 1
+    2301468: tree_base14 2
+    2301470: tree_base15
+    2301472: tree_base15 1
+    2301474: tree_base15 2
+    2301476: tree_base2
+    2301478: tree_base2 1
+    2301480: tree_base3
+    2301482: tree_base3 1
+    2301484: tree_base4
+    2301486: tree_base4 1
+    2301488: tree_base5
+    2301490: tree_base5 1
+    2301492: tree_base6
+    2301494: tree_base6 1
+    2301496: tree_base7
+    2301498: tree_base7 1
+    2301500: tree_base8
+    2301502: tree_base8 1
+    2301504: tree_base8 2
+    2301506: tree_base9
+    2301508: tree_base9 1
+    2301510: tree_base9 2
+    2301512: trees_pot1
+    2301514: trees_pot2
+    2301516: trees_pot3
+    2301518: window
+    2301520: window1
+    2301522: window1 1
+    2301524: window1 2
+    2301526: window1 3
+    2301528: window1 4
+    2301530: window1 5
+    2301532: window10
+    2301534: window10 1
+    2301536: window11
+    2301538: window12
+    2301540: window3
+    2301542: window3 1
+    2301544: window3 2
+    2301546: window3 3
+    2301548: window3 4
+    2301550: window3 5
+    2301552: window6
+    2301554: window6 1
+    2301556: window7
+    2301558: window7 1
+    2301560: window8
+    2301562: window8 1
+    2301564: window9
+    2301566: window9 1
+    3300000: back_door
+    3300002: base_buttom
+    3300004: base_mid
+    3300006: base_top
+    3300008: brick
+    3300010: brick 1
+    3300012: brick1
+    3300014: brick1 1
+    3300016: brick1 2
+    3300018: brick1 3
+    3300020: brick10
+    3300022: brick12
+    3300024: brick13
+    3300026: brick2
+    3300028: brick2 1
+    3300030: brick2 2
+    3300032: brick2 3
+    3300034: brick3
+    3300036: brick3 1
+    3300038: brick3 2
+    3300040: brick3 3
+    3300042: brick4
+    3300044: brick4 1
+    3300046: brick4 2
+    3300048: brick4 3
+    3300050: brick5
+    3300052: brick5 1
+    3300054: brick5 2
+    3300056: brick5 3
+    3300058: brick6
+    3300060: brick6 1
+    3300062: brick7
+    3300064: brick7 1
+    3300066: brick8
+    3300068: brick8 1
+    3300070: brick9
+    3300072: brick9 1
+    3300074: bricks
+    3300076: bricks1
+    3300078: chair1
+    3300080: chair10
+    3300082: chair11
+    3300084: chair12
+    3300086: chair13
+    3300088: chair14
+    3300090: chair15
+    3300092: chair16
+    3300094: chair17
+    3300096: chair18
+    3300098: chair19
+    3300100: chair2
+    3300102: chair20
+    3300104: chair3
+    3300106: chair4
+    3300108: chair5
+    3300110: chair6
+    3300112: chair7
+    3300114: chair8
+    3300116: chair9
+    3300118: door
+    3300120: door2 1
+    3300122: door_frame
+    3300124: door_frame 1
+    3300126: door_hale1
+    3300128: door_hale2
+    3300130: door_handle
+    3300132: door_knocker
+    3300134: door_push_plate
+    3300136: door_step
+    3300138: door_step 1
+    3300140: leaf1
+    3300142: leaf1 1
+    3300144: leaf1 10
+    3300146: leaf1 11
+    3300148: leaf1 12
+    3300150: leaf1 13
+    3300152: leaf1 14
+    3300154: leaf1 15
+    3300156: leaf1 16
+    3300158: leaf1 17
+    3300160: leaf1 18
+    3300162: leaf1 19
+    3300164: leaf1 2
+    3300166: leaf1 20
+    3300168: leaf1 21
+    3300170: leaf1 22
+    3300172: leaf1 23
+    3300174: leaf1 24
+    3300176: leaf1 25
+    3300178: leaf1 26
+    3300180: leaf1 27
+    3300182: leaf1 28
+    3300184: leaf1 29
+    3300186: leaf1 3
+    3300188: leaf1 30
+    3300190: leaf1 31
+    3300192: leaf1 32
+    3300194: leaf1 33
+    3300196: leaf1 34
+    3300198: leaf1 35
+    3300200: leaf1 36
+    3300202: leaf1 37
+    3300204: leaf1 4
+    3300206: leaf1 5
+    3300208: leaf1 6
+    3300210: leaf1 7
+    3300212: leaf1 8
+    3300214: leaf1 9
+    3300216: leaf10
+    3300218: leaf10 1
+    3300220: leaf10 10
+    3300222: leaf10 11
+    3300224: leaf10 12
+    3300226: leaf10 13
+    3300228: leaf10 14
+    3300230: leaf10 15
+    3300232: leaf10 16
+    3300234: leaf10 17
+    3300236: leaf10 18
+    3300238: leaf10 19
+    3300240: leaf10 2
+    3300242: leaf10 20
+    3300244: leaf10 21
+    3300246: leaf10 22
+    3300248: leaf10 23
+    3300250: leaf10 24
+    3300252: leaf10 25
+    3300254: leaf10 26
+    3300256: leaf10 27
+    3300258: leaf10 28
+    3300260: leaf10 29
+    3300262: leaf10 3
+    3300264: leaf10 30
+    3300266: leaf10 31
+    3300268: leaf10 32
+    3300270: leaf10 33
+    3300272: leaf10 34
+    3300274: leaf10 35
+    3300276: leaf10 36
+    3300278: leaf10 37
+    3300280: leaf10 4
+    3300282: leaf10 5
+    3300284: leaf10 6
+    3300286: leaf10 7
+    3300288: leaf10 8
+    3300290: leaf10 9
+    3300292: leaf11
+    3300294: leaf11 1
+    3300296: leaf11 10
+    3300298: leaf11 11
+    3300300: leaf11 12
+    3300302: leaf11 13
+    3300304: leaf11 14
+    3300306: leaf11 15
+    3300308: leaf11 16
+    3300310: leaf11 17
+    3300312: leaf11 18
+    3300314: leaf11 19
+    3300316: leaf11 2
+    3300318: leaf11 20
+    3300320: leaf11 21
+    3300322: leaf11 22
+    3300324: leaf11 23
+    3300326: leaf11 24
+    3300328: leaf11 25
+    3300330: leaf11 26
+    3300332: leaf11 27
+    3300334: leaf11 28
+    3300336: leaf11 29
+    3300338: leaf11 3
+    3300340: leaf11 30
+    3300342: leaf11 31
+    3300344: leaf11 32
+    3300346: leaf11 33
+    3300348: leaf11 34
+    3300350: leaf11 35
+    3300352: leaf11 36
+    3300354: leaf11 37
+    3300356: leaf11 4
+    3300358: leaf11 5
+    3300360: leaf11 6
+    3300362: leaf11 7
+    3300364: leaf11 8
+    3300366: leaf11 9
+    3300368: leaf12
+    3300370: leaf12 1
+    3300372: leaf12 10
+    3300374: leaf12 11
+    3300376: leaf12 12
+    3300378: leaf12 13
+    3300380: leaf12 14
+    3300382: leaf12 15
+    3300384: leaf12 16
+    3300386: leaf12 17
+    3300388: leaf12 18
+    3300390: leaf12 19
+    3300392: leaf12 2
+    3300394: leaf12 20
+    3300396: leaf12 21
+    3300398: leaf12 22
+    3300400: leaf12 23
+    3300402: leaf12 24
+    3300404: leaf12 25
+    3300406: leaf12 26
+    3300408: leaf12 27
+    3300410: leaf12 28
+    3300412: leaf12 29
+    3300414: leaf12 3
+    3300416: leaf12 30
+    3300418: leaf12 31
+    3300420: leaf12 32
+    3300422: leaf12 33
+    3300424: leaf12 34
+    3300426: leaf12 35
+    3300428: leaf12 36
+    3300430: leaf12 37
+    3300432: leaf12 4
+    3300434: leaf12 5
+    3300436: leaf12 6
+    3300438: leaf12 7
+    3300440: leaf12 8
+    3300442: leaf12 9
+    3300444: leaf13
+    3300446: leaf13 1
+    3300448: leaf13 10
+    3300450: leaf13 11
+    3300452: leaf13 12
+    3300454: leaf13 13
+    3300456: leaf13 14
+    3300458: leaf13 15
+    3300460: leaf13 16
+    3300462: leaf13 17
+    3300464: leaf13 18
+    3300466: leaf13 19
+    3300468: leaf13 2
+    3300470: leaf13 20
+    3300472: leaf13 21
+    3300474: leaf13 22
+    3300476: leaf13 23
+    3300478: leaf13 24
+    3300480: leaf13 25
+    3300482: leaf13 26
+    3300484: leaf13 27
+    3300486: leaf13 28
+    3300488: leaf13 29
+    3300490: leaf13 3
+    3300492: leaf13 30
+    3300494: leaf13 31
+    3300496: leaf13 32
+    3300498: leaf13 33
+    3300500: leaf13 34
+    3300502: leaf13 35
+    3300504: leaf13 36
+    3300506: leaf13 37
+    3300508: leaf13 4
+    3300510: leaf13 5
+    3300512: leaf13 6
+    3300514: leaf13 7
+    3300516: leaf13 8
+    3300518: leaf13 9
+    3300520: leaf14
+    3300522: leaf14 1
+    3300524: leaf14 10
+    3300526: leaf14 11
+    3300528: leaf14 12
+    3300530: leaf14 13
+    3300532: leaf14 14
+    3300534: leaf14 15
+    3300536: leaf14 16
+    3300538: leaf14 17
+    3300540: leaf14 18
+    3300542: leaf14 19
+    3300544: leaf14 2
+    3300546: leaf14 20
+    3300548: leaf14 21
+    3300550: leaf14 22
+    3300552: leaf14 23
+    3300554: leaf14 24
+    3300556: leaf14 25
+    3300558: leaf14 26
+    3300560: leaf14 27
+    3300562: leaf14 28
+    3300564: leaf14 29
+    3300566: leaf14 3
+    3300568: leaf14 30
+    3300570: leaf14 31
+    3300572: leaf14 32
+    3300574: leaf14 33
+    3300576: leaf14 34
+    3300578: leaf14 35
+    3300580: leaf14 36
+    3300582: leaf14 37
+    3300584: leaf14 4
+    3300586: leaf14 5
+    3300588: leaf14 6
+    3300590: leaf14 7
+    3300592: leaf14 8
+    3300594: leaf14 9
+    3300596: leaf15
+    3300598: leaf15 1
+    3300600: leaf15 10
+    3300602: leaf15 11
+    3300604: leaf15 12
+    3300606: leaf15 13
+    3300608: leaf15 14
+    3300610: leaf15 15
+    3300612: leaf15 16
+    3300614: leaf15 17
+    3300616: leaf15 18
+    3300618: leaf15 19
+    3300620: leaf15 2
+    3300622: leaf15 20
+    3300624: leaf15 21
+    3300626: leaf15 22
+    3300628: leaf15 23
+    3300630: leaf15 24
+    3300632: leaf15 25
+    3300634: leaf15 26
+    3300636: leaf15 27
+    3300638: leaf15 28
+    3300640: leaf15 29
+    3300642: leaf15 3
+    3300644: leaf15 30
+    3300646: leaf15 31
+    3300648: leaf15 32
+    3300650: leaf15 33
+    3300652: leaf15 34
+    3300654: leaf15 35
+    3300656: leaf15 36
+    3300658: leaf15 37
+    3300660: leaf15 4
+    3300662: leaf15 5
+    3300664: leaf15 6
+    3300666: leaf15 7
+    3300668: leaf15 8
+    3300670: leaf15 9
+    3300672: leaf16
+    3300674: leaf16 1
+    3300676: leaf16 10
+    3300678: leaf16 11
+    3300680: leaf16 12
+    3300682: leaf16 13
+    3300684: leaf16 14
+    3300686: leaf16 15
+    3300688: leaf16 16
+    3300690: leaf16 17
+    3300692: leaf16 18
+    3300694: leaf16 19
+    3300696: leaf16 2
+    3300698: leaf16 20
+    3300700: leaf16 21
+    3300702: leaf16 22
+    3300704: leaf16 23
+    3300706: leaf16 24
+    3300708: leaf16 25
+    3300710: leaf16 26
+    3300712: leaf16 27
+    3300714: leaf16 28
+    3300716: leaf16 29
+    3300718: leaf16 3
+    3300720: leaf16 30
+    3300722: leaf16 31
+    3300724: leaf16 32
+    3300726: leaf16 33
+    3300728: leaf16 34
+    3300730: leaf16 35
+    3300732: leaf16 36
+    3300734: leaf16 37
+    3300736: leaf16 4
+    3300738: leaf16 5
+    3300740: leaf16 6
+    3300742: leaf16 7
+    3300744: leaf16 8
+    3300746: leaf16 9
+    3300748: leaf2
+    3300750: leaf2 1
+    3300752: leaf2 10
+    3300754: leaf2 11
+    3300756: leaf2 12
+    3300758: leaf2 13
+    3300760: leaf2 14
+    3300762: leaf2 15
+    3300764: leaf2 16
+    3300766: leaf2 17
+    3300768: leaf2 18
+    3300770: leaf2 19
+    3300772: leaf2 2
+    3300774: leaf2 20
+    3300776: leaf2 21
+    3300778: leaf2 22
+    3300780: leaf2 23
+    3300782: leaf2 24
+    3300784: leaf2 25
+    3300786: leaf2 26
+    3300788: leaf2 27
+    3300790: leaf2 28
+    3300792: leaf2 29
+    3300794: leaf2 3
+    3300796: leaf2 30
+    3300798: leaf2 31
+    3300800: leaf2 32
+    3300802: leaf2 33
+    3300804: leaf2 34
+    3300806: leaf2 35
+    3300808: leaf2 36
+    3300810: leaf2 37
+    3300812: leaf2 4
+    3300814: leaf2 5
+    3300816: leaf2 6
+    3300818: leaf2 7
+    3300820: leaf2 8
+    3300822: leaf2 9
+    3300824: leaf3
+    3300826: leaf3 1
+    3300828: leaf3 10
+    3300830: leaf3 11
+    3300832: leaf3 12
+    3300834: leaf3 13
+    3300836: leaf3 14
+    3300838: leaf3 15
+    3300840: leaf3 16
+    3300842: leaf3 17
+    3300844: leaf3 18
+    3300846: leaf3 19
+    3300848: leaf3 2
+    3300850: leaf3 20
+    3300852: leaf3 21
+    3300854: leaf3 22
+    3300856: leaf3 23
+    3300858: leaf3 24
+    3300860: leaf3 25
+    3300862: leaf3 26
+    3300864: leaf3 27
+    3300866: leaf3 28
+    3300868: leaf3 29
+    3300870: leaf3 3
+    3300872: leaf3 30
+    3300874: leaf3 31
+    3300876: leaf3 32
+    3300878: leaf3 33
+    3300880: leaf3 34
+    3300882: leaf3 35
+    3300884: leaf3 36
+    3300886: leaf3 37
+    3300888: leaf3 4
+    3300890: leaf3 5
+    3300892: leaf3 6
+    3300894: leaf3 7
+    3300896: leaf3 8
+    3300898: leaf3 9
+    3300900: leaf4
+    3300902: leaf4 1
+    3300904: leaf4 10
+    3300906: leaf4 11
+    3300908: leaf4 12
+    3300910: leaf4 13
+    3300912: leaf4 14
+    3300914: leaf4 15
+    3300916: leaf4 16
+    3300918: leaf4 17
+    3300920: leaf4 18
+    3300922: leaf4 19
+    3300924: leaf4 2
+    3300926: leaf4 20
+    3300928: leaf4 21
+    3300930: leaf4 22
+    3300932: leaf4 23
+    3300934: leaf4 24
+    3300936: leaf4 25
+    3300938: leaf4 26
+    3300940: leaf4 27
+    3300942: leaf4 28
+    3300944: leaf4 29
+    3300946: leaf4 3
+    3300948: leaf4 30
+    3300950: leaf4 31
+    3300952: leaf4 32
+    3300954: leaf4 33
+    3300956: leaf4 34
+    3300958: leaf4 35
+    3300960: leaf4 36
+    3300962: leaf4 37
+    3300964: leaf4 4
+    3300966: leaf4 5
+    3300968: leaf4 6
+    3300970: leaf4 7
+    3300972: leaf4 8
+    3300974: leaf4 9
+    3300976: leaf5
+    3300978: leaf5 1
+    3300980: leaf5 10
+    3300982: leaf5 11
+    3300984: leaf5 12
+    3300986: leaf5 13
+    3300988: leaf5 14
+    3300990: leaf5 15
+    3300992: leaf5 16
+    3300994: leaf5 17
+    3300996: leaf5 18
+    3300998: leaf5 19
+    3301000: leaf5 2
+    3301002: leaf5 20
+    3301004: leaf5 21
+    3301006: leaf5 22
+    3301008: leaf5 23
+    3301010: leaf5 24
+    3301012: leaf5 25
+    3301014: leaf5 26
+    3301016: leaf5 27
+    3301018: leaf5 28
+    3301020: leaf5 29
+    3301022: leaf5 3
+    3301024: leaf5 30
+    3301026: leaf5 31
+    3301028: leaf5 32
+    3301030: leaf5 33
+    3301032: leaf5 34
+    3301034: leaf5 35
+    3301036: leaf5 36
+    3301038: leaf5 37
+    3301040: leaf5 4
+    3301042: leaf5 5
+    3301044: leaf5 6
+    3301046: leaf5 7
+    3301048: leaf5 8
+    3301050: leaf5 9
+    3301052: leaf6
+    3301054: leaf6 1
+    3301056: leaf6 10
+    3301058: leaf6 11
+    3301060: leaf6 12
+    3301062: leaf6 13
+    3301064: leaf6 14
+    3301066: leaf6 15
+    3301068: leaf6 16
+    3301070: leaf6 17
+    3301072: leaf6 18
+    3301074: leaf6 19
+    3301076: leaf6 2
+    3301078: leaf6 20
+    3301080: leaf6 21
+    3301082: leaf6 22
+    3301084: leaf6 23
+    3301086: leaf6 24
+    3301088: leaf6 25
+    3301090: leaf6 26
+    3301092: leaf6 27
+    3301094: leaf6 28
+    3301096: leaf6 29
+    3301098: leaf6 3
+    3301100: leaf6 30
+    3301102: leaf6 31
+    3301104: leaf6 32
+    3301106: leaf6 33
+    3301108: leaf6 34
+    3301110: leaf6 35
+    3301112: leaf6 36
+    3301114: leaf6 37
+    3301116: leaf6 4
+    3301118: leaf6 5
+    3301120: leaf6 6
+    3301122: leaf6 7
+    3301124: leaf6 8
+    3301126: leaf6 9
+    3301128: leaf7
+    3301130: leaf7 1
+    3301132: leaf7 10
+    3301134: leaf7 11
+    3301136: leaf7 12
+    3301138: leaf7 13
+    3301140: leaf7 14
+    3301142: leaf7 15
+    3301144: leaf7 16
+    3301146: leaf7 17
+    3301148: leaf7 18
+    3301150: leaf7 19
+    3301152: leaf7 2
+    3301154: leaf7 20
+    3301156: leaf7 21
+    3301158: leaf7 22
+    3301160: leaf7 23
+    3301162: leaf7 24
+    3301164: leaf7 25
+    3301166: leaf7 26
+    3301168: leaf7 27
+    3301170: leaf7 28
+    3301172: leaf7 29
+    3301174: leaf7 3
+    3301176: leaf7 30
+    3301178: leaf7 31
+    3301180: leaf7 32
+    3301182: leaf7 33
+    3301184: leaf7 34
+    3301186: leaf7 35
+    3301188: leaf7 36
+    3301190: leaf7 37
+    3301192: leaf7 4
+    3301194: leaf7 5
+    3301196: leaf7 6
+    3301198: leaf7 7
+    3301200: leaf7 8
+    3301202: leaf7 9
+    3301204: leaf8
+    3301206: leaf8 1
+    3301208: leaf8 10
+    3301210: leaf8 11
+    3301212: leaf8 12
+    3301214: leaf8 13
+    3301216: leaf8 14
+    3301218: leaf8 15
+    3301220: leaf8 16
+    3301222: leaf8 17
+    3301224: leaf8 18
+    3301226: leaf8 19
+    3301228: leaf8 2
+    3301230: leaf8 20
+    3301232: leaf8 21
+    3301234: leaf8 22
+    3301236: leaf8 23
+    3301238: leaf8 24
+    3301240: leaf8 25
+    3301242: leaf8 26
+    3301244: leaf8 27
+    3301246: leaf8 28
+    3301248: leaf8 29
+    3301250: leaf8 3
+    3301252: leaf8 30
+    3301254: leaf8 31
+    3301256: leaf8 32
+    3301258: leaf8 33
+    3301260: leaf8 34
+    3301262: leaf8 35
+    3301264: leaf8 36
+    3301266: leaf8 37
+    3301268: leaf8 4
+    3301270: leaf8 5
+    3301272: leaf8 6
+    3301274: leaf8 7
+    3301276: leaf8 8
+    3301278: leaf8 9
+    3301280: leaf9
+    3301282: leaf9 1
+    3301284: leaf9 10
+    3301286: leaf9 11
+    3301288: leaf9 12
+    3301290: leaf9 13
+    3301292: leaf9 14
+    3301294: leaf9 15
+    3301296: leaf9 16
+    3301298: leaf9 17
+    3301300: leaf9 18
+    3301302: leaf9 19
+    3301304: leaf9 2
+    3301306: leaf9 20
+    3301308: leaf9 21
+    3301310: leaf9 22
+    3301312: leaf9 23
+    3301314: leaf9 24
+    3301316: leaf9 25
+    3301318: leaf9 26
+    3301320: leaf9 27
+    3301322: leaf9 28
+    3301324: leaf9 29
+    3301326: leaf9 3
+    3301328: leaf9 30
+    3301330: leaf9 31
+    3301332: leaf9 32
+    3301334: leaf9 33
+    3301336: leaf9 34
+    3301338: leaf9 35
+    3301340: leaf9 36
+    3301342: leaf9 37
+    3301344: leaf9 4
+    3301346: leaf9 5
+    3301348: leaf9 6
+    3301350: leaf9 7
+    3301352: leaf9 8
+    3301354: leaf9 9
+    3301356: left_tarp_support
+    3301358: pCube236
+    3301360: pCylinder44
+    3301362: pCylinder45
+    3301364: pCylinder45 1
+    3301366: pCylinder45 2
+    3301368: pCylinder45 3
+    3301370: pCylinder45 4
+    3301372: pCylinder46
+    3301374: pCylinder46 1
+    3301376: pCylinder46 2
+    3301378: pCylinder46 3
+    3301380: pCylinder46 4
+    3301382: pPlane5
+    3301384: pPlane6
+    3301386: pPlane7
+    3301388: pPlane8
+    3301390: right_tarp_support
+    3301392: roof_acces_frame
+    3301394: roof_access_door1
+    3301396: roof_access_door2
+    3301398: table1
+    3301400: table2
+    3301402: table3
+    3301404: table4
+    3301406: table5
+    3301408: tarp1
+    3301410: tarp2
+    3301412: top_window1
+    3301414: top_window1 1
+    3301416: top_window1 2
+    3301418: top_window1 3
+    3301420: top_window2
+    3301422: top_window2 1
+    3301424: top_window2 2
+    3301426: top_window2 3
+    3301428: top_window3
+    3301430: top_window3 1
+    3301432: top_window3 2
+    3301434: top_window4
+    3301436: tree_base1
+    3301438: tree_base1 1
+    3301440: tree_base10
+    3301442: tree_base10 1
+    3301444: tree_base10 2
+    3301446: tree_base11
+    3301448: tree_base11 1
+    3301450: tree_base11 2
+    3301452: tree_base12
+    3301454: tree_base12 1
+    3301456: tree_base12 2
+    3301458: tree_base13
+    3301460: tree_base13 1
+    3301462: tree_base13 2
+    3301464: tree_base14
+    3301466: tree_base14 1
+    3301468: tree_base14 2
+    3301470: tree_base15
+    3301472: tree_base15 1
+    3301474: tree_base15 2
+    3301476: tree_base2
+    3301478: tree_base2 1
+    3301480: tree_base3
+    3301482: tree_base3 1
+    3301484: tree_base4
+    3301486: tree_base4 1
+    3301488: tree_base5
+    3301490: tree_base5 1
+    3301492: tree_base6
+    3301494: tree_base6 1
+    3301496: tree_base7
+    3301498: tree_base7 1
+    3301500: tree_base8
+    3301502: tree_base8 1
+    3301504: tree_base8 2
+    3301506: tree_base9
+    3301508: tree_base9 1
+    3301510: tree_base9 2
+    3301512: trees_pot1
+    3301514: trees_pot2
+    3301516: trees_pot3
+    3301518: window
+    3301520: window1
+    3301522: window1 1
+    3301524: window1 2
+    3301526: window1 3
+    3301528: window1 4
+    3301530: window1 5
+    3301532: window10
+    3301534: window10 1
+    3301536: window11
+    3301538: window12
+    3301540: window3
+    3301542: window3 1
+    3301544: window3 2
+    3301546: window3 3
+    3301548: window3 4
+    3301550: window3 5
+    3301552: window6
+    3301554: window6 1
+    3301556: window7
+    3301558: window7 1
+    3301560: window8
+    3301562: window8 1
+    3301564: window9
+    3301566: window9 1
+    4300000: base_top
+    4300002: roof_acces_frame
+    4300004: roof_access_door1
+    4300006: bricks
+    4300008: roof_access_door2
+    4300010: door_hale2
+    4300012: bricks1
+    4300014: window7
+    4300016: window6
+    4300018: window8
+    4300020: window7
+    4300022: window6
+    4300024: window8
+    4300026: window1
+    4300028: window10
+    4300030: window3
+    4300032: window1
+    4300034: window10
+    4300036: window3
+    4300038: pCylinder44
+    4300040: pPlane6
+    4300042: pPlane8
+    4300044: pPlane5
+    4300046: pPlane7
+    4300048: pCube236
+    4300050: trees_pot1
+    4300052: tree_base1
+    4300054: leaf1
+    4300056: leaf2
+    4300058: leaf3
+    4300060: leaf4
+    4300062: leaf5
+    4300064: leaf6
+    4300066: leaf7
+    4300068: leaf8
+    4300070: leaf9
+    4300072: leaf10
+    4300074: leaf11
+    4300076: leaf12
+    4300078: leaf13
+    4300080: leaf14
+    4300082: leaf15
+    4300084: leaf16
+    4300086: tree_base2
+    4300088: leaf1
+    4300090: leaf2
+    4300092: leaf3
+    4300094: leaf4
+    4300096: leaf5
+    4300098: leaf6
+    4300100: leaf7
+    4300102: leaf8
+    4300104: leaf9
+    4300106: leaf10
+    4300108: leaf11
+    4300110: leaf12
+    4300112: leaf13
+    4300114: leaf14
+    4300116: leaf15
+    4300118: leaf16
+    4300120: tree_base3
+    4300122: leaf1
+    4300124: leaf2
+    4300126: leaf3
+    4300128: leaf4
+    4300130: leaf5
+    4300132: leaf6
+    4300134: leaf7
+    4300136: leaf8
+    4300138: leaf9
+    4300140: leaf10
+    4300142: leaf11
+    4300144: leaf12
+    4300146: leaf13
+    4300148: leaf14
+    4300150: leaf15
+    4300152: leaf16
+    4300154: tree_base4
+    4300156: leaf1
+    4300158: leaf2
+    4300160: leaf3
+    4300162: leaf4
+    4300164: leaf5
+    4300166: leaf6
+    4300168: leaf7
+    4300170: leaf8
+    4300172: leaf9
+    4300174: leaf10
+    4300176: leaf11
+    4300178: leaf12
+    4300180: leaf13
+    4300182: leaf14
+    4300184: leaf15
+    4300186: leaf16
+    4300188: tree_base5
+    4300190: leaf1
+    4300192: leaf2
+    4300194: leaf3
+    4300196: leaf4
+    4300198: leaf5
+    4300200: leaf6
+    4300202: leaf7
+    4300204: leaf8
+    4300206: leaf9
+    4300208: leaf10
+    4300210: leaf11
+    4300212: leaf12
+    4300214: leaf13
+    4300216: leaf14
+    4300218: leaf15
+    4300220: leaf16
+    4300222: tree_base6
+    4300224: leaf1
+    4300226: leaf2
+    4300228: leaf3
+    4300230: leaf4
+    4300232: leaf5
+    4300234: leaf6
+    4300236: leaf7
+    4300238: leaf8
+    4300240: leaf9
+    4300242: leaf10
+    4300244: leaf11
+    4300246: leaf12
+    4300248: leaf13
+    4300250: leaf14
+    4300252: leaf15
+    4300254: leaf16
+    4300256: tree_base7
+    4300258: leaf1
+    4300260: leaf2
+    4300262: leaf3
+    4300264: leaf4
+    4300266: leaf5
+    4300268: leaf6
+    4300270: leaf7
+    4300272: leaf8
+    4300274: leaf9
+    4300276: leaf10
+    4300278: leaf11
+    4300280: leaf12
+    4300282: leaf13
+    4300284: leaf14
+    4300286: leaf15
+    4300288: leaf16
+    4300290: tree_base8
+    4300292: leaf1
+    4300294: leaf2
+    4300296: leaf3
+    4300298: leaf4
+    4300300: leaf5
+    4300302: leaf6
+    4300304: leaf7
+    4300306: leaf8
+    4300308: leaf9
+    4300310: leaf10
+    4300312: leaf11
+    4300314: leaf12
+    4300316: leaf13
+    4300318: leaf14
+    4300320: leaf15
+    4300322: leaf16
+    4300324: tree_base9
+    4300326: leaf1
+    4300328: leaf2
+    4300330: leaf3
+    4300332: leaf4
+    4300334: leaf5
+    4300336: leaf6
+    4300338: leaf7
+    4300340: leaf8
+    4300342: leaf9
+    4300344: leaf10
+    4300346: leaf11
+    4300348: leaf12
+    4300350: leaf13
+    4300352: leaf14
+    4300354: leaf15
+    4300356: leaf16
+    4300358: tree_base10
+    4300360: leaf1
+    4300362: leaf2
+    4300364: leaf3
+    4300366: leaf4
+    4300368: leaf5
+    4300370: leaf6
+    4300372: leaf7
+    4300374: leaf8
+    4300376: leaf9
+    4300378: leaf10
+    4300380: leaf11
+    4300382: leaf12
+    4300384: leaf13
+    4300386: leaf14
+    4300388: leaf15
+    4300390: leaf16
+    4300392: tree_base11
+    4300394: leaf1
+    4300396: leaf2
+    4300398: leaf3
+    4300400: leaf4
+    4300402: leaf5
+    4300404: leaf6
+    4300406: leaf7
+    4300408: leaf8
+    4300410: leaf9
+    4300412: leaf10
+    4300414: leaf11
+    4300416: leaf12
+    4300418: leaf13
+    4300420: leaf14
+    4300422: leaf15
+    4300424: leaf16
+    4300426: tree_base12
+    4300428: leaf1
+    4300430: leaf2
+    4300432: leaf3
+    4300434: leaf4
+    4300436: leaf5
+    4300438: leaf6
+    4300440: leaf7
+    4300442: leaf8
+    4300444: leaf9
+    4300446: leaf10
+    4300448: leaf11
+    4300450: leaf12
+    4300452: leaf13
+    4300454: leaf14
+    4300456: leaf15
+    4300458: leaf16
+    4300460: tree_base13
+    4300462: leaf1
+    4300464: leaf2
+    4300466: leaf3
+    4300468: leaf4
+    4300470: leaf5
+    4300472: leaf6
+    4300474: leaf7
+    4300476: leaf8
+    4300478: leaf9
+    4300480: leaf10
+    4300482: leaf11
+    4300484: leaf12
+    4300486: leaf13
+    4300488: leaf14
+    4300490: leaf15
+    4300492: leaf16
+    4300494: tree_base14
+    4300496: leaf1
+    4300498: leaf2
+    4300500: leaf3
+    4300502: leaf4
+    4300504: leaf5
+    4300506: leaf6
+    4300508: leaf7
+    4300510: leaf8
+    4300512: leaf9
+    4300514: leaf10
+    4300516: leaf11
+    4300518: leaf12
+    4300520: leaf13
+    4300522: leaf14
+    4300524: leaf15
+    4300526: leaf16
+    4300528: tree_base15
+    4300530: leaf1
+    4300532: leaf2
+    4300534: leaf3
+    4300536: leaf4
+    4300538: leaf5
+    4300540: leaf6
+    4300542: leaf7
+    4300544: leaf8
+    4300546: leaf9
+    4300548: leaf10
+    4300550: leaf11
+    4300552: leaf12
+    4300554: leaf13
+    4300556: leaf14
+    4300558: leaf15
+    4300560: leaf16
+    4300562: trees_pot2
+    4300564: tree_base1
+    4300566: leaf1
+    4300568: leaf2
+    4300570: leaf3
+    4300572: leaf4
+    4300574: leaf5
+    4300576: leaf6
+    4300578: leaf7
+    4300580: leaf8
+    4300582: leaf9
+    4300584: leaf10
+    4300586: leaf11
+    4300588: leaf12
+    4300590: leaf13
+    4300592: leaf14
+    4300594: leaf15
+    4300596: leaf16
+    4300598: tree_base2
+    4300600: leaf1
+    4300602: leaf2
+    4300604: leaf3
+    4300606: leaf4
+    4300608: leaf5
+    4300610: leaf6
+    4300612: leaf7
+    4300614: leaf8
+    4300616: leaf9
+    4300618: leaf10
+    4300620: leaf11
+    4300622: leaf12
+    4300624: leaf13
+    4300626: leaf14
+    4300628: leaf15
+    4300630: leaf16
+    4300632: tree_base3
+    4300634: leaf1
+    4300636: leaf2
+    4300638: leaf3
+    4300640: leaf4
+    4300642: leaf5
+    4300644: leaf6
+    4300646: leaf7
+    4300648: leaf8
+    4300650: leaf9
+    4300652: leaf10
+    4300654: leaf11
+    4300656: leaf12
+    4300658: leaf13
+    4300660: leaf14
+    4300662: leaf15
+    4300664: leaf16
+    4300666: tree_base4
+    4300668: leaf1
+    4300670: leaf2
+    4300672: leaf3
+    4300674: leaf4
+    4300676: leaf5
+    4300678: leaf6
+    4300680: leaf7
+    4300682: leaf8
+    4300684: leaf9
+    4300686: leaf10
+    4300688: leaf11
+    4300690: leaf12
+    4300692: leaf13
+    4300694: leaf14
+    4300696: leaf15
+    4300698: leaf16
+    4300700: tree_base5
+    4300702: leaf1
+    4300704: leaf2
+    4300706: leaf3
+    4300708: leaf4
+    4300710: leaf5
+    4300712: leaf6
+    4300714: leaf7
+    4300716: leaf8
+    4300718: leaf9
+    4300720: leaf10
+    4300722: leaf11
+    4300724: leaf12
+    4300726: leaf13
+    4300728: leaf14
+    4300730: leaf15
+    4300732: leaf16
+    4300734: tree_base6
+    4300736: leaf1
+    4300738: leaf2
+    4300740: leaf3
+    4300742: leaf4
+    4300744: leaf5
+    4300746: leaf6
+    4300748: leaf7
+    4300750: leaf8
+    4300752: leaf9
+    4300754: leaf10
+    4300756: leaf11
+    4300758: leaf12
+    4300760: leaf13
+    4300762: leaf14
+    4300764: leaf15
+    4300766: leaf16
+    4300768: tree_base7
+    4300770: leaf1
+    4300772: leaf2
+    4300774: leaf3
+    4300776: leaf4
+    4300778: leaf5
+    4300780: leaf6
+    4300782: leaf7
+    4300784: leaf8
+    4300786: leaf9
+    4300788: leaf10
+    4300790: leaf11
+    4300792: leaf12
+    4300794: leaf13
+    4300796: leaf14
+    4300798: leaf15
+    4300800: leaf16
+    4300802: tree_base8
+    4300804: leaf1
+    4300806: leaf2
+    4300808: leaf3
+    4300810: leaf4
+    4300812: leaf5
+    4300814: leaf6
+    4300816: leaf7
+    4300818: leaf8
+    4300820: leaf9
+    4300822: leaf10
+    4300824: leaf11
+    4300826: leaf12
+    4300828: leaf13
+    4300830: leaf14
+    4300832: leaf15
+    4300834: leaf16
+    4300836: tree_base9
+    4300838: leaf1
+    4300840: leaf2
+    4300842: leaf3
+    4300844: leaf4
+    4300846: leaf5
+    4300848: leaf6
+    4300850: leaf7
+    4300852: leaf8
+    4300854: leaf9
+    4300856: leaf10
+    4300858: leaf11
+    4300860: leaf12
+    4300862: leaf13
+    4300864: leaf14
+    4300866: leaf15
+    4300868: leaf16
+    4300870: tree_base10
+    4300872: leaf1
+    4300874: leaf2
+    4300876: leaf3
+    4300878: leaf4
+    4300880: leaf5
+    4300882: leaf6
+    4300884: leaf7
+    4300886: leaf8
+    4300888: leaf9
+    4300890: leaf10
+    4300892: leaf11
+    4300894: leaf12
+    4300896: leaf13
+    4300898: leaf14
+    4300900: leaf15
+    4300902: leaf16
+    4300904: tree_base11
+    4300906: leaf1
+    4300908: leaf2
+    4300910: leaf3
+    4300912: leaf4
+    4300914: leaf5
+    4300916: leaf6
+    4300918: leaf7
+    4300920: leaf8
+    4300922: leaf9
+    4300924: leaf10
+    4300926: leaf11
+    4300928: leaf12
+    4300930: leaf13
+    4300932: leaf14
+    4300934: leaf15
+    4300936: leaf16
+    4300938: tree_base12
+    4300940: leaf1
+    4300942: leaf2
+    4300944: leaf3
+    4300946: leaf4
+    4300948: leaf5
+    4300950: leaf6
+    4300952: leaf7
+    4300954: leaf8
+    4300956: leaf9
+    4300958: leaf10
+    4300960: leaf11
+    4300962: leaf12
+    4300964: leaf13
+    4300966: leaf14
+    4300968: leaf15
+    4300970: leaf16
+    4300972: tree_base13
+    4300974: leaf1
+    4300976: leaf2
+    4300978: leaf3
+    4300980: leaf4
+    4300982: leaf5
+    4300984: leaf6
+    4300986: leaf7
+    4300988: leaf8
+    4300990: leaf9
+    4300992: leaf10
+    4300994: leaf11
+    4300996: leaf12
+    4300998: leaf13
+    4301000: leaf14
+    4301002: leaf15
+    4301004: leaf16
+    4301006: tree_base14
+    4301008: leaf1
+    4301010: leaf2
+    4301012: leaf3
+    4301014: leaf4
+    4301016: leaf5
+    4301018: leaf6
+    4301020: leaf7
+    4301022: leaf8
+    4301024: leaf9
+    4301026: leaf10
+    4301028: leaf11
+    4301030: leaf12
+    4301032: leaf13
+    4301034: leaf14
+    4301036: leaf15
+    4301038: leaf16
+    4301040: tree_base15
+    4301042: leaf1
+    4301044: leaf2
+    4301046: leaf3
+    4301048: leaf4
+    4301050: leaf5
+    4301052: leaf6
+    4301054: leaf7
+    4301056: leaf8
+    4301058: leaf9
+    4301060: leaf10
+    4301062: leaf11
+    4301064: leaf12
+    4301066: leaf13
+    4301068: leaf14
+    4301070: leaf15
+    4301072: leaf16
+    4301074: trees_pot3
+    4301076: tree_base8
+    4301078: leaf1
+    4301080: leaf2
+    4301082: leaf3
+    4301084: leaf4
+    4301086: leaf5
+    4301088: leaf6
+    4301090: leaf7
+    4301092: leaf8
+    4301094: leaf9
+    4301096: leaf10
+    4301098: leaf11
+    4301100: leaf12
+    4301102: leaf13
+    4301104: leaf14
+    4301106: leaf15
+    4301108: leaf16
+    4301110: tree_base9
+    4301112: leaf1
+    4301114: leaf2
+    4301116: leaf3
+    4301118: leaf4
+    4301120: leaf5
+    4301122: leaf6
+    4301124: leaf7
+    4301126: leaf8
+    4301128: leaf9
+    4301130: leaf10
+    4301132: leaf11
+    4301134: leaf12
+    4301136: leaf13
+    4301138: leaf14
+    4301140: leaf15
+    4301142: leaf16
+    4301144: tree_base10
+    4301146: leaf1
+    4301148: leaf2
+    4301150: leaf3
+    4301152: leaf4
+    4301154: leaf5
+    4301156: leaf6
+    4301158: leaf7
+    4301160: leaf8
+    4301162: leaf9
+    4301164: leaf10
+    4301166: leaf11
+    4301168: leaf12
+    4301170: leaf13
+    4301172: leaf14
+    4301174: leaf15
+    4301176: leaf16
+    4301178: tree_base11
+    4301180: leaf1
+    4301182: leaf2
+    4301184: leaf3
+    4301186: leaf4
+    4301188: leaf5
+    4301190: leaf6
+    4301192: leaf7
+    4301194: leaf8
+    4301196: leaf9
+    4301198: leaf10
+    4301200: leaf11
+    4301202: leaf12
+    4301204: leaf13
+    4301206: leaf14
+    4301208: leaf15
+    4301210: leaf16
+    4301212: tree_base12
+    4301214: leaf1
+    4301216: leaf2
+    4301218: leaf3
+    4301220: leaf4
+    4301222: leaf5
+    4301224: leaf6
+    4301226: leaf7
+    4301228: leaf8
+    4301230: leaf9
+    4301232: leaf10
+    4301234: leaf11
+    4301236: leaf12
+    4301238: leaf13
+    4301240: leaf14
+    4301242: leaf15
+    4301244: leaf16
+    4301246: tree_base13
+    4301248: leaf1
+    4301250: leaf2
+    4301252: leaf3
+    4301254: leaf4
+    4301256: leaf5
+    4301258: leaf6
+    4301260: leaf7
+    4301262: leaf8
+    4301264: leaf9
+    4301266: leaf10
+    4301268: leaf11
+    4301270: leaf12
+    4301272: leaf13
+    4301274: leaf14
+    4301276: leaf15
+    4301278: leaf16
+    4301280: tree_base14
+    4301282: leaf1
+    4301284: leaf2
+    4301286: leaf3
+    4301288: leaf4
+    4301290: leaf5
+    4301292: leaf6
+    4301294: leaf7
+    4301296: leaf8
+    4301298: leaf9
+    4301300: leaf10
+    4301302: leaf11
+    4301304: leaf12
+    4301306: leaf13
+    4301308: leaf14
+    4301310: leaf15
+    4301312: leaf16
+    4301314: tree_base15
+    4301316: leaf1
+    4301318: leaf2
+    4301320: leaf3
+    4301322: leaf4
+    4301324: leaf5
+    4301326: leaf6
+    4301328: leaf7
+    4301330: leaf8
+    4301332: leaf9
+    4301334: leaf10
+    4301336: leaf11
+    4301338: leaf12
+    4301340: leaf13
+    4301342: leaf14
+    4301344: leaf15
+    4301346: leaf16
+    4301348: chair1
+    4301350: chair2
+    4301352: chair3
+    4301354: table1
+    4301356: chair4
+    4301358: pCylinder46
+    4301360: pCylinder45
+    4301362: chair5
+    4301364: chair6
+    4301366: chair7
+    4301368: table2
+    4301370: chair8
+    4301372: pCylinder46
+    4301374: pCylinder45
+    4301376: chair9
+    4301378: chair10
+    4301380: chair11
+    4301382: table3
+    4301384: chair12
+    4301386: pCylinder46
+    4301388: pCylinder45
+    4301390: chair13
+    4301392: chair14
+    4301394: chair15
+    4301396: table4
+    4301398: chair16
+    4301400: pCylinder46
+    4301402: pCylinder45
+    4301404: chair17
+    4301406: chair18
+    4301408: chair19
+    4301410: table5
+    4301412: chair20
+    4301414: pCylinder46
+    4301416: pCylinder45
+    4301418: brick5
+    4301420: brick4
+    4301422: brick3
+    4301424: brick2
+    4301426: brick1
+    4301428: brick5
+    4301430: brick4
+    4301432: brick3
+    4301434: brick2
+    4301436: brick1
+    4301438: base_mid
+    4301440: top_window3
+    4301442: top_window2
+    4301444: top_window1
+    4301446: window1
+    4301448: window11
+    4301450: window3
+    4301452: window1
+    4301454: window9
+    4301456: window3
+    4301458: top_window1
+    4301460: top_window2
+    4301462: top_window3
+    4301464: top_window4
+    4301466: top_window2
+    4301468: top_window1
+    4301470: window1
+    4301472: window12
+    4301474: window3
+    4301476: window1
+    4301478: window9
+    4301480: window3
+    4301482: top_window1
+    4301484: top_window2
+    4301486: top_window3
+    4301488: brick1
+    4301490: brick2
+    4301492: brick3
+    4301494: brick4
+    4301496: brick5
+    4301498: brick1
+    4301500: brick2
+    4301502: brick3
+    4301504: brick4
+    4301506: brick5
+    4301508: base_buttom
+    4301510: tarp1
+    4301512: tarp2
+    4301514: window
+    4301516: left_tarp_support
+    4301518: right_tarp_support
+    4301520: back_door
+    4301522: door_hale1
+    4301524: door
+    4301526: door_knocker
+    4301528: door_handle
+    4301530: door_step
+    4301532: door_frame
+    4301534: door_step
+    4301536: door2
+    4301538: door_frame
+    4301540: door_push_plate
+    4301542: brick
+    4301544: brick6
+    4301546: brick7
+    4301548: brick8
+    4301550: brick9
+    4301552: brick
+    4301554: brick6
+    4301556: brick7
+    4301558: brick8
+    4301560: brick9
+    4301562: brick10
+    4301564: brick12
+    4301566: brick13
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

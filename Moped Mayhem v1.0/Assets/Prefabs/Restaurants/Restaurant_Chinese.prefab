@@ -560,6 +560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4127340517830068}
   - component: {fileID: 95822483302388498}
+  - component: {fileID: 65232786852889578}
   m_Layer: 0
   m_Name: Restaurant_Chinese
   m_TagString: Untagged
@@ -2491,6 +2492,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65232786852889578
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1900667602273858}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.0578156, y: 3.9495382, z: 14.016239}
+  m_Center: {x: -3.528263, y: 1.4747691, z: 0.014993191}
 --- !u!65 &65390243403780728
 BoxCollider:
   m_ObjectHideFlags: 1
