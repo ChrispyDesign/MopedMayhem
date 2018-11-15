@@ -127,7 +127,7 @@ public class V3PlayerMovement : MonoBehaviour {
 
 	public void Boost(float v)
 	{
-		float m_fTimer = Time.timeSinceLevelLoad;
+		float m_fTimer = Time.timeSinceLevelLoad + m_fCooldown;
 		var m_PlayerVelocity = Vector3.Dot(m_PlayerRB.transform.forward, Vector3.Normalize(m_PlayerRB.velocity));
 
 		if (Input.GetAxis("Fire2") > 0 && m_fTimer >= fCooldown) // if button clicked and cooldown, add boost for duration

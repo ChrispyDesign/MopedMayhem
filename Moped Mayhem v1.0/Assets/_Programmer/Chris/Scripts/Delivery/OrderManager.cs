@@ -76,7 +76,7 @@ public class OrderManager : MonoBehaviour
 		m_fFoodWeight = 1.0f / m_Foods.Length * m_fFoodWeightModifier;
 
 		// Set Next Spawn Time
-		m_fNextSpawnTime = Time.realtimeSinceStartup + Random.Range(m_fMinSpawnTime, m_fMaxSpawnTime);
+		m_fNextSpawnTime = Time.realtimeSinceStartup/* + Random.Range(m_fMinSpawnTime, m_fMaxSpawnTime)*/;
 	}
 
 	public void AddDropOff(DeliveryDropoff dropOff)
