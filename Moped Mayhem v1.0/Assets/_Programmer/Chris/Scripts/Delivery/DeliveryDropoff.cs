@@ -39,6 +39,12 @@ public class DeliveryDropoff : MonoBehaviour {
 
 		renderer.material.color = matColor;
 		this.gameObject.SetActive(m_bIsActive);
+
+		var childRenderers = transform.GetComponentsInChildren<MeshRenderer>();
+		foreach(var childRenderer in childRenderers)
+		{
+			childRenderer.material.color = matColor;
+		}
 	}
 
 	public void Deactivate()
