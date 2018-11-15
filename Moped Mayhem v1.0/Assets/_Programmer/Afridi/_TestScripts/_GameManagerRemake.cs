@@ -8,6 +8,7 @@ public class _GameManagerRemake : MonoBehaviour {
 
     public _ScoreControl sController;
     public Text ScoreTxt;
+    public Text TotalScoreTxt;
     public Text Timer;
     public Canvas LostGame;
     private bool hasLost = false;
@@ -28,6 +29,9 @@ public class _GameManagerRemake : MonoBehaviour {
         if (!hasLost)
         {
             ScoreTxt.text = sController.Score.ToString();
+        }
+        else {
+            TotalScoreTxt.text = sController.Score.ToString();
         }
         LoseTheGame();
     }
