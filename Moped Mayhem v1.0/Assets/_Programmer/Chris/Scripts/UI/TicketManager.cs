@@ -13,21 +13,23 @@ public class TicketManager : MonoBehaviour {
 	public float m_fExitDuration;
 	public float m_fMovingDuration;
 
-	private bool[] m_bTakenPostions;
 	private List<Ticket> m_ActiveTickets = new List<Ticket>();
 	private List<Ticket> m_InactiveTickets = new List<Ticket>();
+
+	private bool[] m_bUsedPositions;
 
 	// Use this for initialization
 	void Start ()
 	{
 		int nTicketPositionCount = m_TicketPositions.Length;
-		m_bTakenPostions = new bool[nTicketPositionCount];
 
 		for (int i = 0; i < nTicketPositionCount + 1; ++i)
 		{
 			Ticket tempTicket = Instantiate(m_TicketPrefab, gameObject.transform).GetComponent<Ticket>();
 			m_InactiveTickets.Add(tempTicket);
 		}
+
+		m_bUsedPositions = new bool[m_TicketPositions.Length];
 	}
 	
 	// Update is called once per frame
@@ -55,13 +57,10 @@ public class TicketManager : MonoBehaviour {
 			}
 			else 
 			{
-				int nPosBelow = currentTicket.m_nTicketPosition - 1;
-				if (nPosBelow >= 0)
+				int currentPos = currentTicket.m_nTicketPosition;
+				if (currentPos > iter)
 				{
-					if (!m_bTakenPostions[nPosBelow])
-					{
-						MoveDown(currentTicket);
-					}
+					MoveDown(currentTicket, iter);
 				}
 			}
 			++iter;
@@ -78,6 +77,8 @@ public class TicketManager : MonoBehaviour {
 		}
 		else
 		{
+			ticket.m_nTicketPosition = m_TicketPositions.Length - 1;
+
 			Vector3 v3StartPos = m_TicketPositions[ticket.m_nTicketPosition].position;
 			v3StartPos.x -= m_fOffscreenOffset;
 			Vector3 v3TargetPos = m_TicketPositions[ticket.m_nTicketPosition].position;
@@ -113,8 +114,7 @@ public class TicketManager : MonoBehaviour {
 			if (Vector3.Distance(ticket.transform.position, v3TargetPos) < 0.1f)
 			{
 				ticket.m_fLerpEnd = 0.0f;
-
-				m_bTakenPostions[ticket.m_nTicketPosition] = false;
+				
 				ticket.gameObject.SetActive(false);
 				ticket.enabled = false;
 				ticket.m_bExiting = false;
@@ -122,7 +122,7 @@ public class TicketManager : MonoBehaviour {
 		}
 	}
 
-	private void MoveDown(Ticket ticket)
+	private void MoveDown(Ticket ticket, int nTarget)
 	{
 		float fCurrentTime = Time.realtimeSinceStartup;
 
@@ -133,18 +133,16 @@ public class TicketManager : MonoBehaviour {
 		else
 		{
 			Vector3 v3StartPos = m_TicketPositions[ticket.m_nTicketPosition].position;
-			Vector3 v3TargetPos = m_TicketPositions[ticket.m_nTicketPosition - 1].position;
+			Vector3 v3TargetPos = m_TicketPositions[nTarget].position;
 
 			float fLerpTime = 1 - ((ticket.m_fLerpEnd - fCurrentTime) / m_fMovingDuration);
-			ticket.gameObject.transform.position = Vector3.Lerp(v3StartPos, v3TargetPos, fLerpTime);
+			ticket.gameObject.transform.position = Vector3.Lerp(v3StartPos, v3TargetPos, fLerpTime / (ticket.m_nTicketPosition - nTarget));
 
 			if (Vector3.Distance(ticket.transform.position, v3TargetPos) < 0.1f)
 			{
 				ticket.m_fLerpEnd = 0.0f;
 
-				m_bTakenPostions[ticket.m_nTicketPosition] = false;
-				ticket.m_nTicketPosition--;
-				m_bTakenPostions[ticket.m_nTicketPosition] = true;
+				ticket.m_nTicketPosition = nTarget;
 			}
 		}
 	}
@@ -153,27 +151,18 @@ public class TicketManager : MonoBehaviour {
 	{
 		Ticket ticket = m_InactiveTickets[0];
 		m_InactiveTickets.RemoveAt(0);
+		m_ActiveTickets.Add(ticket);
+
+		int nIndex = m_ActiveTickets.IndexOf(ticket);
 
 		ticket.Setup(order);
 
-		int nTicketPositionCount = m_TicketPositions.Length;
+		ticket.m_nTicketPosition = nIndex;
 
-		for (int i = 0; i < nTicketPositionCount; ++i)
-		{
-			if (!m_bTakenPostions[i])
-			{
-				m_bTakenPostions[i] = true;
-				ticket.m_nTicketPosition = i;
-
-				Vector3 v3StartPos = m_TicketPositions[i].position;
-				v3StartPos.x -= m_fOffscreenOffset;
-				ticket.gameObject.transform.position = v3StartPos;
-
-				break;
-			}
-		}
-
-		m_ActiveTickets.Add(ticket);
+		Vector3 v3StartPos = m_TicketPositions[nIndex].position;
+		v3StartPos.x -= m_fOffscreenOffset;
+		ticket.gameObject.transform.position = v3StartPos;
+		
 	}
 
 	public void DeactivateTicket(Order order)

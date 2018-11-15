@@ -50,7 +50,8 @@ public class OrderManager : MonoBehaviour
 	private List<Order> m_ActiveOrders = new List<Order>();
 	private List<Order> m_InActiveOrders = new List<Order>();
 
-	public bool tempSpawnButton = false;
+	public float m_fIndicatorScale = 0.6f;
+	public float m_fIndicatorEdgeBuffer = 51.5f;
 
 	// Use this for initialization
 	void Start ()
@@ -100,7 +101,12 @@ public class OrderManager : MonoBehaviour
 
 	public void NewOrder()
 	{
-		
+		// IF no available foods
+		if (m_InactiveFoods.Count == 0)
+		{
+			Debug.LogWarning("No available food");
+			return;
+		}
 
 		// Get Random Food
 		Food food = RandomFood();
@@ -180,6 +186,8 @@ public class OrderManager : MonoBehaviour
 		var food = m_InactiveFoods[nRandom];
 
 		m_InactiveFoods.RemoveAt(nRandom);
+
+		Debug.Log("Inactive food length = " + m_InactiveFoods.Count);
 		
 		return food;
 	}
@@ -286,11 +294,11 @@ public class OrderManager : MonoBehaviour
 					order.m_DeliveryIndicator.m_TargetIconForFood = order.m_Food.m_FoodTexture;
 					order.m_DeliveryIndicator.m_IconImage.texture = m_IconOnScreen;
 					order.m_DeliveryIndicator.m_IconImage.color = order.m_Food.m_TicketColor;
-					order.m_DeliveryIndicator.m_IconImage.transform.localScale = Vector3.one;
+					order.m_DeliveryIndicator.m_IconImage.transform.localScale = Vector3.one * m_fIndicatorScale;
 					order.m_DeliveryIndicator.m_FoodImage.texture = order.m_Food.m_FoodTexture;
-					order.m_DeliveryIndicator.m_FoodImage.transform.localScale = Vector3.one;
-					order.m_DeliveryIndicator.f_EdgeBuffer = 51.5f;
-					order.m_DeliveryIndicator.m_targetIconScale = Vector3.one;
+					order.m_DeliveryIndicator.m_FoodImage.transform.localScale = Vector3.one * m_fIndicatorScale;
+					order.m_DeliveryIndicator.f_EdgeBuffer = m_fIndicatorEdgeBuffer;
+					order.m_DeliveryIndicator.m_targetIconScale = Vector3.one * m_fIndicatorScale;
 				}
 			}
 			else
@@ -308,13 +316,6 @@ public class OrderManager : MonoBehaviour
 
 	void Update()
 	{
-		//TEMP
-		if (tempSpawnButton)
-		{
-			NewOrder();
-			tempSpawnButton = false;
-		}
-
 		float fCurrentTime = Time.realtimeSinceStartup;
 
 		// Check for timed-out/failed orders

@@ -28,6 +28,8 @@ public class Ticket : MonoBehaviour {
 	public bool m_bEntering;
 	[HideInInspector]
 	public bool m_bExiting;
+	[HideInInspector]
+	public bool m_bMoving;
 
 	[HideInInspector]
 	public float m_fLerpEnd;

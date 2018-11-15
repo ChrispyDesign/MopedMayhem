@@ -7,7 +7,7 @@ public class DeathScript : MonoBehaviour {
 	public bool m_bKillMe = false;
 	public bool m_bAllowCheckStuck = false;
 
-	public ParticleSystem[] m_DeathParticles;
+	public GameObject[] m_DeathParticlePrefabs;
 
 	public List<DeathScript> m_Related = new List<DeathScript>();
 	public List<GameObject> m_RelatedObjects = new List<GameObject>();
@@ -77,9 +77,9 @@ public class DeathScript : MonoBehaviour {
 	//		float time
 	//			time in seconds until death
 	//--------------------------------------------------------------
-	public void KillAfter(float time)
+	public void KillAfter(float fSeconds)
 	{
-		m_fKillAfter = Time.realtimeSinceStartup + time;
+		m_fKillAfter = Time.realtimeSinceStartup + fSeconds;
 	}
 
 	//--------------------------------------------------------------
@@ -101,7 +101,7 @@ public class DeathScript : MonoBehaviour {
 		}
 
 		// Create Particles if able
-		if (m_DeathParticles != null)
+		if (m_DeathParticlePrefabs != null)
 		{
 			DeathParticles();
 		}
@@ -113,18 +113,9 @@ public class DeathScript : MonoBehaviour {
 	void DeathParticles()
 	{
 		// Create particles at the position
-		foreach (ParticleSystem prefab in m_DeathParticles)
+		foreach (GameObject prefab in m_DeathParticlePrefabs)
 		{
-			var particles = Instantiate(prefab, transform.position, prefab.transform.rotation);
-
-			// Make sure its playing
-			if (particles.isPlaying == false)
-			{
-				particles.Play();
-			}
-
-			// Queue particles for deletion after playback
-			Destroy(particles, (particles.main.duration * 2));
+			Instantiate(prefab, transform.position, prefab.transform.rotation);
 		}
 	}
 }

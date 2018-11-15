@@ -184,6 +184,10 @@ public class SniperAttack : MonoBehaviour
 	private void OnCollisionEnter(Collision collision)
 	{
 		// Becomes true if we collided with the player
-		m_bCollided = collision.gameObject.tag == "Player";
+		if (collision.gameObject.tag == "Player")
+		{
+			m_bCollided = true;
+			m_Death.KillAfter(3);
+		}
 	}
 }
