@@ -7,20 +7,15 @@ public class ParticleContainer : MonoBehaviour {
 	public bool m_bCanDie = true;
 
 	private float m_fKillTime = 0.0f;
+	private ParticleSystem[] m_aParticleSystems;
 
 	// Use this for initialization
 	void Awake ()
 	{
 		float fDuration = 0.0f;
-		var particleSystems = transform.GetComponentsInChildren<ParticleSystem>();
-		foreach (var system in particleSystems)
+		var m_aParticleSystems = transform.GetComponentsInChildren<ParticleSystem>();
+		foreach (var system in m_aParticleSystems)
 		{
-			// Make sure all particle systems are playing
-			if (!system.isPlaying)
-			{
-				system.Play();
-			}
-
 			// Find longest duration
 			if (fDuration < system.main.duration)
 			{
@@ -36,6 +31,22 @@ public class ParticleContainer : MonoBehaviour {
 		{
 			// Schedule it to die
 			Destroy(gameObject, m_fKillTime);
+		}
+	}
+
+	public void Play()
+	{
+		foreach (var system in m_aParticleSystems)
+		{
+			system.Play();
+		}
+	}
+
+	public void Stop()
+	{
+		foreach (var system in m_aParticleSystems)
+		{
+			system.Stop();
 		}
 	}
 }
