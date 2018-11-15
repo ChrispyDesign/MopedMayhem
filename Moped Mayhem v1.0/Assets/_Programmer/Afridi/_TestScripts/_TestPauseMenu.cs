@@ -9,6 +9,7 @@ public class _TestPauseMenu : MonoBehaviour {
     public static bool isGamePaused;
     public GameObject PauseMenuObj;
     public GameObject OptionsMenuObj;
+    public InputField Name;
     public _ScoreControl scoreControl;
     public _TestHighScore tscore;
 
@@ -48,7 +49,7 @@ public class _TestPauseMenu : MonoBehaviour {
 
     public void Restart() {
         tscore.AddScore(scoreControl.Score);
-        tscore.SaveScoresToFile();
+        tscore.SaveScoresToFile(); 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
     }

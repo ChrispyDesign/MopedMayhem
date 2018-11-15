@@ -16,7 +16,6 @@ public class _TestHighScore : MonoBehaviour {
     {
         //To double check, print the current directory
         currentDirectory = Application.dataPath;
-        Debug.Log("The current directory is: " + currentDirectory);
 
         //Call load scores function
         LoadScoresFromFile();

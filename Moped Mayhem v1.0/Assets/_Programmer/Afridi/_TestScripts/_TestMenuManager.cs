@@ -28,11 +28,11 @@ public class _TestMenuManager : MonoBehaviour {
     public Text Score_4;
     public Text Score_5;
 
-    public Text TimeScore_1;
-    public Text TimeScore_2;
-    public Text TimeScore_3;
-    public Text TimeScore_4;
-    public Text TimeScore_5;
+    public Text Name1;
+    public Text Name2;
+    public Text Name3;
+    public Text Name4;
+    public Text Name5;
 
     public GameObject CurrentSelec;
     public Button CurrentButton;
