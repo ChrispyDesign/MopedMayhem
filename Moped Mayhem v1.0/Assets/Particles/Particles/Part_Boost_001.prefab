@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc056df065280634ba0739a6bde4411e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bCanDie: 1
+  m_bCanDie: 0
 --- !u!198 &198960685533887652
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -126,7 +126,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -3487,7 +3487,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

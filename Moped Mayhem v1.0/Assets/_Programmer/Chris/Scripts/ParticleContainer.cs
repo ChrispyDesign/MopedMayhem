@@ -13,7 +13,7 @@ public class ParticleContainer : MonoBehaviour {
 	void Awake ()
 	{
 		float fDuration = 0.0f;
-		var m_aParticleSystems = transform.GetComponentsInChildren<ParticleSystem>();
+		m_aParticleSystems = transform.GetComponentsInChildren<ParticleSystem>();
 		foreach (var system in m_aParticleSystems)
 		{
 			// Find longest duration
