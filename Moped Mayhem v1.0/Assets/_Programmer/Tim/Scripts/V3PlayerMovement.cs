@@ -14,29 +14,38 @@ public class V3PlayerMovement : MonoBehaviour {
 	public float m_fMaxAngle, m_fMinAngle;   // Steer Angle for turning the car
 
 	[Header("Tilting")]
-	public GameObject m_PlayerCharacterMain;
+	public GameObject m_PlayerCharacterMain; // input for the players model so that the player rotates
 	[Range(0,1)]
-	public float m_fRotAngle;
+	public float m_fRotAngle; // how far the player turns
 
-	float timer;
+	float timer; 
 
 	[Header("Boost")]
-	public float boostSpeed;
-	public float m_fCooldown;
-	private  float m_fDuration;
+	public float boostSpeed; // how much force is added to the boost
+	public float m_fCooldown; // Boost cooldown so that it cant be spammed
+	private  float m_fDuration;	// how long the boost will go for
 	public float m_fDurationDefault;
 	private float fCooldown;
-	public float BoostMultiply;
-	private float DefaultMass = 5;
-	private float DefaultDrag = 0.5f;
-	private float DefaultAngularDrag = 4;
-	private bool m_bBoosting = false;
+	public float BoostMultiply; // multiplying mass drag and angluar drag
+	private float DefaultMass = 5; // default mass
+	private float DefaultDrag = 0.5f; // default drag
+	private float DefaultAngularDrag = 4; // default angular drag
+	private bool m_bBoosting = false; // is player boosting
 
 	private void Start()
 	{
 		fCooldown = m_fCooldown;
 		m_fDuration = m_fDurationDefault;
 	}
+
+	//------------------------------------------------------
+	// FixedUpdate()
+	//		FixedUpdate function
+	//
+	// var 
+	//		float fMotor = Max motor torque + Verticle Axis
+	//		float fSteer = Max steer angle + Horizontal Axis
+	//------------------------------------------------------
 
 	public void FixedUpdate()
 	{
@@ -63,13 +72,11 @@ public class V3PlayerMovement : MonoBehaviour {
 
 		if (m_PlayerRot == 0)
 		{
-
 			float RotationLerp = Mathf.Lerp(curAngle, 0, 60 * Time.deltaTime);
 			m_PlayerCharacterMain.transform.localRotation = new Quaternion(0, 0, -RotationLerp, 1);
 		}
 		else
 		{
-			
 			float m_CurrentAngle = m_fRotAngle * m_PlayerRot;
 			float RotationLerp = Mathf.Lerp(curAngle, m_CurrentAngle, 60 * Time.deltaTime);
 
@@ -83,6 +90,7 @@ public class V3PlayerMovement : MonoBehaviour {
 
 	public void Drive(float motor)
 	{
+		// for each Axis if motor bool = true, add torque to wheels
 		foreach (AxleInfo axle in m_AxleInfo)
 		{
 			if (axle.m_bMotor)
@@ -95,6 +103,7 @@ public class V3PlayerMovement : MonoBehaviour {
 
 	public void Turn(float steer)
 	{
+		// for each Axis if steering bool = true, add steer to wheels
 		foreach (AxleInfo axle in m_AxleInfo)
 		{
 			if (axle.m_bSteering)
@@ -105,12 +114,20 @@ public class V3PlayerMovement : MonoBehaviour {
 		}
 	}
 
+	//------------------------------------------------------
+	// Boost()
+	//		Boost function
+	//
+	// var 
+	//		float fTimer = timesincelevelload
+	//------------------------------------------------------
+
 	public void Boost(float v)
 	{
 		float m_fTimer = Time.timeSinceLevelLoad;
 		var m_PlayerVelocity = Vector3.Dot(m_PlayerRB.transform.forward, Vector3.Normalize(m_PlayerRB.velocity));
 
-		if (Input.GetAxis("Fire2") > 0 && m_fTimer >= fCooldown)
+		if (Input.GetAxis("Fire2") > 0 && m_fTimer >= fCooldown) // if button clicked and cooldown, add boost for duration
 		{
 			m_PlayerRB.AddForce(m_PlayerRB.transform.forward * boostSpeed, ForceMode.Impulse);
 			m_PlayerRB.mass = m_PlayerRB.mass * BoostMultiply;
@@ -121,7 +138,7 @@ public class V3PlayerMovement : MonoBehaviour {
 			m_bBoosting = true;
 		}
 
-		if (m_fTimer > m_fDuration && m_bBoosting == true)
+		if (m_fTimer > m_fDuration && m_bBoosting == true) // if boosting = true and timer is higher then duration, then return mass drag and angular drag to default values
 		{
 			m_PlayerRB.mass = DefaultMass;
 			m_PlayerRB.drag = DefaultDrag;
