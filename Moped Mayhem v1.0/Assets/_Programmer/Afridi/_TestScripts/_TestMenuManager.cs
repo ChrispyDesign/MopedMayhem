@@ -113,11 +113,21 @@ public class _TestMenuManager : MonoBehaviour {
         LeaderBoardScreen.SetActive(true);
         MainMenu.SetActive(false);
         h_Scores.LoadScoresFromFile();
-        Score_1.text = h_Scores.scoreArray[0].ToString();
-        Score_2.text = h_Scores.scoreArray[1].ToString();
-        Score_3.text = h_Scores.scoreArray[2].ToString();
-        Score_4.text = h_Scores.scoreArray[3].ToString();
-        Score_5.text = h_Scores.scoreArray[4].ToString();
+        h_Scores.LoadNameFromFile();
+        Score_1.text = h_Scores.scoreArray[0].value.ToString();
+        Name1.text = h_Scores.scoreArray[0].name;
+
+        Score_2.text = h_Scores.scoreArray[1].value.ToString();
+        Name2.text = h_Scores.scoreArray[1].name;
+
+        Score_3.text = h_Scores.scoreArray[2].value.ToString();
+        Name3.text = h_Scores.scoreArray[2].name;
+
+        Score_4.text = h_Scores.scoreArray[3].value.ToString();
+        Name4.text = h_Scores.scoreArray[3].name;
+
+        Score_5.text = h_Scores.scoreArray[4].value.ToString();
+        Name5.text = h_Scores.scoreArray[4].name;
     }
 
     public void SoundContents() {

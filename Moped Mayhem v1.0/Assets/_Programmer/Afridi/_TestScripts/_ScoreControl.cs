@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class _ScoreControl : MonoBehaviour {
-
     // Variables used for score keeping
     public int Score;
     public int ScoreContainer;
+
+    public string name;
+
     public float scoreTimer;
     private float scoreDelay;
 

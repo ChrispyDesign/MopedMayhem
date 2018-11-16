@@ -5,25 +5,34 @@ using System.IO;
 
 public class _TestHighScore : MonoBehaviour {
 
-    public int[] scoreArray;
+    public struct Score
+    {
+        public string name;
+        public int value;
+    }
+
+    public Score[] scoreArray;
     public int highscoreCount = 5;
 
     public string currentDirectory;
+    public string nameDirectory;
 
     public string scoreFileName = "MMHScore.txt";
+    public string scoreTagName = "MMID.txt";
 
     private void Start()
     {
         //To double check, print the current directory
         currentDirectory = Application.dataPath;
+        nameDirectory = Application.dataPath;
 
         //Call load scores function
         LoadScoresFromFile();
+        LoadNameFromFile();
     }
 
     public void LoadScoresFromFile()
     {
-
         //Before reading from a file, check it exists. If it doesn't exist, log a error message and abort
         bool fileExists = File.Exists(currentDirectory + "/" + scoreFileName);
         if (fileExists)
@@ -39,7 +48,7 @@ public class _TestHighScore : MonoBehaviour {
 
         //Make a new array of default values. This ensure no old values stick around if we've loaded a
         //new scores file in the past
-        scoreArray = new int[highscoreCount];
+        scoreArray = new Score[highscoreCount];
 
         //Reads the file in
         StreamReader fileReader = new StreamReader(currentDirectory + "/" + scoreFileName);
@@ -61,18 +70,76 @@ public class _TestHighScore : MonoBehaviour {
             bool didparse = int.TryParse(fileLine, out readScore);
             if (didparse)
             {
-                scoreArray[scoreCount] = readScore;
+                scoreArray[scoreCount].value = readScore;
             }
             else
             {
                 Debug.LogWarning("Invalid line in scores file at " + scoreCount + ", using default value.");
-                scoreArray[scoreCount] = 0;
+                scoreArray[scoreCount].value = 0;
             }
 
             //Increment counter
             scoreCount++;
         }
+       
+        //Close the stream
+        fileReader.Close();
+        Debug.Log("Highscores read from " + scoreFileName);
+    }
 
+    public void LoadNameFromFile()
+    {
+        //Before reading from a file, check it exists. If it doesn't exist, log a error message and abort
+        bool fileExists = File.Exists(nameDirectory + "/" + scoreTagName);
+        if (fileExists)
+        {
+            Debug.Log("Found highscore file " + scoreTagName);
+        }
+        else
+        {
+            Debug.LogWarning("The file " + scoreTagName + " does not exist. No scores will be loaded.");
+            SaveNamesToFile();
+            return;
+        }
+
+        //Make a new array of default values. This ensure no old values stick around if we've loaded a
+        //new scores file in the past
+        for (int i = 0; i < scoreArray.Length; i++)
+        {
+            scoreArray[i].name = string.Empty;
+        }
+
+        //Reads the file in
+        StreamReader fileReader = new StreamReader(nameDirectory + "/" + scoreTagName);
+
+        //A counter to make sure we don't go past the end of our scores
+        int scoreCount = 0;
+
+        while (fileReader.Peek() != 0 && scoreCount < scoreArray.Length)
+        {
+            //Read the line into a variable
+            string fileLine = fileReader.ReadLine();
+
+            bool didparse = true;
+            //Try to parse it
+            if (fileLine == string.Empty)
+            {
+                didparse = false;
+            }
+
+            if (didparse)
+            {
+                scoreArray[scoreCount].name = fileLine;
+            }
+            else
+            {
+                Debug.LogWarning("Invalid line in scores file at " + scoreCount + ", using default value.");
+                scoreArray[scoreCount].name = "-";
+            }
+
+            //Increment counter
+            scoreCount++;
+        }
         //Close the stream
         fileReader.Close();
         Debug.Log("Highscores read from " + scoreFileName);
@@ -86,7 +153,7 @@ public class _TestHighScore : MonoBehaviour {
         //Write the line to the file
         for (int i = 0; i < scoreArray.Length; i++)
         {
-            fileWriter.WriteLine(scoreArray[i]);
+            fileWriter.WriteLine(scoreArray[i].value);
         }
 
         //Close the stream
@@ -96,14 +163,32 @@ public class _TestHighScore : MonoBehaviour {
         Debug.Log("Highscores written to " + scoreFileName);
     }
 
-    public void AddScore(int newScore)
+    public void SaveNamesToFile()
+    {
+        //Create a StreamWriter for our filepath
+        StreamWriter fileWriter = new StreamWriter(nameDirectory + "/" + scoreTagName);
+
+        //Write the line to the file
+        for (int i = 0; i < scoreArray.Length; i++)
+        {
+            fileWriter.WriteLine(scoreArray[i].name);
+        }
+
+        //Close the stream
+        fileWriter.Close();
+
+        //Write a log message
+        Debug.Log("Highscores written to " + scoreTagName);
+    }
+
+    public void AddScore(int newScore, string newName)
     {
         //Find the index where the score will sit
         int desiredIndex = -1;
 
         for (int i = 0; i < scoreArray.Length; i++)
         {
-            if (scoreArray[i] < newScore || scoreArray[i] == 0)
+            if (scoreArray[i].value < newScore || scoreArray[i].value == 0)
             {
                 desiredIndex = i;
                 break;
@@ -125,7 +210,8 @@ public class _TestHighScore : MonoBehaviour {
         }
 
         //Insert the new score in
-        scoreArray[desiredIndex] = newScore;
+        scoreArray[desiredIndex].value = newScore;
+        scoreArray[desiredIndex].name = newName;
         Debug.Log("Score of " + newScore + " entered into highscores at position " + desiredIndex);
     }
 }

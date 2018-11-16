@@ -10,6 +10,7 @@ public class _GameManagerRemake : MonoBehaviour {
     public Text ScoreTxt;
     public Text TotalScoreTxt;
     public Text Timer;
+    public InputField input;
     public Canvas LostGame;
     private bool hasLost = false;
     public bool hasDied = false;
@@ -32,6 +33,7 @@ public class _GameManagerRemake : MonoBehaviour {
         }
         else {
             TotalScoreTxt.text = sController.Score.ToString();
+            sController.name = input.text;
         }
         LoseTheGame();
     }

@@ -696,7 +696,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &183480715
 GameObject:
@@ -2470,7 +2470,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenuObj: {fileID: 968546739}
   OptionsMenuObj: {fileID: 1419153509}
-  Name: {fileID: 0}
   scoreControl: {fileID: 1096366961}
   tscore: {fileID: 1096366960}
 --- !u!4 &503869457 stripped
@@ -4866,7 +4865,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1086114867
 GameObject:
@@ -5045,10 +5044,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9634022ef0b004c9dc3ad8380d433f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreArray: 
   highscoreCount: 5
   currentDirectory: 
+  nameDirectory: 
   scoreFileName: MMHScore.txt
+  scoreTagName: MMID.txt
 --- !u!114 &1096366961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5074,7 +5074,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1096366963
 MonoBehaviour:
@@ -5091,9 +5091,10 @@ MonoBehaviour:
   ScoreTxt: {fileID: 1396572160}
   TotalScoreTxt: {fileID: 1272679554}
   Timer: {fileID: 930663136}
+  input: {fileID: 1143665769}
   LostGame: {fileID: 1428924567}
   hasDied: 0
-  DurationOfGame: 3
+  DurationOfGame: 2
 --- !u!1 &1098682582
 GameObject:
   m_ObjectHideFlags: 0
@@ -7028,7 +7029,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenuObj: {fileID: 1388373982}
   OptionsMenuObj: {fileID: 0}
-  Name: {fileID: 0}
   scoreControl: {fileID: 1096366961}
   tscore: {fileID: 1096366960}
 --- !u!114 &1428924565
