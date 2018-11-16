@@ -8,6 +8,8 @@ public class V3PlayerMovement : MonoBehaviour {
 	public float m_fMaxMotorTorque;     // Motor torque to make the bike move
 	public Rigidbody m_PlayerRB;
 
+	private PlayerParticles m_PlayerParticles;
+
 	float m_fSteer;
 	[Header("Steering")]
 	public float m_fSteerMaxTime;
@@ -32,13 +34,12 @@ public class V3PlayerMovement : MonoBehaviour {
 	private float DefaultAngularDrag = 4; // default angular drag
 	private bool m_bBoosting = false; // is player boosting
 
-	[Header("Particle Effects")]
-	public GameObject m_BoostEffect;
-
 	private void Start()
 	{
 		fCooldown = m_fCooldown;
 		m_fDuration = m_fDurationDefault;
+
+		m_PlayerParticles = GetComponent<PlayerParticles>();
 	}
 
 	//------------------------------------------------------
@@ -141,11 +142,7 @@ public class V3PlayerMovement : MonoBehaviour {
 			m_bBoosting = true;
 
 			// Boost Effect
-			var boostEffect = m_BoostEffect.GetComponent<ParticleContainer>();
-			if (boostEffect != null)
-			{
-				boostEffect.Play();
-			}
+			m_PlayerParticles.Play(m_PlayerParticles.m_Boost);
 		}
 
 		if (m_fTimer > m_fDuration && m_bBoosting == true) // if boosting = true and timer is higher then duration, then return mass drag and angular drag to default values

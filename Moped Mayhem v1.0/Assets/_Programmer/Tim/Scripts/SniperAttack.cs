@@ -17,7 +17,6 @@ public class SniperAttack : MonoBehaviour
 
 	public GameObject m_ReticleMainPrefab;
 
-
 	private GameObject m_ReticleMain, m_ReticleTop, m_ReticleBot, m_ReticleLeft, m_ReticleRight; // The Reticle
 
 	public Vector3	m_ReticleTopEnd, m_ReticleBotEnd,	
@@ -46,7 +45,7 @@ public class SniperAttack : MonoBehaviour
 
 	private DeathScript m_Death;
 	private float m_fStartHeight;
-
+	
 	// Use this for initialization
 	void Awake()
 	{
@@ -177,6 +176,9 @@ public class SniperAttack : MonoBehaviour
 				// Make Player Move X distance
 
 				m_PlayerRB.AddForce(direction * m_fKnockBack, ForceMode.Impulse);
+				
+				var effect = m_Player.GetComponent<PlayerParticles>();
+				effect.Play(effect.m_SniperHit);
 			}
 		}
 	}
