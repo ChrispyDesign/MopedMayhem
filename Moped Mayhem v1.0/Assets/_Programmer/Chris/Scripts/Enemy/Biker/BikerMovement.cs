@@ -19,29 +19,34 @@ public class BikerMovement : EnemyMovement
 	{
 		m_NavAgent.nextPosition = transform.position;
 
-		// IF current speed is lower than attack speed
-		if (m_Rigidbody.velocity.magnitude < m_fAttackSpeed)
+		Vector3 v3TargetDir = Vector3.Normalize(m_Player.transform.position - transform.position);
+		// If the target is roughly in front of the biker
+		if (Vector3.Dot(transform.forward, v3TargetDir) > 0.3)
 		{
-			// Ramp up Speed by Lerping
-			float fCurrentRange = Vector3.Magnitude(m_Player.transform.position - transform.position);
-
-			//Lerp time is range to target
-			float fLerpPos = Mathf.Abs((m_fStartRange - fCurrentRange) / m_fStartRange * 2);
-
-
-			// Lerp Velocity
-			Vector3 v3NewVelocity = Vector3.Lerp(m_StartBikerVelocity, transform.forward * m_fAttackSpeed, fLerpPos);
-
-			// IF new speed is greater than max speed
-			if (v3NewVelocity.magnitude > m_fAttackSpeed)
+			// IF current speed is lower than attack speed
+			if (m_Rigidbody.velocity.magnitude < m_fAttackSpeed)
 			{
-				// make new speed equal to max speed
-				v3NewVelocity.Normalize();
-				v3NewVelocity *= m_fAttackSpeed;
-			}
+				// Ramp up Speed by Lerping
+				float fCurrentRange = Vector3.Magnitude(m_Player.transform.position - transform.position);
 
-			// Set rigidbody velocity as new velocity
-			m_Rigidbody.velocity = v3NewVelocity;
+				//Lerp time is range to target
+				float fLerpPos = Mathf.Abs((m_fStartRange - fCurrentRange) / m_fStartRange * 2);
+
+
+				// Lerp Velocity
+				Vector3 v3NewVelocity = Vector3.Lerp(m_StartBikerVelocity, transform.forward * m_fAttackSpeed, fLerpPos);
+
+				// IF new speed is greater than max speed
+				if (v3NewVelocity.magnitude > m_fAttackSpeed)
+				{
+					// make new speed equal to max speed
+					v3NewVelocity.Normalize();
+					v3NewVelocity *= m_fAttackSpeed;
+				}
+
+				// Set rigidbody velocity as new velocity
+				m_Rigidbody.velocity = v3NewVelocity;
+			}
 		}
 
 		// Get Current Time
@@ -64,7 +69,19 @@ public class BikerMovement : EnemyMovement
 
 				Vector3 v3NewVelocity = Vector3.Lerp(m_Rigidbody.velocity, Vector3.zero, fLerpPos);
 				m_Rigidbody.velocity = v3NewVelocity;
-			}			
+			}
+			
+			
+		}
+
+		
+		var temp2 = Vector3.Normalize(m_Rigidbody.velocity);
+		var temp3 = transform.forward;
+		var temp4 = Vector3.Dot(temp2, v3TargetDir);
+
+		if (temp4 < 0.3)
+		{
+			//Debug.LogError("Biker Off Course");
 		}
 
 		// Attack incomplete
@@ -100,8 +117,19 @@ public class BikerMovement : EnemyMovement
 		Vector3 v3Target = m_Player.transform.position;
 		transform.LookAt(v3Target);
 
-		// Zero Angular velocity
+		// Zero out Angular velocity
 		m_Rigidbody.angularVelocity = Vector3.zero;
+
+		// Fix velocity
+		Vector3 v3TargetDir = v3Target - transform.position;
+		v3TargetDir.Normalize();
+
+		Vector3 v3Velocity = m_Rigidbody.velocity;
+		float fMag = v3Velocity.magnitude;
+		v3Velocity.Normalize();
+
+		float fDot = Vector3.Dot(v3Velocity, v3TargetDir);
+		m_Rigidbody.velocity = v3TargetDir * fDot * fMag;
 	}
 
 	public void BikerStop()
