@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Envi_InteractionZone
-  m_Shader: {fileID: 4800000, guid: 3cb993b5e2e402144adb2432a19de95c, type: 3}
+  m_Name: 111 player shader_Mat
+  m_Shader: {fileID: 4800000, guid: edba8948b80ec874990be8bb605dfe82, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -18,6 +18,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: ef999d218fa81eb4ca76c06fac683609, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -54,17 +58,23 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Shader_Alpha:
-        m_Texture: {fileID: 2800000, guid: cb784caff240e9e478c9a02417672126, type: 3}
+    - _Roughness:
+        m_Texture: {fileID: 2800000, guid: 0eba48db0aa94ef46a0c112dcf52e6c6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _metallic:
+        m_Texture: {fileID: 2800000, guid: 463745ab5fb03004396a9cd82e0561b6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Barslider: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EmissionAmount: 0.162389
     - _Gloss: 0.8
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -72,18 +82,17 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Panningspeed: 0.166
     - _Parallax: 0.02
-    - _Puslespeed: 1
-    - _Roughness: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _Waveintensity: 0.07409929
     - _ZWrite: 1
-    - _node_3540: 0.3786073
+    - _node_2537: 0.168
+    - _node_2606: 0.2
+    - _node_3988: 0.12
+    - _outlinewidth: 0.084
     m_Colors:
-    - _Color: {r: 0, g: 0.41568628, b: 0.99215686, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Emissioncolor: {r: 0, g: 0.4165225, b: 0.9926471, a: 1}
+    - _outlinecolour: {r: 1, g: 0, b: 0, a: 1}
