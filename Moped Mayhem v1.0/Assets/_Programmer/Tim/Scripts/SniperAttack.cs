@@ -93,6 +93,8 @@ public class SniperAttack : MonoBehaviour
 			{
 				m_Death.m_bKillMe = true;
 			}
+
+			return;
 		}
 
 		RaycastHit hit;
@@ -178,7 +180,14 @@ public class SniperAttack : MonoBehaviour
 				m_PlayerRB.AddForce(direction * m_fKnockBack, ForceMode.Impulse);
 				
 				var effect = m_Player.GetComponent<PlayerParticles>();
-				effect.Play(effect.m_SniperHit);
+				if (effect == null)
+				{
+					Debug.LogWarning("Player has no PlayerParticles Component");
+				}
+				else
+				{
+					effect.Play(effect.m_SniperHit);
+				}
 			}
 		}
 	}
@@ -186,7 +195,8 @@ public class SniperAttack : MonoBehaviour
 	private void OnCollisionEnter(Collision collision)
 	{
 		// Becomes true if we collided with the player
-		if (collision.gameObject.tag == "Player")
+		var tag = collision.gameObject.tag;
+		if (tag == "Player" || tag == "Biker")
 		{
 			m_bCollided = true;
 			m_Death.KillAfter(3);

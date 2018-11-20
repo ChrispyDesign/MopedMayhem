@@ -172,7 +172,7 @@ public class OrderManager : MonoBehaviour
 		ActivatePickup(newOrder.m_Food);
 
 		// Activate Dropoff zone
-		newOrder.m_DropOffZone.Activate(newOrder);
+		//newOrder.m_DropOffZone.Activate(newOrder);
 
 		// UI STUFF
 		m_TicketManager.ActivateTicket(newOrder);
@@ -324,6 +324,15 @@ public class OrderManager : MonoBehaviour
 		{
 			// Get current order
 			Order order = m_ActiveOrders[iter];
+
+			if (m_PlayerInventory.ContainsFoodOfName(order.m_Food.m_sFoodName))
+			{
+				order.m_DropOffZone.Activate(order);
+			}
+			else
+			{
+				order.m_DropOffZone.Deactivate();
+			}
 
 			// IF Order has timed out 
 			if (fCurrentTime > (order.m_fStartTime + order.m_fOrderExiryTime))

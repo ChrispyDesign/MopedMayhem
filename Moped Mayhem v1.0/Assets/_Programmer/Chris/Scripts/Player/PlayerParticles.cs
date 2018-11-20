@@ -11,7 +11,7 @@ public class PlayerParticles : MonoBehaviour {
 	{
 		if (particleObject == null)
 		{
-			Debug.LogWarning("Particle Object is null, " + particleObject.name);
+			Debug.LogWarning("Particle Object is null");
 			return;
 		}
 
@@ -26,7 +26,7 @@ public class PlayerParticles : MonoBehaviour {
 	{
 		if (particleObject == null)
 		{
-			Debug.LogWarning("Particle Object is null, " + particleObject.name);
+			Debug.LogWarning("Particle Object is null");
 			return;
 		}
 

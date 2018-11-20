@@ -8710,11 +8710,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4472131244519712, guid: dee81f6299b08744e99018ac37b1d70c,
     type: 2}
   m_PrefabInternal: {fileID: 369762452}
---- !u!1 &387250325 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1381393367790398, guid: d7f6a88eb6a49e74ea0b99ea0d73ad06,
-    type: 2}
-  m_PrefabInternal: {fileID: 922944942}
 --- !u!4 &387250326 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4277329208375338, guid: d7f6a88eb6a49e74ea0b99ea0d73ad06,
@@ -26736,7 +26731,6 @@ MonoBehaviour:
   m_fCooldown: 5
   m_fDurationDefault: 0.7
   BoostMultiply: 5
-  m_BoostEffect: {fileID: 387250325}
 --- !u!114 &1195570382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43807,6 +43801,26 @@ Transform:
   m_PrefabParentObject: {fileID: 4997264715965470, guid: 3aee4db3de4e3cc4980141d0a02b5d95,
     type: 2}
   m_PrefabInternal: {fileID: 1939112727}
+--- !u!1 &1942079186 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1336684501215378, guid: ea0baa1fccde08c48ae5d16e91f2ed52,
+    type: 2}
+  m_PrefabInternal: {fileID: 223833167}
+--- !u!114 &1942079187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942079186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9107c5dd9d167684a93c08a95ca0879b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  m_MinFPS: Infinity
+  m_AvgFPS: 0
+  m_FPS: 0
 --- !u!1001 &1947900450
 Prefab:
   m_ObjectHideFlags: 0
@@ -45626,6 +45640,7 @@ GameObject:
   - component: {fileID: 2024823686}
   - component: {fileID: 1287222724}
   - component: {fileID: 2024823687}
+  - component: {fileID: 2024823688}
   m_Layer: 0
   m_Name: Minimap_Camera_Small
   m_TagString: Untagged
@@ -45655,6 +45670,21 @@ Behaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2024823685}
   m_Enabled: 1
+--- !u!114 &2024823688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2024823685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373a0e20ecae9804281e65a9c63d0b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fMaxSpeed: 15
+  m_fMaxSize: 75
+  m_fDampTime: 1
+  m_fMaxDampSpeed: 5
 --- !u!1 &2042019099
 GameObject:
   m_ObjectHideFlags: 0

@@ -176,6 +176,6 @@ public class TicketManager : MonoBehaviour {
 			}
 		}
 
-		Debug.LogError("Order of food has no ticket to deactivate", order.m_Food);
+		Debug.LogError("Order of food has no ticket to deactivate" + order.m_Food.m_sFoodName);
 	}
 }
