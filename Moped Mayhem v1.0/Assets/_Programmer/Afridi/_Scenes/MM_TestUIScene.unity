@@ -2145,6 +2145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MenuButtonClickAudio: {fileID: 8300000, guid: 86d79d82e296e4345a51c85e458aa99f,
     type: 3}
+  AudioMix: {fileID: 24300002, guid: fcb859e0cefe62e4ab31d20203703710, type: 2}
   PlayButton: {fileID: 1258489539}
   OptionsButton: {fileID: 1926679773}
   LeaderBButton: {fileID: 1114414163}
@@ -5844,9 +5845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainMixer: {fileID: 24100000, guid: f10a60104d7bc77419e33a1c21f3eca0, type: 2}
-  EffectMizer: {fileID: 24100000, guid: 8c83e121fe07745459d122f280fcbe4e, type: 2}
-  MenuSauce: {fileID: 0}
-  ClickSauce: {fileID: 0}
+  EffectMixer: {fileID: 0}
 --- !u!1 &1453404064
 GameObject:
   m_ObjectHideFlags: 0
@@ -5998,7 +5997,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 977679517}
   m_HandleRect: {fileID: 78445622}
   m_Direction: 0
-  m_MinValue: 0.0001
+  m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -6029,10 +6028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed05985e42bc4b14f8f3161c0e4385f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMixer: {fileID: 24100000, guid: f10a60104d7bc77419e33a1c21f3eca0, type: 2}
-  EffectMizer: {fileID: 24100000, guid: 8c83e121fe07745459d122f280fcbe4e, type: 2}
-  MenuSauce: {fileID: 0}
-  ClickSauce: {fileID: 0}
+  MainMixer: {fileID: 0}
+  EffectMixer: {fileID: 0}
 --- !u!1 &1487312011
 GameObject:
   m_ObjectHideFlags: 0
@@ -7996,7 +7993,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &2082449262
 GameObject:
   m_ObjectHideFlags: 0

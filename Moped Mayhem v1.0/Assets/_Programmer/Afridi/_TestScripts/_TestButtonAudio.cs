@@ -9,6 +9,7 @@ public class _TestButtonAudio : MonoBehaviour
 {
     [SerializeField] AudioClip MenuButtonClickAudio;
     AudioSource Audio;
+    [SerializeField] AudioMixerGroup AudioMix;
     public Button PlayButton;
     public Button OptionsButton;
     public Button LeaderBButton;
@@ -27,7 +28,10 @@ public class _TestButtonAudio : MonoBehaviour
     void PlayButtonOnClick() {
         Audio = gameObject.AddComponent<AudioSource>();
         if (MenuButtonClickAudio != null)
+        {
             Audio.clip = MenuButtonClickAudio;
+            Audio.outputAudioMixerGroup = AudioMix;
+        }
         Audio.playOnAwake = false;
         PlayButton.onClick.AddListener(() => Audio.Play());
     }
@@ -36,7 +40,10 @@ public class _TestButtonAudio : MonoBehaviour
     {
         Audio = gameObject.AddComponent<AudioSource>();
         if (MenuButtonClickAudio != null)
+        {
             Audio.clip = MenuButtonClickAudio;
+            Audio.outputAudioMixerGroup = AudioMix;
+        }
         Audio.playOnAwake = false;
         OptionsButton.onClick.AddListener(() => Audio.Play());
     }
@@ -45,16 +52,22 @@ public class _TestButtonAudio : MonoBehaviour
     {
         Audio = gameObject.AddComponent<AudioSource>();
         if (MenuButtonClickAudio != null)
+        {
             Audio.clip = MenuButtonClickAudio;
-        Audio.playOnAwake = false;
-        LeaderBButton.onClick.AddListener(() => Audio.Play());
-    }
+            Audio.outputAudioMixerGroup = AudioMix;
+        }
+         Audio.playOnAwake = false;
+         LeaderBButton.onClick.AddListener(() => Audio.Play());
+    }   
 
     void QuitButtonOnClick()
     {
         Audio = gameObject.AddComponent<AudioSource>();
         if (MenuButtonClickAudio != null)
+        {
             Audio.clip = MenuButtonClickAudio;
+            Audio.outputAudioMixerGroup = AudioMix;
+        }
         Audio.playOnAwake = false;
         QuitButton.onClick.AddListener(() => Audio.Play());
     }
