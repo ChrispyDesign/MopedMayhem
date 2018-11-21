@@ -26671,6 +26671,8 @@ GameObject:
   - component: {fileID: 1195570382}
   - component: {fileID: 1195570381}
   - component: {fileID: 1195570390}
+  - component: {fileID: 1195570391}
+  - component: {fileID: 1195570392}
   m_Layer: 0
   m_Name: Player_v003
   m_TagString: Player
@@ -26706,7 +26708,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1195570379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f451cc81bc74df74e877268739e1d887, type: 3}
   m_Name: 
@@ -26731,6 +26733,8 @@ MonoBehaviour:
   m_fCooldown: 5
   m_fDurationDefault: 0.7
   BoostMultiply: 5
+  m_fRot: 0
+  m_bAccel: 0
 --- !u!114 &1195570382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26898,6 +26902,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CharMain: {fileID: 296374875}
   m_fMaxLean: 0.8
+--- !u!143 &1195570391
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195570379}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1195570392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195570379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9252881796a03d4ba93fb92ea490d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fSpeed: 100
+  m_fRotSpeed: 10
 --- !u!43 &1202558052
 Mesh:
   m_ObjectHideFlags: 0
@@ -32709,7 +32743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1449115428
 Transform:
   m_ObjectHideFlags: 0

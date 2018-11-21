@@ -290,6 +290,13 @@ public class OrderManager : MonoBehaviour
 				if (order.m_DeliveryIndicator == null)
 				{
 					order.m_DeliveryIndicator = order.m_DropOffZone.gameObject.AddComponent<_BDeliveryIndicator>();
+
+					if (order.m_DeliveryIndicator.m_IconImage == null)
+					{
+						order.m_DeliveryIndicator.InstainateTargetIcon();
+						Debug.LogWarning("Delivery Indicator Not Instantiated First time round");
+					}
+
 					order.m_DeliveryIndicator.m_TargetIconOnScreen = m_IconOnScreen;
 					order.m_DeliveryIndicator.m_TargetIconForFood = order.m_Food.m_FoodTexture;
 					order.m_DeliveryIndicator.m_IconImage.texture = m_IconOnScreen;

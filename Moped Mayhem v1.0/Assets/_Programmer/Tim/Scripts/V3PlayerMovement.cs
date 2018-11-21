@@ -34,6 +34,9 @@ public class V3PlayerMovement : MonoBehaviour {
 	private float DefaultAngularDrag = 4; // default angular drag
 	private bool m_bBoosting = false; // is player boosting
 
+	public float m_fRot = 0.0f;
+	public bool m_bAccel = false;
+
 	private void Start()
 	{
 		fCooldown = m_fCooldown;
@@ -53,14 +56,21 @@ public class V3PlayerMovement : MonoBehaviour {
 
 	public void FixedUpdate()
 	{
+		if (Input.GetButtonDown("DEBUG"))
+		{
+			m_bAccel = !m_bAccel;
+		}
+
 		float v = Input.GetAxis("Vertical");
-		float motor = m_fMaxMotorTorque * v;
-		float m_PlayerRot = Input.GetAxis("Horizontal");
+		float fMotor = m_fMaxMotorTorque * v;
+		float fPlayerRot = Input.GetAxis("Horizontal");
+
+		m_fRot = fPlayerRot;
 
 		var PlayerVelocity = Mathf.Abs(Vector3.Dot(m_PlayerRB.transform.forward, Vector3.Normalize(m_PlayerRB.velocity)));
 		float curAngle = this.transform.rotation.z;
 
-		if (Mathf.Abs(m_PlayerRot) > 0.1f)
+		if (Mathf.Abs(fPlayerRot) > 0.1f)
 		{
 			timer += Time.fixedDeltaTime;
 		} 
@@ -71,23 +81,27 @@ public class V3PlayerMovement : MonoBehaviour {
 		float fLerpTime = timer / m_fSteerMaxTime;
 
 		float fLerp = Mathf.Lerp(m_fMinAngle, m_fMaxAngle, fLerpTime);
-		
-		m_fSteer = fLerp * m_PlayerRot;
 
-		if (m_PlayerRot == 0)
-		{
-			float RotationLerp = Mathf.Lerp(curAngle, 0, 60 * Time.deltaTime);
-			m_PlayerCharacterMain.transform.localRotation = new Quaternion(0, 0, -RotationLerp, 1);
-		}
-		else
-		{
-			float m_CurrentAngle = m_fRotAngle * m_PlayerRot;
-			float RotationLerp = Mathf.Lerp(curAngle, m_CurrentAngle, 60 * Time.deltaTime);
+		fLerp = m_fMaxAngle;
+		m_fSteer = fLerp * fPlayerRot;
 
-			m_PlayerCharacterMain.transform.localRotation = new Quaternion(0, 0, -RotationLerp, 1);
-		}
+		//TEST
+		//m_fSteer = m_fMaxAngle * m_PlayerRot;
 
-		Drive(motor);
+		//if (m_PlayerRot == 0)
+		//{
+		//	float RotationLerp = Mathf.Lerp(curAngle, 0, 60 * Time.deltaTime);
+		//	m_PlayerCharacterMain.transform.localRotation = new Quaternion(0, 0, -RotationLerp, 1);
+		//}
+		//else
+		//{
+		//	float m_CurrentAngle = m_fRotAngle * m_PlayerRot;
+		//	float RotationLerp = Mathf.Lerp(curAngle, m_CurrentAngle, 60 * Time.deltaTime);
+		//
+		//	m_PlayerCharacterMain.transform.localRotation = new Quaternion(0, 0, -RotationLerp, 1);
+		//}
+
+		Drive(fMotor);
 		Turn(m_fSteer);
 		Boost(v);
 	}
@@ -103,6 +117,15 @@ public class V3PlayerMovement : MonoBehaviour {
 				axle.m_Wheel2.motorTorque = motor;
 			}
 		}
+
+		motor /= m_fMaxMotorTorque;
+
+		if (m_bAccel)
+			if (m_PlayerRB.velocity.magnitude < 2.0f)
+			{
+				m_PlayerRB.velocity += transform.forward * motor * Time.fixedDeltaTime * 500.0f;
+				Debug.Log("SPEED");
+			}
 	}
 
 	public void Turn(float steer)

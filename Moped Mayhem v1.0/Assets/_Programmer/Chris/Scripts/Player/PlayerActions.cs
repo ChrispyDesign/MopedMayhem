@@ -13,7 +13,7 @@ public class PlayerActions : MonoBehaviour
 	public PlayerInventory m_PlayerInventory;
 
 	public string m_sContextButton = "ContextButton";
-	public bool m_bTestContext = false;		// Remove after testing
+	public bool m_bTestContext = true;		// Remove after testing
 	public string m_sDropLeft = "DropLeft";
 	public bool m_bTestLeft = false;        // Remove after testing
 	public string m_sDropRight = "DropRight";
@@ -34,7 +34,6 @@ public class PlayerActions : MonoBehaviour
 		// IF Contextual Button Pressed
 		if (Input.GetButtonDown(m_sContextButton) || m_bTestContext)
 		{
-			m_bTestContext = false;
 			PerformContextual();
 		}
 
