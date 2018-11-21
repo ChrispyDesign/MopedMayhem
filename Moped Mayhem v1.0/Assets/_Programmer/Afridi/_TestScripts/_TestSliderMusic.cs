@@ -14,6 +14,6 @@ public class _TestSliderMusic : MonoBehaviour
     }
     public void SetEffectAudioLevel(float value)
     {
-        EffectMixer.SetFloat("ButtonClicks", Mathf.Log10(value) * 20);
+        EffectMixer.SetFloat("MenClick", Mathf.Log10(value) * 20);
     }
 }

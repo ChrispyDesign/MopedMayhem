@@ -8,14 +8,19 @@ using UnityEngine.UI;
 public class _TestButtonAudio : MonoBehaviour
 {
     [SerializeField] AudioClip MenuButtonClickAudio;
-    AudioSource Audio;
     [SerializeField] AudioMixerGroup AudioMix;
+
     public Button PlayButton;
     public Button OptionsButton;
     public Button LeaderBButton;
     public Button QuitButton;
-    private int Count = 4;
 
+    public AudioSource PlayAudio;
+    public AudioSource OptionsAudio;
+    public AudioSource LBoardAudio;
+    public AudioSource QuitAudio;
+
+    private int Count = 4;
 
     void Awake()
     {
@@ -26,49 +31,45 @@ public class _TestButtonAudio : MonoBehaviour
     }
 
     void PlayButtonOnClick() {
-        Audio = gameObject.AddComponent<AudioSource>();
         if (MenuButtonClickAudio != null)
         {
-            Audio.clip = MenuButtonClickAudio;
-            Audio.outputAudioMixerGroup = AudioMix;
+            PlayAudio.clip = MenuButtonClickAudio;
+            PlayAudio.outputAudioMixerGroup = AudioMix;
         }
-        Audio.playOnAwake = false;
-        PlayButton.onClick.AddListener(() => Audio.Play());
+        PlayAudio.playOnAwake = false;
+        PlayButton.onClick.AddListener(() => PlayAudio.Play());
     }
 
     void OptionsButtonOnClick()
     {
-        Audio = gameObject.AddComponent<AudioSource>();
         if (MenuButtonClickAudio != null)
         {
-            Audio.clip = MenuButtonClickAudio;
-            Audio.outputAudioMixerGroup = AudioMix;
+            OptionsAudio.clip = MenuButtonClickAudio;
+            OptionsAudio.outputAudioMixerGroup = AudioMix;
         }
-        Audio.playOnAwake = false;
-        OptionsButton.onClick.AddListener(() => Audio.Play());
+        OptionsAudio.playOnAwake = false;
+        OptionsButton.onClick.AddListener(() => OptionsAudio.Play());
     }
 
     void LeaderBoardButtonOnClick()
     {
-        Audio = gameObject.AddComponent<AudioSource>();
         if (MenuButtonClickAudio != null)
         {
-            Audio.clip = MenuButtonClickAudio;
-            Audio.outputAudioMixerGroup = AudioMix;
+            LBoardAudio.clip = MenuButtonClickAudio;
+            LBoardAudio.outputAudioMixerGroup = AudioMix;
         }
-         Audio.playOnAwake = false;
-         LeaderBButton.onClick.AddListener(() => Audio.Play());
+        LBoardAudio.playOnAwake = false;
+         LeaderBButton.onClick.AddListener(() => LBoardAudio.Play());
     }   
 
     void QuitButtonOnClick()
     {
-        Audio = gameObject.AddComponent<AudioSource>();
         if (MenuButtonClickAudio != null)
         {
-            Audio.clip = MenuButtonClickAudio;
-            Audio.outputAudioMixerGroup = AudioMix;
+            QuitAudio.clip = MenuButtonClickAudio;
+            QuitAudio.outputAudioMixerGroup = AudioMix;
         }
-        Audio.playOnAwake = false;
-        QuitButton.onClick.AddListener(() => Audio.Play());
+        QuitAudio.playOnAwake = false;
+        QuitButton.onClick.AddListener(() => QuitAudio.Play());
     }
 }
