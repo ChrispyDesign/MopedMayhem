@@ -4083,6 +4083,8 @@ MonoBehaviour:
   m_fCooldown: 5
   m_fDurationDefault: 0.7
   BoostMultiply: 5
+  m_fRot: 0
+  m_bAccel: 0
 --- !u!114 &114159163418719298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4205,7 +4207,7 @@ MonoBehaviour:
   m_OrderManager: {fileID: 0}
   m_PlayerInventory: {fileID: 114159163418719298}
   m_sContextButton: Fire1
-  m_bTestContext: 0
+  m_bTestContext: 1
   m_sDropLeft: Submit
   m_bTestLeft: 0
   m_sDropRight: Submit
