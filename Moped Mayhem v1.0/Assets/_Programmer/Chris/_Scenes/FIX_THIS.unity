@@ -3097,7 +3097,7 @@ Prefab:
     - target: {fileID: 114714162462344374, guid: 8cea9723929477a44bfdf76cc1d78cce,
         type: 2}
       propertyPath: m_fKnockBack
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 114714162462344374, guid: 8cea9723929477a44bfdf76cc1d78cce,
         type: 2}
@@ -18238,7 +18238,7 @@ Prefab:
     - target: {fileID: 114714162462344374, guid: 8cea9723929477a44bfdf76cc1d78cce,
         type: 2}
       propertyPath: m_fKnockBack
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 114714162462344374, guid: 8cea9723929477a44bfdf76cc1d78cce,
         type: 2}
@@ -26930,8 +26930,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9252881796a03d4ba93fb92ea490d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CenOfMass: {fileID: 248252036}
   m_fSpeed: 100
   m_fRotSpeed: 10
+  m_fGravity: 10
 --- !u!43 &1202558052
 Mesh:
   m_ObjectHideFlags: 0
@@ -47264,7 +47266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Empty: {fileID: 87326239}
   Player: {fileID: 1195570379}
-  speed: 0.1
+  speed: 10
   Main: {fileID: 2124761689}
 --- !u!124 &2124761688
 Behaviour:
