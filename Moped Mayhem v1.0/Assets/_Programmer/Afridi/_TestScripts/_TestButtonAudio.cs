@@ -7,17 +7,55 @@ using UnityEngine.UI;
 
 public class _TestButtonAudio : MonoBehaviour
 {
-    [SerializeField] AudioClip _audioClip;
-    [SerializeField] [Range(0.0f, 1.0f)] float _volume = 1;
-    AudioSource _audioSource;
+    [SerializeField] AudioClip MenuButtonClickAudio;
+    AudioSource Audio;
+    public Button PlayButton;
+    public Button OptionsButton;
+    public Button LeaderBButton;
+    public Button QuitButton;
+    private int Count = 4;
+
 
     void Awake()
     {
-        _audioSource = gameObject.AddComponent<AudioSource>();
-        if (_audioClip != null)
-            _audioSource.clip = _audioClip;
-        _audioSource.playOnAwake = false;
-        _audioSource.volume = _volume;
-        GetComponent<Button>().onClick.AddListener(() => _audioSource.Play());
+        PlayButtonOnClick();
+        OptionsButtonOnClick();
+        LeaderBoardButtonOnClick();
+        QuitButtonOnClick();
+    }
+
+    void PlayButtonOnClick() {
+        Audio = gameObject.AddComponent<AudioSource>();
+        if (MenuButtonClickAudio != null)
+            Audio.clip = MenuButtonClickAudio;
+        Audio.playOnAwake = false;
+        PlayButton.onClick.AddListener(() => Audio.Play());
+    }
+
+    void OptionsButtonOnClick()
+    {
+        Audio = gameObject.AddComponent<AudioSource>();
+        if (MenuButtonClickAudio != null)
+            Audio.clip = MenuButtonClickAudio;
+        Audio.playOnAwake = false;
+        OptionsButton.onClick.AddListener(() => Audio.Play());
+    }
+
+    void LeaderBoardButtonOnClick()
+    {
+        Audio = gameObject.AddComponent<AudioSource>();
+        if (MenuButtonClickAudio != null)
+            Audio.clip = MenuButtonClickAudio;
+        Audio.playOnAwake = false;
+        LeaderBButton.onClick.AddListener(() => Audio.Play());
+    }
+
+    void QuitButtonOnClick()
+    {
+        Audio = gameObject.AddComponent<AudioSource>();
+        if (MenuButtonClickAudio != null)
+            Audio.clip = MenuButtonClickAudio;
+        Audio.playOnAwake = false;
+        QuitButton.onClick.AddListener(() => Audio.Play());
     }
 }
