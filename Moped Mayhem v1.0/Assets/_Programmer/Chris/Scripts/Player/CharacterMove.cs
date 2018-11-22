@@ -11,7 +11,8 @@ public enum RotType
 	Total
 }
 
-public class CharacterMove : MonoBehaviour {
+public class CharacterMove : MonoBehaviour
+{
 
 	private Rigidbody m_PlayerRB;
 	public Transform m_CenOfMass;
@@ -41,15 +42,17 @@ public class CharacterMove : MonoBehaviour {
 	public RotType m_eRotType;
 
 	// Use this for initialization
-	void Start ()
+	void Start()
 	{
 		m_PlayerRB = gameObject.GetComponent<Rigidbody>();
 
+		m_PlayerRB.centerOfMass = m_CenOfMass.localPosition;
+
 		m_fBoostEndTime = Time.fixedTime - m_fBoostCooldown;
 	}
-	
+
 	// Update is called once per frame
-	void FixedUpdate ()
+	void FixedUpdate()
 	{
 		float fCurrentTime = Time.fixedTime;
 		float fDeltaTime = Time.fixedDeltaTime;
@@ -71,7 +74,7 @@ public class CharacterMove : MonoBehaviour {
 		{
 			if (!m_bDashStarted)
 			{
-				if (Input.GetButtonDown("Fire2"))
+				if (Input.GetButton("Fire2"))
 				{
 					m_bDashStarted = true;
 					m_fBoostEndTime = fCurrentTime + m_fBoostDuration;
@@ -86,7 +89,7 @@ public class CharacterMove : MonoBehaviour {
 		{
 			fMaxSpeed = m_fBoostMaxSpeed;
 
-			//v3NewVelocity += transform.forward * m_fBoostAccel;
+			v3NewVelocity += transform.forward * m_fBoostAccel;
 
 			if (fCurrentTime > m_fBoostEndTime)
 			{
@@ -94,7 +97,7 @@ public class CharacterMove : MonoBehaviour {
 			}
 		}
 
-		
+
 
 		// IF Turning
 		if (Mathf.Abs(fHor) > 0.1f)
@@ -129,52 +132,53 @@ public class CharacterMove : MonoBehaviour {
 				v3Angular.y += fRot;
 				m_PlayerRB.angularVelocity = v3Angular;
 			}
-
 			// Stop Turn		
 
-			if (m_PlayerRB.velocity.magnitude < 0.5f)
+			if (fVer >= 0)
 			{
-				float fStopRot = 0.0f;
-
-				// Turn On Spot
-				if (m_eRotType == RotType.OnSpot)
+				if (fMag < m_fMaxSpeed * 0.2f)
 				{
-					fStopRot = m_fStopRot * fDeltaTime * fHor;
-				}
+					Debug.LogWarning(m_PlayerRB.angularVelocity);
 
-				// Small fwd movement
-				if (m_eRotType == RotType.SmallFwd)
-				{
-					fStopRot = m_fStopRot * fDeltaTime * fHor;
+					float fStopRot = 0.0f;
 
-					m_PlayerRB.velocity += transform.forward * fDeltaTime;
-				}
+					// Turn On Spot
+					if (m_eRotType == RotType.OnSpot)
+					{
+						fStopRot = m_fStopRot * fDeltaTime * fHor;
+					}
 
-				if (!float.IsNaN(fStopRot))
-				{
-					transform.RotateAround(m_CenOfMass.position, transform.up, fStopRot);
+					// Small fwd movement
+					if (m_eRotType == RotType.SmallFwd)
+					{
+						fStopRot = m_fStopRot * fDeltaTime * fHor;
 
-					//Vector3 v3Angular = m_PlayerRB.angularVelocity;
-					//v3Angular.y += fStopRot;
-					//m_PlayerRB.angularVelocity = v3Angular;
+						v3NewVelocity += transform.forward * m_fAccel * fDeltaTime;
+					}
+
+					if (!float.IsNaN(fStopRot))
+					{
+						transform.Rotate(transform.up, fStopRot);
+						//transform.RotateAround(m_CenOfMass.position, transform.up, fStopRot);
+
+						Vector3 v3Angular = m_PlayerRB.angularVelocity;
+						v3Angular.y += fStopRot;
+						m_PlayerRB.angularVelocity = v3Angular;
+					}
 				}
 			}
 
-			//Vector3 v3NewDir;
 
-			//v3NewDir = Vector3.MoveTowards(transform.forward, v3NewVelocity.normalized, 1.0f);
-
-			//if (fDot > 0.0f)
-			//{
-			//	v3NewDir = Vector3.MoveTowards(transform.forward, v3NewVelocity.normalized, 1.0f);
-			//}
-			//else
-			//{
-			//	v3NewDir = Vector3.MoveTowards(-transform.forward, v3NewVelocity, 1.0f);
-			//}
-
-			//v3NewVelocity = v3NewDir * v3NewVelocity.magnitude;
 		}
+
+		float fNewDot = Vector3.Dot(transform.forward, v3NewVelocity.normalized);
+		float fNewMag = v3NewVelocity.magnitude;
+
+		Vector3 v3Fwd = transform.forward * fNewMag * fNewDot;
+
+		Vector3 v3Side = v3NewVelocity - v3Fwd;
+
+		v3NewVelocity = v3Fwd + (v3Side * (1 - 2 * fDeltaTime));
 
 		// Apply Movement
 		if (v3NewVelocity.magnitude > fMaxSpeed)
@@ -183,5 +187,13 @@ public class CharacterMove : MonoBehaviour {
 		}
 
 		m_PlayerRB.velocity = v3NewVelocity;
+
+		var v3AngVel = m_PlayerRB.angularVelocity;
+		v3AngVel.x = 0.0f;
+		v3AngVel.z = 0.0f;
+
+		transform.rotation = Quaternion.LookRotation(transform.forward, Vector3.up);
+
+		m_PlayerRB.angularVelocity = v3AngVel;
 	}
 }
