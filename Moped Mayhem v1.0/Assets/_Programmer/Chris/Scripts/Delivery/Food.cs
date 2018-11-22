@@ -14,5 +14,6 @@ public class Food : MonoBehaviour
 	public string m_sFoodName;
 	public GameObject m_FoodPrefab;
 	public Texture m_FoodTexture;
+	public Material m_FoodParticleMat;
 	public Color m_TicketColor;
 }

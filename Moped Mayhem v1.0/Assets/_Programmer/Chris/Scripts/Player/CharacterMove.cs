@@ -138,8 +138,6 @@ public class CharacterMove : MonoBehaviour
 			{
 				if (fMag < m_fMaxSpeed * 0.2f)
 				{
-					Debug.LogWarning(m_PlayerRB.angularVelocity);
-
 					float fStopRot = 0.0f;
 
 					// Turn On Spot
