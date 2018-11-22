@@ -18,11 +18,24 @@ public class PlayerInventory : MonoBehaviour {
 	public Food m_LeftFood;		// Public for testing
 	public Food m_RightFood;    // Public for testing
 
+	private Color m_DefaultBackColour;
+
+	private RawImage m_LeftBackImage;
+	private RawImage m_RightBackImage;
+
 	// Use this for initialization
 	void Awake ()
 	{
 		m_LeftFood = m_DefaultFood;
 		m_RightFood = m_DefaultFood;
+
+		m_LeftBackImage = m_LeftFood.transform.parent.gameObject.GetComponent<RawImage>();
+		m_RightBackImage = m_RightFood.transform.parent.gameObject.GetComponent<RawImage>();
+
+		if (m_LeftBackImage)
+		{
+			m_DefaultBackColour = m_LeftBackImage.material.color;
+		}
 	}
 
 	public bool ContainsFoodOfName(string name)
@@ -44,6 +57,11 @@ public class PlayerInventory : MonoBehaviour {
 			// Set held food to default
 			m_LeftFood = m_DefaultFood;
 			leftImage.texture = m_DefaultFood.m_FoodTexture;
+
+			if (m_LeftBackImage)
+			{
+				m_LeftBackImage.color = m_DefaultBackColour;
+			}
 		}
 		// ELSE IF Right food has name of food to be removed
 		else if (m_RightFood.m_sFoodName == name)
@@ -51,6 +69,11 @@ public class PlayerInventory : MonoBehaviour {
 			// Set held food to default
 			m_RightFood = m_DefaultFood;
 			rightImage.texture = m_DefaultFood.m_FoodTexture;
+
+			if (m_RightBackImage)
+			{
+				m_RightBackImage.color = m_DefaultBackColour;
+			}
 		}
 	}		
 
@@ -62,6 +85,13 @@ public class PlayerInventory : MonoBehaviour {
 			// Set held food to new food and return true
 			m_LeftFood = food;
 			leftImage.texture = food.m_FoodTexture;
+
+			if (m_LeftBackImage)
+			{
+				var color = food.m_TicketColor;
+				color.a = m_DefaultBackColour.a;
+				m_LeftBackImage.color = color;
+			}
 			return true;
 		}
 
@@ -71,6 +101,14 @@ public class PlayerInventory : MonoBehaviour {
 			// Set held food to new food and return true
 			m_RightFood = food;
 			rightImage.texture = food.m_FoodTexture;
+
+			if (m_RightBackImage)
+			{
+				var color = food.m_TicketColor;
+				color.a = m_DefaultBackColour.a;
+				m_RightBackImage.color = color;
+
+			}
 			return true;
 		}
 
