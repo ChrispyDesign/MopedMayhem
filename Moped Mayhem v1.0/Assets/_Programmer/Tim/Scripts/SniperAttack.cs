@@ -30,6 +30,10 @@ public class SniperAttack : MonoBehaviour
 	[Range(1,10)]
 	public float m_fAttackDuration;
 	private float m_fAttackEnd;
+	[Range(1, 10)]
+	public float m_fCooldown;
+	private float m_fCooldownEnd;
+
 	private bool m_bAttacking;
 
 	private bool m_bCollided = false;
@@ -74,7 +78,7 @@ public class SniperAttack : MonoBehaviour
 	void Update()
 	{
 
-		float m_fCurrentTime = Time.time; // current time for the countdown timer
+		float fCurrentTime = Time.time; // current time for the countdown timer
 		gameObject.transform.LookAt(m_Player); // snipers will look at the player
 
 		if (!m_bCollided)
@@ -119,24 +123,27 @@ public class SniperAttack : MonoBehaviour
 		// IF we are not already attacking the player
 		else if (!m_bAttacking)
 		{
-			// Start attacking the player
+			if (fCurrentTime > m_fCooldownEnd)
+			{
+				// Start attacking the player
 
-			// Set Time to end attack
-			m_fAttackEnd = Time.time + m_fAttackDuration;
-			m_bAttacking = true;
+				// Set Time to end attack
+				m_fAttackEnd = fCurrentTime + m_fAttackDuration;
+				m_bAttacking = true;
 
-			// Enable reticle and laser
-			m_ReticleMain.SetActive(true);
-			m_Laser.enabled = true;
+				// Enable reticle and laser
+				m_ReticleMain.SetActive(true);
+				m_Laser.enabled = true;
 
-			// hit.point - transform.position
+				// hit.point - transform.position
+			}
 		}
 
 		// IF current time is less that time to end attack 
-		if (m_fCurrentTime < m_fAttackEnd)
+		if (fCurrentTime < m_fAttackEnd)
 		{
 			// Determine lerp time (between 0-1)
-			float fLerpTime = 1 - ((m_fAttackEnd - m_fCurrentTime) / m_fAttackDuration);
+			float fLerpTime = 1 - ((m_fAttackEnd - fCurrentTime) / m_fAttackDuration);
 
 			// Set Reticle main position to players current position and a little up
 			m_ReticleMain.transform.position = m_Player.position;
@@ -156,7 +163,7 @@ public class SniperAttack : MonoBehaviour
 			m_Laser.SetPositions(pos);
 		}
 		// IF current time is after attack should end
-		if (m_fCurrentTime > m_fAttackEnd)
+		if (fCurrentTime > m_fAttackEnd)
 		{
 			// Disable the reticle and laser
 			m_ReticleMain.SetActive(false);
@@ -188,6 +195,8 @@ public class SniperAttack : MonoBehaviour
 				{
 					effect.Play(effect.m_SniperHit);
 				}
+
+				m_fCooldownEnd = fCurrentTime + m_fCooldown;
 			}
 		}
 	}
