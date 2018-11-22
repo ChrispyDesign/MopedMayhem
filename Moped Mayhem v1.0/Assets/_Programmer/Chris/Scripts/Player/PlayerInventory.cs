@@ -58,6 +58,10 @@ public class PlayerInventory : MonoBehaviour {
 			m_LeftFood = m_DefaultFood;
 			m_LeftImage.texture = m_DefaultFood.m_FoodTexture;
 
+			var color = m_LeftImage.color;
+			color.a = 0;
+			m_LeftImage.color = color;
+
 			if (m_LeftBackImage)
 			{
 				m_LeftBackImage.color = m_DefaultBackColour;
@@ -69,6 +73,10 @@ public class PlayerInventory : MonoBehaviour {
 			// Set held food to default
 			m_RightFood = m_DefaultFood;
 			m_RightImage.texture = m_DefaultFood.m_FoodTexture;
+
+			var color = m_RightImage.color;
+			color.a = 0;
+			m_RightImage.color = color;
 
 			if (m_RightBackImage)
 			{
@@ -86,6 +94,10 @@ public class PlayerInventory : MonoBehaviour {
 			m_LeftFood = food;
 			m_LeftImage.texture = food.m_FoodTexture;
 
+			var colorFood = m_LeftImage.color;
+			colorFood.a = 255;
+			m_LeftImage.color = colorFood;
+
 			if (m_LeftBackImage)
 			{
 				var color = food.m_TicketColor;
@@ -101,6 +113,10 @@ public class PlayerInventory : MonoBehaviour {
 			// Set held food to new food and return true
 			m_RightFood = food;
 			m_RightImage.texture = food.m_FoodTexture;
+
+			var colorFood = m_RightImage.color;
+			colorFood.a = 255;
+			m_RightImage.color = colorFood;
 
 			if (m_RightBackImage)
 			{
