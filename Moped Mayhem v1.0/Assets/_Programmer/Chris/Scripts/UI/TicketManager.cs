@@ -103,7 +103,8 @@ public class TicketManager : MonoBehaviour {
 		if (ticket.m_fLerpEnd == 0)
 		{
 			ticket.m_fLerpEnd = fCurrentTime + m_fExitDuration;
-		}
+            
+        }
 		else
 		{
 			Vector3 v3StartPos = m_TicketPositions[ticket.m_nTicketPosition].position;

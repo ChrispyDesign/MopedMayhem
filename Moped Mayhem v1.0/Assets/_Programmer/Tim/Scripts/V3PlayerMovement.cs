@@ -20,9 +20,12 @@ public class V3PlayerMovement : MonoBehaviour {
 	[Range(0,1)]
 	public float m_fRotAngle; // how far the player turns
 
-	float timer; 
+	float timer;
+    public AudioSource PlayerIdle;
+    public AudioSource PlayerMove;
+    public AudioSource PlayerBoost;
 
-	[Header("Boost")]
+    [Header("Boost")]
 	public float boostSpeed; // how much force is added to the boost
 	public float m_fCooldown; // Boost cooldown so that it cant be spammed
 	private  float m_fDuration;	// how long the boost will go for
@@ -120,12 +123,16 @@ public class V3PlayerMovement : MonoBehaviour {
 
 		motor /= m_fMaxMotorTorque;
 
-		if (m_bAccel)
-			if (m_PlayerRB.velocity.magnitude < 2.0f)
-			{
-				m_PlayerRB.velocity += transform.forward * motor * Time.fixedDeltaTime * 500.0f;
-				Debug.Log("SPEED");
-			}
+        if (m_bAccel)
+            if (m_PlayerRB.velocity.magnitude < 2.0f)
+            {
+                m_PlayerRB.velocity += transform.forward * motor * Time.fixedDeltaTime * 500.0f;
+                PlayerMove.Play();
+                Debug.Log("SPEED");
+            }
+            else {
+                PlayerIdle.Play();
+            }
 	}
 
 	public void Turn(float steer)
@@ -164,8 +171,11 @@ public class V3PlayerMovement : MonoBehaviour {
 			m_fDuration = m_fTimer + m_fDurationDefault;
 			m_bBoosting = true;
 
-			// Boost Effect
+            // Boost Effect
+
+            PlayerBoost.Play();
 			m_PlayerParticles.Play(m_PlayerParticles.m_Boost);
+            
 		}
 
 		if (m_fTimer > m_fDuration && m_bBoosting == true) // if boosting = true and timer is higher then duration, then return mass drag and angular drag to default values

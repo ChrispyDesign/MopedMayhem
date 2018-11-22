@@ -18,8 +18,9 @@ public class OrderManager : MonoBehaviour
 	public Texture m_IconOnScreen;
 	public TicketManager m_TicketManager;
 	public PlayerInventory m_PlayerInventory;
+    public AudioSource DeliveryLost;
 
-	public Food[] m_Foods;
+    public Food[] m_Foods;
 	private List<string> m_FoodNames = new List<string>();
 	private Dictionary<string, int> m_FoodsIndexByName = new Dictionary<string, int>();
 	private int[] m_nActiveFoodCount;
@@ -214,10 +215,10 @@ public class OrderManager : MonoBehaviour
 		float fScore = float.Parse(score.text);
 		fScore -= 10;
 		score.text = fScore.ToString();
+        DeliveryLost.Play();
 
-
-		// Run Order Complete
-		OrderComplete(order);
+        // Run Order Complete
+        OrderComplete(order);
 	}
 
 	private void OrderComplete(Order order)
