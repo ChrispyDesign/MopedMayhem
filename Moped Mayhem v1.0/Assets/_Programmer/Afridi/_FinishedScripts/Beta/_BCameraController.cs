@@ -22,6 +22,6 @@ public class _BCameraController : MonoBehaviour
 
 		Main.transform.LookAt(Player.transform);
         Main.transform.position = Vector3.SmoothDamp(Main.transform.position, Empty.transform.position, ref Vel, useThis);
-        Main.transform.rotation = Empty.transform.rotation;
+        //Main.transform.rotation = Empty.transform.rotation;
     }
 }

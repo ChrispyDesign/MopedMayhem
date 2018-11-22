@@ -36,7 +36,7 @@ public class TempTicket : MonoBehaviour {
 
 	public void Activate()
 	{
-		startTime = Time.realtimeSinceStartup;
+		startTime = Time.time;
 		endTime = startTime + duration;
 		gameObject.SetActive(true);
 		entering = true;
@@ -44,7 +44,7 @@ public class TempTicket : MonoBehaviour {
 
 	private void Update()
 	{
-		float currentTime = Time.realtimeSinceStartup;
+		float currentTime = Time.time;
 
 		float lerp = 1 - ((endTime - currentTime) / duration);
 
@@ -75,7 +75,7 @@ public class TempTicket : MonoBehaviour {
 		{
 			if (endLerpTime == 0)
 			{
-				endLerpTime = Time.realtimeSinceStartup + lerpTime;
+				endLerpTime = Time.time + lerpTime;
 			}
 			else
 			{
@@ -94,7 +94,7 @@ public class TempTicket : MonoBehaviour {
 		{
 			if (endLerpTime == 0)
 			{
-				endLerpTime = Time.realtimeSinceStartup + lerpTime;
+				endLerpTime = Time.time + lerpTime;
 			}
 			else
 			{

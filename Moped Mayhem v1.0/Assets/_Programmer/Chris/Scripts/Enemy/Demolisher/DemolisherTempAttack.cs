@@ -51,7 +51,7 @@ public class DemolisherTempAttack : MonoBehaviour
 				firedRocket = Instantiate<GameObject>(rocket);
 				firedRocket.transform.position = rocketLauncher.transform.position;
 				firedRocket.transform.rotation = rocketLauncher.transform.rotation;
-				fAttackEndTime = Time.realtimeSinceStartup + fAttackDuration;
+				fAttackEndTime = Time.time + fAttackDuration;
 				bAttackSetup = false;
 
 				firedRocket.AddComponent<TempWeapon>().hearts = hearts;
@@ -62,7 +62,7 @@ public class DemolisherTempAttack : MonoBehaviour
 				firedRocket.transform.position += firedRocket.transform.forward * Time.deltaTime * fAttackSpeed;
 
 				// Check for end of attack
-				if (Time.realtimeSinceStartup > fAttackEndTime)
+				if (Time.time > fAttackEndTime)
 				{					
 					bAttackOngoing = false;
 				}

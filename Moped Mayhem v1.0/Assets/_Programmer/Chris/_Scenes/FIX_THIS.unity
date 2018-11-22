@@ -2879,7 +2879,7 @@ WheelCollider:
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.001
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
@@ -3097,7 +3097,7 @@ Prefab:
     - target: {fileID: 114714162462344374, guid: 8cea9723929477a44bfdf76cc1d78cce,
         type: 2}
       propertyPath: m_fKnockBack
-      value: 500
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114714162462344374, guid: 8cea9723929477a44bfdf76cc1d78cce,
         type: 2}
@@ -5448,7 +5448,7 @@ Prefab:
         type: 2}
       propertyPath: m_IconOnScreen
       value: 
-      objectReference: {fileID: 2800000, guid: b144018d817c68e4d8bc22f935f2dce8, type: 3}
+      objectReference: {fileID: 2800000, guid: e7a65114a9bf6774b8a19c200a4762ef, type: 3}
     - target: {fileID: 114512131229315202, guid: ea0baa1fccde08c48ae5d16e91f2ed52,
         type: 2}
       propertyPath: m_nMaxOrders
@@ -18238,7 +18238,7 @@ Prefab:
     - target: {fileID: 114714162462344374, guid: 8cea9723929477a44bfdf76cc1d78cce,
         type: 2}
       propertyPath: m_fKnockBack
-      value: 500
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114714162462344374, guid: 8cea9723929477a44bfdf76cc1d78cce,
         type: 2}
@@ -19246,7 +19246,7 @@ WheelCollider:
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.001
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
@@ -25207,7 +25207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1113480310
 Transform:
   m_ObjectHideFlags: 0
@@ -26666,12 +26666,9 @@ GameObject:
   - component: {fileID: 1195570387}
   - component: {fileID: 1195570386}
   - component: {fileID: 1195570385}
-  - component: {fileID: 1195570384}
   - component: {fileID: 1195570383}
-  - component: {fileID: 1195570382}
   - component: {fileID: 1195570381}
   - component: {fileID: 1195570390}
-  - component: {fileID: 1195570391}
   - component: {fileID: 1195570392}
   m_Layer: 0
   m_Name: Player_v003
@@ -26735,35 +26732,6 @@ MonoBehaviour:
   BoostMultiply: 5
   m_fRot: 0
   m_bAccel: 0
---- !u!114 &1195570382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114985174218872182, guid: a693e8b447fd1a04f924a6b4896c0755,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1195570379}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fbbf172cce504e408c50d653bc94f95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AxleInfo:
-  - m_Wheel1: {fileID: 880930629}
-    m_Wheel2: {fileID: 2113582339}
-    m_bMotor: 1
-    m_bSteering: 1
-  - m_Wheel1: {fileID: 1519846030}
-    m_Wheel2: {fileID: 132950540}
-    m_bMotor: 1
-    m_bSteering: 0
-  m_fMaxMotorTorque: 500
-  m_fMaxSteeringAngle: 30
-  m_PlayerRB: {fileID: 1195570389}
-  m_PlayerCharacterMain: {fileID: 1342911556}
-  rotAngle: 0.2
-  m_fSpeed: 100
-  m_fBoostCoolDown: 3
-  m_fCooldown: 3
 --- !u!114 &1195570383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26784,28 +26752,6 @@ MonoBehaviour:
   c_LrgMiniMap: {fileID: 1287222724}
   v_LrgImageLocation: {fileID: 1704221229}
   v_SmlImageLocation: {fileID: 1283474567}
---- !u!114 &1195570384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114870156709041124, guid: a693e8b447fd1a04f924a6b4896c0755,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1195570379}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a935e8ffea7e2459116f2218ad3409, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fSpeed: 30
-  fReverseSpeed: 10
-  fRotSpeed: 10
-  player: {fileID: 1195570379}
-  pRigidBody: {fileID: 1195570389}
-  m_fBaseAngularDrag: 1
-  m_fEXAngularDrag: 1
-  m_fDragLerpMin: 1
-  m_fDragLerpMax: 1
-  m_fGravity: 1
 --- !u!114 &1195570385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26834,8 +26780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c4b455122cf254585dc01760804815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftImage: {fileID: 488406802}
-  rightImage: {fileID: 48551468}
+  m_LeftImage: {fileID: 488406802}
+  m_RightImage: {fileID: 48551468}
   m_DefaultFood: {fileID: 1195570385}
   m_LeftFood: {fileID: 0}
   m_RightFood: {fileID: 0}
@@ -26854,7 +26800,7 @@ MonoBehaviour:
   m_OrderManager: {fileID: 650226286}
   m_PlayerInventory: {fileID: 1195570386}
   m_sContextButton: Fire1
-  m_bTestContext: 0
+  m_bTestContext: 1
   m_sDropLeft: Submit
   m_bTestLeft: 0
   m_sDropRight: Submit
@@ -26882,13 +26828,13 @@ Rigidbody:
   m_GameObject: {fileID: 1195570379}
   serializedVersion: 2
   m_Mass: 5
-  m_Drag: 0.5
-  m_AngularDrag: 4
+  m_Drag: 1
+  m_AngularDrag: 10
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 2
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!114 &1195570390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26902,23 +26848,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CharMain: {fileID: 296374875}
   m_fMaxLean: 0.8
---- !u!143 &1195570391
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1195570379}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1195570392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26931,9 +26860,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CenOfMass: {fileID: 248252036}
-  m_fSpeed: 100
-  m_fRotSpeed: 10
-  m_fGravity: 10
+  m_fAccel: 30
+  m_fMaxSpeed: 15
+  m_fBoostAccel: 50
+  m_fBoostMaxSpeed: 100
+  m_fBoostDuration: 0.2
+  m_fBoostCooldown: 2
+  m_fMaxTurnRate: 20
+  m_fMinTurnRate: 40
+  m_fMaxTurnSpeed: 5
+  m_fMinTurnSpeed: 20
+  m_eRotType: 0
 --- !u!43 &1202558052
 Mesh:
   m_ObjectHideFlags: 0
@@ -32745,7 +32682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1449115428
 Transform:
   m_ObjectHideFlags: 0
@@ -34512,7 +34449,7 @@ WheelCollider:
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.001
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
@@ -47090,7 +47027,7 @@ WheelCollider:
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.001
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5

@@ -70,25 +70,25 @@ public class EnemyMovement : MonoBehaviour
 
 		if (fRange > 500)
 		{
-			if (Time.realtimeSinceStartup - m_fLastPathCheck > 5.0f)
+			if (Time.fixedTime - m_fLastPathCheck > 5.0f)
 			{
-				m_fLastPathCheck = Time.realtimeSinceStartup;
+				m_fLastPathCheck = Time.fixedTime;
 
 				GetPathToPlayer();
 			}
 		}
 		else if (fRange > 100)
 		{
-			if (Time.realtimeSinceStartup - m_fLastPathCheck > 2.0f)
+			if (Time.fixedTime - m_fLastPathCheck > 2.0f)
 			{
-				m_fLastPathCheck = Time.realtimeSinceStartup;
+				m_fLastPathCheck = Time.fixedTime;
 
 				GetPathToPlayer();
 			}
 		}
 		else
 		{
-			m_fLastPathCheck = Time.realtimeSinceStartup;
+			m_fLastPathCheck = Time.fixedTime;
 
 			GetPathToPlayer();
 		}

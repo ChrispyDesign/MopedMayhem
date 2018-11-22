@@ -74,7 +74,7 @@ public class SniperAttack : MonoBehaviour
 	void Update()
 	{
 
-		float m_fCurrentTime = Time.timeSinceLevelLoad; // current time for the countdown timer
+		float m_fCurrentTime = Time.time; // current time for the countdown timer
 		gameObject.transform.LookAt(m_Player); // snipers will look at the player
 
 		if (!m_bCollided)
@@ -122,7 +122,7 @@ public class SniperAttack : MonoBehaviour
 			// Start attacking the player
 
 			// Set Time to end attack
-			m_fAttackEnd = Time.timeSinceLevelLoad + m_fAttackDuration;
+			m_fAttackEnd = Time.time + m_fAttackDuration;
 			m_bAttacking = true;
 
 			// Enable reticle and laser

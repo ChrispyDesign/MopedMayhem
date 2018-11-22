@@ -70,7 +70,7 @@ public class TicketManager : MonoBehaviour {
 
 	private void Enter(Ticket ticket)
 	{
-		float fCurrentTime = Time.realtimeSinceStartup;
+		float fCurrentTime = Time.time;
 
 		if (ticket.m_fLerpEnd == 0)
 		{
@@ -98,7 +98,7 @@ public class TicketManager : MonoBehaviour {
 
 	private void Exit(Ticket ticket)
 	{
-		float fCurrentTime = Time.realtimeSinceStartup;
+		float fCurrentTime = Time.time;
 
 		if (ticket.m_fLerpEnd == 0)
 		{
@@ -127,7 +127,7 @@ public class TicketManager : MonoBehaviour {
 
 	private void MoveDown(Ticket ticket, int nTarget)
 	{
-		float fCurrentTime = Time.realtimeSinceStartup;
+		float fCurrentTime = Time.time;
 
 		if (ticket.m_fLerpEnd == 0)
 		{

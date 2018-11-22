@@ -89,7 +89,7 @@ public class V3PlayerMovement : MonoBehaviour {
 		m_fSteer = fLerp * fPlayerRot;
 
 		//TEST
-		//m_fSteer = m_fMaxAngle * m_PlayerRot;
+		m_fSteer = m_fMaxAngle * fPlayerRot;
 
 		//if (m_PlayerRot == 0)
 		//{
@@ -158,10 +158,11 @@ public class V3PlayerMovement : MonoBehaviour {
 
 	public void Boost(float v)
 	{
-		float m_fTimer = Time.timeSinceLevelLoad + m_fCooldown;
+		float m_fTimer = Time.fixedTime + m_fCooldown;
 		var m_PlayerVelocity = Vector3.Dot(m_PlayerRB.transform.forward, Vector3.Normalize(m_PlayerRB.velocity));
 
-		if (Input.GetAxis("Fire2") > 0 && m_fTimer >= fCooldown) // if button clicked and cooldown, add boost for duration
+		// if button clicked and cooldown, add boost for duration
+		if (Input.GetAxis("Fire2") > 0 && m_fTimer >= fCooldown) 
 		{
 			m_PlayerRB.AddForce(m_PlayerRB.transform.forward * boostSpeed, ForceMode.Impulse);
 			m_PlayerRB.mass = m_PlayerRB.mass * BoostMultiply;
@@ -174,11 +175,15 @@ public class V3PlayerMovement : MonoBehaviour {
             // Boost Effect
 
             //PlayerBoost.Play();
-			m_PlayerParticles.Play(m_PlayerParticles.m_Boost);
+			if (m_PlayerParticles != null)
+			{
+				m_PlayerParticles.Play(m_PlayerParticles.m_Boost);
+			}
             
 		}
 
-		if (m_fTimer > m_fDuration && m_bBoosting == true) // if boosting = true and timer is higher then duration, then return mass drag and angular drag to default values
+		// if boosting = true and timer is higher then duration, then return mass drag and angular drag to default values
+		if (m_fTimer > m_fDuration && m_bBoosting == true) 
 		{
 			m_PlayerRB.mass = DefaultMass;
 			m_PlayerRB.drag = DefaultDrag;

@@ -79,7 +79,7 @@ public class OrderManager : MonoBehaviour
 		m_fFoodWeight = 1.0f / m_Foods.Length * m_fFoodWeightModifier;
 
 		// Set Next Spawn Time
-		m_fNextSpawnTime = Time.realtimeSinceStartup/* + Random.Range(m_fMinSpawnTime, m_fMaxSpawnTime)*/;
+		m_fNextSpawnTime = Time.time/* + Random.Range(m_fMinSpawnTime, m_fMaxSpawnTime)*/;
 	}
 
 	public void AddDropOff(DeliveryDropoff dropOff)
@@ -165,7 +165,7 @@ public class OrderManager : MonoBehaviour
 		// Set Order variables
 		newOrder.m_OrderManager = this;
 		newOrder.m_Food = Instantiate(food);
-		newOrder.m_fStartTime = Time.realtimeSinceStartup;
+		newOrder.m_fStartTime = Time.time;
 		newOrder.m_fOrderExiryTime = m_fOrderExpiryTime;
 
 		// Add Order to active order list
@@ -200,7 +200,7 @@ public class OrderManager : MonoBehaviour
 	{
 		// Specific Success Stuff
 		float fScore = float.Parse(score.text);
-		float fTimeLeft = (order.m_fOrderExiryTime + order.m_fStartTime) - Time.realtimeSinceStartup;
+		float fTimeLeft = (order.m_fOrderExiryTime + order.m_fStartTime) - Time.time;
 		fScore += fTimeLeft * 4;
 		int nScore = (int)fScore;
 		score.text = nScore.ToString();		
@@ -327,7 +327,7 @@ public class OrderManager : MonoBehaviour
 
 	void Update()
 	{
-		float fCurrentTime = Time.realtimeSinceStartup;
+		float fCurrentTime = Time.time;
 
 		// Check for timed-out/failed orders
 		int iter = 0;

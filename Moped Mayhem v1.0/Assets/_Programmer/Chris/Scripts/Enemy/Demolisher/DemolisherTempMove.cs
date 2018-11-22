@@ -26,7 +26,7 @@ public class DemolisherTempMove : MonoBehaviour {
             bStartLerp = true;
         if (bStartLerp)
         {
-            fEndTime = Time.realtimeSinceStartup + fLerpTime;
+            fEndTime = Time.time + fLerpTime;
             bStartLerp = false;
             bLerping = true;
             Debug.Log(fEndTime);
@@ -34,10 +34,10 @@ public class DemolisherTempMove : MonoBehaviour {
 
         if (bLerping)
         {
-            if (fEndTime > Time.realtimeSinceStartup)
+            if (fEndTime > Time.time)
             {
                 // was dividing by fEndTime instead of fLerpTime - want to get the percentage through the lerp time!
-                float fLerp = 1 - ((fEndTime - Time.realtimeSinceStartup) / fLerpTime);
+                float fLerp = 1 - ((fEndTime - Time.time) / fLerpTime);
 
                 transform.position = Vector3.Lerp(StartPos.position, EndPos.position, fLerp);
             }

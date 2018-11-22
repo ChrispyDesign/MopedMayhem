@@ -95,7 +95,7 @@ public class V2PlayerMovement : MonoBehaviour
 	//------------------------------------------------------
 	public void Dash(float BoostSpeed)
 	{
-		float m_fTimer = Time.timeSinceLevelLoad;
+		float m_fTimer = Time.fixedTime;
 		var PlayerVelocity = Vector3.Dot(m_PlayerRB.transform.forward, Vector3.Normalize(m_PlayerRB.velocity));
 		if (Input.GetAxis("Fire2") > 0 && m_fTimer >= m_fCooldown && PlayerVelocity > 0)
 		{

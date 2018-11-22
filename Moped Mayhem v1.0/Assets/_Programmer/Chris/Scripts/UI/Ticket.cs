@@ -51,7 +51,7 @@ public class Ticket : MonoBehaviour {
 		m_TicketImage.color = order.m_Food.m_TicketColor;
 
 		m_fDuration = order.m_fOrderExiryTime;
-		m_fEndTime = Time.realtimeSinceStartup + m_fDuration;
+		m_fEndTime = Time.time + m_fDuration;
 
 		m_bEntering = true;
 	}
@@ -61,7 +61,7 @@ public class Ticket : MonoBehaviour {
 	{
 		if (!m_bExiting)
 		{
-			float currentTime = Time.realtimeSinceStartup;
+			float currentTime = Time.time;
 
 			float fLerp = 1 - ((m_fEndTime - currentTime) / m_fDuration);
 

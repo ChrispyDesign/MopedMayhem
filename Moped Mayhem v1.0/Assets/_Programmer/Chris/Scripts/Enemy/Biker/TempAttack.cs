@@ -42,14 +42,14 @@ public class TempAttack : MonoBehaviour {
 				var lookAt = player.position;
 				lookAt += gameObject.transform.right;
 				transform.LookAt(lookAt);
-				fAttackEndTime = Time.realtimeSinceStartup + fAttackDuration;
+				fAttackEndTime = Time.time + fAttackDuration;
 				bAttackSetup = false;
 				wood.transform.Rotate(0, 90.0f, 90.0f);
 			}
 			if (bAttackOngoing)
 			{
 				transform.position += transform.forward * Time.deltaTime * fSpeed * fAttackSpeedMultiplier;
-				if (Time.realtimeSinceStartup > fAttackEndTime)
+				if (Time.time > fAttackEndTime)
 				{
 					bAttackOngoing = false;
 				}

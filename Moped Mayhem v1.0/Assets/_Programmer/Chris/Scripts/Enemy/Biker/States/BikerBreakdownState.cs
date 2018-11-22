@@ -14,7 +14,7 @@ public class BikerBreakdownState : BaseState
 
 	protected override void Setup()
 	{
-		m_fBreakdownEndTime = Time.realtimeSinceStartup + m_fBreakdownTime;		
+		m_fBreakdownEndTime = Time.fixedTime + m_fBreakdownTime;		
 	}
 
 	public override void OnEnd()
@@ -25,7 +25,7 @@ public class BikerBreakdownState : BaseState
 	public override void UpdateState()
 	{
 		// Get Current time
-		float fCurrentTime = Time.realtimeSinceStartup;
+		float fCurrentTime = Time.fixedTime;
 
 		// If Current Time is after Breakdown has ended
 		if (fCurrentTime > m_fBreakdownEndTime)

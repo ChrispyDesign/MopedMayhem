@@ -26,7 +26,7 @@ public class DeathScript : MonoBehaviour {
 	void Update ()
 	{
 		// IF time has passed kill after time
-		if (Time.realtimeSinceStartup > m_fKillAfter)
+		if (Time.time > m_fKillAfter)
 		{
 			// it should die
 			m_bKillMe = true;
@@ -55,12 +55,12 @@ public class DeathScript : MonoBehaviour {
 
 		if (fRange < m_fCheckStuckRange)
 		{
-			m_bKillMe = Time.realtimeSinceStartup > m_fStuckTime;
+			m_bKillMe = Time.time > m_fStuckTime;
 		}
 		else
 		{
 			m_OldPos = transform.position;
-			m_fStuckTime = Time.realtimeSinceStartup + m_fCheckStuckTime;
+			m_fStuckTime = Time.time + m_fCheckStuckTime;
 		}
 
 		if (m_bKillMe)
@@ -79,7 +79,7 @@ public class DeathScript : MonoBehaviour {
 	//--------------------------------------------------------------
 	public void KillAfter(float fSeconds)
 	{
-		m_fKillAfter = Time.realtimeSinceStartup + fSeconds;
+		m_fKillAfter = Time.time + fSeconds;
 	}
 
 	//--------------------------------------------------------------

@@ -50,7 +50,7 @@ public class BikerMovement : EnemyMovement
 		}
 
 		// Get Current Time
-		float fCurrentTime = Time.realtimeSinceStartup;
+		float fCurrentTime = Time.fixedTime;
 
 		if (fCurrentTime > m_fAttackEndTime)
 		{
@@ -92,7 +92,7 @@ public class BikerMovement : EnemyMovement
 	{
 		m_fAttackTime = fAttackTime;    //CB::Might make this dependent on range
 
-		m_fAttackEndTime = Time.realtimeSinceStartup + fAttackTime;
+		m_fAttackEndTime = Time.fixedTime + fAttackTime;
 
 		// Get Start Range
 		m_fStartRange = Vector3.Magnitude(m_Player.transform.position - transform.position);
