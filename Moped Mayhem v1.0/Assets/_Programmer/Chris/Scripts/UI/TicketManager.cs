@@ -6,8 +6,9 @@ public class TicketManager : MonoBehaviour {
 
 	public GameObject m_TicketPrefab;
 	public Transform[] m_TicketPositions;
+    public AudioSource DeliveryReceived;
 
-	public float m_fOffscreenOffset;
+    public float m_fOffscreenOffset;
 
 	public float m_fEnterDuration;
 	public float m_fExitDuration;
@@ -91,7 +92,8 @@ public class TicketManager : MonoBehaviour {
 				ticket.m_fLerpEnd = 0.0f;
 				ticket.m_bEntering = false;
 			}
-		}
+
+        }
 	}
 
 	private void Exit(Ticket ticket)
@@ -162,8 +164,8 @@ public class TicketManager : MonoBehaviour {
 		Vector3 v3StartPos = m_TicketPositions[nIndex].position;
 		v3StartPos.x -= m_fOffscreenOffset;
 		ticket.gameObject.transform.position = v3StartPos;
-		
-	}
+        DeliveryReceived.Play();
+    }
 
 	public void DeactivateTicket(Order order)
 	{

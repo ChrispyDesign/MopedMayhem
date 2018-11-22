@@ -12,6 +12,7 @@ public class DeliveryPickup : MonoBehaviour {
 	public bool m_bIsActive = false;
 	public bool m_bPlayerInside = false;
 	private OrderManager m_Manager;
+    public AudioSource Pickup;
 	public Food m_RestaurantFood;
 	public Food m_OrderFood;
 
@@ -34,6 +35,7 @@ public class DeliveryPickup : MonoBehaviour {
 		m_OrderFood = food;
 		m_bIsActive = true;
 		this.gameObject.SetActive(m_bIsActive);
+        Pickup.Play();
 	}
 
 	public void Deactivate()

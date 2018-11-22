@@ -13,6 +13,8 @@ public class OrderManager : MonoBehaviour
 	// TEMP
 	public Text score;
 
+    public AudioSource TicketComplete;
+
 	public Texture m_IconOnScreen;
 	public TicketManager m_TicketManager;
 	public PlayerInventory m_PlayerInventory;
@@ -171,10 +173,11 @@ public class OrderManager : MonoBehaviour
 		// Activate Pickup zone
 		ActivatePickup(newOrder.m_Food);
 
-		// Activate Dropoff zone
-		//newOrder.m_DropOffZone.Activate(newOrder);
+        // Activate Dropoff zone
+        //newOrder.m_DropOffZone.Activate(newOrder);
 
-		// UI STUFF
+        // UI STUFF
+        
 		m_TicketManager.ActivateTicket(newOrder);
 	}
 
@@ -253,7 +256,7 @@ public class OrderManager : MonoBehaviour
 			Destroy(order.m_DeliveryIndicator);
 			order.m_DeliveryIndicator = null;
 		}
-
+        TicketComplete.Play();
 	}
 
 	private void ActivatePickup(Food food)

@@ -10,9 +10,10 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
 	public OrderManager m_OrderManager;
-	public PlayerInventory m_PlayerInventory;
+    public PlayerInventory m_PlayerInventory;
+    public AudioSource CollectOrder;
 
-	public string m_sContextButton = "ContextButton";
+    public string m_sContextButton = "ContextButton";
 	public bool m_bTestContext = true;		// Remove after testing
 	public string m_sDropLeft = "DropLeft";
 	public bool m_bTestLeft = false;        // Remove after testing
@@ -92,6 +93,7 @@ public class PlayerActions : MonoBehaviour
 		{
 			// Pick up new food
 			currentPickUpZone.PickUp(m_PlayerInventory);
+            CollectOrder.Play();
 		}
 	}
 }
