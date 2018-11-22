@@ -11,8 +11,8 @@ using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour {
 
-	public RawImage leftImage;
-	public RawImage rightImage;
+	public RawImage m_LeftImage;
+	public RawImage m_RightImage;
 
 	public Food m_DefaultFood;
 	public Food m_LeftFood;		// Public for testing
@@ -29,8 +29,8 @@ public class PlayerInventory : MonoBehaviour {
 		m_LeftFood = m_DefaultFood;
 		m_RightFood = m_DefaultFood;
 
-		m_LeftBackImage = m_LeftFood.transform.parent.gameObject.GetComponent<RawImage>();
-		m_RightBackImage = m_RightFood.transform.parent.gameObject.GetComponent<RawImage>();
+		m_LeftBackImage = m_LeftImage.transform.parent.gameObject.GetComponent<RawImage>();
+		m_RightBackImage = m_RightImage.transform.parent.gameObject.GetComponent<RawImage>();
 
 		if (m_LeftBackImage)
 		{
@@ -56,7 +56,7 @@ public class PlayerInventory : MonoBehaviour {
 		{
 			// Set held food to default
 			m_LeftFood = m_DefaultFood;
-			leftImage.texture = m_DefaultFood.m_FoodTexture;
+			m_LeftImage.texture = m_DefaultFood.m_FoodTexture;
 
 			if (m_LeftBackImage)
 			{
@@ -68,7 +68,7 @@ public class PlayerInventory : MonoBehaviour {
 		{
 			// Set held food to default
 			m_RightFood = m_DefaultFood;
-			rightImage.texture = m_DefaultFood.m_FoodTexture;
+			m_RightImage.texture = m_DefaultFood.m_FoodTexture;
 
 			if (m_RightBackImage)
 			{
@@ -84,7 +84,7 @@ public class PlayerInventory : MonoBehaviour {
 		{
 			// Set held food to new food and return true
 			m_LeftFood = food;
-			leftImage.texture = food.m_FoodTexture;
+			m_LeftImage.texture = food.m_FoodTexture;
 
 			if (m_LeftBackImage)
 			{
@@ -100,7 +100,7 @@ public class PlayerInventory : MonoBehaviour {
 		{
 			// Set held food to new food and return true
 			m_RightFood = food;
-			rightImage.texture = food.m_FoodTexture;
+			m_RightImage.texture = food.m_FoodTexture;
 
 			if (m_RightBackImage)
 			{
@@ -126,7 +126,7 @@ public class PlayerInventory : MonoBehaviour {
 
 			// Set held food to default
 			m_LeftFood = m_DefaultFood;
-			leftImage.texture = m_DefaultFood.m_FoodTexture;
+			m_LeftImage.texture = m_DefaultFood.m_FoodTexture;
 		}
 	}
 
@@ -140,7 +140,7 @@ public class PlayerInventory : MonoBehaviour {
 
 			// Set held food to default
 			m_RightFood = m_DefaultFood;
-			rightImage.texture = m_DefaultFood.m_FoodTexture;
+			m_RightImage.texture = m_DefaultFood.m_FoodTexture;
 		}
 	}
 
