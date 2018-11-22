@@ -34,7 +34,7 @@ public class PlayerInventory : MonoBehaviour {
 
 		if (m_LeftBackImage)
 		{
-			m_DefaultBackColour = m_LeftBackImage.material.color;
+			m_DefaultBackColour = m_LeftBackImage.color;
 		}
 	}
 
