@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23104268017251742}
   - component: {fileID: 95694037454458066}
   - component: {fileID: 54774463258960888}
-  - component: {fileID: 64380753623834432}
+  - component: {fileID: 65508113239113110}
   m_Layer: 0
   m_Name: Prop_FireHydrant
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728138593406132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21557617, y: -0.4016571, z: -0.12986755}
+  m_LocalPosition: {x: -48.168335, y: -0.861, z: 62.16795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,8 +100,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64380753623834432
-MeshCollider:
+--- !u!65 &65508113239113110
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -109,11 +109,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 5baf1f0e90f50d647bdcd59f425b9581, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.5932043, y: 0.88605607, z: 0.5488454}
+  m_Center: {x: 0, y: 0.44302803, z: 0.057752296}
 --- !u!95 &95694037454458066
 Animator:
   serializedVersion: 3

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23967635050037890}
   - component: {fileID: 95268715609517602}
   - component: {fileID: 54089189461658914}
-  - component: {fileID: 64710745798368758}
+  - component: {fileID: 65316717929576412}
   m_Layer: 0
   m_Name: Prop_Bin_Wheel_003
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123916996830784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.3861694, y: -0.037719727, z: -0.54460144}
+  m_LocalPosition: {x: -47.857285, y: -0.291, z: 62.170784}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,8 +102,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64710745798368758
-MeshCollider:
+--- !u!65 &65316717929576412
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -111,11 +111,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: b3cbcd16f54a8f541a5b043df80d1457, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 49.307617, y: 92.09552, z: 52.374756}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95268715609517602
 Animator:
   serializedVersion: 3
