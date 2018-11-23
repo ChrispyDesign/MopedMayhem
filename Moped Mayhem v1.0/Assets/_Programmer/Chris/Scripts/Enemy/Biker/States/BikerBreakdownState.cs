@@ -11,9 +11,16 @@ public class BikerBreakdownState : BaseState
 {
 	public float m_fBreakdownTime;
 	private float m_fBreakdownEndTime;
+	public GameObject[] m_BreakdownParticlePrefabs; 
 
 	protected override void Setup()
 	{
+		foreach (GameObject prefab in m_BreakdownParticlePrefabs)
+		{
+			Instantiate(prefab, transform.position, prefab.transform.rotation);
+			Debug.Log("Starting");
+		}
+
 		m_fBreakdownEndTime = Time.fixedTime + m_fBreakdownTime;		
 	}
 

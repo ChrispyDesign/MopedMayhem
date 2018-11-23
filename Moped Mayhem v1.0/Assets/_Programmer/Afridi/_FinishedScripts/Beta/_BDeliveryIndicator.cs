@@ -32,9 +32,19 @@ public class _BDeliveryIndicator : MonoBehaviour {
     void Awake()
     {
         m_MainCamera = Camera.main;
-        m_MainCanvas = FindObjectOfType<Canvas>();
-        Debug.Assert((m_MainCanvas != null), "No Canvas Attatched");
-        InstainateTargetIcon();
+
+
+		var canvases = FindObjectsOfType<Canvas>();
+		foreach (var canvas in canvases)
+		{
+			if (canvas.tag == "MainCanvas")
+			{
+				m_MainCanvas = canvas;
+				break;
+			}
+		}
+		Debug.Assert((m_MainCanvas != null), "No Canvas Attatched");
+		InstainateTargetIcon();
     }
     void FixedUpdate()
     {
@@ -42,7 +52,7 @@ public class _BDeliveryIndicator : MonoBehaviour {
     }
     public void InstainateTargetIcon()
     {
-        m_Icon = new GameObject().AddComponent<RectTransform>();
+		m_Icon = new GameObject().AddComponent<RectTransform>();
         m_Icon.transform.SetParent(m_MainCanvas.transform);
         m_Icon.localScale = m_targetIconScale;
         m_Icon.name = name + "SIndicator";

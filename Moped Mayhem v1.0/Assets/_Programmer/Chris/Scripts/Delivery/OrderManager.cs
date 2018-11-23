@@ -10,7 +10,6 @@ using UnityEngine.UI;
 
 public class OrderManager : MonoBehaviour
 {
-	// TEMP
 	public Text score;
 
     public AudioSource TicketComplete;
@@ -56,9 +55,13 @@ public class OrderManager : MonoBehaviour
 	public float m_fIndicatorScale = 0.6f;
 	public float m_fIndicatorEdgeBuffer = 51.5f;
 
+	private PlayerParticles m_PlayerParticles;
+
 	// Use this for initialization
 	void Start ()
 	{
+		m_PlayerParticles = m_PlayerInventory.gameObject.GetComponent<PlayerParticles>();
+
 		// FOR each food in m_Foods
 		for (int i = 0; i < m_Foods.Length; ++i)
 		{
@@ -198,6 +201,8 @@ public class OrderManager : MonoBehaviour
 
 	public void OrderSuccess(Order order)
 	{
+		m_PlayerParticles.Play(m_PlayerParticles.m_GainMoney);
+
 		// Specific Success Stuff
 		float fScore = float.Parse(score.text);
 		float fTimeLeft = (order.m_fOrderExiryTime + order.m_fStartTime) - Time.time;
@@ -211,11 +216,38 @@ public class OrderManager : MonoBehaviour
 
 	public void OrderFailed(Order order)
 	{
+		if (m_PlayerInventory.ContainsFoodOfName(order.m_Food.m_sFoodName))
+		{
+			var particle = m_PlayerParticles.m_DropoffBurger;
+
+			switch (order.m_Food.m_sFoodName)
+			{
+				case "Burger":
+					particle = m_PlayerParticles.m_DropoffBurger;
+					break;
+				case "Chinese":
+					particle = m_PlayerParticles.m_DropoffChinese;
+					break;
+				case "Sushi":
+					particle = m_PlayerParticles.m_DropoffSushi;
+					break;
+				case "Doughnuts":
+					particle = m_PlayerParticles.m_DropoffDoughnuts;
+					break;
+				default:
+					Debug.LogError("Wrong particle name, " + name);
+					break;
+			}
+
+			m_PlayerParticles.Play(particle);
+		}
+		m_PlayerParticles.Play(m_PlayerParticles.m_LoseMoney);
+
 		// Specific Failure Stuff
 		float fScore = float.Parse(score.text);
 		fScore -= 10;
 		score.text = fScore.ToString();
-        DeliveryLost.Play();
+        //DeliveryLost.Play();
 
         // Run Order Complete
         OrderComplete(order);
@@ -252,12 +284,12 @@ public class OrderManager : MonoBehaviour
 		// Destroy Delivery Indicator, if it exists
 		if (order.m_DeliveryIndicator != null)
 		{
-			Destroy(order.m_DeliveryIndicator.m_IconImage);
-			Destroy(order.m_DeliveryIndicator.m_FoodImage);
+			Destroy(order.m_DeliveryIndicator.m_IconImage.gameObject);
+			Destroy(order.m_DeliveryIndicator.m_FoodImage.gameObject);
 			Destroy(order.m_DeliveryIndicator);
 			order.m_DeliveryIndicator = null;
 		}
-        TicketComplete.Play();
+        //TicketComplete.Play();
 	}
 
 	private void ActivatePickup(Food food)
@@ -291,14 +323,15 @@ public class OrderManager : MonoBehaviour
 			string sFoodName = order.m_Food.m_sFoodName;
 			if (m_PlayerInventory.ContainsFoodOfName(sFoodName))
 			{
+				order.m_DropOffZone.gameObject.SetActive(true);
 				if (order.m_DeliveryIndicator == null)
 				{
 					order.m_DeliveryIndicator = order.m_DropOffZone.gameObject.AddComponent<_BDeliveryIndicator>();
 
 					if (order.m_DeliveryIndicator.m_IconImage == null)
 					{
+						Debug.LogError("Delivery Indicator Not Instantiated First time round");
 						order.m_DeliveryIndicator.InstainateTargetIcon();
-						Debug.LogWarning("Delivery Indicator Not Instantiated First time round");
 					}
 
 					order.m_DeliveryIndicator.m_TargetIconOnScreen = m_IconOnScreen;
@@ -316,8 +349,8 @@ public class OrderManager : MonoBehaviour
 			{
 				if (order.m_DeliveryIndicator != null)
 				{
-					Destroy(order.m_DeliveryIndicator.m_IconImage);
-					Destroy(order.m_DeliveryIndicator.m_FoodImage);
+					Destroy(order.m_DeliveryIndicator.m_IconImage.gameObject);
+					Destroy(order.m_DeliveryIndicator.m_FoodImage.gameObject);
 					Destroy(order.m_DeliveryIndicator);
 					order.m_DeliveryIndicator = null;
 				}

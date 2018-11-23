@@ -35,7 +35,7 @@ public class DeliveryPickup : MonoBehaviour {
 		m_OrderFood = food;
 		m_bIsActive = true;
 		this.gameObject.SetActive(m_bIsActive);
-        Pickup.Play();
+        //Pickup.Play();
 	}
 
 	public void Deactivate()

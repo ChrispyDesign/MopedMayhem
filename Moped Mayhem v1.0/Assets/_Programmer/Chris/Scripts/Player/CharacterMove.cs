@@ -13,7 +13,7 @@ public enum RotType
 
 public class CharacterMove : MonoBehaviour
 {
-
+	private PlayerParticles m_PlayerParticles;
 	private Rigidbody m_PlayerRB;
 	public Transform m_CenOfMass;
 
@@ -44,6 +44,7 @@ public class CharacterMove : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		m_PlayerParticles = gameObject.GetComponent<PlayerParticles>();
 		m_PlayerRB = gameObject.GetComponent<Rigidbody>();
 
 		m_PlayerRB.centerOfMass = m_CenOfMass.localPosition;
@@ -76,6 +77,8 @@ public class CharacterMove : MonoBehaviour
 			{
 				if (Input.GetButton("Fire2"))
 				{
+					m_PlayerParticles.Play(m_PlayerParticles.m_Boost);
+
 					m_bDashStarted = true;
 					m_fBoostEndTime = fCurrentTime + m_fBoostDuration;
 

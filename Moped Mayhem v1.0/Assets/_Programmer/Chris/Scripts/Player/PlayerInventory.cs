@@ -23,9 +23,13 @@ public class PlayerInventory : MonoBehaviour {
 	private RawImage m_LeftBackImage;
 	private RawImage m_RightBackImage;
 
+	private PlayerParticles m_PlayerParticles;
+
 	// Use this for initialization
 	void Awake ()
 	{
+		m_PlayerParticles = GetComponent<PlayerParticles>();
+
 		m_LeftFood = m_DefaultFood;
 		m_RightFood = m_DefaultFood;
 
@@ -87,9 +91,33 @@ public class PlayerInventory : MonoBehaviour {
 
 	public bool AddFood(Food food)
 	{
+		var particle = m_PlayerParticles.m_PickUpBurger;
+
+		switch (food.m_sFoodName)
+		{
+			case "Burger":
+				particle = m_PlayerParticles.m_PickUpBurger;
+				break;
+			case "Chinese":
+				particle = m_PlayerParticles.m_PickUpChinese;
+				break;
+			case "Sushi":
+				particle = m_PlayerParticles.m_PickUpSushi;
+				break;
+			case "Doughnuts":
+				particle = m_PlayerParticles.m_PickUpDoughnuts;
+				break;
+			default:
+				Debug.LogError("Wrong particle name, " + name);
+				break;
+		}
+
 		// IF Left food slot has default
 		if (m_LeftFood == m_DefaultFood)
 		{
+			// Play Particles
+			m_PlayerParticles.Play(particle);
+
 			// Set held food to new food and return true
 			m_LeftFood = food;
 			m_LeftImage.texture = food.m_FoodTexture;
@@ -110,6 +138,9 @@ public class PlayerInventory : MonoBehaviour {
 		// IF Right food slot has default
 		if (m_RightFood == m_DefaultFood)
 		{
+			// Play Particles
+			m_PlayerParticles.Play(particle);
+
 			// Set held food to new food and return true
 			m_RightFood = food;
 			m_RightImage.texture = food.m_FoodTexture;
