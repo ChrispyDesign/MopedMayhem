@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 33014136573498016}
   - component: {fileID: 23691716443945622}
   m_Layer: 0
-  m_Name: IconMap_Sushi
+  m_Name: IconMap_Doughnut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -570,13 +570,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1079153504639592}
-  m_LocalRotation: {x: 0.7071068, y: -0.00000020830609, z: 0.00000020830609, w: 0.7071068}
-  m_LocalPosition: {x: -24.000046, y: 7.49, z: -84.75999}
-  m_LocalScale: {x: 0.5000006, y: 0.5000005, z: 0.5000005}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 7.49, z: -0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4278102425370930}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4061189498400430
 Transform:
   m_ObjectHideFlags: 1
@@ -746,7 +746,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1972204330765246}
   m_LocalRotation: {x: -0, y: -0.0000002831221, z: -0, w: 1}
-  m_LocalPosition: {x: -24.000046, y: 7.5, z: -84.75999}
+  m_LocalPosition: {x: 0.00000333786, y: 7.5, z: -0.00000047683716}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4278102425370930}
@@ -813,7 +813,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1045503152191980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 960, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4643767483839248}
@@ -1345,7 +1345,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b82edb07a4e8eea449ff725f2ab283c2, type: 2}
+  - {fileID: 2100000, guid: 27461dd4495c1de4f8bb64ea1a200bd2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1583,7 +1583,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ab7db2dbf7d32f34aa1c79a5f98e3acf, type: 2}
+  - {fileID: 2100000, guid: 27461dd4495c1de4f8bb64ea1a200bd2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2047,8 +2047,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.695602, y: 6.565477, z: 11.638397}
-  m_Center: {x: 0.000010967255, y: 2.7827384, z: 7.9282074}
+  m_Size: {x: 6.3955994, y: 6.565477, z: 8.85305}
+  m_Center: {x: 0.05001068, y: 2.7827384, z: 7.9208794}
 --- !u!82 &82104770113537794
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2188,7 +2188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FoodItem: {fileID: 0}
-  m_nAlphaValue: 0
+  m_nAlphaValue: 255
 --- !u!212 &212095414413200186
 SpriteRenderer:
   m_ObjectHideFlags: 1

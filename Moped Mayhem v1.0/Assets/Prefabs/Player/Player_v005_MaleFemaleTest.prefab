@@ -1824,7 +1824,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1075136068686130}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: 0, y: 40, z: 0.098}
+  m_LocalPosition: {x: 0, y: 1000, z: 0.098}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 4481175119551360}
@@ -2004,7 +2004,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096175105479120}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 200, z: 0}
+  m_LocalPosition: {x: 0, y: 890, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4481175119551360}
@@ -4233,6 +4233,7 @@ MonoBehaviour:
   m_sFoodName: Default
   m_FoodPrefab: {fileID: 0}
   m_FoodTexture: {fileID: 2800000, guid: e7322a51248b8fe4f8dcebdec903245f, type: 3}
+  m_FoodParticleMat: {fileID: 0}
   m_TicketColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114358731494054276
 MonoBehaviour:
