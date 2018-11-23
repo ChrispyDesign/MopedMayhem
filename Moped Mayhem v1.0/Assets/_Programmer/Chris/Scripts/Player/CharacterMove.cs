@@ -185,13 +185,5 @@ public class CharacterMove : MonoBehaviour
 		}
 
 		m_PlayerRB.velocity = v3NewVelocity;
-
-		var v3AngVel = m_PlayerRB.angularVelocity;
-		v3AngVel.x = 0.0f;
-		v3AngVel.z = 0.0f;
-
-		transform.rotation = Quaternion.LookRotation(transform.forward, Vector3.up);
-
-		m_PlayerRB.angularVelocity = v3AngVel;
 	}
 }
