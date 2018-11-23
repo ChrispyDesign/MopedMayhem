@@ -25,7 +25,7 @@ MonoBehaviour:
         motionVectorsResolution: 24
         motionVectorsAmplitude: 64
   fog:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       excludeSkybox: 1
   antialiasing:
@@ -42,7 +42,7 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 4
+      intensity: 0.51
       radius: 0.22
       sampleCount: 16
       downsampling: 1
@@ -97,19 +97,19 @@ MonoBehaviour:
       logMin: -8
       logMax: 4
   bloom:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       bloom:
-        intensity: 0.2
+        intensity: 0.27
         threshold: 1
-        softKnee: 0.989
-        radius: 1.2
+        softKnee: 1
+        radius: 1
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
         intensity: 3
   colorGrading:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       tonemapping:
         tonemapper: 2
@@ -134,9 +134,9 @@ MonoBehaviour:
       colorWheels:
         mode: 1
         log:
-          slope: {r: 1, g: 0.82952476, b: 0.8601655, a: 0}
-          power: {r: 0.65497154, g: 0.6761911, b: 1, a: 0}
-          offset: {r: 0.9039748, g: 1, b: 0.9923757, a: 0}
+          slope: {r: 1, g: 0.99039686, b: 0.99039686, a: 0}
+          power: {r: 0.7867492, g: 0.8074981, b: 1, a: 0}
+          offset: {r: 1, g: 0.9530073, b: 0.5254859, a: 0}
         linear:
           lift: {r: 0, g: 0, b: 0, a: 0}
           gamma: {r: 0, g: 0, b: 0, a: 0}
@@ -289,21 +289,21 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       colored: 1
-      intensity: 0.5
-      size: 1
-      luminanceContribution: 0.8
+      intensity: 0.437
+      size: 0.3
+      luminanceContribution: 0.646
   vignette:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0
+      intensity: 0.073
       smoothness: 1
       roundness: 1
       mask: {fileID: 0}
       opacity: 1
-      rounded: 0
+      rounded: 1
   dithering:
     m_Enabled: 0
   monitors:
