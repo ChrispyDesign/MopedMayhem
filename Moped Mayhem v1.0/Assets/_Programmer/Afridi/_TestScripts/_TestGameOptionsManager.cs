@@ -21,16 +21,26 @@ public class _TestGameOptionsManager : MonoBehaviour {
     public AudioMixer EffectMixer;
     public Button SaveSettings;
 
+    public void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void OnEnable()
     {
         resolutions = Screen.resolutions;
         Settings = new _TestGameOptionsClass();
+
         ScreenResolution.onValueChanged.AddListener(delegate { OnScreenResolutionChange(); });
         GraphicsQuality.onValueChanged.AddListener(delegate { OnTextureQualityChange(); });
         AntiAliasing.onValueChanged.AddListener(delegate { OnAntiAliasingChange(); });
         ShadowQuality.onValueChanged.AddListener(delegate { OnShadowQualityChange(); });
-        FullScreen.onValueChanged.AddListener(delegate { OnFullScreenChange(); });
         VerticalSyn.onValueChanged.AddListener(delegate { OnVSyncChange(); });
+
+        FullScreen.onValueChanged.AddListener(delegate { OnFullScreenChange(); });
+        ShadowsOn.onValueChanged.AddListener(delegate { OnShadowsEnabled(); });
+        AnisoFilter.onValueChanged.AddListener(delegate { OnFilterChange(); });
+
         SaveSettings.onClick.AddListener(delegate { SaveChanges(); });
 
         foreach (Resolution res in resolutions)
@@ -94,8 +104,6 @@ public class _TestGameOptionsManager : MonoBehaviour {
         QualitySettings.antiAliasing = Settings.antiAliasing = (int)Mathf.Pow(2f, AntiAliasing.value);
     }
 
-   
-
     public void OnFullScreenChange()
     {
        Settings.fullscreen = Screen.fullScreen = FullScreen.isOn;
@@ -108,11 +116,11 @@ public class _TestGameOptionsManager : MonoBehaviour {
 
     public void SetMainAudioLevel(float value)
     {
-        MainMixer.SetFloat("MainMusicVol", Mathf.Log10(value) * 20);
+        MainMixer.SetFloat("MainVolumeController", Mathf.Log10(value) * 20);
     }
     public void SetEffectAudioLevel(float value)
     {
-        EffectMixer.SetFloat("MenClick", Mathf.Log10(value) * 20);
+        EffectMixer.SetFloat("EffectController", Mathf.Log10(value) * 20);
     }
 
     public void ApplyChanges() {
