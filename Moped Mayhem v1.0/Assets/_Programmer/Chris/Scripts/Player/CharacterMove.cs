@@ -13,6 +13,7 @@ public enum RotType
 
 public class CharacterMove : MonoBehaviour
 {
+	private DashUI m_DashUI;
 	private PlayerParticles m_PlayerParticles;
 	private Rigidbody m_PlayerRB;
 	public Transform m_CenOfMass;
@@ -44,6 +45,7 @@ public class CharacterMove : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		m_DashUI = gameObject.GetComponent<DashUI>();
 		m_PlayerParticles = gameObject.GetComponent<PlayerParticles>();
 		m_PlayerRB = gameObject.GetComponent<Rigidbody>();
 
@@ -82,7 +84,7 @@ public class CharacterMove : MonoBehaviour
 					m_bDashStarted = true;
 					m_fBoostEndTime = fCurrentTime + m_fBoostDuration;
 
-					v3NewVelocity += transform.forward * m_fBoostAccel;
+					v3NewVelocity += transform.forward * m_fBoostAccel * fDeltaTime * 60;
 				}
 			}
 		}
@@ -92,11 +94,12 @@ public class CharacterMove : MonoBehaviour
 		{
 			fMaxSpeed = m_fBoostMaxSpeed;
 
-			v3NewVelocity += transform.forward * m_fBoostAccel;
+			v3NewVelocity += transform.forward * m_fBoostAccel * fDeltaTime * 60;
 
 			if (fCurrentTime > m_fBoostEndTime)
 			{
 				m_bDashStarted = false;
+				m_DashUI.StartCharge(m_fBoostCooldown);
 			}
 		}
 

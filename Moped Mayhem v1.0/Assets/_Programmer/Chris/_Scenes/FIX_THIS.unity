@@ -6996,7 +6996,7 @@ Transform:
   - {fileID: 21619435}
   - {fileID: 1205497800}
   - {fileID: 602273054}
-  - {fileID: 387250326}
+  - {fileID: 316922683}
   m_Father: {fileID: 1195570380}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7603,6 +7603,11 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!4 &316922683 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4616536349432138, guid: d7f6a88eb6a49e74ea0b99ea0d73ad06,
+    type: 2}
+  m_PrefabInternal: {fileID: 922944942}
 --- !u!1001 &321451490
 Prefab:
   m_ObjectHideFlags: 0
@@ -8769,11 +8774,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4472131244519712, guid: dee81f6299b08744e99018ac37b1d70c,
     type: 2}
   m_PrefabInternal: {fileID: 369762452}
---- !u!4 &387250326 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4277329208375338, guid: d7f6a88eb6a49e74ea0b99ea0d73ad06,
-    type: 2}
-  m_PrefabInternal: {fileID: 922944942}
 --- !u!1001 &401765938
 Prefab:
   m_ObjectHideFlags: 0
@@ -18070,6 +18070,68 @@ Transform:
   m_PrefabParentObject: {fileID: 4157451924572280, guid: 805a2d5b55671194492bbd62d3bed318,
     type: 2}
   m_PrefabInternal: {fileID: 817550051}
+--- !u!1 &818164849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 818164852}
+  - component: {fileID: 818164851}
+  - component: {fileID: 818164850}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &818164850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818164849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &818164851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818164849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+--- !u!4 &818164852
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818164849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &819252149
 Prefab:
   m_ObjectHideFlags: 0
@@ -18802,6 +18864,10 @@ Prefab:
       propertyPath: DeliveryReceived
       value: 
       objectReference: {fileID: 848093309}
+    - target: {fileID: 1633381484825662, guid: e9f09a74b458a3b429f9861e0b735196, type: 2}
+      propertyPath: m_TagString
+      value: MainCanvas
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9f09a74b458a3b429f9861e0b735196, type: 2}
   m_IsPrefabParent: 0
@@ -27074,6 +27140,7 @@ GameObject:
   - component: {fileID: 1195570390}
   - component: {fileID: 1195570392}
   - component: {fileID: 1195570381}
+  - component: {fileID: 1195570382}
   m_Layer: 0
   m_Name: Player_v003
   m_TagString: Player
@@ -27112,6 +27179,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74804ee07e14d7f43b506f21ab1811bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1195570382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195570379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290a9f6c5403ef242ba0e37d8a77667b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SniperHit: {fileID: 0}
+  m_Boost: {fileID: 0}
+  m_GainMoney: {fileID: 0}
+  m_LoseMoney: {fileID: 0}
+  m_PickUpBurger: {fileID: 0}
+  m_PickUpChinese: {fileID: 0}
+  m_PickUpSushi: {fileID: 0}
+  m_PickUpDoughnuts: {fileID: 0}
+  m_DropoffBurger: {fileID: 0}
+  m_DropoffChinese: {fileID: 0}
+  m_DropoffSushi: {fileID: 0}
+  m_DropoffDoughnuts: {fileID: 0}
 --- !u!114 &1195570383
 MonoBehaviour:
   m_ObjectHideFlags: 0
