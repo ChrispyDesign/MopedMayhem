@@ -85,8 +85,10 @@ public class CharacterMove : MonoBehaviour
 					m_fBoostEndTime = fCurrentTime + m_fBoostDuration;
 
 					v3NewVelocity += transform.forward * m_fBoostAccel * fDeltaTime * 60;
-				}
-			}
+
+                    m_DashUI.StartCharge(m_fBoostCooldown + m_fBoostDuration);
+                }
+            }
 		}
 
 		// IF Dashing
@@ -99,7 +101,7 @@ public class CharacterMove : MonoBehaviour
 			if (fCurrentTime > m_fBoostEndTime)
 			{
 				m_bDashStarted = false;
-				m_DashUI.StartCharge(m_fBoostCooldown);
+				//m_DashUI.StartCharge(m_fBoostCooldown);
 			}
 		}
 

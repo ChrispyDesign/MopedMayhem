@@ -57,6 +57,11 @@ public class OrderManager : MonoBehaviour
 
 	private PlayerParticles m_PlayerParticles;
 
+    [Header("TUTORIAL")]
+    public bool m_bTutorial = false;
+    public DeliveryPickup m_TutRestaurant;
+    public DeliveryDropoff m_TutDropOff;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -358,9 +363,71 @@ public class OrderManager : MonoBehaviour
 		}
 	}
 
+    private void Tutorial()
+    {
+        // Get Random Food
+        Food food = m_TutRestaurant.m_RestaurantFood;
+        m_InactiveFoods.RemoveAt(m_FoodsIndexByName[food.m_sFoodName]);
+
+        // Add to Active Food Count
+        int index = m_FoodsIndexByName[food.m_sFoodName];
+        m_nActiveFoodCount[index]++;
+
+        // Create New Order
+        Order newOrder;
+
+        // IF there are inactive orders
+        if (m_InActiveOrders.Count > 0)
+        {
+            // make the inactive order into the new order
+            newOrder = m_InActiveOrders[0];
+
+            // remove it from the inactive list
+            m_InActiveOrders.RemoveAt(0);
+        }
+        // ELSE no inactive orders
+        else
+        {
+            // Create a new order
+            newOrder = new Order();
+        }
+
+
+        // Get Tutorial DropOff Point
+        newOrder.m_DropOffZone = m_TutDropOff;
+
+        // Set Order variables
+        newOrder.m_OrderManager = this;
+        newOrder.m_Food = Instantiate(food);
+        newOrder.m_fStartTime = Time.time;
+        newOrder.m_fOrderExiryTime = m_fOrderExpiryTime;
+
+        // Add Order to active order list
+        m_ActiveOrders.Add(newOrder);
+
+        // Activate Pickup zone
+        ActivatePickup(newOrder.m_Food);
+
+        // Activate Dropoff zone
+        //newOrder.m_DropOffZone.Activate(newOrder);
+
+        // UI STUFF
+
+        m_TicketManager.ActivateTicket(newOrder);
+    }
+
 	void Update()
 	{
 		float fCurrentTime = Time.time;
+
+        if (m_bTutorial)
+        {
+            Tutorial();
+            m_bTutorial = false;
+
+            // Get new random time for next spawn
+            m_fNextSpawnTime = fCurrentTime + Random.Range(m_fMinSpawnTime, m_fMaxSpawnTime);
+        }
 
 		// Check for timed-out/failed orders
 		int iter = 0;
@@ -417,6 +484,4 @@ public class OrderManager : MonoBehaviour
 		// Check Delivery Indicators
 		CheckIndicators();
 	}
-
-
 }
