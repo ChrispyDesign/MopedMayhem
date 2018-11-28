@@ -17,7 +17,7 @@ public class Hydrant : MonoBehaviour {
 		if (!m_bHit)
 		{
 			var tag = collision.collider.tag;
-			if (tag == "Player" || tag == "Biker")
+			if (tag == "Player" || tag == "Biker" || tag == "Prop")
 			{
 				HydrantParticles.Play();
 				HydrantParticles.m_bCanDie = true;

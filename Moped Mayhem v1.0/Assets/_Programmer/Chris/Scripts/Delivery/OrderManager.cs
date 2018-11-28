@@ -40,6 +40,15 @@ public class OrderManager : MonoBehaviour
 
 	public float m_fOrderExpiryTime = 10.0f;
 
+	[Header("Rewards (LOW to HI)")]
+	public int m_nReward_00;
+	public int m_nReward_25;
+	public int m_nReward_50;
+	public int m_nReward_75;
+
+	[Header("Fail Cost")]
+	public int m_nFailCost;
+
 	[Header("DONT ADD ANYTHING TO THESE")]
 	public List<DeliveryDropoff> m_DropOffZones = new List<DeliveryDropoff>();
 	public List<DeliveryPickup> m_PickUpZones = new List<DeliveryPickup>();
@@ -209,10 +218,29 @@ public class OrderManager : MonoBehaviour
 		m_PlayerParticles.Play(m_PlayerParticles.m_GainMoney);
 
 		// Specific Success Stuff
-		float fScore = float.Parse(score.text);
-		float fTimeLeft = (order.m_fOrderExiryTime + order.m_fStartTime) - Time.time;
-		fScore += fTimeLeft * 4;
-		int nScore = (int)fScore;
+		int nScore = int.Parse(score.text);
+
+		float fQuart = m_fOrderExpiryTime / 4;
+		float fRemaining = (Time.time - order.m_fStartTime);
+
+		if (fRemaining < fQuart)
+		{
+			nScore += m_nReward_75;
+		}
+		else if (fRemaining < fQuart * 2)
+		{
+			nScore += m_nReward_50;
+		}
+		else if (fRemaining < fQuart * 3)
+		{
+			nScore += m_nReward_25;
+		}
+		else
+		{
+			nScore += m_nReward_00;
+		}
+
+
 		score.text = nScore.ToString();		
 
 		// Run Order Complete
@@ -249,9 +277,9 @@ public class OrderManager : MonoBehaviour
 		m_PlayerParticles.Play(m_PlayerParticles.m_LoseMoney);
 
 		// Specific Failure Stuff
-		float fScore = float.Parse(score.text);
-		fScore -= 10;
-		score.text = fScore.ToString();
+		int nScore = int.Parse(score.text);
+		nScore -= m_nFailCost;
+		score.text = nScore.ToString();
         //DeliveryLost.Play();
 
         // Run Order Complete
@@ -294,7 +322,14 @@ public class OrderManager : MonoBehaviour
 			Destroy(order.m_DeliveryIndicator);
 			order.m_DeliveryIndicator = null;
 		}
-        //TicketComplete.Play();
+		if (TicketComplete)
+		{
+			TicketComplete.Play();
+		}
+		else
+		{
+			Debug.LogWarning("Connect TicketComplete you knob");
+		}
 	}
 
 	private void ActivatePickup(Food food)

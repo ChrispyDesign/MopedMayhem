@@ -14,9 +14,16 @@ public class ChangeColour : MonoBehaviour {
     // Use this for initialization
     void Start () {
         m_ThisSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();                                                   // grabs the sprite rendererer off this game object
-        m_FoodColour = m_FoodItem.GetComponent<Food>().m_TicketColor;                                                       // grabs the colour of the m_FoodItem
-        m_ThisSpriteRenderer.color = new Vector4(m_FoodColour.r, m_FoodColour.g, m_FoodColour.b, (m_nAlphaValue/255.0f));           // feeds this colour back to the sprite renderer's colour
-        //Debug.Log(m_nAlphaValue);
+		if (m_FoodItem)
+		{
+			m_FoodColour = m_FoodItem.GetComponent<Food>().m_TicketColor;                                                       // grabs the colour of the m_FoodItem
+			m_ThisSpriteRenderer.color = new Vector4(m_FoodColour.r, m_FoodColour.g, m_FoodColour.b, (m_nAlphaValue / 255.0f));           // feeds this colour back to the sprite renderer's colour
+		}
+		else
+		{
+			Debug.LogWarning("I HATE YOU CRISPY, plz attach m_FoodItem");
+		}
+		//Debug.Log(m_nAlphaValue);
         //m_ThisSpriteRenderer.color = m_FoodColour;                                                                        // sets the colour of this sprite to that of the food item.
         //m_ThisColour = m_ThisSpriteRenderer.color;                                                                        // sets ThisColour to be the new colour
         //m_ThisColour.a = m_AlphaValue;                                                                                    // tweaks the Alpha of ThisColour
@@ -25,9 +32,4 @@ public class ChangeColour : MonoBehaviour {
         //m_ThisColour = m_ThisSpriteRenderer.color;
         //m_ThisColour.a = m_AlphaValue;                                      // sets the Alpha of the colour
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
