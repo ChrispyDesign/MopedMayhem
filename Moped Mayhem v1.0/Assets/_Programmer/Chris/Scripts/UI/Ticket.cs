@@ -4,16 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Ticket : MonoBehaviour {
-
-	public RawImage m_TicketImage;
+	
 	public RawImage m_FoodImage;
+	public RawImage m_FoodImageCircle;
 
 	public Slider m_Slider;
-	public Image m_Fill;
-
-	public Color m_FullColour;
-	public Color m_MidColour;
-	public Color m_EmptyColour;
+	public Image m_TicketImage;
 
 	private float m_fEndTime;
 	private float m_fDuration;
@@ -49,6 +45,7 @@ public class Ticket : MonoBehaviour {
 
 		m_FoodImage.texture = order.m_Food.m_FoodTexture;
 		m_TicketImage.color = order.m_Food.m_TicketColor;
+		m_FoodImageCircle.color = order.m_Food.m_TicketColor;
 
 		m_fDuration = order.m_fOrderExiryTime;
 		m_fEndTime = Time.time + m_fDuration;
@@ -66,22 +63,6 @@ public class Ticket : MonoBehaviour {
 			float fLerp = 1 - ((m_fEndTime - currentTime) / m_fDuration);
 
 			m_Slider.value = Mathf.Lerp(1.0f, 0.0f, fLerp);
-
-
-			// change color
-			Color color = m_Fill.color;
-			if (fLerp < 0.5f)
-			{
-				float fColorLerp = (fLerp * 2);
-				color = Color.Lerp(m_FullColour, m_MidColour, fColorLerp);
-			}
-			else if (fLerp > 0.5f)
-			{
-				float fColorLerp = ((fLerp - 0.5f) * 2);
-				color = Color.Lerp(m_MidColour, m_EmptyColour, fColorLerp);
-			}
-
-			m_Fill.color = color;
 		}
 	}
 }
