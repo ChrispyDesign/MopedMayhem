@@ -41,7 +41,7 @@ public class _TestGameOptionsManager : MonoBehaviour {
         ShadowsOn.onValueChanged.AddListener(delegate { OnShadowsEnabled(); });
         AnisoFilter.onValueChanged.AddListener(delegate { OnFilterChange(); });
 
-        SaveSettings.onClick.AddListener(delegate { SaveChanges(); });
+        SaveSettings.onClick.AddListener(delegate { ApplyChanges(); });
 
         foreach (Resolution res in resolutions)
         {
@@ -66,7 +66,7 @@ public class _TestGameOptionsManager : MonoBehaviour {
 
     public void OnFilterChange()
     {
-        if (AnisoFilter.isOn)
+        if (Settings.Aniso = AnisoFilter.isOn)
         {
             QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
         }
@@ -83,7 +83,7 @@ public class _TestGameOptionsManager : MonoBehaviour {
 
     public void OnShadowQualityChange()
     {
-        switch (ShadowQuality.value) {
+        switch (Settings.shadowRes = ShadowQuality.value) {
             case 0:
                 QualitySettings.shadowResolution = ShadowResolution.Low;
                 break;
@@ -125,6 +125,7 @@ public class _TestGameOptionsManager : MonoBehaviour {
 
     public void ApplyChanges() {
         SaveChanges();
+        Debug.Log("YES I AM");
     }
 
     public void SaveChanges() {
@@ -134,11 +135,16 @@ public class _TestGameOptionsManager : MonoBehaviour {
 
     public void LoadSettings() {
         Settings = JsonUtility.FromJson<_TestGameOptionsClass>(File.ReadAllText(Application.persistentDataPath + "/Settings.json"));
-        AntiAliasing.value = Settings.antiAliasing;
-        VerticalSyn.value = Settings.vSync; 
-        GraphicsQuality.value = Settings.textureQuality;
-        ScreenResolution.value = Settings.resolutionIndex;
         FullScreen.isOn = Settings.fullscreen;
+        ShadowsOn.isOn = Settings.shadows;
+        AnisoFilter.isOn = Settings.Aniso;
+
+        GraphicsQuality.value = Settings.textureQuality;
+        AntiAliasing.value = Settings.antiAliasing;
+        ShadowQuality.value = Settings.shadowRes;
+        VerticalSyn.value = Settings.vSync; 
+
+        ScreenResolution.value = Settings.resolutionIndex;
         ScreenResolution.RefreshShownValue();
     }
 }
