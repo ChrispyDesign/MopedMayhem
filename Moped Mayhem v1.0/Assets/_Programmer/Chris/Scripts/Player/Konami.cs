@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// UUDDLRLRABStart
+// UUDDLRLRBAStart
 
 public class Konami : MonoBehaviour {
 
-	public bool m_bKonami = false;
+	[Header("Debug Button, press once to activate")]
+	public bool m_bDebug = false;
 
-	private string m_sKonami = "UUDDLRLRABS";
+	[Header("Parent View Transform")]
+	public Transform m_Parent;
+
+	[Header("Rotation Caps (in degrees)")]
+	public float m_fUpCap;
+	public float m_fDownCap;
+	public float m_fHorCap;
+
+	private string m_sKonami = "UUDDLRLRBAS";
 	private string m_sCode = "";
 	private bool m_bStarted = false;
+	private bool m_bKonami = false;
 
 	private _BCameraController m_CameraController;
 
@@ -23,13 +33,26 @@ public class Konami : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (m_bKonami)
+		// Debug the konami
+		if (m_bDebug)
 		{
-			KonamiUpdate();
-			return;
+			m_bDebug = false;
+
+			// IF Konami mode is not active
+			if (!m_bKonami)
+			{
+				// Start Konami mode
+				KonamiStart();
+			}
+			else
+			{
+				// End Konami mode
+				KonamiEnd();
+			}
 		}
 
-		if (Input.GetAxis("Konami Up") > 0.5f)
+		// Check for start of konami code
+		if (Input.GetButtonDown("Konami Up"))
 		{
 			if (m_bStarted == false)
 			{
@@ -40,52 +63,146 @@ public class Konami : MonoBehaviour {
 			m_sCode += "U";
 		}
 
-		if (!m_bStarted)
-		{
-			return;
-		}
+		// IF konami code started
+		if (m_bStarted)
+		{ 
+			// Check the other inputs
+			if (Input.GetButtonDown("Konami Down"))
+			{
+				Debug.Log("Down");
+				m_sCode += "D";
+			}
+			if (Input.GetButtonDown("Konami Left"))
+			{
+				// Because Left is shared with A check if it should logically be L
+				if (!m_sCode.Contains("UUDDLRLR"))
+				{
+					Debug.Log("Left");
+					m_sCode += "L";
+				}
+			}
+			if (Input.GetButtonDown("Konami Right"))
+			{
+				Debug.Log("Right");
+				m_sCode += "R";
+			}
+			if (Input.GetButtonDown("Konami A"))
+			{
+				// Because Left is shared with A check if it should logically be A
+				if (m_sCode.Contains("UUDDLRLR"))
+				{
+					Debug.Log("A");
+					m_sCode += "A";
+				}
+			}
+			if (Input.GetButtonDown("Konami B"))
+			{
+				Debug.Log("B");
+				m_sCode += "B";
+			}
+			if (Input.GetButtonDown("Konami Start"))
+			{
+				Debug.Log("Start");
+				m_sCode += "S";
+			}
 
-		if (Input.GetAxis("Konami Down") > 0.5f)
-		{
-			Debug.Log("Down");
-			m_sCode += "D";
-		}
-		else if (Input.GetAxis("Konami Left") > 0.5f)
-		{
-			Debug.Log("Left");
-			m_sCode += "L";
-		}
-		else if (Input.GetAxis("Konami Right") > 0.5f)
-		{
-			Debug.Log("Right");
-			m_sCode += "R";
-		}
-		else if (Input.GetButtonUp("Konami A"))
-		{
-			Debug.Log("A");
-			m_sCode += "A";
-		}
-		else if (Input.GetButtonUp("Konami B"))
-		{
-			Debug.Log("B");
-			m_sCode += "B";
-		}
-		else if (Input.GetButtonUp("Konami Start"))
-		{
-			Debug.Log("Start");
-			m_sCode += "S";
-		}
+			// Check Code is correct
+			string sTest = m_sKonami.Remove(m_sCode.Length, m_sKonami.Length - m_sCode.Length);
 
+			// IF code is not correct
+			if (sTest != m_sCode)
+			{
+				// Restart sequence
+				Debug.LogWarning(sTest + " , " + m_sCode);
+				m_bStarted = false;
+				m_sCode = "";
+			}
+			// ELSE IF code is the same length as the konami code
+			else if (m_sCode.Length == m_sKonami.Length)
+			{
+				// IF Konami mode is not active
+				if (!m_bKonami)
+				{
+					// Start Konami mode
+					KonamiStart();
+				}
+				else
+				{
+					// End Konami mode
+					KonamiEnd();
+				}
+			}
 
+			// Time Out
+			// CB::If i get around to it
+		}
+	}
+
+	private void FixedUpdate()
+	{
+		// IF konami mode active
+		if (m_bKonami)
+		{
+			KonamiUpdate();
+		}
 	}
 
 	private void KonamiStart()
 	{
+		Debug.LogWarning("KONAMI BITCHES");
+		m_bKonami = true;
 
+		transform.SetParent(m_Parent, false);
+		transform.localPosition = Vector3.zero;
+		transform.localRotation = Quaternion.identity;
+
+		m_CameraController.enabled = false;
+	}
+
+	private void KonamiEnd()
+	{
+		Debug.LogWarning("KONAMI OVER :(");
+		m_bKonami = false;
+
+		m_Parent.DetachChildren();
+		m_CameraController.enabled = true;
 	}
 
 	private void KonamiUpdate()
 	{
+		float fDeltaTime = Time.fixedDeltaTime;
 
+		float fVer = Input.GetAxis("Konami Vertical");
+		float fHor = Input.GetAxis("Konami Horizontal");
+
+		var rot = transform.localRotation;
+		var v3Euler = rot.eulerAngles;
+
+		// Look Vertical
+		v3Euler.x += fVer * fDeltaTime * 60.0f;
+		// CB::HERENOW
+		if (v3Euler.x < 360.0f - m_fUpCap && v3Euler.x > m_fDownCap)
+		{
+		}
+
+		//Look Horizontal
+		v3Euler.y += fHor * fDeltaTime * 60.0f;
+
+		// THIS DOESNT WORK
+		if (v3Euler.y < -m_fHorCap)
+		{
+			v3Euler.y = -m_fHorCap;
+		}
+		else if (v3Euler.y > m_fHorCap)
+		{
+			v3Euler.y = m_fHorCap;
+		}
+
+		// Zero out z rotation
+		v3Euler.z = 0;
+
+		// Put new rotation into transform
+		rot.eulerAngles = v3Euler;
+		transform.localRotation = rot;
 	}
 }
