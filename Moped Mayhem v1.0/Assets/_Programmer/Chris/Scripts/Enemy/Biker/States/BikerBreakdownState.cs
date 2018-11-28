@@ -11,7 +11,8 @@ public class BikerBreakdownState : BaseState
 {
 	public float m_fBreakdownTime;
 	private float m_fBreakdownEndTime;
-	public GameObject[] m_BreakdownParticlePrefabs; 
+	public GameObject[] m_BreakdownParticlePrefabs;
+    public BikerChaseState m_StopAudio;
 
 	protected override void Setup()
 	{
@@ -21,7 +22,8 @@ public class BikerBreakdownState : BaseState
 			Debug.Log("Starting");
 		}
 
-		m_fBreakdownEndTime = Time.fixedTime + m_fBreakdownTime;		
+        m_StopAudio.m_BikerAudio.Stop();
+		m_fBreakdownEndTime = Time.fixedTime + m_fBreakdownTime;
 	}
 
 	public override void OnEnd()

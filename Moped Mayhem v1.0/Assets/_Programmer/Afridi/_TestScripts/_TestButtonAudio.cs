@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class _TestButtonAudio : MonoBehaviour
 {
     [SerializeField] AudioClip MenuButtonClickAudio;
+    [SerializeField] AudioClip MenuBackClickAudio;
     [SerializeField] AudioMixerGroup AudioMix;
 
     public Button PlayButton;
@@ -15,10 +16,16 @@ public class _TestButtonAudio : MonoBehaviour
     public Button LeaderBButton;
     public Button QuitButton;
 
+    public Button BackButtonOne;
+    public Button BackButtonTwo;
+    public Button BackButtonThree;
+    public Button BackButtonFour;
+
     public AudioSource PlayAudio;
     public AudioSource OptionsAudio;
     public AudioSource LBoardAudio;
     public AudioSource QuitAudio;
+    public AudioSource NegativeAudio;
 
     private int Count = 4;
 
@@ -28,6 +35,7 @@ public class _TestButtonAudio : MonoBehaviour
         OptionsButtonOnClick();
         LeaderBoardButtonOnClick();
         QuitButtonOnClick();
+        BackButtonOnClick();
     }
 
     void PlayButtonOnClick() {
@@ -71,5 +79,19 @@ public class _TestButtonAudio : MonoBehaviour
         }
         QuitAudio.playOnAwake = false;
         QuitButton.onClick.AddListener(() => QuitAudio.Play());
+    }
+
+    void BackButtonOnClick()
+    {
+        if (MenuBackClickAudio != null)
+        {
+            NegativeAudio.clip = MenuBackClickAudio;
+            NegativeAudio.outputAudioMixerGroup = AudioMix;
+        }
+        NegativeAudio.playOnAwake = false;
+        BackButtonOne.onClick.AddListener(() => NegativeAudio.Play());
+        BackButtonTwo.onClick.AddListener(() => NegativeAudio.Play());
+        BackButtonThree.onClick.AddListener(() => NegativeAudio.Play());
+        BackButtonFour.onClick.AddListener(() => NegativeAudio.Play());
     }
 }

@@ -127,11 +127,11 @@ public class V3PlayerMovement : MonoBehaviour {
             if (m_PlayerRB.velocity.magnitude < 2.0f)
             {
                 m_PlayerRB.velocity += transform.forward * motor * Time.fixedDeltaTime * 500.0f;
-                //PlayerMove.Play();
+                PlayerMove.Play();
                 Debug.Log("SPEED");
             }
             else {
-                //PlayerIdle.Play();
+                PlayerIdle.Play();
             }
 	}
 
@@ -174,7 +174,7 @@ public class V3PlayerMovement : MonoBehaviour {
 
             // Boost Effect
 
-            //PlayerBoost.Play();
+            PlayerBoost.Play();
 			if (m_PlayerParticles != null)
 			{
 				m_PlayerParticles.Play(m_PlayerParticles.m_Boost);

@@ -11,6 +11,7 @@ public class BikerChaseState : BaseState
 {
 	private BikerAI m_BikerAI;
 	private BikerMovement m_Movement;
+    public AudioSource m_BikerAudio;
 
 	protected override void Setup()
 	{
@@ -23,8 +24,9 @@ public class BikerChaseState : BaseState
 
 		m_BikerAI = (BikerAI)m_ParentFSM;
 		m_Movement = GetComponent<BikerMovement>();
-
+        m_BikerAudio.Play();
 		m_BikerAI.m_Death.m_bAllowCheckStuck = true;
+
 	}
 
 	public override void OnEnd()

@@ -7,6 +7,7 @@ public class DeathScript : MonoBehaviour {
 	public bool m_bKillMe = false;
 	public bool m_bAllowCheckStuck = false;
 
+    public AudioSource m_SeppukuSound;
 	public GameObject[] m_DeathParticlePrefabs;
 
 	public List<DeathScript> m_Related = new List<DeathScript>();
@@ -25,6 +26,7 @@ public class DeathScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+        m_SeppukuSound.playOnAwake = false;
 		// IF time has passed kill after time
 		if (Time.time > m_fKillAfter)
 		{
@@ -103,6 +105,7 @@ public class DeathScript : MonoBehaviour {
 		// Create Particles if able
 		if (m_DeathParticlePrefabs != null)
 		{
+            m_SeppukuSound.Play();
 			DeathParticles();
 		}
 
