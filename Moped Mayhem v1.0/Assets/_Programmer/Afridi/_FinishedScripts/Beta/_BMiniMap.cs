@@ -61,7 +61,7 @@ public class _BMiniMap : MonoBehaviour {
             m_LrgImg.enabled = true;
         }
         //On Keypress 
-        if (Input.GetAxis("Fire3") == 0)
+        if (Input.GetAxis("MiniMapToggle") == 0)
         {
             //The Small Image's Alpha Colour is reduced
             Color c = m_SmlImg.color;
