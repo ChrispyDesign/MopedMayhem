@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TicketManager : MonoBehaviour {
 
@@ -22,6 +23,12 @@ public class TicketManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		var spacer = gameObject.GetComponent<VerticalLayoutGroup>();
+		if (spacer)
+		{
+			spacer.enabled = false;
+		}
+
 		int nTicketPositionCount = m_TicketPositions.Length;
 
 		for (int i = 0; i < nTicketPositionCount + 1; ++i)
@@ -165,7 +172,15 @@ public class TicketManager : MonoBehaviour {
 		Vector3 v3StartPos = m_TicketPositions[nIndex].position;
 		v3StartPos.x -= m_fOffscreenOffset;
 		ticket.gameObject.transform.position = v3StartPos;
-        DeliveryReceived.Play();
+		
+		if(DeliveryReceived)
+		{
+			DeliveryReceived.Play();
+		}
+		else
+		{
+			Debug.LogWarning("DeliveryReceived not attached");
+		}
     }
 
 	public void DeactivateTicket(Order order)
