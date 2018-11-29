@@ -15,19 +15,23 @@ public class _TestButtonAudio : MonoBehaviour
     public Button OptionsButton;
     public Button LeaderBButton;
     public Button QuitButton;
+    public Button ControlButton;
+    public Button CreditsButton;
 
     public Button BackButtonOne;
     public Button BackButtonTwo;
     public Button BackButtonThree;
     public Button BackButtonFour;
+    public Button BackButtonFive;
+    public Button BackButtonSix;
 
     public AudioSource PlayAudio;
     public AudioSource OptionsAudio;
     public AudioSource LBoardAudio;
+    public AudioSource CreditsAudio;
+    public AudioSource ControlAudio;
     public AudioSource QuitAudio;
     public AudioSource NegativeAudio;
-
-    private int Count = 4;
 
     void Awake()
     {
@@ -36,6 +40,8 @@ public class _TestButtonAudio : MonoBehaviour
         LeaderBoardButtonOnClick();
         QuitButtonOnClick();
         BackButtonOnClick();
+        CreditsButtonOnClick();
+        ControlsButtonOnClick();
     }
 
     void PlayButtonOnClick() {
@@ -79,6 +85,28 @@ public class _TestButtonAudio : MonoBehaviour
         }
         QuitAudio.playOnAwake = false;
         QuitButton.onClick.AddListener(() => QuitAudio.Play());
+    }
+
+    void CreditsButtonOnClick()
+    {
+        if (MenuButtonClickAudio != null)
+        {
+            CreditsAudio.clip = MenuButtonClickAudio;
+            CreditsAudio.outputAudioMixerGroup = AudioMix;
+        }
+        CreditsAudio.playOnAwake = false;
+        CreditsButton.onClick.AddListener(() => CreditsAudio.Play());
+    }
+
+    void ControlsButtonOnClick()
+    {
+        if (MenuButtonClickAudio != null)
+        {
+            ControlAudio.clip = MenuButtonClickAudio;
+            ControlAudio.outputAudioMixerGroup = AudioMix;
+        }
+        ControlAudio.playOnAwake = false;
+        ControlButton.onClick.AddListener(() => ControlAudio.Play());
     }
 
     void BackButtonOnClick()
