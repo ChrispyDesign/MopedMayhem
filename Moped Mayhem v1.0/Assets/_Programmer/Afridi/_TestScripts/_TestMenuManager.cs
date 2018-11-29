@@ -15,12 +15,16 @@ public class _TestMenuManager : MonoBehaviour {
     public GameObject ControlBackButton;
     public GameObject LeaderButton;
     public GameObject LeaderBackButton;
+	public GameObject CreditButton;
+	public GameObject CreditBackButton;
+	public GameObject CharacterSelectPlay, CharacterSelectBack;
 
     public _TestHighScore h_Scores;
     public GameObject LeaderBoardScreen;
     public GameObject OptionsScreen;
     public GameObject ControlScreen;
     public GameObject CharacterSelect;
+	public GameObject CreditScreen;
 
     public Text Score_1;
     public Text Score_2;
@@ -37,66 +41,197 @@ public class _TestMenuManager : MonoBehaviour {
     public GameObject CurrentSelec;
     public Button CurrentButton;
 
-    void Awake()
+	public ToggleGroup toggleGroup;
+
+	private float SelectTimer;
+
+	void Awake()
     {
         h_Scores = FindObjectOfType<_TestHighScore>();
         CurrentSelec = PlayButton;
         CurrentButton = CurrentSelec.GetComponent<Button>();
+
+		SelectTimer = Time.time;
         Cursor.visible = true;
     }
 
     void Update () {
 
-        /*These Controls work with both PC and PS4 (Unsure for Xbox)*/
-        if (Input.GetButtonDown("Submit"))
+		float fCurrentTime = Time.time;
+		CurrentButton = CurrentSelec.GetComponent<Button>();
+		
+		/*These Controls work with both PC and PS4 (Unsure for Xbox)*/
+		if (Input.GetButtonDown("Submit"))
         {
-            if (CurrentSelec == PlayButton)
-            {
-                PlayGame();
-            }
-            else if (CurrentSelec == LeaderButton)
-            {
-                // Opens the highscores screen
-                HighScoreStore();
-                CurrentSelec = LeaderBackButton;
-            }
-            else if (CurrentSelec == LeaderBackButton)
-            {
-                // Closes the highscores screen
-                CurrentSelec = LeaderButton;
-                LeaderBoardScreen.SetActive(false);
-                MainMenu.SetActive(true);
-            }
-            else if (CurrentSelec == OptionsButton)
-            {
-                //Option Included Stuff
-                /*Control (Music, Effects), Resolution, Invert Controls?, Customise Controls? or Schemes?, Mutator Settings*/
-            }
-            else if (CurrentSelec == OptionsBackButton)
-            {
-                CurrentSelec = OptionsButton;
-                OptionsScreen.SetActive(false);
-                MainMenu.SetActive(true);
-            }
-            else if (CurrentSelec == ControlButton)
-            {
-                ControlContents();
-                CurrentSelec = ControlBackButton;
-            }
-            else if (CurrentSelec == ControlBackButton) {
-                CurrentSelec = ControlButton;
-                ControlScreen.SetActive(false);
-                OptionsScreen.SetActive(true);
-            }
-            else if (CurrentSelec == QuitButton)
-            {
-                QuitGame();
-            }
-        }
+			if (CurrentSelec == PlayButton)
+			{
+				CharacterSelect.SetActive(true);
+				MainMenu.SetActive(false);
+
+				CurrentSelec = CharacterSelectPlay;
+				//PlayGame();
+			}
+			else if (CurrentSelec == LeaderButton)
+			{
+				// Opens the highscores screen
+				HighScoreStore();
+				CurrentSelec = LeaderBackButton;
+			}
+			else if (CurrentSelec == LeaderBackButton)
+			{
+				// Closes the highscores screen
+				LeaderBoardScreen.SetActive(false);
+				MainMenu.SetActive(true);
+				CurrentSelec = LeaderButton;
+			}
+			else if (CurrentSelec == OptionsButton)
+			{
+				OptionContents();
+				CurrentSelec = OptionsBackButton;
+			}
+			else if (CurrentSelec == OptionsBackButton)
+			{
+				CurrentSelec = OptionsButton;
+				MainMenu.SetActive(true);
+				OptionsScreen.SetActive(false);
+			}
+			else if (CurrentSelec == ControlButton)
+			{
+				ControlContents();
+
+				CurrentSelec = ControlBackButton;
+			}
+			else if (CurrentSelec == ControlBackButton)
+			{
+				ControlScreen.SetActive(false);
+				MainMenu.SetActive(true);
+				CurrentSelec = ControlButton;
+			}
+			else if (CurrentSelec == QuitButton)
+			{
+				QuitGame();
+			}
+			else if (CurrentSelec == CreditButton)
+			{
+				CreditScreen.SetActive(true);
+				MainMenu.SetActive(false);
+				CurrentSelec = CreditBackButton;
+			}
+			else if (CurrentSelec == CreditBackButton)
+			{
+				MainMenu.SetActive(true);
+				CreditScreen.SetActive(false);
+				CurrentSelec = CreditButton;
+			}
+			else if (CurrentSelec == CharacterSelectPlay)
+			{
+				PlayGame();
+			}
+			else if (CurrentSelec == CharacterSelectBack)
+			{
+				CharacterSelect.SetActive(false);
+				MainMenu.SetActive(true);
+			}
+		}
+
+		
+
+		if (Input.GetAxis("MenuY") > 0.1 && fCurrentTime > SelectTimer)
+		{
+			SelectTimer = fCurrentTime + 0.2f;
+			if(CurrentSelec == PlayButton)
+			{
+				CurrentSelec = QuitButton;
+			}
+			else if (CurrentSelec == QuitButton)
+			{
+				CurrentSelec = OptionsButton;
+			}
+			else if (CurrentSelec == OptionsButton)
+			{
+				CurrentSelec = ControlButton;
+			}
+			else if (CurrentSelec == ControlButton)
+			{
+				CurrentSelec = LeaderButton;
+			}
+			else if (CurrentSelec == LeaderButton)
+			{
+				CurrentSelec = CreditButton;
+			}
+			else if (CurrentSelec == CreditButton)
+			{
+				CurrentSelec = PlayButton;
+			}
+		}
+		if (Input.GetAxis("MenuY") < -0.1 && fCurrentTime > SelectTimer)
+		{
+			SelectTimer = fCurrentTime + 0.2f;
+			if (CurrentSelec == PlayButton)
+			{
+				CurrentSelec = CreditButton;
+			}
+			else if (CurrentSelec == CreditButton)
+			{
+				CurrentSelec = LeaderButton;
+			}
+			else if (CurrentSelec == LeaderButton)
+			{
+				CurrentSelec = ControlButton;
+			}
+			else if (CurrentSelec == ControlButton)
+			{
+				CurrentSelec = OptionsButton;
+			}
+			else if (CurrentSelec == OptionsButton)
+			{
+				CurrentSelec = QuitButton;
+			}
+			else if (CurrentSelec == QuitButton)
+			{
+				CurrentSelec = PlayButton;
+			}
+			
+		}
+		if (CurrentSelec == CharacterSelectPlay)
+		{
+			//if (Input.GetAxis("Horizontal") != 0.0f && fCurrentTime > SelectTimer)
+			//{
+			//	SelectTimer = fCurrentTime + 0.2f;
+			//	toggleGroup.to
+			//}
+			//if (Input.GetAxis("Horizontal") != 0.0f && fCurrentTime > SelectTimer)
+			//{
+			//	SelectTimer = fCurrentTime + 0.2f;
+			//	m_TestSelectChar.FeMale.isOn = !m_TestSelectChar.FeMale.isOn;
+			//}
+
+			if (Input.GetAxis("MenuY") != 0.0f && fCurrentTime > SelectTimer)
+			{
+				SelectTimer = fCurrentTime + 0.2f;
+				CurrentSelec = CharacterSelectBack;
+			}
+		}
+		else if (CurrentSelec == CharacterSelectBack)
+		{
+			//if (Input.GetAxis("Horizontal") != 0.0f && fCurrentTime > SelectTimer)
+			//{
+			//	SelectTimer = fCurrentTime + 0.2f;
+			//	m_TestSelectChar.FeMale.isOn = !m_TestSelectChar.FeMale.isOn;
+			//}
+
+			if (Input.GetAxis("MenuY") != 0.0f && fCurrentTime > SelectTimer)
+			{
+				SelectTimer = fCurrentTime + 0.2f;
+				CurrentSelec = CharacterSelectPlay;
+			}
+		}
+		CurrentButton.Select();
 	}
 
     public void SelectDemCharacters() {
-        MainMenu.SetActive(false);
+		CurrentSelec = CharacterSelectPlay;
+		MainMenu.SetActive(false);
         CharacterSelect.SetActive(true);
     }
 

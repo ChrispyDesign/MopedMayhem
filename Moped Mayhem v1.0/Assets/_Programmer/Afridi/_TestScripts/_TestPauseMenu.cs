@@ -24,7 +24,7 @@ public class _TestPauseMenu : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Pause"))
         {
             if (isGamePaused == true)
             {
