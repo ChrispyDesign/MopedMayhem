@@ -18,7 +18,9 @@ public class CharacterMove : MonoBehaviour
 	private Rigidbody m_PlayerRB;
 	public Transform m_CenOfMass;
 
-	[Header("Acceleration")]
+    public AudioSource PlayerBoost;
+
+    [Header("Acceleration")]
 	public float m_fAccel;
 	public float m_fMaxSpeed = 100.0f;
 
@@ -69,7 +71,6 @@ public class CharacterMove : MonoBehaviour
 		Vector3 v3NewVelocity = m_PlayerRB.velocity += v3Impulse;
 
 		float fMaxSpeed = m_fMaxSpeed;
-
 		// Dash
 
 		// IF Can dash
@@ -85,7 +86,7 @@ public class CharacterMove : MonoBehaviour
 					m_fBoostEndTime = fCurrentTime + m_fBoostDuration;
 
 					v3NewVelocity += transform.forward * m_fBoostAccel * fDeltaTime * 60;
-
+                    PlayerBoost.Play();
                     m_DashUI.StartCharge(m_fBoostCooldown + m_fBoostDuration);
                 }
             }
@@ -126,7 +127,6 @@ public class CharacterMove : MonoBehaviour
 			}
 			else
 			{
-				// Lerp Between the max and min turn rates depending on player speed
 				float fLerp = (fMag - m_fMaxTurnSpeed) / (m_fMinTurnSpeed - m_fMaxTurnSpeed);
 				fTurnRate = Mathf.Lerp(m_fMaxTurnRate, m_fMinTurnRate, fLerp);
 			}
