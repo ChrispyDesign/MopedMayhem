@@ -22,6 +22,11 @@ public class Konami : MonoBehaviour {
 	private bool m_bStarted = false;
 	private bool m_bKonami = false;
 
+	private bool m_bKonamiUp = false;
+	private bool m_bKonamiDown = false;
+	private bool m_bKonamiLeft = false;
+	private bool m_bKonamiRight = false;
+
 	private _BCameraController m_CameraController;
 
 	// Use this for initialization
@@ -52,13 +57,14 @@ public class Konami : MonoBehaviour {
 		}
 
 		// Check for start of konami code
-		if (Input.GetButtonDown("Konami Up"))
+		if (Input.GetAxis("Konami Up") > 0.5f && !m_bKonamiUp)
 		{
 			if (m_bStarted == false)
 			{
 				m_bStarted = true;
 			}
 
+			m_bKonamiUp = true;
 			Debug.Log("Up");
 			m_sCode += "U";
 		}
@@ -67,22 +73,25 @@ public class Konami : MonoBehaviour {
 		if (m_bStarted)
 		{ 
 			// Check the other inputs
-			if (Input.GetButtonDown("Konami Down"))
+			if (Input.GetAxis("Konami Down") > 0.5f && !m_bKonamiDown)
 			{
+				m_bKonamiDown = true;
 				Debug.Log("Down");
 				m_sCode += "D";
 			}
-			if (Input.GetButtonDown("Konami Left"))
+			if (Input.GetAxis("Konami Left") > 0.5f && !m_bKonamiLeft)
 			{
 				// Because Left is shared with A check if it should logically be L
 				if (!m_sCode.Contains("UUDDLRLR"))
 				{
+					m_bKonamiLeft = true;
 					Debug.Log("Left");
 					m_sCode += "L";
 				}
 			}
-			if (Input.GetButtonDown("Konami Right"))
+			if (Input.GetAxis("Konami Right") > 0.5f && !m_bKonamiRight)
 			{
+				m_bKonamiRight = true;
 				Debug.Log("Right");
 				m_sCode += "R";
 			}
@@ -135,6 +144,24 @@ public class Konami : MonoBehaviour {
 				}
 			}
 
+			// Reset bools
+			if (Input.GetAxis("Konami Up") < 0.5f && m_bKonamiUp)
+			{
+				m_bKonamiUp = false;
+			}
+			if (Input.GetAxis("Konami Down") < 0.5f && m_bKonamiDown)
+			{
+				m_bKonamiDown = false;
+			}
+			if (Input.GetAxis("Konami Left") < 0.5f && m_bKonamiLeft)
+			{
+				m_bKonamiLeft = false;
+			}
+			if (Input.GetAxis("Konami Right") < 0.5f && m_bKonamiRight)
+			{
+				m_bKonamiRight = false;
+			}
+
 			// Time Out
 			// CB::If i get around to it
 		}
@@ -142,6 +169,15 @@ public class Konami : MonoBehaviour {
 
 	private void FixedUpdate()
 	{
+		if (Input.GetJoystickNames().Length > 0)
+		{
+			Debug.LogWarning(Input.GetJoystickNames()[0]);
+		}
+		else
+		{
+			Debug.LogWarning("WTF");
+		}
+
 		// IF konami mode active
 		if (m_bKonami)
 		{
