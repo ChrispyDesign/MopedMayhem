@@ -11,7 +11,7 @@ public class _GameManagerRemake : MonoBehaviour {
     public Text TotalScoreTxt;
     public InputField input;
     public AudioSource NoReturn;
-    public Canvas LostGame;
+    public GameObject LostGame;
     public GameObject MinuteBox, SecondBox;
     private bool hasLost = false;
     public bool hasDied = false;
@@ -22,7 +22,7 @@ public class _GameManagerRemake : MonoBehaviour {
     private void Awake()
     {
         sController = FindObjectOfType<_ScoreControl>();
-        LostGame.gameObject.SetActive(false);
+        LostGame.SetActive(false);
         hasLost = false;
         hasDied = false;
         Min = m_iTimeLimit;
@@ -47,7 +47,7 @@ public class _GameManagerRemake : MonoBehaviour {
     void LoseTheGame() {
         hasLost = true;
         hasDied = true;
-        LostGame.gameObject.SetActive(true);
+        LostGame.SetActive(true);
         Cursor.visible = true;
         Time.timeScale = 0f;
     }

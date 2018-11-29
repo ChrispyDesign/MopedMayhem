@@ -178,15 +178,6 @@ public class Konami : MonoBehaviour {
 
 	private void FixedUpdate()
 	{
-		if (Input.GetJoystickNames().Length > 0)
-		{
-			Debug.LogWarning(Input.GetJoystickNames()[0]);
-		}
-		else
-		{
-			Debug.LogWarning("WTF");
-		}
-
 		// IF konami mode active
 		if (m_bKonami)
 		{

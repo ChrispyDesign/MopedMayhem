@@ -193,6 +193,8 @@ public class SniperAttack : MonoBehaviour
 
                 // Make Player Move X distance
                 Shot.Play();
+				LockedOn.Stop();
+				AboutToShoot.Stop();
 				m_PlayerRB.AddForce(direction * m_fKnockBack, ForceMode.Impulse);
 				
 				var effect = m_Player.GetComponent<PlayerParticles>();
@@ -218,6 +220,9 @@ public class SniperAttack : MonoBehaviour
 		{
 			m_bCollided = true;
 			m_Death.KillAfter(3);
+
+			LockedOn.Stop();
+			AboutToShoot.Stop();
 		}
 	}
 }
