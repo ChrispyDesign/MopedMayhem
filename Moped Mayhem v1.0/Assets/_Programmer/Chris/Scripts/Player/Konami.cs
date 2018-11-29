@@ -120,6 +120,8 @@ public class Konami : MonoBehaviour {
 			// ELSE IF code is the same length as the konami code
 			else if (m_sCode.Length == m_sKonami.Length)
 			{
+				m_sCode = "";
+
 				// IF Konami mode is not active
 				if (!m_bKonami)
 				{
@@ -156,6 +158,8 @@ public class Konami : MonoBehaviour {
 		transform.localPosition = Vector3.zero;
 		transform.localRotation = Quaternion.identity;
 
+		Camera.main.fieldOfView = 80.0f;
+
 		m_CameraController.enabled = false;
 	}
 
@@ -163,6 +167,8 @@ public class Konami : MonoBehaviour {
 	{
 		Debug.LogWarning("KONAMI OVER :(");
 		m_bKonami = false;
+
+		Camera.main.fieldOfView = 30.0f;
 
 		m_Parent.DetachChildren();
 		m_CameraController.enabled = true;
@@ -183,19 +189,29 @@ public class Konami : MonoBehaviour {
 		// CB::HERENOW
 		if (v3Euler.x < 360.0f - m_fUpCap && v3Euler.x > m_fDownCap)
 		{
+			if (v3Euler.x < 180.0f)
+			{
+				v3Euler.x = m_fDownCap;
+			}
+			else
+			{
+				v3Euler.x = 360.0f - m_fUpCap;
+			}
 		}
 
 		//Look Horizontal
 		v3Euler.y += fHor * fDeltaTime * 60.0f;
 
-		// THIS DOESNT WORK
-		if (v3Euler.y < -m_fHorCap)
+		if (v3Euler.y < 360 - m_fHorCap && v3Euler.y > m_fHorCap)
 		{
-			v3Euler.y = -m_fHorCap;
-		}
-		else if (v3Euler.y > m_fHorCap)
-		{
-			v3Euler.y = m_fHorCap;
+			if (v3Euler.y < 180.0f)
+			{
+				v3Euler.y = m_fHorCap;
+			}
+			else
+			{
+				v3Euler.y = 360 - m_fHorCap;
+			}
 		}
 
 		// Zero out z rotation

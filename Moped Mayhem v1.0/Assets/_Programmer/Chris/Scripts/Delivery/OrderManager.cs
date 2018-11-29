@@ -241,7 +241,16 @@ public class OrderManager : MonoBehaviour
 		}
 
 
-		score.text = nScore.ToString();		
+		score.text = nScore.ToString();
+		
+		if (TicketComplete)
+		{
+			TicketComplete.Play();
+		}
+		else
+		{
+			Debug.LogWarning("Connect TicketComplete you knob");
+		}
 
 		// Run Order Complete
 		OrderComplete(order);
@@ -280,10 +289,18 @@ public class OrderManager : MonoBehaviour
 		int nScore = int.Parse(score.text);
 		nScore -= m_nFailCost;
 		score.text = nScore.ToString();
-        //DeliveryLost.Play();
 
-        // Run Order Complete
-        OrderComplete(order);
+		if (DeliveryLost)
+		{
+			DeliveryLost.Play();
+		}
+		else
+		{
+			Debug.LogWarning("Connect DeliveryLost you knob");
+		}
+
+		// Run Order Complete
+		OrderComplete(order);
 	}
 
 	private void OrderComplete(Order order)
@@ -321,14 +338,6 @@ public class OrderManager : MonoBehaviour
 			Destroy(order.m_DeliveryIndicator.m_FoodImage.gameObject);
 			Destroy(order.m_DeliveryIndicator);
 			order.m_DeliveryIndicator = null;
-		}
-		if (TicketComplete)
-		{
-			TicketComplete.Play();
-		}
-		else
-		{
-			Debug.LogWarning("Connect TicketComplete you knob");
 		}
 	}
 
