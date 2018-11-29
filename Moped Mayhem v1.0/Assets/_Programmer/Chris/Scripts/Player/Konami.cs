@@ -27,6 +27,9 @@ public class Konami : MonoBehaviour {
 	private bool m_bKonamiLeft = false;
 	private bool m_bKonamiRight = false;
 
+	private float m_fExpiryTime = 15.0f;
+	private float m_fTimeEnd;
+
 	private _BCameraController m_CameraController;
 
 	// Use this for initialization
@@ -62,6 +65,7 @@ public class Konami : MonoBehaviour {
 			if (m_bStarted == false)
 			{
 				m_bStarted = true;
+				m_fTimeEnd = Time.time + m_fExpiryTime;
 			}
 
 			m_bKonamiUp = true;
@@ -129,6 +133,7 @@ public class Konami : MonoBehaviour {
 			// ELSE IF code is the same length as the konami code
 			else if (m_sCode.Length == m_sKonami.Length)
 			{
+				m_bStarted = false;
 				m_sCode = "";
 
 				// IF Konami mode is not active
@@ -163,7 +168,11 @@ public class Konami : MonoBehaviour {
 			}
 
 			// Time Out
-			// CB::If i get around to it
+			if (Time.time > m_fTimeEnd)
+			{
+				m_bStarted = false;
+				m_sCode = "";
+			}
 		}
 	}
 
