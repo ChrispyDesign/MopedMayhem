@@ -149,30 +149,30 @@ public class Konami : MonoBehaviour {
 				}
 			}
 
-			// Reset bools
-			if (Input.GetAxis("Konami Up") < 0.5f && m_bKonamiUp)
-			{
-				m_bKonamiUp = false;
-			}
-			if (Input.GetAxis("Konami Down") < 0.5f && m_bKonamiDown)
-			{
-				m_bKonamiDown = false;
-			}
-			if (Input.GetAxis("Konami Left") < 0.5f && m_bKonamiLeft)
-			{
-				m_bKonamiLeft = false;
-			}
-			if (Input.GetAxis("Konami Right") < 0.5f && m_bKonamiRight)
-			{
-				m_bKonamiRight = false;
-			}
-
 			// Time Out
 			if (Time.time > m_fTimeEnd)
 			{
 				m_bStarted = false;
 				m_sCode = "";
 			}
+		}
+
+		// Reset bools
+		if (Input.GetAxis("Konami Up") < 0.5f && m_bKonamiUp)
+		{
+			m_bKonamiUp = false;
+		}
+		if (Input.GetAxis("Konami Down") < 0.5f && m_bKonamiDown)
+		{
+			m_bKonamiDown = false;
+		}
+		if (Input.GetAxis("Konami Left") < 0.5f && m_bKonamiLeft)
+		{
+			m_bKonamiLeft = false;
+		}
+		if (Input.GetAxis("Konami Right") < 0.5f && m_bKonamiRight)
+		{
+			m_bKonamiRight = false;
 		}
 	}
 
