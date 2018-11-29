@@ -204,6 +204,18 @@ public class CharacterMove : MonoBehaviour
 		m_PlayerRB.velocity = v3NewVelocity;
 
 		// RESET
+		if (Input.GetButtonDown("ResetPlayer"))
+		{
+			if (Vector3.Distance(m_aPrevPos[0], transform.position) > 5f)
+			{
+				transform.position = m_aPrevPos[1];
+			}
+			else
+			{
+				transform.position = m_aPrevPos[0];
+			}
 
+			transform.rotation = Quaternion.identity;
+		}
 	}
 }
