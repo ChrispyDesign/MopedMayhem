@@ -16,6 +16,7 @@ public class _TestPauseMenu : MonoBehaviour {
     {
         Time.timeScale = 1f;
         isGamePaused = false;
+        Cursor.visible = true;
     }
 
     private void Update()

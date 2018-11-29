@@ -10,10 +10,10 @@ public class _TestSliderMusic : MonoBehaviour
 
     public void SetMainAudioLevel(float value)
     {
-        MainMixer.SetFloat("MainMusicVol", Mathf.Log10(value) * 20);
+        MainMixer.SetFloat("MainVolumeController", Mathf.Log10(value) * 20);
     }
     public void SetEffectAudioLevel(float value)
     {
-        EffectMixer.SetFloat("MenClick", Mathf.Log10(value) * 20);
+        EffectMixer.SetFloat("EffectController", Mathf.Log10(value) * 20);
     }
 }

@@ -12,6 +12,8 @@ public class SniperAttack : MonoBehaviour
 
 	public Transform m_Player; // Target Player 
 
+    public AudioSource LockedOn, AboutToShoot, Shot;
+
 	public Transform m_BarrelEnd;
 	public LineRenderer m_Laser; // Laser from Sniper to player
 
@@ -111,8 +113,11 @@ public class SniperAttack : MonoBehaviour
 		// Check to see if we hit a building
 		if (Physics.Raycast(ray, out hit, direction.magnitude, layerMask))
 		{
-			// End the attack
-			m_bAttacking = false;
+            // End the attack
+            AboutToShoot.loop = false;
+            AboutToShoot.Stop();
+
+            m_bAttacking = false;
 			m_fAttackEnd = 0;
 
 			m_ReticleMain.SetActive(false);
@@ -125,7 +130,10 @@ public class SniperAttack : MonoBehaviour
 		{
 			if (fCurrentTime > m_fCooldownEnd)
 			{
-				// Start attacking the player
+                // Start attacking the player
+                AboutToShoot.loop = true;
+                AboutToShoot.Play();
+
 
 				// Set Time to end attack
 				m_fAttackEnd = fCurrentTime + m_fAttackDuration;
@@ -161,7 +169,7 @@ public class SniperAttack : MonoBehaviour
 
 			// Show LAZER BEAM between the positions
 			m_Laser.SetPositions(pos);
-		}
+        }
 		// IF current time is after attack should end
 		if (fCurrentTime > m_fAttackEnd)
 		{
@@ -182,8 +190,8 @@ public class SniperAttack : MonoBehaviour
 				// Stop the attack
 				m_bAttacking = false;
 
-				// Make Player Move X distance
-
+                // Make Player Move X distance
+                Shot.Play();
 				m_PlayerRB.AddForce(direction * m_fKnockBack, ForceMode.Impulse);
 				
 				var effect = m_Player.GetComponent<PlayerParticles>();

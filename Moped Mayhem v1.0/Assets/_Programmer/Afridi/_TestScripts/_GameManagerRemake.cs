@@ -11,6 +11,7 @@ public class _GameManagerRemake : MonoBehaviour {
     public Text TotalScoreTxt;
     public Text Timer;
     public InputField input;
+    public AudioSource NoReturn;
     public Canvas LostGame;
     private bool hasLost = false;
     public bool hasDied = false;
@@ -22,6 +23,7 @@ public class _GameManagerRemake : MonoBehaviour {
         LostGame.gameObject.SetActive(false);
         hasLost = false;
         hasDied = false;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -30,6 +32,7 @@ public class _GameManagerRemake : MonoBehaviour {
         if (!hasLost)
         {
             ScoreTxt.text = sController.Score.ToString();
+            PointOfNoReturn();
         }
         else {
             TotalScoreTxt.text = sController.Score.ToString();
@@ -46,6 +49,12 @@ public class _GameManagerRemake : MonoBehaviour {
             hasDied = true;
             LostGame.gameObject.SetActive(true);
             Time.timeScale = 0f;
+        }
+    }
+
+    void PointOfNoReturn() {
+        if (DurationOfGame <= 65.500) {
+            NoReturn.pitch = 1.15f;
         }
     }
 }

@@ -11,15 +11,15 @@ public class _TestMenuManager : MonoBehaviour {
     public GameObject QuitButton;
     public GameObject OptionsButton;
     public GameObject OptionsBackButton;
-    public GameObject SoundButton;
-    public GameObject SoundBackButton;
+    public GameObject ControlButton;
+    public GameObject ControlBackButton;
     public GameObject LeaderButton;
     public GameObject LeaderBackButton;
 
     public _TestHighScore h_Scores;
     public GameObject LeaderBoardScreen;
     public GameObject OptionsScreen;
-    public GameObject SoundScreen;
+    public GameObject ControlScreen;
     public GameObject CharacterSelect;
 
     public Text Score_1;
@@ -69,7 +69,7 @@ public class _TestMenuManager : MonoBehaviour {
             else if (CurrentSelec == OptionsButton)
             {
                 //Option Included Stuff
-                /*Sound (Music, Effects), Resolution, Invert Controls?, Customise Controls? or Schemes?, Mutator Settings*/
+                /*Control (Music, Effects), Resolution, Invert Controls?, Customise Controls? or Schemes?, Mutator Settings*/
             }
             else if (CurrentSelec == OptionsBackButton)
             {
@@ -77,14 +77,14 @@ public class _TestMenuManager : MonoBehaviour {
                 OptionsScreen.SetActive(false);
                 MainMenu.SetActive(true);
             }
-            else if (CurrentSelec == SoundButton)
+            else if (CurrentSelec == ControlButton)
             {
-                SoundContents();
-                CurrentSelec = SoundBackButton;
+                ControlContents();
+                CurrentSelec = ControlBackButton;
             }
-            else if (CurrentSelec == SoundBackButton) {
-                CurrentSelec = SoundButton;
-                SoundScreen.SetActive(false);
+            else if (CurrentSelec == ControlBackButton) {
+                CurrentSelec = ControlButton;
+                ControlScreen.SetActive(false);
                 OptionsScreen.SetActive(true);
             }
             else if (CurrentSelec == QuitButton)
@@ -130,8 +130,8 @@ public class _TestMenuManager : MonoBehaviour {
         Name5.text = h_Scores.scoreArray[4].name;
     }
 
-    public void SoundContents() {
-        SoundScreen.SetActive(true);
+    public void ControlContents() {
+        ControlScreen.SetActive(true);
         OptionsScreen.SetActive(false);
     }
 
