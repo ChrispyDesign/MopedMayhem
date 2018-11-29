@@ -18,8 +18,6 @@ public class TicketManager : MonoBehaviour {
 	private List<Ticket> m_ActiveTickets = new List<Ticket>();
 	private List<Ticket> m_InactiveTickets = new List<Ticket>();
 
-	private bool[] m_bUsedPositions;
-
 	// Use this for initialization
 	void Start ()
 	{
@@ -36,8 +34,6 @@ public class TicketManager : MonoBehaviour {
 			Ticket tempTicket = Instantiate(m_TicketPrefab, gameObject.transform).GetComponent<Ticket>();
 			m_InactiveTickets.Add(tempTicket);
 		}
-
-		m_bUsedPositions = new bool[m_TicketPositions.Length];
 	}
 	
 	// Update is called once per frame

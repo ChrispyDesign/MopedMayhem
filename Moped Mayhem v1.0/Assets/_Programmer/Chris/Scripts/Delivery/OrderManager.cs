@@ -24,14 +24,7 @@ public class OrderManager : MonoBehaviour
 	private Dictionary<string, int> m_FoodsIndexByName = new Dictionary<string, int>();
 	private int[] m_nActiveFoodCount;
 	private List<Food> m_InactiveFoods = new List<Food>();
-
-	[Range(1.0f, 1.5f)]
-	private float m_fFoodWeightModifier = 1.0f;
-	private float m_fFoodWeight;
-
-	private int m_nRandomAttemptsMax = 5;
-	private int m_nRandomAttempts;
-
+	
 	public float m_fMinSpawnTime = 5.0f;
 	public float m_fMaxSpawnTime = 10.0f;
 	private float m_fNextSpawnTime;
@@ -91,10 +84,7 @@ public class OrderManager : MonoBehaviour
 
 		// Initialise active food count
 		m_nActiveFoodCount = new int[m_Foods.Length];
-
-		// Set Food Weight
-		m_fFoodWeight = 1.0f / m_Foods.Length * m_fFoodWeightModifier;
-
+		
 		// Set Next Spawn Time
 		m_fNextSpawnTime = Time.time/* + Random.Range(m_fMinSpawnTime, m_fMaxSpawnTime)*/;
 	}

@@ -126,6 +126,7 @@ public class CharacterMove : MonoBehaviour
 			}
 			else
 			{
+				// Lerp Between the max and min turn rates depending on player speed
 				float fLerp = (fMag - m_fMaxTurnSpeed) / (m_fMinTurnSpeed - m_fMaxTurnSpeed);
 				fTurnRate = Mathf.Lerp(m_fMaxTurnRate, m_fMinTurnRate, fLerp);
 			}
