@@ -60,7 +60,7 @@ public class _TestPauseMenu : MonoBehaviour {
         tscore.AddScore(scoreControl.Score, scoreControl.name);
         tscore.SaveScoresToFile();
         tscore.SaveNamesToFile();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(1);
         Cursor.visible = false;
         Time.timeScale = 1f;
     }
@@ -70,7 +70,7 @@ public class _TestPauseMenu : MonoBehaviour {
         tscore.AddScore(scoreControl.Score, scoreControl.name);
         tscore.SaveScoresToFile();
         tscore.SaveNamesToFile();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
         Cursor.visible = false;
         Time.timeScale = 1f;
     }
