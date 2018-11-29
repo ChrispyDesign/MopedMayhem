@@ -643,7 +643,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4661910789543320}
   - component: {fileID: 95767943127615626}
-  - component: {fileID: 65113030217506070}
   m_Layer: 0
   m_Name: Envi_Inner_Short_Blue_002
   m_TagString: Untagged
@@ -1087,7 +1086,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1901737821865466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.3, y: 0, z: 28.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4477553017285832}
@@ -2821,18 +2820,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1319925323651662}
   m_Mesh: {fileID: 4300006, guid: 3c654f557ba83c84399b710c7a099ebb, type: 3}
---- !u!65 &65113030217506070
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1901737821865466}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7, y: 10, z: 7}
-  m_Center: {x: 0, y: 4, z: 3.5}
 --- !u!95 &95767943127615626
 Animator:
   serializedVersion: 3

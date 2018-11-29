@@ -445,7 +445,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4076996039337660}
   - component: {fileID: 95954569484836816}
-  - component: {fileID: 65209402159456080}
   m_Layer: 0
   m_Name: Envi_Inner_Long_Green_001
   m_TagString: Untagged
@@ -1295,7 +1294,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1365316165782574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 60.5, y: 0, z: -20.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4583906642086358}
@@ -4909,18 +4908,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371425000733874}
   m_Mesh: {fileID: 4300086, guid: 1850a13bbf3ac6041bd1777f4fd72fa7, type: 3}
---- !u!65 &65209402159456080
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1365316165782574}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7, y: 10, z: 14}
-  m_Center: {x: 0, y: 3, z: 0}
 --- !u!95 &95954569484836816
 Animator:
   serializedVersion: 3
