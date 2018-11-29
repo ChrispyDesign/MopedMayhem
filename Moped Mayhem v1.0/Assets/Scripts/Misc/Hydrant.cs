@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hydrant : MonoBehaviour {
 
 	public ParticleContainer HydrantParticles;
+	public AudioSource m_WaterSound;
 	private bool m_bHit = false;
 
 	private void Awake()
@@ -19,6 +20,10 @@ public class Hydrant : MonoBehaviour {
 			var tag = collision.collider.tag;
 			if (tag == "Player" || tag == "Biker" || tag == "Prop")
 			{
+				if(m_WaterSound)
+				{
+					m_WaterSound.Play();
+				}
 				HydrantParticles.Play();
 				HydrantParticles.m_bCanDie = true;
 				m_bHit = true;

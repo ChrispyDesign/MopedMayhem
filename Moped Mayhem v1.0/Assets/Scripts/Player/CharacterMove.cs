@@ -41,6 +41,8 @@ public class CharacterMove : MonoBehaviour
 
 	public float m_fStopRot;
 
+	private Vector3[] m_aPrevPos = new Vector3[2]; 
+
 	[Tooltip("Turning on the spot")]
 	public RotType m_eRotType;
 
@@ -59,6 +61,12 @@ public class CharacterMove : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
+		if (Vector3.Distance(m_aPrevPos[0], transform.position) > 10f)
+		{
+			m_aPrevPos[1] = m_aPrevPos[0];
+			m_aPrevPos[0] = transform.position;
+		}
+
 		float fCurrentTime = Time.fixedTime;
 		float fDeltaTime = Time.fixedDeltaTime;
 
@@ -194,5 +202,8 @@ public class CharacterMove : MonoBehaviour
 		}
 
 		m_PlayerRB.velocity = v3NewVelocity;
+
+		// RESET
+
 	}
 }
