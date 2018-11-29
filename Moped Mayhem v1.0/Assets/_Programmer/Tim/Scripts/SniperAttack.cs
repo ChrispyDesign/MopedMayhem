@@ -17,9 +17,10 @@ public class SniperAttack : MonoBehaviour
 	public Transform m_BarrelEnd;
 	public LineRenderer m_Laser; // Laser from Sniper to player
 
-	public GameObject m_ReticleMainPrefab;
+	public GameObject m_ReticleMainPrefab; // get the main reticle in the scene
 
-	private GameObject m_ReticleMain, m_ReticleTop, m_ReticleBot, m_ReticleLeft, m_ReticleRight; // The Reticle
+	private GameObject	m_ReticleMain, m_ReticleTop, m_ReticleBot,
+						m_ReticleLeft, m_ReticleRight; // The Reticle points that will be found in the scene
 
 	public Vector3	m_ReticleTopEnd, m_ReticleBotEnd,	
 					m_ReticleLeftEnd, m_ReticleRightEnd; // Reticle End Points
@@ -28,29 +29,29 @@ public class SniperAttack : MonoBehaviour
 					m_ReticleLeftStart, m_ReticleRightStart; // Reticle Start Points
 
 	[Range(1,10)]
-	public float m_fReticleRotationSpeed = 2.0f;
+	public float m_fReticleRotationSpeed = 2.0f; // rotation speed of the reticle
 	[Range(1,10)]
-	public float m_fAttackDuration;
-	private float m_fAttackEnd;
+	public float m_fAttackDuration; // the duration that the sniper attack will last before the attack goes off
+	private float m_fAttackEnd; // when the attack ends
 	[Range(1, 10)]
-	public float m_fCooldown;
-	private float m_fCooldownEnd;
+	public float m_fCooldown; // cooldown for the sniper
+	private float m_fCooldownEnd; // When the cooldown ends
 
-	private bool m_bAttacking;
+	private bool m_bAttacking; // is the sniper attacking
 
-	private bool m_bCollided = false;
-	private Vector3 m_PrevPos;
+	private bool m_bCollided = false; // has the sniper been collided with
+	private Vector3 m_PrevPos; // what the snipers previous position was
 
-	private Rigidbody m_SniperRB;
-	private	Vector3 m_Vec3Force;
+	private Rigidbody m_SniperRB; // the rigid body of the sniper
+	private	Vector3 m_Vec3Force; // the force added to the player when attacked
 
-	private Rigidbody m_PlayerRB;
+	private Rigidbody m_PlayerRB; // players Rigid body for the sniper shot
 
 	[Range(0,500)]
-	public float m_fKnockBack = 2;
+	public float m_fKnockBack = 2; // the force that will be applied to the player
 
-	private DeathScript m_Death;
-	private float m_fStartHeight;
+	private DeathScript m_Death; // snipers death
+	private float m_fStartHeight; // snipers starting height
 	
 	// Use this for initialization
 	void Awake()
