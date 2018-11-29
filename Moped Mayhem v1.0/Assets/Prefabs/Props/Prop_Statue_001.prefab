@@ -252,6 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4414366834463922}
   - component: {fileID: 95435724252725626}
+  - component: {fileID: 65849421548024180}
   m_Layer: 0
   m_Name: Prop_Statue_001
   m_TagString: Untagged
@@ -1207,6 +1208,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1074627875092020}
   m_Mesh: {fileID: 4300006, guid: 4d755c6cfc2e5614a9390c1e0a1d2b91, type: 3}
+--- !u!65 &65849421548024180
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1649650920354174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 11, z: 2.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95435724252725626
 Animator:
   serializedVersion: 3
