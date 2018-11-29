@@ -24,6 +24,7 @@ public class _TestGameOptionsManager : MonoBehaviour {
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        Cursor.visible = true;
     }
 
     public void OnEnable()

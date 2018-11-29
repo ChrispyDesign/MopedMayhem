@@ -42,6 +42,7 @@ public class _TestMenuManager : MonoBehaviour {
         h_Scores = FindObjectOfType<_TestHighScore>();
         CurrentSelec = PlayButton;
         CurrentButton = CurrentSelec.GetComponent<Button>();
+        Cursor.visible = true;
     }
 
     void Update () {

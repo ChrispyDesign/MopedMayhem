@@ -5,6 +5,7 @@ using UnityEngine;
 public class _SekectedChar : MonoBehaviour {
 
     public GameObject[] genders = new GameObject[2];
+    public _TestGameOptionsManager GOptions;
 
     private void Awake()
     {
@@ -22,5 +23,7 @@ public class _SekectedChar : MonoBehaviour {
             genders[0].SetActive(false);
             genders[1].SetActive(true);
         }
+
+        GOptions.LoadSettings();
     }
 }
