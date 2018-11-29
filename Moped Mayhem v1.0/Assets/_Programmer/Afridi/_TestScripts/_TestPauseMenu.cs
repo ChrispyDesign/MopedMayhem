@@ -65,6 +65,16 @@ public class _TestPauseMenu : MonoBehaviour {
         Time.timeScale = 1f;
     }
 
+    public void RestartGame()
+    {
+        tscore.AddScore(scoreControl.Score, scoreControl.name);
+        tscore.SaveScoresToFile();
+        tscore.SaveNamesToFile();
+        SceneManager.LoadScene(2);
+        Cursor.visible = false;
+        Time.timeScale = 1f;
+    }
+
     public void QuitGame() {
         tscore.AddScore(scoreControl.Score, scoreControl.name);
         tscore.SaveScoresToFile();

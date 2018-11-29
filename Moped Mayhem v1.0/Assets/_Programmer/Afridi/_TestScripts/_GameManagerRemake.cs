@@ -9,13 +9,15 @@ public class _GameManagerRemake : MonoBehaviour {
     public _ScoreControl sController;
     public Text ScoreTxt;
     public Text TotalScoreTxt;
-    public Text Timer;
     public InputField input;
     public AudioSource NoReturn;
     public Canvas LostGame;
+    public GameObject MinuteBox, SecondBox;
     private bool hasLost = false;
     public bool hasDied = false;
-    public float DurationOfGame = 0f;
+    public int m_iTimeLimit;
+    private int Min, Sec;
+    private float fSeconds;
 
     private void Awake()
     {
@@ -23,37 +25,68 @@ public class _GameManagerRemake : MonoBehaviour {
         LostGame.gameObject.SetActive(false);
         hasLost = false;
         hasDied = false;
+        Min = m_iTimeLimit;
+        Sec = 1;
         Cursor.visible = false;
     }
 
     private void Update()
     {
-        Timer.text = DurationOfGame.ToString();
         if (!hasLost)
         {
-            ScoreTxt.text = sController.Score.ToString();
+            int.TryParse(ScoreTxt.text, out sController.Score);
             PointOfNoReturn();
         }
         else {
-            TotalScoreTxt.text = sController.Score.ToString();
+            TotalScoreTxt.text = ScoreTxt.text;
             sController.name = input.text;
         }
-        LoseTheGame();
+        GameLoop();
     }
 
     void LoseTheGame() {
-        DurationOfGame -= Time.deltaTime;
-        if (DurationOfGame <= 0.0001) {
-            DurationOfGame = 0f;
-            hasLost = true;
-            hasDied = true;
-            LostGame.gameObject.SetActive(true);
-            Time.timeScale = 0f;
+        hasLost = true;
+        hasDied = true;
+        LostGame.gameObject.SetActive(true);
+        Cursor.visible = true;
+        Time.timeScale = 0f;
+    }
+
+    public void GameLoop()
+    {
+        fSeconds += Time.deltaTime;
+        if (fSeconds > 1)
+        {
+            Sec--;
+            fSeconds--;
         }
+        if (Sec < 0)
+        {
+            Min--;
+            Sec = 59;
+        }
+        if (Min < 0)
+        {
+            Min = 0;
+        }
+        if (Min == 0 && Sec == 0)
+        {
+            LoseTheGame();
+        }
+        if (Sec <= 9)
+        {
+            SecondBox.GetComponent<Text>().text = "0" + Sec;
+        }
+        else
+        {
+            SecondBox.GetComponent<Text>().text = "" + Sec;
+        }
+
+        MinuteBox.GetComponent<Text>().text = Min + ":";
     }
 
     void PointOfNoReturn() {
-        if (DurationOfGame <= 65.500) {
+        if (Min <= 1) {
             NoReturn.pitch = 1.15f;
         }
     }
