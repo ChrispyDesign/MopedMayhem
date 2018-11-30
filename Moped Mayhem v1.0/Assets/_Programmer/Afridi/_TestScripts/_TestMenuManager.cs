@@ -173,14 +173,14 @@ public class _TestMenuManager : MonoBehaviour {
 			}
 			else if (CurrentSelec == CreditButton)
 			{
-				CurrentSelec = LeaderButton;
-			}
-			else if (CurrentSelec == LeaderButton)
-			{
-			//	CurrentSelec = ControlButton;
+			//	CurrentSelec = LeaderButton;
 			//}
-			//else if (CurrentSelec == ControlButton)
+			//else if (CurrentSelec == LeaderButton)
 			//{
+				CurrentSelec = ControlButton;
+			}
+			else if (CurrentSelec == ControlButton)
+			{
 				CurrentSelec = OptionsButton;
 			}
 			else if (CurrentSelec == OptionsButton)
