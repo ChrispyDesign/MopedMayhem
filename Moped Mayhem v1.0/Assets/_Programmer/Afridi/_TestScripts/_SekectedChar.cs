@@ -16,7 +16,7 @@ public class _SekectedChar : MonoBehaviour {
 
 		var fem = GameObject.FindWithTag("Femin");
 		_TestSelectChar selectedChar = null;
-			selectedChar = fem.GetComponent<_TestSelectChar>();
+			//selectedChar = fem.GetComponent<_TestSelectChar>();
 
 		if (selectedChar)
 		{
