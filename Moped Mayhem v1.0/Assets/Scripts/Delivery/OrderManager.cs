@@ -152,7 +152,12 @@ public class OrderManager : MonoBehaviour
 		{
 			int nRandomIndex = Random.Range(0, m_DropOffZones.Count);
 			var randomDropOff = m_DropOffZones[nRandomIndex];
-			if (!randomDropOff.m_bIsActive)
+			bool available = true;
+			if (m_ActiveOrders.Contains(randomDropOff.m_ActiveOrder))
+			{
+				available = false;
+			}
+			if (available)
 			{
 				newOrder.m_DropOffZone = randomDropOff;
 				bFindingDropOff = false;

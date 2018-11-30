@@ -12,7 +12,7 @@ public class DeliveryDropoff : MonoBehaviour {
 	public bool m_bIsActive = false;
 	public bool m_bPlayerInside = false;
 	private OrderManager m_Manager;
-	private Order m_ActiveOrder;
+	public Order m_ActiveOrder;
 
 	// Use this for initialization
 	void Start ()
