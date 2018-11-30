@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿// Main Author - Afridi Rahim
+//
+// Date last worked on --/--/18
+
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Audio;
