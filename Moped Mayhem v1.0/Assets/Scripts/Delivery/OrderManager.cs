@@ -86,7 +86,7 @@ public class OrderManager : MonoBehaviour
 		m_nActiveFoodCount = new int[m_Foods.Length];
 		
 		// Set Next Spawn Time
-		m_fNextSpawnTime = Time.time - m_fMinSpawnTime * 0.8f;
+		m_fNextSpawnTime = Time.time - m_fMaxSpawnTime * 0.8f;
 	}
 
 	public void AddDropOff(DeliveryDropoff dropOff)
