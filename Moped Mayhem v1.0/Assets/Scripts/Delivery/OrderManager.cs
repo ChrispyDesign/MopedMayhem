@@ -463,7 +463,7 @@ public class OrderManager : MonoBehaviour
             m_bTutorial = false;
 
             // Get new random time for next spawn
-            m_fNextSpawnTime = fCurrentTime + m_fMaxSpawnTime * 0.8f);
+            m_fNextSpawnTime = fCurrentTime + m_fMinSpawnTime * 0.5f;
         }
 
 		// Check for timed-out/failed orders
