@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// Main Author - Christopher Bowles
+//	Alterations by -
+//
+// Date last worked on 26/10/18
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
