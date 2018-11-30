@@ -10857,8 +10857,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4626829601117844}
-  - component: {fileID: 64100605057414382}
-  - component: {fileID: 64796940468112042}
   m_Layer: 8
   m_Name: Building_NY_7x14x5_001
   m_TagString: Building
@@ -68601,34 +68599,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1374269542030526}
   m_Mesh: {fileID: 4300780, guid: 969d180c15b118841a6a98ee5c570914, type: 3}
---- !u!64 &64100605057414382
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1676879355459110}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: b21f98a5dc9c35e4eb3394e7161c673f, type: 3}
---- !u!64 &64796940468112042
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1676879355459110}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: b21f98a5dc9c35e4eb3394e7161c673f, type: 3}
 --- !u!95 &95068248764109972
 Animator:
   serializedVersion: 3
