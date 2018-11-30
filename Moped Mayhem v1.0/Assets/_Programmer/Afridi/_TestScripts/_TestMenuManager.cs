@@ -55,7 +55,7 @@ public class _TestMenuManager : MonoBehaviour {
         Cursor.visible = true;
     }
 
-    void Update () {
+    void Disabled_Update () {
 
 		float fCurrentTime = Time.time;
 		CurrentButton = CurrentSelec.GetComponent<Button>();

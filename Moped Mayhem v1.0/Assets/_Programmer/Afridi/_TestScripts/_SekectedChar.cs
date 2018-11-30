@@ -16,15 +16,7 @@ public class _SekectedChar : MonoBehaviour {
 
 		var fem = GameObject.FindWithTag("Femin");
 		_TestSelectChar selectedChar = null;
-
-		if (fem)
-		{
 			selectedChar = fem.GetComponent<_TestSelectChar>();
-		}
-		else
-		{
-			Debug.LogWarning("No Selected character detected, defaulting to female");
-		}
 
 		if (selectedChar)
 		{
@@ -41,6 +33,6 @@ public class _SekectedChar : MonoBehaviour {
             genders[1].SetActive(true);
         }
 
-		GOptions.LoadSettings();
+		//GOptions.LoadSettings();
     }
 }
