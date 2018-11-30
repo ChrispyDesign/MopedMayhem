@@ -187,8 +187,6 @@ public class CharacterMove : MonoBehaviour
 					}
 				}
 			}
-
-			Debug.LogWarning(m_PlayerRB.angularVelocity.y);
 		}
 
 		float fNewDot = Vector3.Dot(transform.forward, v3NewVelocity.normalized);

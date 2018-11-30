@@ -25,6 +25,8 @@ public class PlayerInventory : MonoBehaviour {
 
 	private PlayerParticles m_PlayerParticles;
 
+	public AudioSource m_CollectOrder;
+
 	// Use this for initialization
 	void Awake ()
 	{
@@ -132,6 +134,8 @@ public class PlayerInventory : MonoBehaviour {
 				color.a = m_DefaultBackColour.a;
 				m_LeftBackImage.color = color;
 			}
+
+			m_CollectOrder.Play();
 			return true;
 		}
 
@@ -156,6 +160,8 @@ public class PlayerInventory : MonoBehaviour {
 				m_RightBackImage.color = color;
 
 			}
+
+			m_CollectOrder.Play();
 			return true;
 		}
 

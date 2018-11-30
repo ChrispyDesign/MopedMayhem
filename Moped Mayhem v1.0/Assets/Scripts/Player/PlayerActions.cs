@@ -93,7 +93,6 @@ public class PlayerActions : MonoBehaviour
 		{
 			// Pick up new food
 			currentPickUpZone.PickUp(m_PlayerInventory);
-            CollectOrder.Play();
 		}
 	}
 }

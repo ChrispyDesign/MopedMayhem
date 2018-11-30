@@ -197,8 +197,6 @@ public class OrderManager : MonoBehaviour
 		var food = m_InactiveFoods[nRandom];
 
 		m_InactiveFoods.RemoveAt(nRandom);
-
-		Debug.Log("Inactive food length = " + m_InactiveFoods.Count);
 		
 		return food;
 	}
