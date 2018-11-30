@@ -65,6 +65,7 @@ public class CharacterMove : MonoBehaviour
 		{
 			m_aPrevPos[1] = m_aPrevPos[0];
 			m_aPrevPos[0] = transform.position;
+			m_aPrevPos[0].y = 0;
 		}
 
 		float fCurrentTime = Time.fixedTime;
