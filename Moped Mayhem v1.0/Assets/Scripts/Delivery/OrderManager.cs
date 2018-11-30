@@ -182,7 +182,7 @@ public class OrderManager : MonoBehaviour
 		ActivatePickup(newOrder.m_Food);
 
         // Activate Dropoff zone
-        //newOrder.m_DropOffZone.Activate(newOrder);
+        newOrder.m_DropOffZone.Activate(newOrder);
 
         // UI STUFF
         
