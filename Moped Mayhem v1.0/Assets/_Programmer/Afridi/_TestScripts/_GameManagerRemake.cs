@@ -86,8 +86,8 @@ public class _GameManagerRemake : MonoBehaviour {
     }
 
     void PointOfNoReturn() {
-        if (Min <= 1) {
-            NoReturn.pitch = 1.15f;
+        if (Min < 1 && Sec <= 20.0f) {
+            NoReturn.pitch = 1.5f;
         }
     }
 }
