@@ -153,10 +153,10 @@ public class _TestMenuManager : MonoBehaviour {
 			}
 			else if (CurrentSelec == ControlButton)
 			{
-				CurrentSelec = LeaderButton;
-			}
-			else if (CurrentSelec == LeaderButton)
-			{
+			//	CurrentSelec = LeaderButton;
+			//}
+			//else if (CurrentSelec == LeaderButton)
+			//{
 				CurrentSelec = CreditButton;
 			}
 			else if (CurrentSelec == CreditButton)
@@ -177,10 +177,10 @@ public class _TestMenuManager : MonoBehaviour {
 			}
 			else if (CurrentSelec == LeaderButton)
 			{
-				CurrentSelec = ControlButton;
-			}
-			else if (CurrentSelec == ControlButton)
-			{
+			//	CurrentSelec = ControlButton;
+			//}
+			//else if (CurrentSelec == ControlButton)
+			//{
 				CurrentSelec = OptionsButton;
 			}
 			else if (CurrentSelec == OptionsButton)
