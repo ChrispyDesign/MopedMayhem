@@ -61,6 +61,10 @@ public class CharacterMove : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
+		var pos = transform.position;
+		pos.y = 0;
+		transform.position = pos;
+
 		if (Vector3.Distance(m_aPrevPos[0], transform.position) > 10f)
 		{
 			m_aPrevPos[1] = m_aPrevPos[0];
