@@ -215,7 +215,7 @@ public class CharacterMove : MonoBehaviour
 				transform.position = m_aPrevPos[0];
 			}
 
-			transform.rotation = Quaternion.identity;
+			m_PlayerRB.rotation = Quaternion.identity;
 		}
 	}
 }
